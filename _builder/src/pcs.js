@@ -1,4 +1,4 @@
-/*! PCS Vector static app (pcsvector.com). Port of the Streamlit app (pcs-vector main @ 21182b3):
+/*! PCS Vector static app (pcsvector.com). Port of the Streamlit app (pcs-vector main):
     components/bah_calculator.py + services/housing_allowances.py + views/home.py (Wayfinder) + faq.
     Data in /assets/calc-data.json is exported from the Python services at build time (Python = source of truth).
     UNOFFICIAL / PERSONAL. Not affiliated with the U.S. Army, DoD or DTMO. */
@@ -47,6 +47,13 @@
     var pay = +(row[idx] || 0);
     return pay > 0 ? pay : null;
   }
+  function colaCompensation(D, grade, yos, withDeps) {
+    var t = D.cola, c = t.compensation || {}, r = c[normGrade(grade)];
+    var row = r ? r[withDeps ? 'with' : 'without'] : null;
+    if (!row) return null;
+    var idx = Math.min(yosPayIndex(yos, t.yos_breakpoints || [0, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18, 20]), row.length - 1);
+    return intTrunc(row[idx]);
+  }
   function annualSpendable(D, annual, deps) {
     deps = Math.max(0, Math.min(5, intTrunc(deps)));
     var rows = D.cola.spendable_table, last = null;
@@ -60,9 +67,11 @@
     if (index === null || index === undefined) return 0;
     index = +index;
     if (index <= 100) return 0;
+    var comp = colaCompensation(D, grade, yos, intTrunc(deps) > 0);
     var monthly = monthlyBasePay(D, grade, yos);
-    if (monthly === null) return 0;
-    var spendable = annualSpendable(D, monthly * 12, deps);
+    if (comp === null && monthly === null) return 0;
+    /* DTMO picks spendable income by an annual-compensation bracket (grade x YOS x with/without deps), not base pay alone. */
+    var spendable = annualSpendable(D, comp !== null ? comp : (monthly || 0) * 12, deps);
     var cola = spendable * (index - 100) / 100.0 / 12.0;
     if (barracks && intTrunc(deps) === 0) cola *= 0.63;
     var c = pyRound(cola);
@@ -112,10 +121,11 @@
       var warn;
       if (pkg.housing_system === 'OHA') {
         var loc = pkg.locality || gaining, idx = pkg.cola_index;
-        warn = gaining + ' uses OHA (not BAH). Look up the current rent ceiling and utility allowance at the DTMO OHA Rate Lookup for ' + loc + '.' +
-          (idx !== null && idx !== undefined ? ' COLA index is ' + idx + '.' : '') + ' Do not use a CONUS BAH figure for this post.';
+        warn = gaining + ' uses OHA (Overseas Housing Allowance), not BAH. This locality\'s OHA table isn\'t loaded yet, so get your exact rent ceiling and utility allowance from the DTMO OHA Rate Lookup (' + loc + ').' +
+          (idx !== null && idx !== undefined ? ' COLA index: ' + idx + '.' : '');
+        return { html: '', warn: warn, kind: 'info', snap: { pay_grade: grade } };
       } else warn = 'No 2026 rates for ' + grade + ' at ' + gaining + '. Try another post or ask finance.';
-      return { html: '', warn: warn, snap: { pay_grade: grade } };
+      return { html: '', warn: warn, kind: 'warn', snap: { pay_grade: grade } };
     }
     var system = pkg.housing_system || 'BAH', housing = pkg.housing_monthly_usd | 0, cola = pkg.cola_monthly_usd | 0, total = pkg.total_monthly_usd;
     var P = D.posts[gaining], utilN = P.util || 0;

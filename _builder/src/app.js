@@ -70,7 +70,7 @@
   /* ---------- results + Wayfinder ---------- */
   function render() {
     var r = P.renderResults(D, S);
-    $('pcs-results').innerHTML = r.warn ? '<div class="pcs-alert pcs-alert-warn" role="status">' + P.safeHtml(r.warn) + '</div>' : r.html;
+    $('pcs-results').innerHTML = r.warn ? '<div class="pcs-alert pcs-alert-' + (r.kind || 'warn') + '" role="status">' + P.safeHtml(r.warn) + '</div>' : r.html;
     snap = r.snap;
     renderReferral();
   }

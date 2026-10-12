@@ -21,7 +21,8 @@ GP._eia_table = lambda: table
 ct = _load_cola_tables()
 out = {'grades': GRADES, 'posts': {}, 'dla': {}, 'gas_as_of': table.get('as_of'), 'gas_source': table.get('source'),
        'cola': {'base_pay_monthly': ct['base_pay_monthly'], 'yos_breakpoints': ct.get('yos_breakpoints') or [0,2,3,4,6,8,10,12,14,16,18,20],
-                'spendable_table': [[r['minIncome'], r['maxIncome'], r['spendable']] for r in ct['spendable_table']]}}
+                'spendable_table': [[r['minIncome'], r['maxIncome'], r['spendable']] for r in ct['spendable_table']],
+                'compensation': ct.get('cola_compensation_min_usd') or {}}}
 for g in GRADES:
     out['dla'][g] = []
     for w in (False, True):

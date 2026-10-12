@@ -94,6 +94,7 @@ a{color:var(--gold)}
 .pcs-roll-flat{background:rgba(156,163,175,.28);color:#F3F4F6;border-color:rgba(156,163,175,.5)}
 .pcs-alert{border-radius:8px;padding:16px;margin:0 0 8px;font:400 16px/1.6 var(--ss)}
 .pcs-alert-warn{background:rgba(255,189,69,.2);color:#FFFFC2}
+.pcs-alert-info{background:rgba(61,157,243,.2);color:#C7EBFF}
 .pcs-alert-err{background:rgba(255,108,108,.2);color:#FFDEDE;margin:12px 0 0}
 .pcs-alert-ok{background:rgba(61,213,109,.2);color:#DFFDE9;margin:12px 0 0}
 .pcs-alert a{color:#fff;font-weight:700}
