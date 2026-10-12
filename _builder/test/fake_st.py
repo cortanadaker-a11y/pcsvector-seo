@@ -20,6 +20,7 @@ st.columns = columns; st.selectbox = selectbox; st.checkbox = checkbox
 st.markdown = lambda s, **k: CAP['md'].append(s)
 st.html = lambda s, **k: CAP['html'].append(s)
 st.warning = lambda s, **k: CAP['warn'].append(s)
+st.info = lambda s, **k: CAP['warn'].append(s)
 st.container = lambda **k: _Ctx()
 comps = types.ModuleType('streamlit.components'); v1 = types.ModuleType('streamlit.components.v1')
 v1.html = lambda *a, **k: None; comps.v1 = v1; st.components = comps

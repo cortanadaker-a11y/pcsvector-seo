@@ -3,6 +3,7 @@ const P = require('/workspace/site_v2/assets/pcs.js'); const PCS = P.PCS || P;
 const D = require('/workspace/site_v2/assets/calc-data.json');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 let pass = 0, fail = 0; const ok = (c, m) => { if (c) pass++; else { fail++; console.log('FAIL', m); } };
+const D_APP = {'fort-bragg':'Fort Bragg, NC','fort-hood':'Fort Hood, TX','fort-campbell':'Fort Campbell, KY','fort-carson':'Fort Carson, CO','joint-base-lewis-mcchord':'Joint Base Lewis-McChord, WA','fort-drum':'Fort Drum, NY','fort-bliss':'Fort Bliss, TX','national-capital-region':'Pentagon / National Capital Region, VA'};
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 (async () => {
   const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'].concat(process.env.HRR ? ['--host-resolver-rules=' + process.env.HRR] : []), headless: 'new' });
@@ -116,12 +117,34 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   ok(await p.$eval('#pcs-match-panel', e => e.classList.contains('pcs-ref-open')), 'hashchange opens gate');
   await p.close();
 
-  // 5 Fort Buchanan warning
-  p = await page(BASE + '?tgt=Fort%20Buchanan%2C%20PR');
-  const r = PCS.renderResults(D, { g: 'E-5', d: 0, y: 4, cur: 'Fort Campbell, KY', tgt: 'Fort Buchanan, PR', bar: false });
-  ok(!!r.warn && (await p.$eval('#pcs-results', e => e.textContent)).includes(r.warn.slice(0, 30)), 'buchanan warning shown');
+  // 5 OCONUS: Zak's 11 Oct case (Fort Drum -> Fort Buchanan, 3 deps, 9 YOS, phone) computes OHA + COLA, no alert box
+  p = await page(BASE + '?g=E-6&d=3&y=9&cur=Fort%20Drum%2C%20NY&tgt=Fort%20Buchanan%2C%20PR', 390, true);
+  ok((await results(p)) === exp({ g: 'E-6', d: 3, y: 9, cur: 'Fort Drum, NY', tgt: 'Fort Buchanan, PR', bar: false }), 'buchanan computes (zak case)');
+  ok(await p.$eval('#pcs-results', e => !e.querySelector('.pcs-alert') && /OHA rent max/.test(e.textContent) && /\$2,300/.test(e.textContent) && /\$1,223/.test(e.textContent) && /index 124/.test(e.textContent)), 'buchanan OHA $2,300 + util $1,223 + COLA idx 124 shown');
   await p.close();
+  // every post as target (E-5, 1 dep): rendered card, never an alert
+  { p = await page(BASE);
+    let alerts = [];
+    for (const post of Object.keys(D.posts)) {
+      await p.select('#bah_calc_gaining', post); await sleep(5);
+      if (await p.$eval('#pcs-results', e => !!e.querySelector('.pcs-alert') || !e.querySelector('.pcs-partner-results'))) alerts.push(post);
+    }
+    ok(alerts.length === 0, 'all ' + Object.keys(D.posts).length + ' posts render a results card, no alert: ' + alerts.join('|'));
+    await p.close(); }
 
+  // 5b BAH pages: every agent CTA opens the Wayfinder with the post preset; every calculator CTA presets the post
+  for (const slug of ['fort-bragg','fort-hood','fort-campbell','fort-carson','joint-base-lewis-mcchord','fort-drum','fort-bliss','national-capital-region','']) {
+    p = await page(BASE + 'bah/' + (slug ? slug + '/' : ''));
+    const hrefs = await p.$$eval('a.cta', as => as.map(a => a.getAttribute('href')));
+    ok(hrefs.length > 0 && hrefs.every(h => !/#.*#/.test(h)), 'bah ' + (slug || 'hub') + ' CTA hrefs clean: ' + hrefs.filter(h => /#.*#/.test(h)).join(' '));
+    const agent = hrefs.find(h => /utm_medium=agents/.test(h));
+    ok(!!agent, 'bah ' + (slug || 'hub') + ' has agent CTA');
+    await p.close();
+    p = await page(new URL(agent, BASE).href);
+    ok(await p.$eval('#pcs-match-panel', e => e.classList.contains('pcs-ref-open')), 'bah ' + (slug || 'hub') + ' agent CTA opens Wayfinder');
+    if (slug) { const tg = await p.$eval('#bah_calc_gaining', e => e.value); ok(tg === D_APP[slug], 'bah ' + slug + ' preset target ' + tg); }
+    await p.close();
+  }
   // 6 mobile: sticky, sidebar, overflow
   for (const w of [320, 360, 390, 414, 768, 1024, 1280, 1920]) {
     p = await page(BASE, w, w < 700);

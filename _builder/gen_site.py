@@ -120,8 +120,8 @@ from urllib.parse import quote_plus
 for f in glob.glob(OUT + 'bah/**/index.html', recursive=True) + [OUT + '404.html']:
     s = open(f).read(); slug = f.split('/')[-2]
     pre = ('tgt=' + quote_plus(app_names[slug]) + '&amp;') if slug in app_names else ''
-    s = re.sub(r'href="/(?:calculator/)?\?(?:tgt=[^&"]*&amp;)?(utm_source=[^"]*utm_medium=agents[^"]*)"', lambda m: f'href="/?{pre}{m.group(1)}#find-a-home"', s)
-    s = re.sub(r'href="/(?:calculator/)?\?(?:tgt=[^&"]*&amp;)?(utm_source=[^"]*)"', lambda m: f'href="/?{pre}{m.group(1)}"', s)
+    s = re.sub(r'href="/(?:calculator/)?\?(?:tgt=[^&"]*&amp;)?(utm_source=[^"#]*utm_medium=agents[^"#]*)(?:#find-a-home)*"', lambda m: f'href="/?{pre}{m.group(1)}#find-a-home"', s)
+    s = re.sub(r'href="/(?:calculator/)?\?(?:tgt=[^&"]*&amp;)?(utm_source=[^"#]*)"', lambda m: f'href="/?{pre}{m.group(1)}"', s)
     s = s.replace('"url": "/calculator/"', '"url": "https://pcsvector.com/"')
     if f.endswith('404.html'): s = s.replace('<link rel="canonical" href="https://pcsvector.com/404.html">', '')
     open(f, 'w').write(s)
@@ -132,6 +132,19 @@ for f in glob.glob(OUT + '**/*.html', recursive=True):
     s = open(f).read()
     if 'rel="icon"' not in s:
         s = s.replace('<meta name="viewport"', ICON + '<meta name="viewport"', 1); open(f, 'w').write(s)
+# cache-busting: content-hash query on assets (GitHub Pages sends max-age=600)
+import hashlib
+_h = lambda b: hashlib.sha256(b).hexdigest()[:10]
+_cd = _h(open(OUT + 'assets/calc-data.json', 'rb').read())
+_js = open(OUT + 'assets/pcs.js').read()
+if '/assets/calc-data.json?v=' not in _js:
+    _js = _js.replace("fetch('/assets/calc-data.json')", "fetch('/assets/calc-data.json?v=" + _cd + "')"); open(OUT + 'assets/pcs.js', 'w').write(_js)
+_jv, _cv = _h(_js.encode()), _h(open(OUT + 'assets/pcs.css', 'rb').read())
+_ix = open(OUT + 'index.html').read()
+_ix = re.sub(r'/assets/calc-data\.json(\?v=[0-9a-f]+)?"', '/assets/calc-data.json?v=' + _cd + '"', _ix)
+_ix = re.sub(r'/assets/pcs\.js(\?v=[0-9a-f]+)?"', '/assets/pcs.js?v=' + _jv + '"', _ix)
+_ix = re.sub(r'/assets/pcs\.css(\?v=[0-9a-f]+)?"', '/assets/pcs.css?v=' + _cv + '"', _ix)
+open(OUT + 'index.html', 'w').write(_ix)
 # sitemap
 urls = [URL, URL + 'bah/'] + [f'{URL}bah/{s}/' for s in bah_pages]
 open(OUT + 'sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod></url>\n' for u in urls) + '</urlset>\n')
