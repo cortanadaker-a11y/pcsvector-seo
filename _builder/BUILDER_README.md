@@ -43,3 +43,10 @@ fort-leonard-wood,fort-polk,fort-sill,fort-wainwright,fort-huachuca,fort-irwin,s
   Box paths used 19 Oct: ascii_dir=/workspace/scratch/bah2026, PDFs=/workspace/raw/pcs/bah2026_{with,without}.pdf, repo=/workspace/pcs-vector-repo.
   WARNING: build.py and gen_site.py regenerate index.html (home page). index.html must stay byte-identical (Zak's hard rule);
   do not run them against the served tree for page additions. gen_bah_bases.py and gen_oha.py never touch index.html.
+
+BAH base pages, deepen the 8 original posts (added 19 Oct 2026): /bah/{fort-bragg,fort-hood,fort-campbell,fort-carson,joint-base-lewis-mcchord,fort-drum,fort-bliss,national-capital-region}/
+  python3 bah_deepen/pull_bah_yoy.py bah_deepen/dtmo_bah_yoy_2026-10-19.json      # live DTMO BAH Rate Lookup, YEAR=25 and YEAR=26, 8 ZIPs x 24 grades (read-only)
+  python3 bah_deepen/gen_bah_deepen.py <site_root> bah_deepen/dtmo_bah_yoy_2026-10-19.json   # as-of stamp, 2026 vs 2025 table, 19-base Other posts, dateModified/source, sitemap lastmod (idempotent; never touches index.html)
+  python3 bah_deepen/check_bah_deepen.py <site_root> bah_deepen/dtmo_bah_yoy_2026-10-19.json /workspace/scratch/bah2026   # must be 0 mismatches
+  node bah_deepen/deepen_browser.cjs http://127.0.0.1:<port>                      # 200, console, overflow 1280/390, yoy rows, other posts=19
+  At the 2027 refresh, change YEAR to 26/27 and update TODAY/CHECKED in the generator.
