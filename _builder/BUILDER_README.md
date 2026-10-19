@@ -24,3 +24,10 @@ Accuracy audit vs DTMO (added 11 Oct 2026, run from /workspace/accuracy_audit wi
   accuracy/cola_check.py   # 260 random COLA cases vs DTMO calculator
   accuracy/apply_fixes.py  # writes pcs-vector data/*.json from the pulls + DTMO BAH ASCII (BAH-ASCII-2026.zip)
 Refresh cadence: OHA FX + foreign COLA indices change on the 1st and 16th of each month (DTMO). Re-run pull.py + apply_fixes.py, then rebuild.
+
+OHA pages (added 19 Oct 2026): /oha/ hub + /oha/{korea,japan,okinawa,germany}/
+  python3 oha/pull_oha_live.py                                        # live DTMO OHA pull (11 localities x 24 grades x with/without), pay period set in the script
+  python3 oha/gen_oha.py <site_root> oha/dtmo_oha_live_2026-10-19.json  # run AFTER build.py/gen_site.py; idempotently re-adds the /bah/ hub OHA link + sitemap URLs
+  python3 oha/check_numbers.py <site_root> oha/dtmo_oha_live_2026-10-19.json   # every number on the OHA pages vs DTMO JSON + calc-data (must be 0 mismatches)
+  node oha/oha_browser.cjs http://127.0.0.1:<port>                    # tgt preselect, console errors, 390px overflow
+  gen_oha.py never touches index.html. Update TODAY/CHECKED in gen_oha.py on each refresh (1st/16th).
