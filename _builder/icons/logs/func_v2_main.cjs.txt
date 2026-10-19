@@ -1,0 +1,234 @@
+const puppeteer = require('/workspace/build_v2/tools/node_modules/puppeteer-core');
+const P = require('/workspace/fav_1019/site/assets/pcs.js'); const PCS = P.PCS || P;
+const D = require('/workspace/fav_1019/site/assets/calc-data.json');
+const BASE = process.argv[2] || 'http://localhost:8765/';
+let pass = 0, fail = 0; const ok = (c, m) => { if (c) pass++; else { fail++; console.log('FAIL', m); } };
+const D_APP = {'fort-bragg':'Fort Bragg, NC','fort-hood':'Fort Hood, TX','fort-campbell':'Fort Campbell, KY','fort-carson':'Fort Carson, CO','joint-base-lewis-mcchord':'Joint Base Lewis-McChord, WA','fort-drum':'Fort Drum, NY','fort-bliss':'Fort Bliss, TX','national-capital-region':'Pentagon / National Capital Region, VA'};
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+(async () => {
+  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'].concat(process.env.HRR ? ['--host-resolver-rules=' + process.env.HRR] : []), headless: 'new' });
+  async function page(url, w = 1280, mobile = false) {
+    const p = await b.newPage(); p.errs = []; p.bad = [];
+    p.on('pageerror', e => p.errs.push(String(e))); p.on('console', m => { if (m.type() === 'error') p.errs.push(m.text()); });
+    p.on('response', r => { if (r.status() >= 400) p.bad.push(r.status() + ' ' + r.url()); });
+    await p.setViewport({ width: w, height: 900, isMobile: mobile, hasTouch: mobile });
+    await p.goto(url, { waitUntil: 'networkidle0' }); await sleep(200); return p;
+  }
+  const results = p => p.$eval('#pcs-results', e => e.innerHTML);
+  const exp = s => { const r = PCS.renderResults(D, s); return r.warn ? null : r.html; };
+
+  // 1 default
+  let p = await page(BASE);
+  const def = { g: 'E-5', d: 0, y: 4, cur: 'Fort Campbell, KY', tgt: 'Fort Bragg, NC', bar: false };
+  ok((await results(p)) === exp(def), 'default results == JS render');
+  ok(p.errs.length === 0, 'console errors default: ' + p.errs);
+  ok(p.bad.length === 0, 'bad responses: ' + p.bad);
+  ok((await p.$eval('#pcs-way-kicker', e => e.textContent)) === 'Military-approved agents · Fort Bragg, NC', 'kicker text');
+  ok(await p.$eval('#pcs-ref-form', e => getComputedStyle(e.closest('.pcs-ref-fields') || e).display === 'none'), 'gate closed initially');
+
+  // 2 select changes (native select change event)
+  const setSel = async (id, v) => p.evaluate((id, v) => { const s = document.getElementById(id); s.value = v; s.dispatchEvent(new Event('change')); }, id, v);
+  await setSel('bah_calc_grade', 'O-3'); await setSel('bah_calc_deps_n', '2'); await setSel('bah_calc_yos', '10');
+  await setSel('bah_calc_current', 'Fort Hood, TX'); await setSel('bah_calc_gaining', 'USAG Wiesbaden, Germany');
+  ok((await results(p)) === exp({ g: 'O-3', d: 2, y: 10, cur: 'Fort Hood, TX', tgt: 'USAG Wiesbaden, Germany', bar: false }), 'OHA/COLA results after select change');
+  ok(await p.$eval('#bah_calc_barracks', e => e.disabled), 'barracks disabled with deps');
+  ok((await p.$eval('#pcs-sticky-ref-line', e => e.textContent)) === 'USAG Wiesbaden, Germany · O-3 — Captain · 2 dependents', 'sticky line: ' + await p.$eval('#pcs-sticky-ref-line', e => e.textContent));
+  await setSel('bah_calc_deps_n', '0');
+  ok(!(await p.$eval('#bah_calc_barracks', e => e.disabled)), 'barracks enabled deps 0');
+  await p.click('#bah_calc_barracks');
+  ok((await results(p)) === exp({ g: 'O-3', d: 0, y: 10, cur: 'Fort Hood, TX', tgt: 'USAG Wiesbaden, Germany', bar: true }), 'barracks results');
+  await setSel('bah_calc_current', '— Skip —');
+  ok((await results(p)) === exp({ g: 'O-3', d: 0, y: 10, cur: '— Skip —', tgt: 'USAG Wiesbaden, Germany', bar: true }), 'skip current');
+  const fine = await p.evaluate(() => matchMedia('(pointer:fine)').matches); console.log('pointer:fine =', fine);
+  if (fine) {
+  // custom listbox keyboard
+  await p.focus('#bah_calc_grade'); await p.keyboard.press('Enter'); await sleep(50);
+  const lb = await p.$$eval('[role=option]', l => l.length); ok(lb === D.grades.length, 'listbox opens with ' + lb);
+  await p.keyboard.press('ArrowDown'); await p.keyboard.press('Enter'); await sleep(50);
+  ok((await p.$eval('#bah_calc_grade', e => e.value)) === 'O-4', 'listbox arrow select -> ' + await p.$eval('#bah_calc_grade', e => e.value));
+  // click option
+  await p.click('#bah_calc_yos'); await sleep(50);
+  await p.evaluate(() => { const li = [...document.querySelectorAll('[role=option]')].find(l => l.textContent === '20'); li.dispatchEvent(new MouseEvent('mousedown', { bubbles: true })); });
+  ok((await p.$eval('#bah_calc_yos', e => e.value)) === '20', 'listbox mouse select');
+  } else { await setSel('bah_calc_grade','O-4'); await setSel('bah_calc_yos','20'); }
+  // help tooltip
+  const hc = await p.$$('.pcs-help'); if (hc.length) { await hc[0].click(); ok(await p.$eval('.pcs-help', e => e.classList.contains('show')), 'help toggles'); }
+
+  // 3 gate via button, validation
+  await p.click('#referral_open_btn'); await sleep(150);
+  ok(await p.$eval('#pcs-match-panel', e => e.classList.contains('pcs-ref-open')), 'gate opens via button');
+  ok(await p.evaluate(() => document.activeElement.id) === 'referral_first_name', 'focus on first name');
+  const msg = () => p.$eval('#pcs-ref-msg', e => e.textContent.trim());
+  await p.click('#referral_submit_btn'); await sleep(50);
+  ok((await msg()) === 'Enter your first name.', 'empty name error: ' + await msg());
+  await p.type('#referral_first_name', 'Zak'); await p.type('#referral_email_address', 'bad@');
+  await p.click('#referral_submit_btn'); await sleep(50);
+  ok((await msg()).startsWith('Enter a valid email address'), 'bad email error: ' + await msg());
+  await p.$eval('#referral_email_address', e => e.value = '');
+  await p.type('#referral_email_address', 'zak@example.com');
+  await p.setRequestInterception(true); let navUrl = null;
+  p.on('request', r => { if (r.url().startsWith('https://docs.google.com')) { navUrl = r.url(); r.abort(); } else r.continue(); });
+  await p.click('#referral_submit_btn'); await sleep(900);
+  const expUrl = PCS.prefillUrl(PCS.referralRow({ destination: 'USAG Wiesbaden, Germany', first_name: 'Zak', rank: 'O-4 — Major', num_dependents: 0, email_address: 'zak@example.com' }));
+  ok(navUrl === null, 'no auto-jump after Connect (got ' + navUrl + ')');
+  ok(p.url().startsWith(BASE), 'still on page after Connect: ' + p.url());
+  ok((await p.$eval('#pcs-ref-msg .pcs-alert-ok', e => e.textContent)) === 'You\u2019re set \u2014 open your pre-filled form and tap Submit.', 'success text: ' + await p.$eval('#pcs-ref-msg', e => e.textContent));
+  const fl = await p.$eval('#referral_form_link', a => [a.getAttribute('href'), a.target, a.rel, a.textContent, a.className, Math.round(a.getBoundingClientRect().width), Math.round(document.getElementById('referral_submit_btn').getBoundingClientRect().width)]);
+  ok(fl[0] === expUrl, 'form button href == prefill url\n got ' + fl[0] + '\n exp ' + expUrl);
+  ok(fl[1] === '_blank' && /noopener/.test(fl[2]), 'form button opens new tab (noopener)');
+  ok(fl[3] === 'Open my pre-filled form \u2794' && /pcs-btn/.test(fl[4]) && fl[5] === fl[6], 'form button label/style/full width ' + JSON.stringify(fl));
+  const st = await p.evaluate(() => JSON.parse(sessionStorage.getItem('pcs_referral_lead') || 'null'));
+  ok(st && st['First Name'] === 'Zak' && st['Email address'] === 'zak@example.com', 'sessionStorage row');
+  { const tp = new Promise(res => b.once('targetcreated', t => res(t)));
+    await p.click('#referral_form_link'); const t = await Promise.race([tp, sleep(8000).then(() => null)]);
+    const tu0 = t ? t.url() : null; let tu = null; if (t) { const np = await t.page(); if (np) { await sleep(1500); tu = np.url(); await np.close(); } }
+    ok(tu0 === expUrl, 'click opens pre-filled form in new tab: ' + tu0);
+    ok(tu && expUrl.split('?')[1].split('&').filter(x => x.startsWith('entry.')).every(x => tu.includes(x)), 'form tab keeps all prefill entries after Google redirect: ' + tu); }
+  ok(p.errs.length === 0, 'console errors flow: ' + p.errs);
+  await p.close();
+
+  // 3b fine pointer listbox (headless reports no pointer; force matchMedia)
+  { const q = await b.newPage(); q.errs=[]; q.on('pageerror', e => q.errs.push(String(e)));
+    await q.evaluateOnNewDocument(() => { const mm = window.matchMedia.bind(window); window.matchMedia = s => s === '(pointer:fine)' ? { matches: true, media: s, addListener(){}, removeListener(){}, addEventListener(){}, removeEventListener(){} } : mm(s); });
+    await q.setViewport({ width: 1280, height: 900 }); await q.goto(BASE, { waitUntil: 'networkidle0' });
+    await q.focus('#bah_calc_grade'); await q.keyboard.press('Enter'); await sleep(50);
+    ok((await q.$$eval('[role=option]', l => l.length)) === D.grades.length, 'listbox opens');
+    await q.keyboard.press('ArrowDown'); await q.keyboard.press('Enter'); await sleep(50);
+    ok((await q.$eval('#bah_calc_grade', e => e.value)) === 'E-6', 'listbox arrow -> ' + await q.$eval('#bah_calc_grade', e => e.value));
+    await q.click('#bah_calc_gaining_q'); await q.keyboard.type('sch'); await q.keyboard.press('Enter'); await sleep(50);
+    ok((await q.$eval('#bah_calc_gaining', e => e.value)) === 'Schofield Barracks, HI', 'typeahead -> ' + await q.$eval('#bah_calc_gaining', e => e.value));
+    await q.click('#bah_calc_yos'); await sleep(50);
+    await q.evaluate(() => { const li = [...document.querySelectorAll('[role=option]')].find(l => l.textContent === '20'); li.dispatchEvent(new MouseEvent('mousedown', { bubbles: true })); });
+    ok((await q.$eval('#bah_calc_yos', e => e.value)) === '20', 'listbox mouse select');
+    await q.click('#bah_calc_deps_n'); await sleep(50); await q.mouse.click(5, 5); await sleep(50);
+    ok((await q.$$eval('[role=option]', l => l.length)) === 0, 'outside click closes');
+    ok((await results(q)) === exp({ g: 'E-6', d: 0, y: 20, cur: 'Fort Campbell, KY', tgt: 'Schofield Barracks, HI', bar: false }), 'results after listbox');
+    ok(q.errs.length === 0, 'errs listbox ' + q.errs);
+    // session storage write
+    await q.click('#referral_open_btn'); await q.type('#referral_first_name', 'Ann'); await q.type('#referral_email_address', 'a@b.co');
+    await q.evaluate(() => { window.__assign = null; });
+    await q.setRequestInterception(true); q.on('request', r => r.url().startsWith('https://docs.google') ? r.abort() : r.continue());
+    await q.click('#referral_submit_btn'); await sleep(100);
+    const row = await q.evaluate(() => JSON.parse(sessionStorage.getItem('pcs_referral_lead') || 'null'));
+    ok(row && row['First Name'] === 'Ann' && row['Email address'] === 'a@b.co' && row['Rank'] === 'E-6 — Staff Sergeant', 'session row ' + JSON.stringify(row));
+    ok((await q.$eval('#pcs-ref-msg', e => e.textContent)).startsWith('You\u2019re set'), 'success msg');
+    await q.close(); }
+
+
+  // 3c post combobox: filter as you type (desktop fine pointer + mobile touch)
+  for (const [w, mob] of [[1280, false], [390, true]]) {
+    const q = await page(BASE, w, mob); const tag = '@' + w + ': ';
+    const opts = () => q.$$eval('#bah_calc_gaining_list [role=option]', l => l.map(x => x.textContent));
+    const a = await q.$eval('#bah_calc_gaining_q', e => ({ role: e.getAttribute('role'), ctl: e.getAttribute('aria-controls'), ac: e.getAttribute('aria-autocomplete'), exp: e.getAttribute('aria-expanded'), lbl: document.getElementById(e.getAttribute('aria-labelledby')).textContent, lfor: !!document.querySelector('label[for="bah_calc_gaining_q"]'), v: e.value, fs: getComputedStyle(e).fontSize, natHidden: getComputedStyle(document.getElementById('bah_calc_gaining')).display === 'none' && document.getElementById('bah_calc_gaining').getAttribute('aria-hidden') === 'true' }));
+    ok(a.role === 'combobox' && a.ctl === 'bah_calc_gaining_list' && a.ac === 'list' && a.exp === 'false' && a.lbl === 'Target Post' && a.lfor && a.natHidden, tag + 'combobox ARIA ' + JSON.stringify(a));
+    ok(a.v === 'Fort Bragg, NC', tag + 'shows current value');
+    if (mob) ok(a.fs === '16px', tag + 'input 16px on touch (no iOS zoom): ' + a.fs);
+    if (mob) await q.tap('#bah_calc_gaining_q'); else await q.click('#bah_calc_gaining_q'); await sleep(80);
+    ok((await opts()).length === Object.keys(D.posts).length && await q.$eval('#bah_calc_gaining_q', e => e.getAttribute('aria-expanded')) === 'true', tag + 'opens with all posts');
+    await q.keyboard.type('Humph'); await sleep(50);
+    ok(JSON.stringify(await opts()) === JSON.stringify(['Camp Humphreys, South Korea']), tag + "'Humph' -> " + JSON.stringify(await opts()));
+    ok(await q.$eval('#bah_calc_gaining_q', e => e.getAttribute('aria-activedescendant') === document.querySelector('#bah_calc_gaining_list .act').id), tag + 'activedescendant set');
+    await q.keyboard.press('Enter'); await sleep(80);
+    ok((await q.$eval('#bah_calc_gaining', e => e.value)) === 'Camp Humphreys, South Korea' && (await q.$eval('#bah_calc_gaining_q', e => e.value)) === 'Camp Humphreys, South Korea', tag + 'Enter selects Humphreys');
+    ok((await results(q)) === exp({ g: 'E-5', d: 0, y: 4, cur: 'Fort Campbell, KY', tgt: 'Camp Humphreys, South Korea', bar: false }), tag + 'results after combobox select');
+    ok((await q.$$('#bah_calc_gaining_list')).length === 0, tag + 'list closes after select');
+    // substring anywhere + case-insensitive, matches every post label containing it
+    await q.click('#bah_calc_gaining_q'); await sleep(50); await q.keyboard.type('FORT B'); await sleep(50);
+    const fb = await opts(); const want = Object.keys(D.posts).filter(x => x.toLowerCase().includes('fort b'));
+    ok(JSON.stringify(fb) === JSON.stringify(want) && fb.length > 3, tag + "'FORT B' -> " + fb.length + ' == ' + want.length);
+    await q.keyboard.press('ArrowDown'); await sleep(20);
+    ok(await q.$eval('#bah_calc_gaining_list .act', e => e.textContent) === want[1], tag + 'ArrowDown moves active');
+    // no results + Escape restores
+    await q.$eval('#bah_calc_gaining_q', e => { e.value = ''; }); await q.keyboard.type('zzzz'); await sleep(40);
+    ok((await opts()).length === 0 && (await q.$eval('#bah_calc_gaining_list', e => e.textContent)) === 'No results', tag + 'no results state');
+    await q.keyboard.press('Enter'); await q.keyboard.press('Escape'); await sleep(50);
+    ok((await q.$eval('#bah_calc_gaining_q', e => e.value)) === 'Camp Humphreys, South Korea' && (await q.$eval('#bah_calc_gaining', e => e.value)) === 'Camp Humphreys, South Korea', tag + 'Escape restores value');
+    // tap / click an option in Current Post (69 incl. Skip), filter 'zama'
+    if (mob) await q.tap('#bah_calc_current_q'); else await q.click('#bah_calc_current_q'); await sleep(60);
+    ok((await q.$$eval('#bah_calc_current_list [role=option]', l => l.length)) === Object.keys(D.posts).length + 1, tag + 'current list incl. Skip');
+    await q.keyboard.type('zama'); await sleep(40);
+    const li = await q.$('#bah_calc_current_list [role=option]'); if (mob) await li.tap(); else await li.click(); await sleep(80);
+    ok((await q.$eval('#bah_calc_current', e => e.value)) === 'Camp Zama, Japan', tag + 'tap/click option selects Zama');
+    ok(await q.evaluate(() => document.activeElement.id !== 'bah_calc_current_q'), tag + 'input blurred after option tap (keyboard closes)');
+    ok((await results(q)) === exp({ g: 'E-5', d: 0, y: 4, cur: 'Camp Zama, Japan', tgt: 'Camp Humphreys, South Korea', bar: false }), tag + 'results Zama -> Humphreys');
+    // blur with partial text restores
+    await q.click('#bah_calc_current_q'); await q.keyboard.type('xx'); await q.keyboard.press('Tab'); await sleep(250);
+    ok(await q.evaluate(() => document.activeElement.id === 'bah_calc_gaining_q'), tag + 'Tab moves to Target Post');
+    ok((await q.$eval('#bah_calc_current_q', e => e.value)) === 'Camp Zama, Japan', tag + 'blur restores label');
+    if (mob) { await q.evaluate(() => { window.__ev = []; const i = document.getElementById('bah_calc_gaining_q'); ['focus','blur','mousedown','click','touchstart','pointerdown'].forEach(t => i.addEventListener(t, () => __ev.push(t + ':' + !!document.getElementById('bah_calc_gaining_list') + ':' + document.activeElement.id))); new MutationObserver(m => m.forEach(x => [...x.removedNodes].forEach(n => n.id === 'bah_calc_gaining_list' && __ev.push('REMOVED:' + document.activeElement.id + ':' + new Error().stack.split('\n').slice(1,4).join('|'))))).observe(document.body, { childList: true, subtree: true }); }); await q.tap('#bah_calc_gaining_q'); await sleep(60); if (!(await q.$('#bah_calc_gaining_list'))) console.log('DBGFAIL', await q.evaluate(() => __ev.join(' || ') + ' active=' + document.activeElement.id)); const r = await q.$eval('#bah_calc_gaining_list', e => { const b = e.getBoundingClientRect(); return [b.left, b.right, document.documentElement.scrollWidth]; });
+      ok(r[0] >= 0 && r[1] <= w && r[2] <= w, tag + 'list fits viewport ' + JSON.stringify(r)); }
+    ok(q.errs.length === 0, tag + 'combobox errs ' + q.errs);
+    await q.close();
+  }
+
+  // 4 query presets + hash gate
+  p = await page(BASE + '?g=E-7&d=3&y=12&cur=Fort%20Bragg%2C%20NC&tgt=Schofield%20Barracks%2C%20HI#find-a-home');
+  ok((await results(p)) === exp({ g: 'E-7', d: 3, y: 12, cur: 'Fort Bragg, NC', tgt: 'Schofield Barracks, HI', bar: false }), 'query preset results');
+  ok(await p.$eval('#pcs-match-panel', e => e.classList.contains('pcs-ref-open')), 'hash opens gate');
+  ok((await p.$eval('#bah_calc_gaining', e => e.value)) === 'Schofield Barracks, HI', 'select reflects tgt');
+  await p.close();
+  p = await page(BASE + '?tgt=Nowhere&g=Z-9&d=99');
+  ok((await results(p)) === exp({ g: 'E-5', d: 5, y: 4, cur: 'Fort Campbell, KY', tgt: 'Fort Bragg, NC', bar: false }), 'bad query falls back');
+  ok(p.errs.length === 0, 'errs bad query ' + p.errs);
+  // hashchange
+  await p.evaluate(() => location.hash = '#wayfinder'); await sleep(150);
+  ok(await p.$eval('#pcs-match-panel', e => e.classList.contains('pcs-ref-open')), 'hashchange opens gate');
+  await p.close();
+
+  // 5 OCONUS: Zak's 11 Oct case (Fort Drum -> Fort Buchanan, 3 deps, 9 YOS, phone) computes OHA + COLA, no alert box
+  p = await page(BASE + '?g=E-6&d=3&y=9&cur=Fort%20Drum%2C%20NY&tgt=Fort%20Buchanan%2C%20PR', 390, true);
+  ok((await results(p)) === exp({ g: 'E-6', d: 3, y: 9, cur: 'Fort Drum, NY', tgt: 'Fort Buchanan, PR', bar: false }), 'buchanan computes (zak case)');
+  ok(await p.$eval('#pcs-results', e => !e.querySelector('.pcs-alert') && /OHA rent max/.test(e.textContent) && /\$2,300/.test(e.textContent) && /\$1,223/.test(e.textContent) && /index 124/.test(e.textContent)), 'buchanan OHA $2,300 + util $1,223 + COLA idx 124 shown');
+  await p.close();
+  // every post as target (E-5, 1 dep): rendered card, never an alert
+  { p = await page(BASE);
+    let alerts = [];
+    for (const post of Object.keys(D.posts)) {
+      await p.select('#bah_calc_gaining', post); await sleep(5);
+      if (await p.$eval('#pcs-results', e => !!e.querySelector('.pcs-alert') || !e.querySelector('.pcs-partner-results'))) alerts.push(post);
+    }
+    ok(alerts.length === 0, 'all ' + Object.keys(D.posts).length + ' posts render a results card, no alert: ' + alerts.join('|'));
+    await p.close(); }
+
+  // 5b BAH pages: every agent CTA opens the Wayfinder with the post preset; every calculator CTA presets the post
+  for (const slug of ['fort-bragg','fort-hood','fort-campbell','fort-carson','joint-base-lewis-mcchord','fort-drum','fort-bliss','national-capital-region','']) {
+    p = await page(BASE + 'bah/' + (slug ? slug + '/' : ''));
+    const hrefs = await p.$$eval('a.cta', as => as.map(a => a.getAttribute('href')));
+    ok(hrefs.length > 0 && hrefs.every(h => !/#.*#/.test(h)), 'bah ' + (slug || 'hub') + ' CTA hrefs clean: ' + hrefs.filter(h => /#.*#/.test(h)).join(' '));
+    const agent = hrefs.find(h => /utm_medium=agents/.test(h));
+    ok(!!agent, 'bah ' + (slug || 'hub') + ' has agent CTA');
+    await p.close();
+    p = await page(new URL(agent, BASE).href);
+    ok(await p.$eval('#pcs-match-panel', e => e.classList.contains('pcs-ref-open')), 'bah ' + (slug || 'hub') + ' agent CTA opens Wayfinder');
+    if (slug) { const tg = await p.$eval('#bah_calc_gaining', e => e.value); ok(tg === D_APP[slug], 'bah ' + slug + ' preset target ' + tg); }
+    await p.close();
+  }
+  // 6 mobile: sticky, sidebar, overflow
+  for (const w of [320, 360, 390, 414, 768, 1024, 1280, 1920]) {
+    p = await page(BASE, w, w < 700);
+    const ov = await p.evaluate((w) => Math.max(document.documentElement.scrollWidth, innerWidth) - w, w);
+    const tips = await p.evaluate(() => [...document.querySelectorAll('.pcs-help')].map(h => { h.classList.add('show'); h.dispatchEvent(new Event('mouseenter')); const r = h.querySelector('.pcs-tip').getBoundingClientRect(); h.classList.remove('show'); return [Math.round(r.left), Math.round(r.right)]; }));
+    ok(tips.every(t => t[0] >= 0 && t[1] <= w), `tips in view at ${w}: ` + JSON.stringify(tips));
+    ok(ov <= 0, `no h-overflow at ${w}: ${ov}`);
+    ok(p.errs.length === 0, 'errs mobile ' + w + p.errs);
+    if (w === 390) {
+      ok(await p.$eval('#pcs-sticky-ref-bar', e => !e.hidden && !e.classList.contains('pcs-sticky-ref-hidden') && getComputedStyle(e).display !== 'none'), 'sticky visible at top');
+      await p.click('#pcs-sticky-ref-go'); await sleep(900);
+      ok(await p.$eval('#pcs-match-panel', e => e.classList.contains('pcs-ref-open')), 'sticky opens gate');
+      ok(await p.$eval('#pcs-sticky-ref-bar', e => e.classList.contains('pcs-sticky-ref-hidden')), 'sticky hides when panel in view');
+      await p.evaluate(() => scrollTo(0, 0));
+      await p.click('#pcs-sidebar-open'); await sleep(300);
+      ok(await p.$eval('#pcs-sidebar', e => e.classList.contains('open')), 'sidebar opens');
+      await p.keyboard.press('Escape'); await sleep(300);
+      ok(await p.$eval('#pcs-sidebar', e => !e.classList.contains('open')), 'sidebar esc closes');
+      const tgt = await p.$$eval('button, a, select, input', es => es.filter(e => { const r = e.getBoundingClientRect(); return r.width && r.height && r.height < 24 && getComputedStyle(e).visibility !== 'hidden'; }).map(e => (e.id || e.tagName) + ':' + Math.round(e.getBoundingClientRect().height)));
+      console.log('small tap targets @390:', tgt.join(', ') || 'none');
+    }
+    await p.close();
+  }
+  // 7 other pages
+  for (const u of ['bah/', 'bah/fort-bragg-nc/', 'nope-404']) {
+    p = await page(BASE + u); ok(p.errs.filter(e => !/404/.test(e)).length === 0, 'errs ' + u + p.errs); await p.close();
+  }
+  console.log('PASS', pass, 'FAIL', fail); await b.close();
+})();

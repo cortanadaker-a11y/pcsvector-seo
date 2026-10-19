@@ -63,7 +63,11 @@ page = f'''<!doctype html>
 <meta name="theme-color" content="#121E16">
 <meta property="og:type" content="website"><meta property="og:site_name" content="PCS Vector"><meta property="og:title" content="{e(TITLE)}">
 <meta property="og:description" content="{e(DESC)}"><meta property="og:url" content="{URL}"><meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&amp;family=Source+Sans+3:wght@200..900&amp;display=swap">
@@ -126,8 +130,10 @@ for f in glob.glob(OUT + 'bah/**/index.html', recursive=True) + [OUT + '404.html
     if f.endswith('404.html'): s = s.replace('<link rel="canonical" href="https://pcsvector.com/404.html">', '')
     open(f, 'w').write(s)
 # favicon (live app uses the compass emoji as page_icon)
-open(OUT + 'favicon.svg', 'w').write("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>\U0001F9ED</text></svg>")
-ICON = '<link rel="icon" href="/favicon.svg" type="image/svg+xml">'
+# 19 Oct 2026: real files (Google ignores data-URI favicons). Noto Emoji compass SVG, Apache-2.0; see icons/make_icons.py
+import subprocess, sys as _sys
+subprocess.run([_sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'icons', 'make_icons.py'), OUT], check=True)
+ICON = '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48"><link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">'
 for f in glob.glob(OUT + '**/*.html', recursive=True):
     s = open(f).read()
     if 'rel="icon"' not in s:
