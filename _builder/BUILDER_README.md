@@ -50,3 +50,10 @@ BAH base pages, deepen the 8 original posts (added 19 Oct 2026): /bah/{fort-brag
   python3 bah_deepen/check_bah_deepen.py <site_root> bah_deepen/dtmo_bah_yoy_2026-10-19.json /workspace/scratch/bah2026   # must be 0 mismatches
   node bah_deepen/deepen_browser.cjs http://127.0.0.1:<port>                      # 200, console, overflow 1280/390, yoy rows, other posts=19
   At the 2027 refresh, change YEAR to 26/27 and update TODAY/CHECKED in the generator.
+
+Favicons (added 19 Oct 2026; Google ignores data-URI favicons):
+  python3 icons/make_icons.py <site_root>        # favicon.ico (16/32/48), favicon.svg, favicon-48x48.png, favicon-192x192.png, apple-touch-icon.png (180), favicon-LICENSE.txt
+  python3 icons/apply_icon_links.py <site_root>  # swap icon links in built pages; on index.html ONLY the data-URI icon line (hard rule: no other home change)
+  python3 icons/check_icons.py https://pcsvector.com   # 200 + content-type + sizes for icon files, icon links on every sitemap page + 404
+  Source art: Noto Emoji compass U+1F9ED SVG (googlefonts/noto-emoji @ e20cbc2, 2D/svg), Apache-2.0 (icons/NOTO_EMOJI_SVG_LICENSE.txt).
+  Needs rsvg-convert (apt librsvg2-bin) + Pillow.
