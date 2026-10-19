@@ -1,0 +1,2412 @@
+{
+ "NC182": {
+  "zip": "28310",
+  "2025": {
+   "area": "FORT BRAGG/POPE AFB, NC (NC182)",
+   "cells": {
+    "E1": {
+     "with": 1701,
+     "without": 1377,
+     "with_raw": "1701.00",
+     "without_raw": "1377.00"
+    },
+    "E2": {
+     "with": 1701,
+     "without": 1377,
+     "with_raw": "1701.00",
+     "without_raw": "1377.00"
+    },
+    "E3": {
+     "with": 1701,
+     "without": 1377,
+     "with_raw": "1701.00",
+     "without_raw": "1377.00"
+    },
+    "E4": {
+     "with": 1701,
+     "without": 1377,
+     "with_raw": "1701.00",
+     "without_raw": "1377.00"
+    },
+    "E5": {
+     "with": 1785,
+     "without": 1527,
+     "with_raw": "1785.00",
+     "without_raw": "1527.00"
+    },
+    "E6": {
+     "with": 2016,
+     "without": 1620,
+     "with_raw": "2016.00",
+     "without_raw": "1620.00"
+    },
+    "E7": {
+     "with": 2061,
+     "without": 1701,
+     "with_raw": "2061.00",
+     "without_raw": "1701.00"
+    },
+    "E8": {
+     "with": 2109,
+     "without": 1836,
+     "with_raw": "2109.00",
+     "without_raw": "1836.00"
+    },
+    "E9": {
+     "with": 2211,
+     "without": 1893,
+     "with_raw": "2211.00",
+     "without_raw": "1893.00"
+    },
+    "W1": {
+     "with": 2034,
+     "without": 1686,
+     "with_raw": "2034.00",
+     "without_raw": "1686.00"
+    },
+    "W2": {
+     "with": 2082,
+     "without": 1833,
+     "with_raw": "2082.00",
+     "without_raw": "1833.00"
+    },
+    "W3": {
+     "with": 2145,
+     "without": 1905,
+     "with_raw": "2145.00",
+     "without_raw": "1905.00"
+    },
+    "W4": {
+     "with": 2238,
+     "without": 2019,
+     "with_raw": "2238.00",
+     "without_raw": "2019.00"
+    },
+    "W5": {
+     "with": 2358,
+     "without": 2070,
+     "with_raw": "2358.00",
+     "without_raw": "2070.00"
+    },
+    "O1E": {
+     "with": 2064,
+     "without": 1782,
+     "with_raw": "2064.00",
+     "without_raw": "1782.00"
+    },
+    "O2E": {
+     "with": 2133,
+     "without": 1881,
+     "with_raw": "2133.00",
+     "without_raw": "1881.00"
+    },
+    "O3E": {
+     "with": 2253,
+     "without": 2007,
+     "with_raw": "2253.00",
+     "without_raw": "2007.00"
+    },
+    "O1": {
+     "with": 1818,
+     "without": 1617,
+     "with_raw": "1818.00",
+     "without_raw": "1617.00"
+    },
+    "O2": {
+     "with": 2013,
+     "without": 1761,
+     "with_raw": "2013.00",
+     "without_raw": "1761.00"
+    },
+    "O3": {
+     "with": 2142,
+     "without": 1929,
+     "with_raw": "2142.00",
+     "without_raw": "1929.00"
+    },
+    "O4": {
+     "with": 2394,
+     "without": 2055,
+     "with_raw": "2394.00",
+     "without_raw": "2055.00"
+    },
+    "O5": {
+     "with": 2574,
+     "without": 2079,
+     "with_raw": "2574.00",
+     "without_raw": "2079.00"
+    },
+    "O6": {
+     "with": 2595,
+     "without": 2124,
+     "with_raw": "2595.00",
+     "without_raw": "2124.00"
+    },
+    "O7": {
+     "with": 2613,
+     "without": 2160,
+     "with_raw": "2613.00",
+     "without_raw": "2160.00"
+    }
+   }
+  },
+  "2026": {
+   "area": "FORT BRAGG/POPE AFB, NC (NC182)",
+   "cells": {
+    "E1": {
+     "with": 1722,
+     "without": 1341,
+     "with_raw": "1722.00",
+     "without_raw": "1341.00"
+    },
+    "E2": {
+     "with": 1722,
+     "without": 1341,
+     "with_raw": "1722.00",
+     "without_raw": "1341.00"
+    },
+    "E3": {
+     "with": 1722,
+     "without": 1341,
+     "with_raw": "1722.00",
+     "without_raw": "1341.00"
+    },
+    "E4": {
+     "with": 1722,
+     "without": 1341,
+     "with_raw": "1722.00",
+     "without_raw": "1341.00"
+    },
+    "E5": {
+     "with": 1806,
+     "without": 1527,
+     "with_raw": "1806.00",
+     "without_raw": "1527.00"
+    },
+    "E6": {
+     "with": 2049,
+     "without": 1638,
+     "with_raw": "2049.00",
+     "without_raw": "1638.00"
+    },
+    "E7": {
+     "with": 2094,
+     "without": 1722,
+     "with_raw": "2094.00",
+     "without_raw": "1722.00"
+    },
+    "E8": {
+     "with": 2142,
+     "without": 1860,
+     "with_raw": "2142.00",
+     "without_raw": "1860.00"
+    },
+    "E9": {
+     "with": 2244,
+     "without": 1923,
+     "with_raw": "2244.00",
+     "without_raw": "1923.00"
+    },
+    "W1": {
+     "with": 2067,
+     "without": 1707,
+     "with_raw": "2067.00",
+     "without_raw": "1707.00"
+    },
+    "W2": {
+     "with": 2112,
+     "without": 1857,
+     "with_raw": "2112.00",
+     "without_raw": "1857.00"
+    },
+    "W3": {
+     "with": 2178,
+     "without": 1935,
+     "with_raw": "2178.00",
+     "without_raw": "1935.00"
+    },
+    "W4": {
+     "with": 2271,
+     "without": 2052,
+     "with_raw": "2271.00",
+     "without_raw": "2052.00"
+    },
+    "W5": {
+     "with": 2391,
+     "without": 2103,
+     "with_raw": "2391.00",
+     "without_raw": "2103.00"
+    },
+    "O1E": {
+     "with": 2097,
+     "without": 1803,
+     "with_raw": "2097.00",
+     "without_raw": "1803.00"
+    },
+    "O2E": {
+     "with": 2166,
+     "without": 1908,
+     "with_raw": "2166.00",
+     "without_raw": "1908.00"
+    },
+    "O3E": {
+     "with": 2289,
+     "without": 2040,
+     "with_raw": "2289.00",
+     "without_raw": "2040.00"
+    },
+    "O1": {
+     "with": 1842,
+     "without": 1635,
+     "with_raw": "1842.00",
+     "without_raw": "1635.00"
+    },
+    "O2": {
+     "with": 2046,
+     "without": 1782,
+     "with_raw": "2046.00",
+     "without_raw": "1782.00"
+    },
+    "O3": {
+     "with": 2175,
+     "without": 1956,
+     "with_raw": "2175.00",
+     "without_raw": "1956.00"
+    },
+    "O4": {
+     "with": 2427,
+     "without": 2088,
+     "with_raw": "2427.00",
+     "without_raw": "2088.00"
+    },
+    "O5": {
+     "with": 2610,
+     "without": 2109,
+     "with_raw": "2610.00",
+     "without_raw": "2109.00"
+    },
+    "O6": {
+     "with": 2628,
+     "without": 2154,
+     "with_raw": "2628.00",
+     "without_raw": "2154.00"
+    },
+    "O7": {
+     "with": 2646,
+     "without": 2190,
+     "with_raw": "2646.00",
+     "without_raw": "2190.00"
+    }
+   }
+  }
+ },
+ "TX286": {
+  "zip": "76544",
+  "2025": {
+   "area": "FORT HOOD, TX (TX286)",
+   "cells": {
+    "E1": {
+     "with": 1563,
+     "without": 1299,
+     "with_raw": "1563.00",
+     "without_raw": "1299.00"
+    },
+    "E2": {
+     "with": 1563,
+     "without": 1299,
+     "with_raw": "1563.00",
+     "without_raw": "1299.00"
+    },
+    "E3": {
+     "with": 1563,
+     "without": 1299,
+     "with_raw": "1563.00",
+     "without_raw": "1299.00"
+    },
+    "E4": {
+     "with": 1563,
+     "without": 1299,
+     "with_raw": "1563.00",
+     "without_raw": "1299.00"
+    },
+    "E5": {
+     "with": 1581,
+     "without": 1452,
+     "with_raw": "1581.00",
+     "without_raw": "1452.00"
+    },
+    "E6": {
+     "with": 1800,
+     "without": 1545,
+     "with_raw": "1800.00",
+     "without_raw": "1545.00"
+    },
+    "E7": {
+     "with": 1953,
+     "without": 1575,
+     "with_raw": "1953.00",
+     "without_raw": "1575.00"
+    },
+    "E8": {
+     "with": 2121,
+     "without": 1629,
+     "with_raw": "2121.00",
+     "without_raw": "1629.00"
+    },
+    "E9": {
+     "with": 2283,
+     "without": 1713,
+     "with_raw": "2283.00",
+     "without_raw": "1713.00"
+    },
+    "W1": {
+     "with": 1818,
+     "without": 1572,
+     "with_raw": "1818.00",
+     "without_raw": "1572.00"
+    },
+    "W2": {
+     "with": 2022,
+     "without": 1626,
+     "with_raw": "2022.00",
+     "without_raw": "1626.00"
+    },
+    "W3": {
+     "with": 2229,
+     "without": 1716,
+     "with_raw": "2229.00",
+     "without_raw": "1716.00"
+    },
+    "W4": {
+     "with": 2304,
+     "without": 1830,
+     "with_raw": "2304.00",
+     "without_raw": "1830.00"
+    },
+    "W5": {
+     "with": 2400,
+     "without": 1992,
+     "with_raw": "2400.00",
+     "without_raw": "1992.00"
+    },
+    "O1E": {
+     "with": 1980,
+     "without": 1584,
+     "with_raw": "1980.00",
+     "without_raw": "1584.00"
+    },
+    "O2E": {
+     "with": 2202,
+     "without": 1671,
+     "with_raw": "2202.00",
+     "without_raw": "1671.00"
+    },
+    "O3E": {
+     "with": 2316,
+     "without": 1788,
+     "with_raw": "2316.00",
+     "without_raw": "1788.00"
+    },
+    "O1": {
+     "with": 1614,
+     "without": 1542,
+     "with_raw": "1614.00",
+     "without_raw": "1542.00"
+    },
+    "O2": {
+     "with": 1797,
+     "without": 1581,
+     "with_raw": "1797.00",
+     "without_raw": "1581.00"
+    },
+    "O3": {
+     "with": 2223,
+     "without": 1719,
+     "with_raw": "2223.00",
+     "without_raw": "1719.00"
+    },
+    "O4": {
+     "with": 2427,
+     "without": 1959,
+     "with_raw": "2427.00",
+     "without_raw": "1959.00"
+    },
+    "O5": {
+     "with": 2568,
+     "without": 2055,
+     "with_raw": "2568.00",
+     "without_raw": "2055.00"
+    },
+    "O6": {
+     "with": 2589,
+     "without": 2211,
+     "with_raw": "2589.00",
+     "without_raw": "2211.00"
+    },
+    "O7": {
+     "with": 2607,
+     "without": 2250,
+     "with_raw": "2607.00",
+     "without_raw": "2250.00"
+    }
+   }
+  },
+  "2026": {
+   "area": "FORT HOOD, TX (TX286)",
+   "cells": {
+    "E1": {
+     "with": 1662,
+     "without": 1374,
+     "with_raw": "1662.00",
+     "without_raw": "1374.00"
+    },
+    "E2": {
+     "with": 1662,
+     "without": 1374,
+     "with_raw": "1662.00",
+     "without_raw": "1374.00"
+    },
+    "E3": {
+     "with": 1662,
+     "without": 1374,
+     "with_raw": "1662.00",
+     "without_raw": "1374.00"
+    },
+    "E4": {
+     "with": 1662,
+     "without": 1374,
+     "with_raw": "1662.00",
+     "without_raw": "1374.00"
+    },
+    "E5": {
+     "with": 1695,
+     "without": 1530,
+     "with_raw": "1695.00",
+     "without_raw": "1530.00"
+    },
+    "E6": {
+     "with": 1920,
+     "without": 1626,
+     "with_raw": "1920.00",
+     "without_raw": "1626.00"
+    },
+    "E7": {
+     "with": 2070,
+     "without": 1668,
+     "with_raw": "2070.00",
+     "without_raw": "1668.00"
+    },
+    "E8": {
+     "with": 2238,
+     "without": 1746,
+     "with_raw": "2238.00",
+     "without_raw": "1746.00"
+    },
+    "E9": {
+     "with": 2409,
+     "without": 1806,
+     "with_raw": "2409.00",
+     "without_raw": "1806.00"
+    },
+    "W1": {
+     "with": 1938,
+     "without": 1665,
+     "with_raw": "1938.00",
+     "without_raw": "1665.00"
+    },
+    "W2": {
+     "with": 2139,
+     "without": 1743,
+     "with_raw": "2139.00",
+     "without_raw": "1743.00"
+    },
+    "W3": {
+     "with": 2346,
+     "without": 1812,
+     "with_raw": "2346.00",
+     "without_raw": "1812.00"
+    },
+    "W4": {
+     "with": 2433,
+     "without": 1950,
+     "with_raw": "2433.00",
+     "without_raw": "1950.00"
+    },
+    "W5": {
+     "with": 2544,
+     "without": 2109,
+     "with_raw": "2544.00",
+     "without_raw": "2109.00"
+    },
+    "O1E": {
+     "with": 2100,
+     "without": 1692,
+     "with_raw": "2100.00",
+     "without_raw": "1692.00"
+    },
+    "O2E": {
+     "with": 2313,
+     "without": 1788,
+     "with_raw": "2313.00",
+     "without_raw": "1788.00"
+    },
+    "O3E": {
+     "with": 2451,
+     "without": 1908,
+     "with_raw": "2451.00",
+     "without_raw": "1908.00"
+    },
+    "O1": {
+     "with": 1731,
+     "without": 1623,
+     "with_raw": "1731.00",
+     "without_raw": "1623.00"
+    },
+    "O2": {
+     "with": 1917,
+     "without": 1689,
+     "with_raw": "1917.00",
+     "without_raw": "1689.00"
+    },
+    "O3": {
+     "with": 2340,
+     "without": 1833,
+     "with_raw": "2340.00",
+     "without_raw": "1833.00"
+    },
+    "O4": {
+     "with": 2577,
+     "without": 2076,
+     "with_raw": "2577.00",
+     "without_raw": "2076.00"
+    },
+    "O5": {
+     "with": 2748,
+     "without": 2169,
+     "with_raw": "2748.00",
+     "without_raw": "2169.00"
+    },
+    "O6": {
+     "with": 2769,
+     "without": 2325,
+     "with_raw": "2769.00",
+     "without_raw": "2325.00"
+    },
+    "O7": {
+     "with": 2787,
+     "without": 2361,
+     "with_raw": "2787.00",
+     "without_raw": "2361.00"
+    }
+   }
+  }
+ },
+ "KY106": {
+  "zip": "42223",
+  "2025": {
+   "area": "FORT CAMPBELL, KY (KY106)",
+   "cells": {
+    "E1": {
+     "with": 1773,
+     "without": 1467,
+     "with_raw": "1773.00",
+     "without_raw": "1467.00"
+    },
+    "E2": {
+     "with": 1773,
+     "without": 1467,
+     "with_raw": "1773.00",
+     "without_raw": "1467.00"
+    },
+    "E3": {
+     "with": 1773,
+     "without": 1467,
+     "with_raw": "1773.00",
+     "without_raw": "1467.00"
+    },
+    "E4": {
+     "with": 1773,
+     "without": 1467,
+     "with_raw": "1773.00",
+     "without_raw": "1467.00"
+    },
+    "E5": {
+     "with": 1812,
+     "without": 1635,
+     "with_raw": "1812.00",
+     "without_raw": "1635.00"
+    },
+    "E6": {
+     "with": 2067,
+     "without": 1734,
+     "with_raw": "2067.00",
+     "without_raw": "1734.00"
+    },
+    "E7": {
+     "with": 2208,
+     "without": 1776,
+     "with_raw": "2208.00",
+     "without_raw": "1776.00"
+    },
+    "E8": {
+     "with": 2358,
+     "without": 1866,
+     "with_raw": "2358.00",
+     "without_raw": "1866.00"
+    },
+    "E9": {
+     "with": 2538,
+     "without": 1935,
+     "with_raw": "2538.00",
+     "without_raw": "1935.00"
+    },
+    "W1": {
+     "with": 2085,
+     "without": 1773,
+     "with_raw": "2085.00",
+     "without_raw": "1773.00"
+    },
+    "W2": {
+     "with": 2268,
+     "without": 1863,
+     "with_raw": "2268.00",
+     "without_raw": "1863.00"
+    },
+    "W3": {
+     "with": 2454,
+     "without": 1944,
+     "with_raw": "2454.00",
+     "without_raw": "1944.00"
+    },
+    "W4": {
+     "with": 2571,
+     "without": 2094,
+     "with_raw": "2571.00",
+     "without_raw": "2094.00"
+    },
+    "W5": {
+     "with": 2712,
+     "without": 2241,
+     "with_raw": "2712.00",
+     "without_raw": "2241.00"
+    },
+    "O1E": {
+     "with": 2232,
+     "without": 1809,
+     "with_raw": "2232.00",
+     "without_raw": "1809.00"
+    },
+    "O2E": {
+     "with": 2430,
+     "without": 1920,
+     "with_raw": "2430.00",
+     "without_raw": "1920.00"
+    },
+    "O3E": {
+     "with": 2592,
+     "without": 2058,
+     "with_raw": "2592.00",
+     "without_raw": "2058.00"
+    },
+    "O1": {
+     "with": 1848,
+     "without": 1731,
+     "with_raw": "1848.00",
+     "without_raw": "1731.00"
+    },
+    "O2": {
+     "with": 2064,
+     "without": 1803,
+     "with_raw": "2064.00",
+     "without_raw": "1803.00"
+    },
+    "O3": {
+     "with": 2451,
+     "without": 1971,
+     "with_raw": "2451.00",
+     "without_raw": "1971.00"
+    },
+    "O4": {
+     "with": 2760,
+     "without": 2211,
+     "with_raw": "2760.00",
+     "without_raw": "2211.00"
+    },
+    "O5": {
+     "with": 2976,
+     "without": 2295,
+     "with_raw": "2976.00",
+     "without_raw": "2295.00"
+    },
+    "O6": {
+     "with": 3003,
+     "without": 2436,
+     "with_raw": "3003.00",
+     "without_raw": "2436.00"
+    },
+    "O7": {
+     "with": 3024,
+     "without": 2481,
+     "with_raw": "3024.00",
+     "without_raw": "2481.00"
+    }
+   }
+  },
+  "2026": {
+   "area": "FORT CAMPBELL, KY (KY106)",
+   "cells": {
+    "E1": {
+     "with": 1743,
+     "without": 1470,
+     "with_raw": "1743.00",
+     "without_raw": "1470.00"
+    },
+    "E2": {
+     "with": 1743,
+     "without": 1470,
+     "with_raw": "1743.00",
+     "without_raw": "1470.00"
+    },
+    "E3": {
+     "with": 1743,
+     "without": 1470,
+     "with_raw": "1743.00",
+     "without_raw": "1470.00"
+    },
+    "E4": {
+     "with": 1743,
+     "without": 1470,
+     "with_raw": "1743.00",
+     "without_raw": "1470.00"
+    },
+    "E5": {
+     "with": 1815,
+     "without": 1593,
+     "with_raw": "1815.00",
+     "without_raw": "1593.00"
+    },
+    "E6": {
+     "with": 2100,
+     "without": 1671,
+     "with_raw": "2100.00",
+     "without_raw": "1671.00"
+    },
+    "E7": {
+     "with": 2244,
+     "without": 1743,
+     "with_raw": "2244.00",
+     "without_raw": "1743.00"
+    },
+    "E8": {
+     "with": 2400,
+     "without": 1878,
+     "with_raw": "2400.00",
+     "without_raw": "1878.00"
+    },
+    "E9": {
+     "with": 2580,
+     "without": 1956,
+     "with_raw": "2580.00",
+     "without_raw": "1956.00"
+    },
+    "W1": {
+     "with": 2121,
+     "without": 1731,
+     "with_raw": "2121.00",
+     "without_raw": "1731.00"
+    },
+    "W2": {
+     "with": 2307,
+     "without": 1875,
+     "with_raw": "2307.00",
+     "without_raw": "1875.00"
+    },
+    "W3": {
+     "with": 2499,
+     "without": 1968,
+     "with_raw": "2499.00",
+     "without_raw": "1968.00"
+    },
+    "W4": {
+     "with": 2610,
+     "without": 2130,
+     "with_raw": "2610.00",
+     "without_raw": "2130.00"
+    },
+    "W5": {
+     "with": 2751,
+     "without": 2277,
+     "with_raw": "2751.00",
+     "without_raw": "2277.00"
+    },
+    "O1E": {
+     "with": 2271,
+     "without": 1812,
+     "with_raw": "2271.00",
+     "without_raw": "1812.00"
+    },
+    "O2E": {
+     "with": 2472,
+     "without": 1938,
+     "with_raw": "2472.00",
+     "without_raw": "1938.00"
+    },
+    "O3E": {
+     "with": 2634,
+     "without": 2091,
+     "with_raw": "2634.00",
+     "without_raw": "2091.00"
+    },
+    "O1": {
+     "with": 1857,
+     "without": 1668,
+     "with_raw": "1857.00",
+     "without_raw": "1668.00"
+    },
+    "O2": {
+     "with": 2097,
+     "without": 1794,
+     "with_raw": "2097.00",
+     "without_raw": "1794.00"
+    },
+    "O3": {
+     "with": 2496,
+     "without": 1995,
+     "with_raw": "2496.00",
+     "without_raw": "1995.00"
+    },
+    "O4": {
+     "with": 2793,
+     "without": 2250,
+     "with_raw": "2793.00",
+     "without_raw": "2250.00"
+    },
+    "O5": {
+     "with": 3006,
+     "without": 2334,
+     "with_raw": "3006.00",
+     "without_raw": "2334.00"
+    },
+    "O6": {
+     "with": 3030,
+     "without": 2478,
+     "with_raw": "3030.00",
+     "without_raw": "2478.00"
+    },
+    "O7": {
+     "with": 3048,
+     "without": 2520,
+     "with_raw": "3048.00",
+     "without_raw": "2520.00"
+    }
+   }
+  }
+ },
+ "CO046": {
+  "zip": "80913",
+  "2025": {
+   "area": "COLORADO SPRINGS, CO (CO046)",
+   "cells": {
+    "E1": {
+     "with": 2160,
+     "without": 1692,
+     "with_raw": "2160.00",
+     "without_raw": "1692.00"
+    },
+    "E2": {
+     "with": 2160,
+     "without": 1692,
+     "with_raw": "2160.00",
+     "without_raw": "1692.00"
+    },
+    "E3": {
+     "with": 2160,
+     "without": 1692,
+     "with_raw": "2160.00",
+     "without_raw": "1692.00"
+    },
+    "E4": {
+     "with": 2160,
+     "without": 1692,
+     "with_raw": "2160.00",
+     "without_raw": "1692.00"
+    },
+    "E5": {
+     "with": 2340,
+     "without": 1875,
+     "with_raw": "2340.00",
+     "without_raw": "1875.00"
+    },
+    "E6": {
+     "with": 2382,
+     "without": 1995,
+     "with_raw": "2382.00",
+     "without_raw": "1995.00"
+    },
+    "E7": {
+     "with": 2445,
+     "without": 2166,
+     "with_raw": "2445.00",
+     "without_raw": "2166.00"
+    },
+    "E8": {
+     "with": 2517,
+     "without": 2355,
+     "with_raw": "2517.00",
+     "without_raw": "2355.00"
+    },
+    "E9": {
+     "with": 2613,
+     "without": 2361,
+     "with_raw": "2613.00",
+     "without_raw": "2361.00"
+    },
+    "W1": {
+     "with": 2397,
+     "without": 2109,
+     "with_raw": "2397.00",
+     "without_raw": "2109.00"
+    },
+    "W2": {
+     "with": 2475,
+     "without": 2352,
+     "with_raw": "2475.00",
+     "without_raw": "2352.00"
+    },
+    "W3": {
+     "with": 2565,
+     "without": 2364,
+     "with_raw": "2565.00",
+     "without_raw": "2364.00"
+    },
+    "W4": {
+     "with": 2634,
+     "without": 2385,
+     "with_raw": "2634.00",
+     "without_raw": "2385.00"
+    },
+    "W5": {
+     "with": 2721,
+     "without": 2460,
+     "with_raw": "2721.00",
+     "without_raw": "2460.00"
+    },
+    "O1E": {
+     "with": 2451,
+     "without": 2337,
+     "with_raw": "2451.00",
+     "without_raw": "2337.00"
+    },
+    "O2E": {
+     "with": 2553,
+     "without": 2358,
+     "with_raw": "2553.00",
+     "without_raw": "2358.00"
+    },
+    "O3E": {
+     "with": 2643,
+     "without": 2370,
+     "with_raw": "2643.00",
+     "without_raw": "2370.00"
+    },
+    "O1": {
+     "with": 2355,
+     "without": 1977,
+     "with_raw": "2355.00",
+     "without_raw": "1977.00"
+    },
+    "O2": {
+     "with": 2379,
+     "without": 2283,
+     "with_raw": "2379.00",
+     "without_raw": "2283.00"
+    },
+    "O3": {
+     "with": 2562,
+     "without": 2367,
+     "with_raw": "2562.00",
+     "without_raw": "2367.00"
+    },
+    "O4": {
+     "with": 2745,
+     "without": 2442,
+     "with_raw": "2745.00",
+     "without_raw": "2442.00"
+    },
+    "O5": {
+     "with": 2871,
+     "without": 2478,
+     "with_raw": "2871.00",
+     "without_raw": "2478.00"
+    },
+    "O6": {
+     "with": 2898,
+     "without": 2547,
+     "with_raw": "2898.00",
+     "without_raw": "2547.00"
+    },
+    "O7": {
+     "with": 2919,
+     "without": 2592,
+     "with_raw": "2919.00",
+     "without_raw": "2592.00"
+    }
+   }
+  },
+  "2026": {
+   "area": "COLORADO SPRINGS, CO (CO046)",
+   "cells": {
+    "E1": {
+     "with": 2160,
+     "without": 1689,
+     "with_raw": "2160.00",
+     "without_raw": "1689.00"
+    },
+    "E2": {
+     "with": 2160,
+     "without": 1689,
+     "with_raw": "2160.00",
+     "without_raw": "1689.00"
+    },
+    "E3": {
+     "with": 2160,
+     "without": 1689,
+     "with_raw": "2160.00",
+     "without_raw": "1689.00"
+    },
+    "E4": {
+     "with": 2160,
+     "without": 1689,
+     "with_raw": "2160.00",
+     "without_raw": "1689.00"
+    },
+    "E5": {
+     "with": 2358,
+     "without": 1860,
+     "with_raw": "2358.00",
+     "without_raw": "1860.00"
+    },
+    "E6": {
+     "with": 2433,
+     "without": 1980,
+     "with_raw": "2433.00",
+     "without_raw": "1980.00"
+    },
+    "E7": {
+     "with": 2487,
+     "without": 2166,
+     "with_raw": "2487.00",
+     "without_raw": "2166.00"
+    },
+    "E8": {
+     "with": 2553,
+     "without": 2379,
+     "with_raw": "2553.00",
+     "without_raw": "2379.00"
+    },
+    "E9": {
+     "with": 2646,
+     "without": 2388,
+     "with_raw": "2646.00",
+     "without_raw": "2388.00"
+    },
+    "W1": {
+     "with": 2448,
+     "without": 2103,
+     "with_raw": "2448.00",
+     "without_raw": "2103.00"
+    },
+    "W2": {
+     "with": 2514,
+     "without": 2376,
+     "with_raw": "2514.00",
+     "without_raw": "2376.00"
+    },
+    "W3": {
+     "with": 2598,
+     "without": 2394,
+     "with_raw": "2598.00",
+     "without_raw": "2394.00"
+    },
+    "W4": {
+     "with": 2664,
+     "without": 2436,
+     "with_raw": "2664.00",
+     "without_raw": "2436.00"
+    },
+    "W5": {
+     "with": 2754,
+     "without": 2502,
+     "with_raw": "2754.00",
+     "without_raw": "2502.00"
+    },
+    "O1E": {
+     "with": 2496,
+     "without": 2355,
+     "with_raw": "2496.00",
+     "without_raw": "2355.00"
+    },
+    "O2E": {
+     "with": 2583,
+     "without": 2385,
+     "with_raw": "2583.00",
+     "without_raw": "2385.00"
+    },
+    "O3E": {
+     "with": 2679,
+     "without": 2418,
+     "with_raw": "2679.00",
+     "without_raw": "2418.00"
+    },
+    "O1": {
+     "with": 2376,
+     "without": 1959,
+     "with_raw": "2376.00",
+     "without_raw": "1959.00"
+    },
+    "O2": {
+     "with": 2430,
+     "without": 2295,
+     "with_raw": "2430.00",
+     "without_raw": "2295.00"
+    },
+    "O3": {
+     "with": 2595,
+     "without": 2397,
+     "with_raw": "2595.00",
+     "without_raw": "2397.00"
+    },
+    "O4": {
+     "with": 2778,
+     "without": 2484,
+     "with_raw": "2778.00",
+     "without_raw": "2484.00"
+    },
+    "O5": {
+     "with": 2913,
+     "without": 2517,
+     "with_raw": "2913.00",
+     "without_raw": "2517.00"
+    },
+    "O6": {
+     "with": 2934,
+     "without": 2574,
+     "with_raw": "2934.00",
+     "without_raw": "2574.00"
+    },
+    "O7": {
+     "with": 2955,
+     "without": 2616,
+     "with_raw": "2955.00",
+     "without_raw": "2616.00"
+    }
+   }
+  }
+ },
+ "WA311": {
+  "zip": "98433",
+  "2025": {
+   "area": "TACOMA, WA (WA311)",
+   "cells": {
+    "E1": {
+     "with": 2328,
+     "without": 1785,
+     "with_raw": "2328.00",
+     "without_raw": "1785.00"
+    },
+    "E2": {
+     "with": 2328,
+     "without": 1785,
+     "with_raw": "2328.00",
+     "without_raw": "1785.00"
+    },
+    "E3": {
+     "with": 2328,
+     "without": 1785,
+     "with_raw": "2328.00",
+     "without_raw": "1785.00"
+    },
+    "E4": {
+     "with": 2328,
+     "without": 1785,
+     "with_raw": "2328.00",
+     "without_raw": "1785.00"
+    },
+    "E5": {
+     "with": 2508,
+     "without": 2013,
+     "with_raw": "2508.00",
+     "without_raw": "2013.00"
+    },
+    "E6": {
+     "with": 2850,
+     "without": 2160,
+     "with_raw": "2850.00",
+     "without_raw": "2160.00"
+    },
+    "E7": {
+     "with": 2922,
+     "without": 2331,
+     "with_raw": "2922.00",
+     "without_raw": "2331.00"
+    },
+    "E8": {
+     "with": 3000,
+     "without": 2583,
+     "with_raw": "3000.00",
+     "without_raw": "2583.00"
+    },
+    "E9": {
+     "with": 3105,
+     "without": 2676,
+     "with_raw": "3105.00",
+     "without_raw": "2676.00"
+    },
+    "W1": {
+     "with": 2868,
+     "without": 2274,
+     "with_raw": "2868.00",
+     "without_raw": "2274.00"
+    },
+    "W2": {
+     "with": 2955,
+     "without": 2580,
+     "with_raw": "2955.00",
+     "without_raw": "2580.00"
+    },
+    "W3": {
+     "with": 3054,
+     "without": 2688,
+     "with_raw": "3054.00",
+     "without_raw": "2688.00"
+    },
+    "W4": {
+     "with": 3126,
+     "without": 2862,
+     "with_raw": "3126.00",
+     "without_raw": "2862.00"
+    },
+    "W5": {
+     "with": 3222,
+     "without": 2940,
+     "with_raw": "3222.00",
+     "without_raw": "2940.00"
+    },
+    "O1E": {
+     "with": 2931,
+     "without": 2505,
+     "with_raw": "2931.00",
+     "without_raw": "2505.00"
+    },
+    "O2E": {
+     "with": 3039,
+     "without": 2655,
+     "with_raw": "3039.00",
+     "without_raw": "2655.00"
+    },
+    "O3E": {
+     "with": 3138,
+     "without": 2841,
+     "with_raw": "3138.00",
+     "without_raw": "2841.00"
+    },
+    "O1": {
+     "with": 2556,
+     "without": 2142,
+     "with_raw": "2556.00",
+     "without_raw": "2142.00"
+    },
+    "O2": {
+     "with": 2847,
+     "without": 2451,
+     "with_raw": "2847.00",
+     "without_raw": "2451.00"
+    },
+    "O3": {
+     "with": 3051,
+     "without": 2724,
+     "with_raw": "3051.00",
+     "without_raw": "2724.00"
+    },
+    "O4": {
+     "with": 3249,
+     "without": 2919,
+     "with_raw": "3249.00",
+     "without_raw": "2919.00"
+    },
+    "O5": {
+     "with": 3387,
+     "without": 2961,
+     "with_raw": "3387.00",
+     "without_raw": "2961.00"
+    },
+    "O6": {
+     "with": 3417,
+     "without": 3033,
+     "with_raw": "3417.00",
+     "without_raw": "3033.00"
+    },
+    "O7": {
+     "with": 3444,
+     "without": 3087,
+     "with_raw": "3444.00",
+     "without_raw": "3087.00"
+    }
+   }
+  },
+  "2026": {
+   "area": "TACOMA, WA (WA311)",
+   "cells": {
+    "E1": {
+     "with": 2370,
+     "without": 2034,
+     "with_raw": "2370.00",
+     "without_raw": "2034.00"
+    },
+    "E2": {
+     "with": 2370,
+     "without": 2034,
+     "with_raw": "2370.00",
+     "without_raw": "2034.00"
+    },
+    "E3": {
+     "with": 2370,
+     "without": 2034,
+     "with_raw": "2370.00",
+     "without_raw": "2034.00"
+    },
+    "E4": {
+     "with": 2370,
+     "without": 2034,
+     "with_raw": "2370.00",
+     "without_raw": "2034.00"
+    },
+    "E5": {
+     "with": 2556,
+     "without": 2121,
+     "with_raw": "2556.00",
+     "without_raw": "2121.00"
+    },
+    "E6": {
+     "with": 2919,
+     "without": 2199,
+     "with_raw": "2919.00",
+     "without_raw": "2199.00"
+    },
+    "E7": {
+     "with": 2994,
+     "without": 2376,
+     "with_raw": "2994.00",
+     "without_raw": "2376.00"
+    },
+    "E8": {
+     "with": 3072,
+     "without": 2634,
+     "with_raw": "3072.00",
+     "without_raw": "2634.00"
+    },
+    "E9": {
+     "with": 3180,
+     "without": 2736,
+     "with_raw": "3180.00",
+     "without_raw": "2736.00"
+    },
+    "W1": {
+     "with": 2940,
+     "without": 2313,
+     "with_raw": "2940.00",
+     "without_raw": "2313.00"
+    },
+    "W2": {
+     "with": 3024,
+     "without": 2631,
+     "with_raw": "3024.00",
+     "without_raw": "2631.00"
+    },
+    "W3": {
+     "with": 3126,
+     "without": 2751,
+     "with_raw": "3126.00",
+     "without_raw": "2751.00"
+    },
+    "W4": {
+     "with": 3201,
+     "without": 2931,
+     "with_raw": "3201.00",
+     "without_raw": "2931.00"
+    },
+    "W5": {
+     "with": 3297,
+     "without": 3009,
+     "with_raw": "3297.00",
+     "without_raw": "3009.00"
+    },
+    "O1E": {
+     "with": 3006,
+     "without": 2553,
+     "with_raw": "3006.00",
+     "without_raw": "2553.00"
+    },
+    "O2E": {
+     "with": 3108,
+     "without": 2712,
+     "with_raw": "3108.00",
+     "without_raw": "2712.00"
+    },
+    "O3E": {
+     "with": 3216,
+     "without": 2913,
+     "with_raw": "3216.00",
+     "without_raw": "2913.00"
+    },
+    "O1": {
+     "with": 2607,
+     "without": 2178,
+     "with_raw": "2607.00",
+     "without_raw": "2178.00"
+    },
+    "O2": {
+     "with": 2916,
+     "without": 2496,
+     "with_raw": "2916.00",
+     "without_raw": "2496.00"
+    },
+    "O3": {
+     "with": 3123,
+     "without": 2784,
+     "with_raw": "3123.00",
+     "without_raw": "2784.00"
+    },
+    "O4": {
+     "with": 3324,
+     "without": 2991,
+     "with_raw": "3324.00",
+     "without_raw": "2991.00"
+    },
+    "O5": {
+     "with": 3471,
+     "without": 3030,
+     "with_raw": "3471.00",
+     "without_raw": "3030.00"
+    },
+    "O6": {
+     "with": 3501,
+     "without": 3102,
+     "with_raw": "3501.00",
+     "without_raw": "3102.00"
+    },
+    "O7": {
+     "with": 3525,
+     "without": 3156,
+     "with_raw": "3525.00",
+     "without_raw": "3156.00"
+    }
+   }
+  }
+ },
+ "NY225": {
+  "zip": "13602",
+  "2025": {
+   "area": "FT. DRUM/WATERTOWN, NY (NY225)",
+   "cells": {
+    "E1": {
+     "with": 1494,
+     "without": 1194,
+     "with_raw": "1494.00",
+     "without_raw": "1194.00"
+    },
+    "E2": {
+     "with": 1494,
+     "without": 1194,
+     "with_raw": "1494.00",
+     "without_raw": "1194.00"
+    },
+    "E3": {
+     "with": 1494,
+     "without": 1194,
+     "with_raw": "1494.00",
+     "without_raw": "1194.00"
+    },
+    "E4": {
+     "with": 1494,
+     "without": 1194,
+     "with_raw": "1494.00",
+     "without_raw": "1194.00"
+    },
+    "E5": {
+     "with": 1581,
+     "without": 1323,
+     "with_raw": "1581.00",
+     "without_raw": "1323.00"
+    },
+    "E6": {
+     "with": 1800,
+     "without": 1404,
+     "with_raw": "1800.00",
+     "without_raw": "1404.00"
+    },
+    "E7": {
+     "with": 2019,
+     "without": 1515,
+     "with_raw": "2019.00",
+     "without_raw": "1515.00"
+    },
+    "E8": {
+     "with": 2256,
+     "without": 1692,
+     "with_raw": "2256.00",
+     "without_raw": "1692.00"
+    },
+    "E9": {
+     "with": 2448,
+     "without": 1836,
+     "with_raw": "2448.00",
+     "without_raw": "1836.00"
+    },
+    "W1": {
+     "with": 1821,
+     "without": 1476,
+     "with_raw": "1821.00",
+     "without_raw": "1476.00"
+    },
+    "W2": {
+     "with": 2118,
+     "without": 1629,
+     "with_raw": "2118.00",
+     "without_raw": "1629.00"
+    },
+    "W3": {
+     "with": 2409,
+     "without": 1839,
+     "with_raw": "2409.00",
+     "without_raw": "1839.00"
+    },
+    "W4": {
+     "with": 2463,
+     "without": 1857,
+     "with_raw": "2463.00",
+     "without_raw": "1857.00"
+    },
+    "W5": {
+     "with": 2535,
+     "without": 2073,
+     "with_raw": "2535.00",
+     "without_raw": "2073.00"
+    },
+    "O1E": {
+     "with": 2061,
+     "without": 1578,
+     "with_raw": "2061.00",
+     "without_raw": "1578.00"
+    },
+    "O2E": {
+     "with": 2367,
+     "without": 1776,
+     "with_raw": "2367.00",
+     "without_raw": "1776.00"
+    },
+    "O3E": {
+     "with": 2472,
+     "without": 1854,
+     "with_raw": "2472.00",
+     "without_raw": "1854.00"
+    },
+    "O1": {
+     "with": 1617,
+     "without": 1401,
+     "with_raw": "1617.00",
+     "without_raw": "1401.00"
+    },
+    "O2": {
+     "with": 1797,
+     "without": 1557,
+     "with_raw": "1797.00",
+     "without_raw": "1557.00"
+    },
+    "O3": {
+     "with": 2400,
+     "without": 1842,
+     "with_raw": "2400.00",
+     "without_raw": "1842.00"
+    },
+    "O4": {
+     "with": 2553,
+     "without": 2031,
+     "with_raw": "2553.00",
+     "without_raw": "2031.00"
+    },
+    "O5": {
+     "with": 2652,
+     "without": 2169,
+     "with_raw": "2652.00",
+     "without_raw": "2169.00"
+    },
+    "O6": {
+     "with": 2673,
+     "without": 2391,
+     "with_raw": "2673.00",
+     "without_raw": "2391.00"
+    },
+    "O7": {
+     "with": 2694,
+     "without": 2433,
+     "with_raw": "2694.00",
+     "without_raw": "2433.00"
+    }
+   }
+  },
+  "2026": {
+   "area": "FT. DRUM/WATERTOWN, NY (NY225)",
+   "cells": {
+    "E1": {
+     "with": 1569,
+     "without": 1356,
+     "with_raw": "1569.00",
+     "without_raw": "1356.00"
+    },
+    "E2": {
+     "with": 1569,
+     "without": 1356,
+     "with_raw": "1569.00",
+     "without_raw": "1356.00"
+    },
+    "E3": {
+     "with": 1569,
+     "without": 1356,
+     "with_raw": "1569.00",
+     "without_raw": "1356.00"
+    },
+    "E4": {
+     "with": 1569,
+     "without": 1356,
+     "with_raw": "1569.00",
+     "without_raw": "1356.00"
+    },
+    "E5": {
+     "with": 1665,
+     "without": 1422,
+     "with_raw": "1665.00",
+     "without_raw": "1422.00"
+    },
+    "E6": {
+     "with": 1893,
+     "without": 1476,
+     "with_raw": "1893.00",
+     "without_raw": "1476.00"
+    },
+    "E7": {
+     "with": 2103,
+     "without": 1578,
+     "with_raw": "2103.00",
+     "without_raw": "1578.00"
+    },
+    "E8": {
+     "with": 2331,
+     "without": 1749,
+     "with_raw": "2331.00",
+     "without_raw": "1749.00"
+    },
+    "E9": {
+     "with": 2526,
+     "without": 1896,
+     "with_raw": "2526.00",
+     "without_raw": "1896.00"
+    },
+    "W1": {
+     "with": 1914,
+     "without": 1548,
+     "with_raw": "1914.00",
+     "without_raw": "1548.00"
+    },
+    "W2": {
+     "with": 2196,
+     "without": 1713,
+     "with_raw": "2196.00",
+     "without_raw": "1713.00"
+    },
+    "W3": {
+     "with": 2478,
+     "without": 1899,
+     "with_raw": "2478.00",
+     "without_raw": "1899.00"
+    },
+    "W4": {
+     "with": 2544,
+     "without": 1938,
+     "with_raw": "2544.00",
+     "without_raw": "1938.00"
+    },
+    "W5": {
+     "with": 2631,
+     "without": 2154,
+     "with_raw": "2631.00",
+     "without_raw": "2154.00"
+    },
+    "O1E": {
+     "with": 2145,
+     "without": 1662,
+     "with_raw": "2145.00",
+     "without_raw": "1662.00"
+    },
+    "O2E": {
+     "with": 2436,
+     "without": 1827,
+     "with_raw": "2436.00",
+     "without_raw": "1827.00"
+    },
+    "O3E": {
+     "with": 2559,
+     "without": 1920,
+     "with_raw": "2559.00",
+     "without_raw": "1920.00"
+    },
+    "O1": {
+     "with": 1701,
+     "without": 1470,
+     "with_raw": "1701.00",
+     "without_raw": "1470.00"
+    },
+    "O2": {
+     "with": 1890,
+     "without": 1638,
+     "with_raw": "1890.00",
+     "without_raw": "1638.00"
+    },
+    "O3": {
+     "with": 2469,
+     "without": 1902,
+     "with_raw": "2469.00",
+     "without_raw": "1902.00"
+    },
+    "O4": {
+     "with": 2655,
+     "without": 2115,
+     "with_raw": "2655.00",
+     "without_raw": "2115.00"
+    },
+    "O5": {
+     "with": 2784,
+     "without": 2244,
+     "with_raw": "2784.00",
+     "without_raw": "2244.00"
+    },
+    "O6": {
+     "with": 2805,
+     "without": 2457,
+     "with_raw": "2805.00",
+     "without_raw": "2457.00"
+    },
+    "O7": {
+     "with": 2823,
+     "without": 2496,
+     "with_raw": "2823.00",
+     "without_raw": "2496.00"
+    }
+   }
+  }
+ },
+ "TX279": {
+  "zip": "79916",
+  "2025": {
+   "area": "EL PASO, TX (TX279)",
+   "cells": {
+    "E1": {
+     "with": 1647,
+     "without": 1275,
+     "with_raw": "1647.00",
+     "without_raw": "1275.00"
+    },
+    "E2": {
+     "with": 1647,
+     "without": 1275,
+     "with_raw": "1647.00",
+     "without_raw": "1275.00"
+    },
+    "E3": {
+     "with": 1647,
+     "without": 1275,
+     "with_raw": "1647.00",
+     "without_raw": "1275.00"
+    },
+    "E4": {
+     "with": 1647,
+     "without": 1275,
+     "with_raw": "1647.00",
+     "without_raw": "1275.00"
+    },
+    "E5": {
+     "with": 1773,
+     "without": 1425,
+     "with_raw": "1773.00",
+     "without_raw": "1425.00"
+    },
+    "E6": {
+     "with": 1998,
+     "without": 1527,
+     "with_raw": "1998.00",
+     "without_raw": "1527.00"
+    },
+    "E7": {
+     "with": 2022,
+     "without": 1647,
+     "with_raw": "2022.00",
+     "without_raw": "1647.00"
+    },
+    "E8": {
+     "with": 2046,
+     "without": 1824,
+     "with_raw": "2046.00",
+     "without_raw": "1824.00"
+    },
+    "E9": {
+     "with": 2112,
+     "without": 1881,
+     "with_raw": "2112.00",
+     "without_raw": "1881.00"
+    },
+    "W1": {
+     "with": 2013,
+     "without": 1614,
+     "with_raw": "2013.00",
+     "without_raw": "1614.00"
+    },
+    "W2": {
+     "with": 2031,
+     "without": 1821,
+     "with_raw": "2031.00",
+     "without_raw": "1821.00"
+    },
+    "W3": {
+     "with": 2067,
+     "without": 1890,
+     "with_raw": "2067.00",
+     "without_raw": "1890.00"
+    },
+    "W4": {
+     "with": 2130,
+     "without": 1995,
+     "with_raw": "2130.00",
+     "without_raw": "1995.00"
+    },
+    "W5": {
+     "with": 2214,
+     "without": 2025,
+     "with_raw": "2214.00",
+     "without_raw": "2025.00"
+    },
+    "O1E": {
+     "with": 2025,
+     "without": 1770,
+     "with_raw": "2025.00",
+     "without_raw": "1770.00"
+    },
+    "O2E": {
+     "with": 2061,
+     "without": 1866,
+     "with_raw": "2061.00",
+     "without_raw": "1866.00"
+    },
+    "O3E": {
+     "with": 2142,
+     "without": 1986,
+     "with_raw": "2142.00",
+     "without_raw": "1986.00"
+    },
+    "O1": {
+     "with": 1809,
+     "without": 1515,
+     "with_raw": "1809.00",
+     "without_raw": "1515.00"
+    },
+    "O2": {
+     "with": 1995,
+     "without": 1734,
+     "with_raw": "1995.00",
+     "without_raw": "1734.00"
+    },
+    "O3": {
+     "with": 2064,
+     "without": 1914,
+     "with_raw": "2064.00",
+     "without_raw": "1914.00"
+    },
+    "O4": {
+     "with": 2241,
+     "without": 2013,
+     "with_raw": "2241.00",
+     "without_raw": "2013.00"
+    },
+    "O5": {
+     "with": 2361,
+     "without": 2028,
+     "with_raw": "2361.00",
+     "without_raw": "2028.00"
+    },
+    "O6": {
+     "with": 2382,
+     "without": 2046,
+     "with_raw": "2382.00",
+     "without_raw": "2046.00"
+    },
+    "O7": {
+     "with": 2397,
+     "without": 2082,
+     "with_raw": "2397.00",
+     "without_raw": "2082.00"
+    }
+   }
+  },
+  "2026": {
+   "area": "EL PASO, TX (TX279)",
+   "cells": {
+    "E1": {
+     "with": 1665,
+     "without": 1302,
+     "with_raw": "1665.00",
+     "without_raw": "1302.00"
+    },
+    "E2": {
+     "with": 1665,
+     "without": 1302,
+     "with_raw": "1665.00",
+     "without_raw": "1302.00"
+    },
+    "E3": {
+     "with": 1665,
+     "without": 1302,
+     "with_raw": "1665.00",
+     "without_raw": "1302.00"
+    },
+    "E4": {
+     "with": 1665,
+     "without": 1302,
+     "with_raw": "1665.00",
+     "without_raw": "1302.00"
+    },
+    "E5": {
+     "with": 1809,
+     "without": 1437,
+     "with_raw": "1809.00",
+     "without_raw": "1437.00"
+    },
+    "E6": {
+     "with": 2148,
+     "without": 1611,
+     "with_raw": "2148.00",
+     "without_raw": "1611.00"
+    },
+    "E7": {
+     "with": 2172,
+     "without": 1668,
+     "with_raw": "2172.00",
+     "without_raw": "1668.00"
+    },
+    "E8": {
+     "with": 2187,
+     "without": 1881,
+     "with_raw": "2187.00",
+     "without_raw": "1881.00"
+    },
+    "E9": {
+     "with": 2241,
+     "without": 1977,
+     "with_raw": "2241.00",
+     "without_raw": "1977.00"
+    },
+    "W1": {
+     "with": 2169,
+     "without": 1626,
+     "with_raw": "2169.00",
+     "without_raw": "1626.00"
+    },
+    "W2": {
+     "with": 2178,
+     "without": 1878,
+     "with_raw": "2178.00",
+     "without_raw": "1878.00"
+    },
+    "W3": {
+     "with": 2205,
+     "without": 1992,
+     "with_raw": "2205.00",
+     "without_raw": "1992.00"
+    },
+    "W4": {
+     "with": 2256,
+     "without": 2148,
+     "with_raw": "2256.00",
+     "without_raw": "2148.00"
+    },
+    "W5": {
+     "with": 2334,
+     "without": 2169,
+     "with_raw": "2334.00",
+     "without_raw": "2169.00"
+    },
+    "O1E": {
+     "with": 2175,
+     "without": 1806,
+     "with_raw": "2175.00",
+     "without_raw": "1806.00"
+    },
+    "O2E": {
+     "with": 2196,
+     "without": 1956,
+     "with_raw": "2196.00",
+     "without_raw": "1956.00"
+    },
+    "O3E": {
+     "with": 2268,
+     "without": 2142,
+     "with_raw": "2268.00",
+     "without_raw": "2142.00"
+    },
+    "O1": {
+     "with": 1857,
+     "without": 1518,
+     "with_raw": "1857.00",
+     "without_raw": "1518.00"
+    },
+    "O2": {
+     "with": 2145,
+     "without": 1764,
+     "with_raw": "2145.00",
+     "without_raw": "1764.00"
+    },
+    "O3": {
+     "with": 2202,
+     "without": 2022,
+     "with_raw": "2202.00",
+     "without_raw": "2022.00"
+    },
+    "O4": {
+     "with": 2352,
+     "without": 2157,
+     "with_raw": "2352.00",
+     "without_raw": "2157.00"
+    },
+    "O5": {
+     "with": 2466,
+     "without": 2172,
+     "with_raw": "2466.00",
+     "without_raw": "2172.00"
+    },
+    "O6": {
+     "with": 2484,
+     "without": 2178,
+     "with_raw": "2484.00",
+     "without_raw": "2178.00"
+    },
+    "O7": {
+     "with": 2496,
+     "without": 2214,
+     "with_raw": "2496.00",
+     "without_raw": "2214.00"
+    }
+   }
+  }
+ },
+ "DC053": {
+  "zip": "22202",
+  "2025": {
+   "area": "WASHINGTON DC METRO AREA (DC053)",
+   "cells": {
+    "E1": {
+     "with": 2922,
+     "without": 2283,
+     "with_raw": "2922.00",
+     "without_raw": "2283.00"
+    },
+    "E2": {
+     "with": 2922,
+     "without": 2283,
+     "with_raw": "2922.00",
+     "without_raw": "2283.00"
+    },
+    "E3": {
+     "with": 2922,
+     "without": 2283,
+     "with_raw": "2922.00",
+     "without_raw": "2283.00"
+    },
+    "E4": {
+     "with": 2922,
+     "without": 2283,
+     "with_raw": "2922.00",
+     "without_raw": "2283.00"
+    },
+    "E5": {
+     "with": 2952,
+     "without": 2679,
+     "with_raw": "2952.00",
+     "without_raw": "2679.00"
+    },
+    "E6": {
+     "with": 3459,
+     "without": 2892,
+     "with_raw": "3459.00",
+     "without_raw": "2892.00"
+    },
+    "E7": {
+     "with": 3579,
+     "without": 2931,
+     "with_raw": "3579.00",
+     "without_raw": "2931.00"
+    },
+    "E8": {
+     "with": 3702,
+     "without": 3057,
+     "with_raw": "3702.00",
+     "without_raw": "3057.00"
+    },
+    "E9": {
+     "with": 3876,
+     "without": 3204,
+     "with_raw": "3876.00",
+     "without_raw": "3204.00"
+    },
+    "W1": {
+     "with": 3480,
+     "without": 2928,
+     "with_raw": "3480.00",
+     "without_raw": "2928.00"
+    },
+    "W2": {
+     "with": 3630,
+     "without": 3054,
+     "with_raw": "3630.00",
+     "without_raw": "3054.00"
+    },
+    "W3": {
+     "with": 3786,
+     "without": 3222,
+     "with_raw": "3786.00",
+     "without_raw": "3222.00"
+    },
+    "W4": {
+     "with": 3915,
+     "without": 3483,
+     "with_raw": "3915.00",
+     "without_raw": "3483.00"
+    },
+    "W5": {
+     "with": 4068,
+     "without": 3606,
+     "with_raw": "4068.00",
+     "without_raw": "3606.00"
+    },
+    "O1E": {
+     "with": 3597,
+     "without": 2949,
+     "with_raw": "3597.00",
+     "without_raw": "2949.00"
+    },
+    "O2E": {
+     "with": 3765,
+     "without": 3171,
+     "with_raw": "3765.00",
+     "without_raw": "3171.00"
+    },
+    "O3E": {
+     "with": 3936,
+     "without": 3453,
+     "with_raw": "3936.00",
+     "without_raw": "3453.00"
+    },
+    "O1": {
+     "with": 3018,
+     "without": 2889,
+     "with_raw": "3018.00",
+     "without_raw": "2889.00"
+    },
+    "O2": {
+     "with": 3453,
+     "without": 2946,
+     "with_raw": "3453.00",
+     "without_raw": "2946.00"
+    },
+    "O3": {
+     "with": 3783,
+     "without": 3276,
+     "with_raw": "3783.00",
+     "without_raw": "3276.00"
+    },
+    "O4": {
+     "with": 4122,
+     "without": 3579,
+     "with_raw": "4122.00",
+     "without_raw": "3579.00"
+    },
+    "O5": {
+     "with": 4359,
+     "without": 3651,
+     "with_raw": "4359.00",
+     "without_raw": "3651.00"
+    },
+    "O6": {
+     "with": 4398,
+     "without": 3768,
+     "with_raw": "4398.00",
+     "without_raw": "3768.00"
+    },
+    "O7": {
+     "with": 4434,
+     "without": 3837,
+     "with_raw": "4434.00",
+     "without_raw": "3837.00"
+    }
+   }
+  },
+  "2026": {
+   "area": "WASHINGTON DC METRO AREA (DC053)",
+   "cells": {
+    "E1": {
+     "with": 3096,
+     "without": 2409,
+     "with_raw": "3096.00",
+     "without_raw": "2409.00"
+    },
+    "E2": {
+     "with": 3096,
+     "without": 2409,
+     "with_raw": "3096.00",
+     "without_raw": "2409.00"
+    },
+    "E3": {
+     "with": 3096,
+     "without": 2409,
+     "with_raw": "3096.00",
+     "without_raw": "2409.00"
+    },
+    "E4": {
+     "with": 3096,
+     "without": 2409,
+     "with_raw": "3096.00",
+     "without_raw": "2409.00"
+    },
+    "E5": {
+     "with": 3132,
+     "without": 2832,
+     "with_raw": "3132.00",
+     "without_raw": "2832.00"
+    },
+    "E6": {
+     "with": 3759,
+     "without": 3057,
+     "with_raw": "3759.00",
+     "without_raw": "3057.00"
+    },
+    "E7": {
+     "with": 3855,
+     "without": 3099,
+     "with_raw": "3855.00",
+     "without_raw": "3099.00"
+    },
+    "E8": {
+     "with": 3957,
+     "without": 3261,
+     "with_raw": "3957.00",
+     "without_raw": "3261.00"
+    },
+    "E9": {
+     "with": 4128,
+     "without": 3447,
+     "with_raw": "4128.00",
+     "without_raw": "3447.00"
+    },
+    "W1": {
+     "with": 3780,
+     "without": 3096,
+     "with_raw": "3780.00",
+     "without_raw": "3096.00"
+    },
+    "W2": {
+     "with": 3894,
+     "without": 3258,
+     "with_raw": "3894.00",
+     "without_raw": "3258.00"
+    },
+    "W3": {
+     "with": 4023,
+     "without": 3471,
+     "with_raw": "4023.00",
+     "without_raw": "3471.00"
+    },
+    "W4": {
+     "with": 4167,
+     "without": 3777,
+     "with_raw": "4167.00",
+     "without_raw": "3777.00"
+    },
+    "W5": {
+     "with": 4350,
+     "without": 3876,
+     "with_raw": "4350.00",
+     "without_raw": "3876.00"
+    },
+    "O1E": {
+     "with": 3870,
+     "without": 3129,
+     "with_raw": "3870.00",
+     "without_raw": "3129.00"
+    },
+    "O2E": {
+     "with": 4002,
+     "without": 3405,
+     "with_raw": "4002.00",
+     "without_raw": "3405.00"
+    },
+    "O3E": {
+     "with": 4197,
+     "without": 3753,
+     "with_raw": "4197.00",
+     "without_raw": "3753.00"
+    },
+    "O1": {
+     "with": 3213,
+     "without": 3054,
+     "with_raw": "3213.00",
+     "without_raw": "3054.00"
+    },
+    "O2": {
+     "with": 3753,
+     "without": 3126,
+     "with_raw": "3753.00",
+     "without_raw": "3126.00"
+    },
+    "O3": {
+     "with": 4020,
+     "without": 3531,
+     "with_raw": "4020.00",
+     "without_raw": "3531.00"
+    },
+    "O4": {
+     "with": 4410,
+     "without": 3855,
+     "with_raw": "4410.00",
+     "without_raw": "3855.00"
+    },
+    "O5": {
+     "with": 4692,
+     "without": 3909,
+     "with_raw": "4692.00",
+     "without_raw": "3909.00"
+    },
+    "O6": {
+     "with": 4731,
+     "without": 3999,
+     "with_raw": "4731.00",
+     "without_raw": "3999.00"
+    },
+    "O7": {
+     "with": 4770,
+     "without": 4071,
+     "with_raw": "4770.00",
+     "without_raw": "4071.00"
+    }
+   }
+  }
+ },
+ "_pulled": "2026-10-19 09:28 EDT",
+ "_source": "https://www.defensetravel.dod.mil/neorates/report/index.php (report=bah, YEAR=25 and YEAR=26)"
+}
