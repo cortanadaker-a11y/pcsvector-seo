@@ -186,3 +186,11 @@ noscript p{color:var(--soft);font:400 14px/1.5 var(--ss);text-align:center}
 }
 @media (max-width:380px){.pcs-partner-arrow-amt{font-size:19.52px}.pcs-est-side{font-size:10.88px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* post combobox (filter as you type) */
+.pcs-combo select{display:none}
+.pcs-select .pcs-combo-input{width:100%;height:38px;margin:0;border:0;outline:0;background:transparent;color:#fff;pointer-events:auto;cursor:text;-webkit-appearance:none;appearance:none;border-radius:8px}
+.pcs-select .pcs-combo-input:focus{text-overflow:clip}
+@media (hover:none),(pointer:coarse){.pcs-select .pcs-combo-input{font-size:16px}.pcs-combo .pcs-list{max-height:min(300px,45vh)}.pcs-combo .pcs-list li{padding:12px 8px}}
+.pcs-list li.pcs-list-empty{color:var(--dim);cursor:default}
+.pcs-form-btn{margin-top:8px}

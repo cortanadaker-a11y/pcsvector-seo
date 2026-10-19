@@ -319,6 +319,78 @@
     return set;
   }
 
+  /* ---------- post combobox: filter-as-you-type (like the original selectbox), all pointer types ----------
+     ARIA 1.2 combobox: <input role=combobox> + popup listbox. The native <select> stays the source of truth
+     (hidden from AT and tab order) so every other code path and test can keep using select.value / change. */
+  var comboN = 0;
+  function norm(s) { return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim(); }
+  function setupCombo(id, opts, value, onChange) {
+    var sel = $(id), wrap = sel.parentNode, val = wrap.querySelector('.val'), n = ++comboN;
+    sel.innerHTML = opts.map(function (o) { return '<option value="' + P.escAttr(o[0]) + '">' + P.escAttr(o[1]) + '</option>'; }).join('');
+    var inp = document.createElement('input'), lid = id + '_list';
+    inp.type = 'text'; inp.id = id + '_q'; inp.className = 'val pcs-combo-input';
+    inp.setAttribute('role', 'combobox'); inp.setAttribute('aria-autocomplete', 'list'); inp.setAttribute('aria-expanded', 'false');
+    inp.setAttribute('aria-controls', lid); inp.setAttribute('autocomplete', 'off'); inp.setAttribute('autocapitalize', 'none');
+    inp.setAttribute('autocorrect', 'off'); inp.setAttribute('spellcheck', 'false'); inp.setAttribute('enterkeyhint', 'done');
+    var lab = document.querySelector('label[for="' + id + '"]');
+    var lsrc = lab && (lab.querySelector('span') || lab);
+    if (lab) { lab.setAttribute('for', inp.id); if (!lsrc.id) lsrc.id = id + '_lbl'; inp.setAttribute('aria-labelledby', lsrc.id); }
+    if (val) wrap.replaceChild(inp, val); else wrap.insertBefore(inp, sel);
+    sel.setAttribute('tabindex', '-1'); sel.setAttribute('aria-hidden', 'true'); sel.classList.add('pcs-combo-native');
+    wrap.classList.add('pcs-combo');
+    var list = null, shown = [], act = -1, chosen = false;
+    function label(v) { for (var i = 0; i < opts.length; i++) if (opts[i][0] === v) return opts[i][1]; return v; }
+    function set(v, fire) { sel.value = v; inp.value = label(sel.value); if (fire) onChange(sel.value); }
+    set(String(value), false);
+    sel.addEventListener('change', function () { set(sel.value, true); });
+    function close(restore) {
+      if (list) { list.remove(); list = null; }
+      inp.setAttribute('aria-expanded', 'false'); inp.removeAttribute('aria-activedescendant'); act = -1;
+      if (restore !== false) inp.value = label(sel.value);
+    }
+    function mark(i) {
+      if (!list || !shown.length) return; var items = list.querySelectorAll('[role=option]');
+      if (act >= 0 && items[act]) items[act].classList.remove('act');
+      act = Math.max(0, Math.min(shown.length - 1, i)); var it = items[act]; it.classList.add('act');
+      inp.setAttribute('aria-activedescendant', it.id);
+      if (it.offsetTop < list.scrollTop) list.scrollTop = it.offsetTop; else if (it.offsetTop + it.offsetHeight > list.scrollTop + list.clientHeight) list.scrollTop = it.offsetTop + it.offsetHeight - list.clientHeight;
+    }
+    function draw(q) {
+      var t = norm(q || ''), cur = sel.value;
+      shown = []; for (var i = 0; i < opts.length; i++) if (!t || norm(opts[i][1]).indexOf(t) !== -1) shown.push(i);
+      if (!list) {
+        list = document.createElement('ul'); list.className = 'pcs-list'; list.id = lid; list.setAttribute('role', 'listbox');
+        if (lsrc) list.setAttribute('aria-labelledby', lsrc.id);
+        list.addEventListener('mousedown', function (e) { e.preventDefault(); });
+        list.addEventListener('click', function (e) { var li = e.target.closest('[role=option]'); if (li) { chosen = true; set(opts[+li.dataset.i][0], true); close(); inp.blur(); } });
+        list.addEventListener('mousemove', function (e) { var li = e.target.closest('[role=option]'); if (li) mark(+li.dataset.k); });
+        wrap.appendChild(list); inp.setAttribute('aria-expanded', 'true');
+      }
+      list.innerHTML = shown.length ? shown.map(function (oi, k) {
+        return '<li role="option" id="' + id + '_o' + oi + '" data-i="' + oi + '" data-k="' + k + '" aria-selected="' + (opts[oi][0] === cur) + '">' + P.escAttr(opts[oi][1]) + '</li>';
+      }).join('') : '<li class="pcs-list-empty" role="presentation">No results</li>';
+      act = -1;
+      if (shown.length) { var ci = t ? 0 : Math.max(0, shown.indexOf(opts.findIndex(function (o) { return o[0] === cur; }))); mark(ci); if (!t) list.scrollTop = Math.max(0, list.querySelectorAll('[role=option]')[act].offsetTop - 120); }
+      else inp.removeAttribute('aria-activedescendant');
+    }
+    function openAll() { draw(''); try { inp.select(); } catch (e) {} }
+    inp.addEventListener('focus', function () { chosen = false; openAll(); });
+    inp.addEventListener('mousedown', function () { if (document.activeElement === inp && !list) setTimeout(openAll, 0); });
+    inp.addEventListener('input', function () { draw(inp.value); });
+    inp.addEventListener('blur', function () { setTimeout(function () { if (document.activeElement !== inp) close(); }, 120); });
+    inp.addEventListener('keydown', function (e) {
+      var k = e.key;
+      if (!list && (k === 'ArrowDown' || k === 'ArrowUp' || k === 'Enter')) { e.preventDefault(); openAll(); return; }
+      if (!list) return;
+      if (k === 'Escape') { e.preventDefault(); close(); inp.select(); return; }
+      if (k === 'Tab') { close(); return; }
+      if (k === 'ArrowDown') { e.preventDefault(); mark(act + 1); }
+      else if (k === 'ArrowUp') { e.preventDefault(); mark(act - 1); }
+      else if (k === 'Enter') { e.preventDefault(); if (act >= 0 && shown[act] !== undefined) { chosen = true; set(opts[shown[act]][0], true); close(); inp.blur(); } }
+    });
+    return set;
+  }
+
   /* ---------- results + Wayfinder ---------- */
   function render() {
     var r = P.renderResults(D, S);
@@ -349,9 +421,8 @@
     var res = P.validate(snap, $('referral_first_name').value, $('referral_email_address').value);
     if (res.error) { msg.innerHTML = '<div class="pcs-alert pcs-alert-err" role="alert">' + P.safeHtml(res.error) + '</div>'; return; }
     try { sessionStorage.setItem('pcs_referral_lead', JSON.stringify(res.row)); } catch (e2) {}
-    msg.innerHTML = '<div class="pcs-alert pcs-alert-ok" role="status">Opening your pre-filled form \u2014 tap <strong>Submit</strong> on the next page. ' +
-      '<a href="' + P.escAttr(res.url) + '" rel="noopener">Open the form \u2794</a></div>';
-    setTimeout(function () { window.location.assign(res.url); }, 350);
+    msg.innerHTML = '<div class="pcs-alert pcs-alert-ok" role="status">You\u2019re set \u2014 open your pre-filled form and tap <strong>Submit</strong>.</div>' +
+      '<a class="pcs-btn pcs-form-btn" id="referral_form_link" href="' + P.escAttr(res.url) + '" target="_blank" rel="noopener">Open my pre-filled form \u2794</a>';
   }
 
   function setupHelp() {
@@ -397,8 +468,8 @@
     setupSelect('bah_calc_deps_n', [0, 1, 2, 3, 4, 5].map(function (n) { return [String(n), depsLabel(n)]; }), S.d, function (v) { S.d = parseInt(v, 10) || 0; setBar(); S.bar = $('bah_calc_barracks').checked; render(); });
     var yos = []; for (var i = 0; i <= 40; i++) yos.push([String(i), String(i)]);
     setupSelect('bah_calc_yos', yos, S.y, function (v) { S.y = parseInt(v, 10) || 0; render(); });
-    setupSelect('bah_calc_current', [[P.NONE_CURRENT, P.NONE_CURRENT]].concat(posts.map(function (p) { return [p, p]; })), S.cur, function (v) { S.cur = v; render(); });
-    setupSelect('bah_calc_gaining', posts.map(function (p) { return [p, p]; }), S.tgt, function (v) { S.tgt = v; render(); });
+    setupCombo('bah_calc_current', [[P.NONE_CURRENT, P.NONE_CURRENT]].concat(posts.map(function (p) { return [p, p]; })), S.cur, function (v) { S.cur = v; render(); });
+    setupCombo('bah_calc_gaining', posts.map(function (p) { return [p, p]; }), S.tgt, function (v) { S.tgt = v; render(); });
     var cb = $('bah_calc_barracks'); cb.checked = S.bar; setBar(); S.bar = cb.checked;
     cb.addEventListener('change', function () { S.bar = cb.checked; render(); });
     render();
@@ -412,7 +483,7 @@
   window.addEventListener('hashchange', function () { if (D && /^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); } });
   var boot = window.__PCS_DATA__;
   if (boot) init(boot);
-  else fetch('/assets/calc-data.json?v=4f63f7eb59').then(function (r) { return r.json(); }).then(init).catch(function () {
+  else fetch('/assets/calc-data.json?v=2a16868abb').then(function (r) { return r.json(); }).then(init).catch(function () {
     $('pcs-results').insertAdjacentHTML('afterbegin', '<div class="pcs-alert pcs-alert-warn">Could not load 2026 rate data. Refresh the page to try again.</div>');
   });
 })();

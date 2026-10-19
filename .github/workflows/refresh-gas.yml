@@ -1,0 +1,49 @@
+name: Refresh gas prices (EIA weekly)
+
+# EIA publishes the weekly retail gasoline survey on Monday afternoons (ET).
+# 23:30 UTC Monday = 7:30 PM EDT / 6:30 PM EST. Also runnable by hand.
+on:
+  schedule:
+    - cron: '30 23 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-gas
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Check out pcs-vector (gas lookup logic, public)
+        uses: actions/checkout@v4
+        with:
+          repository: cortanadaker-a11y/pcs-vector
+          ref: main
+          path: _pcs_vector
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'requests>=2.31,<3'
+      - name: Refresh gas fields + cache-busting hashes
+        run: python .github/scripts/refresh_gas.py . _pcs_vector
+      - name: Validate
+        run: |
+          python -c "import json; json.load(open('assets/calc-data.json')); json.load(open('assets/gas-table.json'))"
+          node --check assets/pcs.js
+      - name: Commit to main if changed
+        run: |
+          rm -rf _pcs_vector
+          if git diff --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/calc-data.json assets/gas-table.json assets/pcs.js index.html
+          git commit -m "Gas: EIA weekly refresh ($(python -c "import json;print(json.load(open('assets/gas-table.json'))['as_of'])"))"
+          git push origin HEAD:main
