@@ -1,0 +1,3 @@
+pointer:fine = false
+small tap targets @390: A:20, A:20, A:20, A:20, A:20, A:20, A:20, A:20, A:20, BUTTON:16, bah_calc_barracks:16, BUTTON:16
+PASS 151 FAIL 0

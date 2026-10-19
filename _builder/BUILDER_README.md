@@ -31,3 +31,15 @@ OHA pages (added 19 Oct 2026): /oha/ hub + /oha/{korea,japan,okinawa,germany}/
   python3 oha/check_numbers.py <site_root> oha/dtmo_oha_live_2026-10-19.json   # every number on the OHA pages vs DTMO JSON + calc-data (must be 0 mismatches)
   node oha/oha_browser.cjs http://127.0.0.1:<port>                    # tgt preselect, console errors, 390px overflow
   gen_oha.py never touches index.html. Update TODAY/CHECKED in gen_oha.py on each refresh (1st/16th).
+
+BAH base pages, batch 2 (added 19 Oct 2026): /bah/{fort-stewart,fort-benning,joint-base-san-antonio,fort-riley,fort-knox,
+fort-leonard-wood,fort-polk,fort-sill,fort-wainwright,fort-huachuca,fort-irwin,schofield-barracks}/ (same format as /bah/fort-bragg/)
+  python3 bah_bases/pull_bah_live.py bah_bases/dtmo_bah_live_2026-10-19.json     # live DTMO BAH Rate Lookup, 12 anchor ZIPs x 24 grades (read-only)
+  python3 bah_bases/gen_bah_bases.py <site_root> <ascii_dir> <pcs-vector repo>   # writes ONLY the 12 pages + /bah/ hub rows + sitemap URLs (idempotent)
+  python3 bah_bases/check_bah_bases.py <site_root> <ascii_dir> <pcs-vector repo> bah_bases/dtmo_bah_live_2026-10-19.json <bah2026_with.pdf> <bah2026_without.pdf> [log]
+        # every $ on each page re-derived from DTMO ASCII + PDF + live lookup + app bah_2026.json + calc-data.json + rent/util data (must be 0 mismatches)
+  python3 bah_bases/links_local.py <site_root> http://127.0.0.1:<port>          # internal links + SEO basics
+  node bah_bases/bah_browser.cjs http://127.0.0.1:<port>                        # 200, console errors, 390px overflow, tgt preselect, E-5 BAH in results
+  Box paths used 19 Oct: ascii_dir=/workspace/scratch/bah2026, PDFs=/workspace/raw/pcs/bah2026_{with,without}.pdf, repo=/workspace/pcs-vector-repo.
+  WARNING: build.py and gen_site.py regenerate index.html (home page). index.html must stay byte-identical (Zak's hard rule);
+  do not run them against the served tree for page additions. gen_bah_bases.py and gen_oha.py never touch index.html.
