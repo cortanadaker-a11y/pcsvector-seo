@@ -129,7 +129,7 @@ for B in BASES:
           {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in faqs]}]
     p = [head(B['title'], desc, url, ld)]
     p.append(f'<nav class="crumb"><a href="/">PCS Vector</a> \u203a <a href="/bah/">BAH by post</a> \u203a {html.escape(n)}</nav>')
-    p.append(f'<div class="kick">Soldier Approved Agents \u00b7 {html.escape(n)}, {B["st"]}</div>')
+    p.append(f'<div class="kick">Military-approved agents \u00b7 {html.escape(n)}, {B["st"]}</div>')
     p.append(f'<h1>{html.escape(B["h1"])}</h1>')
     aka = f' (also searched as {html.escape(B["alias"])})' if B['alias'] else ''
     p.append(f'<p>Monthly Basic Allowance for Housing for Soldiers stationed at {html.escape(n)}{aka}. DTMO lists this housing area as <strong>{html.escape(B["area"])}</strong> (code {B["mha"]}). Your rate depends on three things only: pay grade, with or without dependents, and your duty-station ZIP. Where you choose to live does not change it.</p>')
@@ -157,7 +157,7 @@ for B in BASES:
         p.append(f'<h2>ZIP codes in the {html.escape(n)} housing area ({len(B["zips"])})</h2><p class="zips">{" ".join(B["zips"])}</p>')
     p.append('<h2>Quick answers</h2>' + ''.join(f'<h3>{html.escape(q)}</h3><p>{html.escape(a)}</p>' for q, a in faqs))
     # Agents CTA
-    p.append(f'<section class="agents"><h2>Soldier Approved Agents at {html.escape(n)}</h2><p>Want local help finding a place that fits your BAH? PCS Vector can connect you with one of our <strong>Soldier Approved Agents</strong>: local housing agents at your new duty station. The intro is free and does not change your BAH.</p><a class="cta cta2" href="{cta(s, "agents")}">Run your numbers and get a free intro to a Soldier Approved Agent \u2192</a></section>')
+    p.append(f'<section class="agents"><h2>Military-approved agents at {html.escape(n)}</h2><p>Want local help finding a place that fits your BAH? PCS Vector can connect you with one of our <strong>military-approved agents</strong>: local housing agents at your new duty station. The intro is free and does not change your BAH.</p><a class="cta cta2" href="{cta(s, "agents")}">Run your numbers and get a free intro to a military-approved agent \u2192</a></section>')
     others = [o for o in BASES if o is not B]
     p.append('<h2>Other posts</h2><ul class="bases">' + ''.join(f'<li><a href="/bah/{o["slug"]}/">{html.escape(o["name"])}</a></li>' for o in others) + '</ul>')
     p.append(f'<p class="src">Source: Defense Travel Management Office (DTMO), 2026 BAH rates, all locations and all pay grades (ASCII rate file, MHA {B["mha"]}, downloaded 4 Oct 2026); checked against DTMO\u2019s 2026 PDF rate tables and the DTMO BAH Rate Lookup for ZIP {B["zip"]} on 11 Oct 2026.</p>')
@@ -175,7 +175,7 @@ h.append('<p>2026 Basic Allowance for Housing for the largest Army posts, from o
 h.append(f'<a class="cta" href="{APP}?utm_source=bahhub&amp;utm_medium=organic&amp;utm_campaign=bah-hub">Compare any two posts (free calculator) \u2192</a>')
 h.append('<div class="tw"><table><thead><tr><th>Post</th><th>Housing area</th><th>E-5 with dep.</th><th>E-5 without</th><th>3BR rent + utilities</th></tr></thead><tbody>' + ''.join(f'<tr><td><a href="/bah/{B["slug"]}/">{html.escape(B["name"])}</a></td><td>{B["mha"]}</td><td>${B["W"]["E5"]:,}</td><td>${B["WO"]["E5"]:,}</td><td>${B["cost"][0]:,}\u2013${B["cost"][1]:,}</td></tr>' for B in BASES) + '</tbody></table></div>')
 h.append('<p class="note">Rent + utilities = typical off-post 3-bedroom rent plus monthly utilities, PCS Vector planning estimates (Sep 2026), not DTMO figures. More posts coming; the calculator already covers 68+ Army posts, CONUS and OCONUS.</p>')
-h.append(f'<section class="agents"><h2>Soldier Approved Agents</h2><p>After you run your numbers, PCS Vector can connect you with one of our Soldier Approved Agents at your new post for free local housing help.</p><a class="cta cta2" href="{APP}?utm_source=bahhub&amp;utm_medium=agents&amp;utm_campaign=bah-hub">Run your numbers \u2192</a></section>')
+h.append(f'<section class="agents"><h2>Military-approved agents</h2><p>After you run your numbers, PCS Vector can connect you with one of our military-approved agents at your new post for free local housing help.</p><a class="cta cta2" href="{APP}?utm_source=bahhub&amp;utm_medium=agents&amp;utm_campaign=bah-hub">Run your numbers \u2192</a></section>')
 h.append('<p class="src">Source: DTMO 2026 BAH rates (ASCII and PDF rate tables) and the DTMO BAH Rate Lookup, checked 11 Oct 2026.</p>')
 h.append(FOOT)
 os.makedirs(OUT+'bah', exist_ok=True)
@@ -189,7 +189,7 @@ L = [head('PCS Vector: Free Army PCS BAH Calculator (2026)', 'Free Army PCS calc
 L.append('<div class="center"><div class="kick">For Soldiers; by Soldiers</div><h1 class="big">PCS Vector</h1>')
 L.append('<p>See your 2026 BAH at your current post and your next one, side by side, plus typical rent, utilities, gas and DLA.</p>')
 L.append(f'<a class="cta" id="go" href="{APP}?utm_source=pcsvector&amp;utm_medium=home&amp;utm_campaign=landing">Open the free calculator \u2192</a><p class="note">New: loads instantly, right here on pcsvector.com. Still being built, so some figures (rent, utilities, gas, OCONUS) are coming soon.</p></div>')
-L.append('<ul class="feat"><li>68+ Army posts, CONUS and OCONUS</li><li>2026 BAH from official DTMO tables, plus OHA, COLA and DLA planning figures</li><li>BAH vs local rent and utilities, so you see the gap before you sign a lease</li><li>Optional free intro to our Soldier Approved Agents at your new post</li></ul>')
+L.append('<ul class="feat"><li>68+ Army posts, CONUS and OCONUS</li><li>2026 BAH from official DTMO tables, plus OHA, COLA and DLA planning figures</li><li>BAH vs local rent and utilities, so you see the gap before you sign a lease</li><li>Optional free intro to our military-approved agents at your new post</li></ul>')
 L.append('<h2>2026 BAH by post</h2><ul class="bases">' + ''.join(f'<li><a href="/bah/{B["slug"]}/">{html.escape(B["name"])}</a></li>' for B in BASES) + '<li><a href="/bah/">All posts \u2192</a></li></ul>')
 L.append(FOOT)
 open(OUT+'index.html','w').write('\n'.join(L))
