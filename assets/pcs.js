@@ -214,8 +214,8 @@
 
   /* ---- views/home.py + services/referral_lead.py (Wayfinder) ---- */
   var FORM_VIEW = 'https://docs.google.com/forms/d/e/1FAIpQLSeok5DcRqIU9QhzOGXCGAVd8UbW21LNK_S601kzOwb4FJ1Wyg/viewform';
-  var ENTRIES = [['Email address', 'entry.1162277939'], ['Destination', 'entry.159372216'], ['First Name', 'entry.1546051705'], ['Last Name', 'entry.1445033394'],
-    ['Rank', 'entry.1001940560'], ['Number of Dependents', 'entry.1983274092'], ['Rent/Buy/Not Sure', 'entry.1608004035']];
+  var ENTRIES = [['Email address', 'entry.1162277939'], ['Destination', 'entry.159372216'], ['First Name', 'entry.1546051705'],
+    ['Rank', 'entry.1001940560'], ['Number of Dependents', 'entry.1983274092']];
   var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
   function cleanEmail(raw) { return String(raw || '').trim().replace(/[\u200b\u200c\u200d\ufeff\u00a0]/g, '').trim(); }
   function rankLabel(grade) { var n = PAY_GRADE_TO_RANK[grade] || ''; return grade && n && n !== grade ? grade + ' \u2014 ' + n : (grade || n || ''); }
