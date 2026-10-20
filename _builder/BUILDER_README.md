@@ -55,7 +55,7 @@ Favicons (added 19 Oct 2026; Google ignores data-URI favicons):
   python3 icons/make_icons.py <site_root>        # favicon.ico (16/32/48), favicon.svg, favicon-48x48.png, favicon-192x192.png, apple-touch-icon.png (180), favicon-LICENSE.txt
   python3 icons/apply_icon_links.py <site_root>  # swap icon links in built pages; on index.html ONLY the data-URI icon line (hard rule: no other home change)
   python3 icons/check_icons.py https://pcsvector.com   # 200 + content-type + sizes for icon files, icon links on every sitemap page + 404
-  Source art: Noto Emoji compass U+1F9ED SVG (googlefonts/noto-emoji @ e20cbc2, 2D/svg), Apache-2.0 (icons/NOTO_EMOJI_SVG_LICENSE.txt).
+  Source art: PCS Vector logo mark icons/pcs_icon_A_512.png (own artwork; replaced the Noto emoji compass 19 Oct 2026).
   Needs rsvg-convert (apt librsvg2-bin) + Pillow.
 
 BAH calendar-year rollover, one command (added 19 Oct 2026): _builder/bah_yearly/

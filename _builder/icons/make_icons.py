@@ -1,35 +1,26 @@
 #!/usr/bin/env python3
-"""Render the compass emoji (U+1F9ED) favicon set from the Noto Color Emoji SVG.
-Source: googlefonts/noto-emoji @ e20cbc2bbec1926686be9f9bee7d1d2cfa1fea0e, 2D/svg/emoji_u1f9ed.svg
-License: Apache-2.0 (2D/svg/LICENSE, copied here as NOTO_EMOJI_SVG_LICENSE.txt).
-Needs: rsvg-convert (librsvg2-bin), Pillow.   Usage: python3 make_icons.py <site_root>
+"""Render the PCS Vector favicon set from the logo mark pcs_icon_A_512.png
+(gold compass star + arrow on #121E16, 512x512, PCS Vector's own artwork).
+Needs: Pillow.   Usage: python3 make_icons.py <site_root>
 """
-import os, subprocess, sys, tempfile
+import base64, io, os, sys
 from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, 'noto_emoji_u1f9ed.svg')
+SRC = os.path.join(HERE, 'pcs_icon_A_512.png')
 out = sys.argv[1] if len(sys.argv) > 1 else '.'
-tmp = tempfile.mkdtemp()
-def render(px):
-    p = os.path.join(tmp, f'r{px}.png')
-    subprocess.run(['rsvg-convert', '-w', str(px), '-h', str(px), SRC, '-o', p], check=True)
-    return Image.open(p).convert('RGBA')
-# favicon.ico: 16/32/48, each rendered natively from the vector (transparent)
-r16, r32, r48 = render(16), render(32), render(48)
-r48.save(os.path.join(out, 'favicon.ico'), format='ICO', sizes=[(16, 16), (32, 32), (48, 48)], append_images=[r16, r32])
-r48.save(os.path.join(out, 'favicon-48x48.png'), optimize=True)
-render(192).save(os.path.join(out, 'favicon-192x192.png'), optimize=True)
-# apple-touch-icon: iOS fills transparency with black, so white square with ~8% padding
-bg = Image.new('RGBA', (180, 180), (255, 255, 255, 255)); bg.alpha_composite(render(150), (15, 15))
-bg.convert('RGB').save(os.path.join(out, 'apple-touch-icon.png'), optimize=True)
-# favicon.svg: the Noto vector itself, with attribution
-svg = open(SRC, encoding='utf-8').read()
-svg = svg.replace('<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->',
-                  '<!-- Compass emoji U+1F9ED from Noto Emoji (github.com/googlefonts/noto-emoji), Copyright 2013 Google LLC, Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0 (see /favicon-LICENSE.txt) -->')
-open(os.path.join(out, 'favicon.svg'), 'w', encoding='utf-8').write(svg)
-lic = ('favicon.ico, favicon.svg, favicon-48x48.png, favicon-192x192.png, apple-touch-icon.png\n'
-       'are rendered from the Noto Emoji compass (U+1F9ED) SVG, https://github.com/googlefonts/noto-emoji\n'
-       '(2D/svg/emoji_u1f9ed.svg), Copyright 2013 Google LLC, licensed under the Apache License 2.0.\n'
-       'Modifications: rasterized to PNG/ICO sizes; white background added to apple-touch-icon.\n\n')
-open(os.path.join(out, 'favicon-LICENSE.txt'), 'w').write(lic + open(os.path.join(HERE, 'NOTO_EMOJI_SVG_LICENSE.txt')).read())
+src = Image.open(SRC).convert('RGBA')
+def r(px): return src.resize((px, px), Image.LANCZOS)
+r(48).save(os.path.join(out, 'favicon.ico'), format='ICO', sizes=[(16, 16), (32, 32), (48, 48)], append_images=[r(16), r(32)])
+r(48).save(os.path.join(out, 'favicon-48x48.png'), optimize=True)
+r(192).save(os.path.join(out, 'favicon-192x192.png'), optimize=True)
+r(180).convert('RGB').save(os.path.join(out, 'apple-touch-icon.png'), optimize=True)  # opaque bg already
+b = io.BytesIO(); r(192).convert('RGB').save(b, 'PNG', optimize=True)
+svg = ('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 192 192" width="192" height="192">'
+       '<!-- PCS Vector logo mark (raster embedded) -->'
+       '<image width="192" height="192" href="data:image/png;base64,%s" xlink:href="data:image/png;base64,%s"/></svg>\n')
+d = base64.b64encode(b.getvalue()).decode()
+open(os.path.join(out, 'favicon.svg'), 'w').write(svg % (d, d))
+open(os.path.join(out, 'favicon-LICENSE.txt'), 'w').write(
+    'favicon.ico, favicon.svg, favicon-48x48.png, favicon-192x192.png, apple-touch-icon.png\n'
+    'are rendered from the PCS Vector logo mark (original artwork, 2026). No third-party assets.\n')
 print('icons written to', out)
