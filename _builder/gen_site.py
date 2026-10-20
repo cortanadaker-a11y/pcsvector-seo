@@ -9,6 +9,9 @@ for d in ('calculator', 'find-a-home'):
 for f in ('app.js',):
     if os.path.exists(OUT + 'assets/' + f): os.remove(OUT + 'assets/' + f)
 # --- assets
+# 20 Oct 2026 (Zak OK): header logo next to the title = icons/pcs_icon_A_512.png -> 96px WebP (2x the ~46px title)
+from PIL import Image as _Im
+_Im.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'icons', 'pcs_icon_A_512.png')).convert('RGB').resize((96, 96), _Im.LANCZOS).save(OUT + 'assets/pcs-logo-96.webp', 'WEBP', quality=86, method=6)
 js = open(B + 'src/pcs.js').read() + '\n' + open(B + 'src/app.js').read()
 def _clean(t): return t.replace('the live Streamlit app', 'the original app').replace('Streamlit app', 'original app').replace('the Streamlit HTML', 'the original HTML').replace('match Streamlit', 'match the original')
 js = _clean(js)
@@ -90,7 +93,7 @@ page = f'''<!doctype html>
 <p class="cap" style="margin-top:24px;color:#F0D060;font-weight:700">2026 BAH by post</p><ul class="pcs-side-links">{side_links}</ul>
 </aside>
 <main class="pcs-main" id="main">
-<div class="pcs-page-brand"><h1 class="pcs-brand-title">PCS Vector</h1><div class="pcs-face-tagline">For Soldiers; By Soldiers</div></div>
+<div class="pcs-page-brand"><h1 class="pcs-brand-title"><img src="/assets/pcs-logo-96.webp" width="96" height="96" alt="PCS Vector logo" decoding="async" fetchpriority="high" style="height:.9em;width:auto;vertical-align:-.12em;margin-right:.2em;border-radius:.14em">PCS Vector</h1><div class="pcs-face-tagline">For Soldiers; By Soldiers</div></div>
 <div class="pcs-calc-face">
 <div id="pcs-inputs-panel" class="pcs-face-section pcs-face-section-inputs">
 <div class="pcs-row">{sel('bah_calc_grade', 'Rank', grades, 'E-5', gold=True)}{sel('bah_calc_deps_n', 'Dependents', deps, '0')}{sel('bah_calc_yos', 'Years of service', yos, '4')}</div>
