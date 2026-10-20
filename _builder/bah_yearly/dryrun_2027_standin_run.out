@@ -1,0 +1,33 @@
+work dir /tmp/bahroll.VFka
+home sha256 before: f92b9076becf450e657769cc9aa187264c412c673780f3998703f1c8a5ef1c7c
+ok fort-benning GA075 1716 1716
+ok fort-bliss TX279 1809 1809
+ok fort-bragg NC182 1806 1806
+ok fort-campbell KY106 1815 1815
+ok fort-carson CO046 2358 2358
+ok fort-drum NY225 1665 1665
+ok fort-hood TX286 1695 1695
+ok fort-huachuca AZ014 1719 1719
+ok fort-irwin CA028 2001 2001
+ok fort-knox KY110 1647 1647
+ok fort-leonard-wood MO163 1479 1479
+ok fort-polk LA115 1218 1218
+ok fort-riley KS100 1314 1314
+ok fort-sill OK237 1233 1233
+ok fort-stewart GA080 2310 2310
+ok fort-wainwright AK405 2436 2436
+ok joint-base-lewis-mcchord WA311 2556 2556
+ok joint-base-san-antonio TX285 1869 1869
+ok national-capital-region DC053 3132 3132
+ok schofield-barracks HI408 3663 3663
+pages 20 + hub
+checks 524 mismatches 0
+pages 21 PASS 290 FAIL 0
+ 21 files changed, 312 insertions(+), 240 deletions(-)
+remote: 
+remote: Create a pull request for 'dryrun/bah-2027-standin-20261019-210021' on GitHub by visiting:        
+remote:      https://github.com/cortanadaker-a11y/pcsvector-seo/pull/new/dryrun/bah-2027-standin-20261019-210021        
+remote: 
+PR https://github.com/cortanadaker-a11y/pcsvector-seo/pull/11
+✓ Closed pull request cortanadaker-a11y/pcsvector-seo#11 (DRY RUN - DO NOT MERGE: BAH 2027 rollover (stand-in data))
+logs in /tmp/bahroll.VFka
