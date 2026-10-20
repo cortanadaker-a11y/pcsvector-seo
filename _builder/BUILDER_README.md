@@ -68,3 +68,6 @@ BAH calendar-year rollover, one command (added 19 Oct 2026): _builder/bah_yearly
   Not covered: calculator data (assets/calc-data.json via export_calc.py + pcs-vector data/bah_2027.json) - that rebuild touches the
   home pipeline, so it is a separate, Zak-approved step. Dry run 19 Oct 2026 (2026 files relabelled as 2027): 524 checks 0 mismatches,
   browser 290 PASS 0 FAIL, draft PR #11 closed unmerged, main untouched.
+
+/bah/ hub lookup (20 Oct 2026): after build.py or bah_bases/gen_bah_bases.py touches bah/index.html, rerun
+  python3 bah_hub/gen_bah_hub_lookup.py <site_root>   # idempotent; rank/dependents/home-size dropdowns, data from assets/calc-data.json
