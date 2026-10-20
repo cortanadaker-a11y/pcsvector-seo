@@ -57,3 +57,14 @@ Favicons (added 19 Oct 2026; Google ignores data-URI favicons):
   python3 icons/check_icons.py https://pcsvector.com   # 200 + content-type + sizes for icon files, icon links on every sitemap page + 404
   Source art: Noto Emoji compass U+1F9ED SVG (googlefonts/noto-emoji @ e20cbc2, 2D/svg), Apache-2.0 (icons/NOTO_EMOJI_SVG_LICENSE.txt).
   Needs rsvg-convert (apt librsvg2-bin) + Pillow.
+
+BAH calendar-year rollover, one command (added 19 Oct 2026): _builder/bah_yearly/
+  ./bah_yearly/run_bah_year.sh 2027 BAH-ASCII-2027.zip /workspace/scratch/bah2026     # new-year ASCII (zip or dir), prev-year ASCII
+  Clones main fresh -> rollover.py (all /bah/ pages + hub: rate tables, gap table, FAQ E-5 line, "2027 vs 2026" yoy table, labels, stamp,
+  source, dateModified, sitemap lastmod) -> check_rollover.py (every $ re-derived from ASCII; home index.html sha256 must match; only
+  bah/** + sitemap.xml may change) -> rollover_browser.cjs (21 pages x 1280/390: 200, console, overflow, yoy 24 rows, stamp, H1 year)
+  -> push branch bah-2027-rollover -> PR into main. Never merges. --dry-run = stand-in data, draft PR auto-closed.
+  Env: CHECKED="DD Mon YYYY", TODAY=YYYY-MM-DD, HOME_SHA=<expected>. Normal mode asserts pages currently equal the prev-year ASCII.
+  Not covered: calculator data (assets/calc-data.json via export_calc.py + pcs-vector data/bah_2027.json) - that rebuild touches the
+  home pipeline, so it is a separate, Zak-approved step. Dry run 19 Oct 2026 (2026 files relabelled as 2027): 524 checks 0 mismatches,
+  browser 290 PASS 0 FAIL, draft PR #11 closed unmerged, main untouched.
