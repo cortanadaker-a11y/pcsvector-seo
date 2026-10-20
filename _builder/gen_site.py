@@ -22,6 +22,10 @@ from components import bah_calculator as BC
 fake_st.st.session_state.update(bah_calc_grade='E-5', bah_calc_deps_n=0, bah_calc_yos=4, bah_calc_current='Fort Campbell, KY', bah_calc_gaining='Fort Bragg, NC', bah_calc_barracks=False)
 BC.render_bah_calculator()
 ssr = re.sub(r'>\s+<', '><', ''.join(fake_st.CAP['html'])).strip()
+# 20 Oct 2026 (Zak OK'd H1): pre-JS results = the exact HTML pcs.js renders for the default state (same label, range, gas from calc-data.json)
+_node = "const P=require(process.argv[1]),D=require(process.argv[2]);process.stdout.write(P.renderResults(D,{g:'E-5',d:0,y:4,cur:'Fort Campbell, KY',tgt:'Fort Bragg, NC',bar:false}).html)"
+ssr = subprocess.run(['node', '-e', _node, B + 'src/pcs.js', OUT + 'assets/calc-data.json'], check=True, capture_output=True, text=True).stdout
+assert ssr.startswith('<') and 'BR rent' in ssr, 'SSR render failed'
 e = lambda s: html.escape(s, quote=True)
 posts = sorted(D['posts'])
 def sel(id_, label, opts, value, gold=False, help_=None):
