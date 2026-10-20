@@ -124,6 +124,8 @@ from urllib.parse import quote_plus
 for f in glob.glob(OUT + 'bah/**/index.html', recursive=True) + [OUT + '404.html']:
     s = open(f).read(); slug = f.split('/')[-2]
     pre = ('tgt=' + quote_plus(app_names[slug]) + '&amp;') if slug in app_names else ''
+    if not pre:  # 20 Oct 2026: keep a tgt= preset already written by gen_bah_bases.py (was stripped from 12 newer base pages on rerun)
+        _m = re.search(r'href="/\?(tgt=[^&"]*)&amp;utm_source=', s); pre = (_m.group(1) + '&amp;') if _m else ''
     s = re.sub(r'href="/(?:calculator/)?\?(?:tgt=[^&"]*&amp;)?(utm_source=[^"#]*utm_medium=agents[^"#]*)(?:#find-a-home)*"', lambda m: f'href="/?{pre}{m.group(1)}#find-a-home"', s)
     s = re.sub(r'href="/(?:calculator/)?\?(?:tgt=[^&"]*&amp;)?(utm_source=[^"#]*)"', lambda m: f'href="/?{pre}{m.group(1)}"', s)
     s = s.replace('"url": "/calculator/"', '"url": "https://pcsvector.com/"')
@@ -152,8 +154,14 @@ _ix = re.sub(r'/assets/pcs\.js(\?v=[0-9a-f]+)?"', '/assets/pcs.js?v=' + _jv + '"
 _ix = re.sub(r'/assets/pcs\.css(\?v=[0-9a-f]+)?"', '/assets/pcs.css?v=' + _cv + '"', _ix)
 open(OUT + 'index.html', 'w').write(_ix)
 # sitemap
+# 20 Oct 2026: merge, don't overwrite. A full rewrite dropped the 5 /oha/ URLs (added by oha/gen_oha.py) and reset every
+# <lastmod> to TODAY. Existing entries keep their order and lastmod; only missing home/BAH URLs are appended.
 urls = [URL, URL + 'bah/'] + [f'{URL}bah/{s}/' for s in bah_pages]
-open(OUT + 'sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod></url>\n' for u in urls) + '</urlset>\n')
+_smp = OUT + 'sitemap.xml'
+_old = re.findall(r'<url><loc>([^<]+)</loc><lastmod>([^<]+)</lastmod></url>', open(_smp).read()) if os.path.exists(_smp) else []
+_have = {u for u, _ in _old}
+_ent = _old + [(u, TODAY) for u in urls if u not in _have]
+open(_smp, 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in _ent) + '</urlset>\n')
 missing = [v for v in app_names.values() if v not in D['posts']]
 assert not missing, missing
 print('built', len(page), 'bytes index;', len(js), 'bytes js')
