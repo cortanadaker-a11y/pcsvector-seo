@@ -112,7 +112,7 @@ def head(title, desc, url, ld):
 <style>{CSS}</style>
 {''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)}
 </head><body><main>'''
-FOOT = f'''<p class="src">PCS Vector is an independent planning tool built by Soldiers. It is not an official Army, DoD or DTMO site. Confirm your rate with your finance office. Page updated {datetime.date(2026,10,11):%b %Y}.</p>
+FOOT = f'''<p class="src">PCS Vector is an independent planning tool built by Soldiers. It is not an official Army, DoW or DTMO site. Confirm your rate with your finance office. Page updated {datetime.date(2026,10,11):%b %Y}.</p>
 </main></body></html>
 '''
 for B in BASES:
@@ -185,7 +185,7 @@ open(OUT+'bah/index.html','w').write('\n'.join(h))
 url = 'https://pcsvector.com/'
 ld = [{"@context":"https://schema.org","@type":"WebSite","name":"PCS Vector","url":url},
       {"@context":"https://schema.org","@type":"WebApplication","name":"PCS Vector BAH Calculator","url":APP,"applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]
-L = [head('PCS Vector: Free Army PCS BAH Calculator (2026)', 'Free Army PCS calculator: compare 2026 BAH, OHA, COLA, rent, utilities and gas between duty stations. Built by Soldiers. Not affiliated with DoD.', url, ld)]
+L = [head('PCS Vector: Free Army PCS BAH Calculator (2026)', 'Free Army PCS calculator: compare 2026 BAH, OHA, COLA, rent, utilities and gas between duty stations. Built by Soldiers. Not affiliated with DoW.', url, ld)]
 L.append('<div class="center"><div class="kick">For Soldiers; by Soldiers</div><h1 class="big">PCS Vector</h1>')
 L.append('<p>See your 2026 BAH at your current post and your next one, side by side, plus typical rent, utilities, gas and DLA.</p>')
 L.append(f'<a class="cta" id="go" href="{APP}?utm_source=pcsvector&amp;utm_medium=home&amp;utm_campaign=landing">Open the free calculator \u2192</a><p class="note">New: loads instantly, right here on pcsvector.com. Still being built, so some figures (rent, utilities, gas, OCONUS) are coming soon.</p></div>')

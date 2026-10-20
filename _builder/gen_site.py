@@ -39,7 +39,7 @@ deps = [(str(n), '5+' if n == 5 else str(n)) for n in range(6)]
 yos = [(str(n), str(n)) for n in range(41)]
 NONE = '\u2014 Skip \u2014'
 TITLE = 'PCS Vector \u2014 Free Army PCS BAH Calculator (2026) | OHA, COLA, Housing'
-DESC = 'Free Army PCS calculator: compare 2026 BAH, OHA, COLA, rent, utilities, and gas between duty stations. Built for Soldiers. Not affiliated with DoD.'
+DESC = 'Free Army PCS calculator: compare 2026 BAH, OHA, COLA, rent, utilities, and gas between duty stations. Built for Soldiers. Not affiliated with DoW.'
 URL = 'https://pcsvector.com/'
 FAQ_TITLE = 'Army PCS FAQ \u2014 BAH, OHA, COLA, DLA, and housing pay'
 ld = {"@context": "https://schema.org", "@graph": [
