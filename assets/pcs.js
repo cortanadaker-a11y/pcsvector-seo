@@ -170,7 +170,7 @@
         rollup = '<div class="pcs-partner-rollup"><span>New Cost of Living Index</span><span class="pcs-partner-rollup-mids">' + money(curCol) +
           ' \u2192 ' + money(tgtCol) + '</span><span class="pcs-partner-rollup-badge ' + rc + '">' + rt + '</span></div>';
       }
-      leftRent = money(curRentLo) + ' \u2013 ' + money(curRentHi);
+      leftRent = money(curRentLo) + '\u2013' + money(curRentHi);
       leftUtil = money(curUtilN || 0) + '/mo';
       leftGas = D.posts[current].gas || '\u2014';
     } else {
@@ -179,9 +179,9 @@
         '<div class="pcs-partner-delta-row"><span>' + safeHtml(gaining) + '</span><span class="pcs-bah-delta-badge pcs-delta-flat">' + money(total) + '/mo total</span></div>';
       leftRent = leftUtil = leftGas = '\u2014';
     }
-    var rightRent = money(m.low) + ' \u2013 ' + money(m.high), rightUtil = utilN ? money(utilN) + '/mo' : '\u2014', rightGas = P.gas || '\u2014';
-    function row(l, label, r, emph) {
-      return '<div class="pcs-est-row' + (emph ? ' pcs-est-row-emph' : '') + '"><span class="pcs-est-side">' + l + '</span><span class="pcs-est-label">' + label +
+    var rightRent = money(m.low) + '\u2013' + money(m.high), rightUtil = utilN ? money(utilN) + '/mo' : '\u2014', rightGas = P.gas || '\u2014';
+    function row(l, label, r, emph, cls) {
+      return '<div class="pcs-est-row' + (emph ? ' pcs-est-row-emph' : '') + (cls ? ' ' + cls : '') + '"><span class="pcs-est-side">' + l + '</span><span class="pcs-est-label">' + label +
         '</span><span class="pcs-est-side pcs-est-side-new">' + r + '</span></div>';
     }
     var rows = '', eitherOha = curSys === 'OHA' || system === 'OHA';
@@ -206,7 +206,7 @@
       '<div class="pcs-partner-breakdown"><div class="pcs-est-heads-live"><span>Current</span><span></span><span>Target</span></div>' +
       '<div class="pcs-partner-breakdown-title">Allowances (official tables)</div>' + rows +
       '<div class="pcs-partner-breakdown-title">Local costs &amp; move-in (estimates)</div>' +
-      row(leftRent, 'Typical ' + m.br + 'BR rent', rightRent) + row(leftUtil, 'Utilities', rightUtil) + row(leftGas, 'Avg gas', rightGas) +
+      row(leftRent, 'Avg ' + m.br + 'BR rent', rightRent, false, 'pcs-est-row-rent') + row(leftUtil, 'Utilities', rightUtil) + row(leftGas, 'Avg gas', rightGas) +
       row('\u2014', 'DLA (one-time)', dlaHtml) + rollup + '</div></div>';
     return { html: html, warn: null, snap: { pay_grade: grade, num_dependents: deps, years_of_service: yos, gaining_installation: gaining,
       current_installation: current, barracks_meal_card: barracks, total_monthly_usd: total } };
