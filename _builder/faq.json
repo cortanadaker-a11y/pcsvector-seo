@@ -35,10 +35,10 @@
   },
   {
    "q": "What is the Cost of Living Index in PCS Vector?",
-   "a": "The Cost of Living Index compares typical rent plus utilities at your current post versus your new post. It is a planning snapshot of housing-related costs, not the official DoD COLA index. “Higher” means everyday housing costs look more expensive at the new location; “lower” means they look cheaper."
+   "a": "The Cost of Living Index compares typical rent plus utilities at your current post versus your new post. It is a planning snapshot of housing-related costs, not the official DoW COLA index. “Higher” means everyday housing costs look more expensive at the new location; “lower” means they look cheaper."
   },
   {
-   "q": "Are rent, utility, and gas prices official DoD numbers?",
+   "q": "Are rent, utility, and gas prices official DoW numbers?",
    "a": "No. BAH, OHA, COLA, and DLA come from 2026 allowance tables. Typical rent and utilities are local planning estimates for off-post housing. Average gas uses EIA weekly regular gasoline, mapped from the installation zip code and state. Treat those as ballpark figures and confirm before you sign a lease."
   },
   {
@@ -47,15 +47,15 @@
   },
   {
    "q": "Are these 2026 BAH and OHA rates?",
-   "a": "Yes. The calculator uses 2026 BAH, OHA, COLA, and DLA planning tables. The Department of Defense can update allowances during the year, so the number on your LES is still the source of truth. PCS Vector is a planning tool, not a pay statement."
+   "a": "Yes. The calculator uses 2026 BAH, OHA, COLA, and DLA planning tables. The Department of War can update allowances during the year, so the number on your LES is still the source of truth. PCS Vector is a planning tool, not a pay statement."
   },
   {
    "q": "What is a PCS Wayfinder?",
    "a": "PCS Wayfinders are military-approved local housing agents at your new duty station. After you run the calculator, enter your first name and email to connect. The referral is free. They can help you look at rentals or buying against your BAH or OHA. Destination, rank, and dependents come from the calculator so you do not re-enter them."
   },
   {
-   "q": "Is PCS Vector affiliated with the Army or DoD?",
-   "a": "No. PCS Vector is an independent planning tool. It is not an official U.S. Army or Department of Defense website and is not endorsed by the DoD. Use it to prepare for a PCS, then confirm every figure with your finance office, housing office, and orders."
+   "q": "Is PCS Vector affiliated with the Army or DoW?",
+   "a": "No. PCS Vector is an independent planning tool. It is not an official U.S. Army or Department of War website and is not endorsed by the DoW. Use it to prepare for a PCS, then confirm every figure with your finance office, housing office, and orders."
   },
   {
    "q": "What is the difference between CONUS and OCONUS housing pay?",
