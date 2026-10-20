@@ -1,4 +1,4 @@
-"""Shared favicon link tags (compass emoji, Noto Color Emoji SVG, Apache-2.0)."""
+"""Shared favicon link tags (PCS Vector logo mark)."""
 TAGS = [
     '<link rel="icon" href="/favicon.ico" sizes="any">',
     '<link rel="icon" href="/favicon.svg" type="image/svg+xml">',
