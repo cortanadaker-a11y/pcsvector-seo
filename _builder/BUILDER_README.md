@@ -71,3 +71,11 @@ BAH calendar-year rollover, one command (added 19 Oct 2026): _builder/bah_yearly
 
 /bah/ hub lookup (20 Oct 2026): after build.py or bah_bases/gen_bah_bases.py touches bah/index.html, rerun
   python3 bah_hub/gen_bah_hub_lookup.py <site_root>   # idempotent; rank/dependents/home-size dropdowns, data from assets/calc-data.json
+
+BAH base pages, batch 3 (added 20 Oct 2026): /bah/{fort-gordon,fort-jackson,fort-rucker,fort-lee,joint-base-langley-eustis,fort-leavenworth,joint-base-elmendorf-richardson}/
+  python3 bah_bases3/pull_bah_live3.py bah_bases3/dtmo_bah_live_2026-10-20.json
+  python3 bah_bases3/gen_bah_bases3.py <site_root> <ascii_dir> <pcs-vector repo>   # then: python3 bah_hub/gen_bah_hub_lookup.py <site_root>
+  python3 bah_bases3/check_bah_bases3.py <site_root> <ascii_dir> <repo> bah_bases3/dtmo_bah_live_2026-10-20.json <pdf_with> <pdf_without> [log]  # 1597 checks, 0 mismatches 20 Oct
+  Note: DTMO rate-file names GA073 "FORT GORDON, AL" and VA301 "RICHMOND/FORT LEE, VA"; live lookup shows "FORT GORDON, GA" / "RICHMOND, VA". Same codes and rates.
+
+IndexNow (added 20 Oct 2026): python3 indexnow/apply_indexnow.py <site_root> [--submit]   # writes /<key>.txt at root; --submit POSTs all sitemap URLs to api.indexnow.org

@@ -1,0 +1,1597 @@
+PASS | _calc | calc-data grade order | page/src=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7+'] | ref=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7+']
+PASS | fort-gordon | ASCII vs DTMO PDF with E-1 | page/src=1809 | ref=1809
+PASS | fort-gordon | ASCII vs DTMO PDF with E-2 | page/src=1809 | ref=1809
+PASS | fort-gordon | ASCII vs DTMO PDF with E-3 | page/src=1809 | ref=1809
+PASS | fort-gordon | ASCII vs DTMO PDF with E-4 | page/src=1809 | ref=1809
+PASS | fort-gordon | ASCII vs DTMO PDF with E-5 | page/src=1890 | ref=1890
+PASS | fort-gordon | ASCII vs DTMO PDF with E-6 | page/src=2157 | ref=2157
+PASS | fort-gordon | ASCII vs DTMO PDF with E-7 | page/src=2190 | ref=2190
+PASS | fort-gordon | ASCII vs DTMO PDF with E-8 | page/src=2226 | ref=2226
+PASS | fort-gordon | ASCII vs DTMO PDF with E-9 | page/src=2334 | ref=2334
+PASS | fort-gordon | ASCII vs DTMO PDF with W-1 | page/src=2175 | ref=2175
+PASS | fort-gordon | ASCII vs DTMO PDF with W-2 | page/src=2205 | ref=2205
+PASS | fort-gordon | ASCII vs DTMO PDF with W-3 | page/src=2253 | ref=2253
+PASS | fort-gordon | ASCII vs DTMO PDF with W-4 | page/src=2367 | ref=2367
+PASS | fort-gordon | ASCII vs DTMO PDF with W-5 | page/src=2514 | ref=2514
+PASS | fort-gordon | ASCII vs DTMO PDF with O-1E | page/src=2193 | ref=2193
+PASS | fort-gordon | ASCII vs DTMO PDF with O-2E | page/src=2241 | ref=2241
+PASS | fort-gordon | ASCII vs DTMO PDF with O-3E | page/src=2388 | ref=2388
+PASS | fort-gordon | ASCII vs DTMO PDF with O-1 | page/src=1929 | ref=1929
+PASS | fort-gordon | ASCII vs DTMO PDF with O-2 | page/src=2154 | ref=2154
+PASS | fort-gordon | ASCII vs DTMO PDF with O-3 | page/src=2250 | ref=2250
+PASS | fort-gordon | ASCII vs DTMO PDF with O-4 | page/src=2559 | ref=2559
+PASS | fort-gordon | ASCII vs DTMO PDF with O-5 | page/src=2787 | ref=2787
+PASS | fort-gordon | ASCII vs DTMO PDF with O-6 | page/src=2808 | ref=2808
+PASS | fort-gordon | ASCII vs DTMO PDF with O-7 | page/src=2826 | ref=2826
+PASS | fort-gordon | ASCII vs DTMO PDF without E-1 | page/src=1506 | ref=1506
+PASS | fort-gordon | ASCII vs DTMO PDF without E-2 | page/src=1506 | ref=1506
+PASS | fort-gordon | ASCII vs DTMO PDF without E-3 | page/src=1506 | ref=1506
+PASS | fort-gordon | ASCII vs DTMO PDF without E-4 | page/src=1506 | ref=1506
+PASS | fort-gordon | ASCII vs DTMO PDF without E-5 | page/src=1644 | ref=1644
+PASS | fort-gordon | ASCII vs DTMO PDF without E-6 | page/src=1731 | ref=1731
+PASS | fort-gordon | ASCII vs DTMO PDF without E-7 | page/src=1809 | ref=1809
+PASS | fort-gordon | ASCII vs DTMO PDF without E-8 | page/src=1947 | ref=1947
+PASS | fort-gordon | ASCII vs DTMO PDF without E-9 | page/src=2019 | ref=2019
+PASS | fort-gordon | ASCII vs DTMO PDF without W-1 | page/src=1797 | ref=1797
+PASS | fort-gordon | ASCII vs DTMO PDF without W-2 | page/src=1944 | ref=1944
+PASS | fort-gordon | ASCII vs DTMO PDF without W-3 | page/src=2031 | ref=2031
+PASS | fort-gordon | ASCII vs DTMO PDF without W-4 | page/src=2157 | ref=2157
+PASS | fort-gordon | ASCII vs DTMO PDF without W-5 | page/src=2196 | ref=2196
+PASS | fort-gordon | ASCII vs DTMO PDF without O-1E | page/src=1887 | ref=1887
+PASS | fort-gordon | ASCII vs DTMO PDF without O-2E | page/src=2004 | ref=2004
+PASS | fort-gordon | ASCII vs DTMO PDF without O-3E | page/src=2148 | ref=2148
+PASS | fort-gordon | ASCII vs DTMO PDF without O-1 | page/src=1728 | ref=1728
+PASS | fort-gordon | ASCII vs DTMO PDF without O-2 | page/src=1866 | ref=1866
+PASS | fort-gordon | ASCII vs DTMO PDF without O-3 | page/src=2058 | ref=2058
+PASS | fort-gordon | ASCII vs DTMO PDF without O-4 | page/src=2181 | ref=2181
+PASS | fort-gordon | ASCII vs DTMO PDF without O-5 | page/src=2199 | ref=2199
+PASS | fort-gordon | ASCII vs DTMO PDF without O-6 | page/src=2226 | ref=2226
+PASS | fort-gordon | ASCII vs DTMO PDF without O-7 | page/src=2262 | ref=2262
+PASS | fort-gordon | ASCII unchanged vs pre-update file | page/src=({'E1': 1809, 'E2': 1809, 'E3': 1809, 'E4': 1809, 'E5': 1890, 'E6': 2157, 'E7': 2190, 'E8': 2226, 'E9': 2334, 'W1': 2175, 'W2': 2205, 'W3': 2253, 'W4': 2367, 'W5': 2514, 'O1E': 2193, 'O2E': 2241, 'O3E': 2388, 'O1': 1929, 'O2': 2154, 'O3': 2250, 'O4': 2559, 'O5': 2787, 'O6': 2808, 'O7': 2826, 'O8': 2826, 'O9': 2826, 'O10': 2826}, {'E1': 1506, 'E2': 1506, 'E3': 1506, 'E4': 1506, 'E5': 1644, 'E6': 1731, 'E7': 1809, 'E8': 1947, 'E9': 2019, 'W1': 1797, 'W2': 1944, 'W3': 2031, 'W4': 2157, 'W5': 2196, 'O1E': 1887, 'O2E': 2004, 'O3E': 2148, 'O1': 1728, 'O2': 1866, 'O3': 2058, 'O4': 2181, 'O5': 2199, 'O6': 2226, 'O7': 2262, 'O8': 2262, 'O9': 2262, 'O10': 2262}) | ref=({'E1': 1809, 'E2': 1809, 'E3': 1809, 'E4': 1809, 'E5': 1890, 'E6': 2157, 'E7': 2190, 'E8': 2226, 'E9': 2334, 'W1': 2175, 'W2': 2205, 'W3': 2253, 'W4': 2367, 'W5': 2514, 'O1E': 2193, 'O2E': 2241, 'O3E': 2388, 'O1': 1929, 'O2': 2154, 'O3': 2250, 'O4': 2559, 'O5': 2787, 'O6': 2808, 'O7': 2826, 'O8': 2826, 'O9': 2826, 'O10': 2826}, {'E1': 1506, 'E2': 1506, 'E3': 1506, 'E4': 1506, 'E5': 1644, 'E6': 1731, 'E7': 1809, 'E8': 1947, 'E9': 2019, 'W1': 1797, 'W2': 1944, 'W3': 2031, 'W4': 2157, 'W5': 2196, 'O1E': 1887, 'O2E': 2004, 'O3E': 2148, 'O1': 1728, 'O2': 1866, 'O3': 2058, 'O4': 2181, 'O5': 2199, 'O6': 2226, 'O7': 2262, 'O8': 2262, 'O9': 2262, 'O10': 2262})
+PASS | fort-gordon | O-8..O-10 == O-7 | page/src=True | ref=True
+PASS | fort-gordon | live anchor zip | page/src=30905 | ref=30905
+PASS | fort-gordon | live area name | page/src=FORT GORDON, GA (GA073) | ref=FORT GORDON, GA (GA073)
+PASS | fort-gordon | LIVE DTMO lookup E-1 with/without | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | LIVE raw is whole dollars E-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label E-1 | page/src=E1 | ref=E1
+PASS | fort-gordon | LIVE DTMO lookup E-2 with/without | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | LIVE raw is whole dollars E-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label E-2 | page/src=E2 | ref=E2
+PASS | fort-gordon | LIVE DTMO lookup E-3 with/without | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | LIVE raw is whole dollars E-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label E-3 | page/src=E3 | ref=E3
+PASS | fort-gordon | LIVE DTMO lookup E-4 with/without | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | LIVE raw is whole dollars E-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label E-4 | page/src=E4 | ref=E4
+PASS | fort-gordon | LIVE DTMO lookup E-5 with/without | page/src=(1890, 1644) | ref=(1890, 1644)
+PASS | fort-gordon | LIVE raw is whole dollars E-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label E-5 | page/src=E5 | ref=E5
+PASS | fort-gordon | LIVE DTMO lookup E-6 with/without | page/src=(2157, 1731) | ref=(2157, 1731)
+PASS | fort-gordon | LIVE raw is whole dollars E-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label E-6 | page/src=E6 | ref=E6
+PASS | fort-gordon | LIVE DTMO lookup E-7 with/without | page/src=(2190, 1809) | ref=(2190, 1809)
+PASS | fort-gordon | LIVE raw is whole dollars E-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label E-7 | page/src=E7 | ref=E7
+PASS | fort-gordon | LIVE DTMO lookup E-8 with/without | page/src=(2226, 1947) | ref=(2226, 1947)
+PASS | fort-gordon | LIVE raw is whole dollars E-8 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label E-8 | page/src=E8 | ref=E8
+PASS | fort-gordon | LIVE DTMO lookup E-9 with/without | page/src=(2334, 2019) | ref=(2334, 2019)
+PASS | fort-gordon | LIVE raw is whole dollars E-9 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label E-9 | page/src=E9 | ref=E9
+PASS | fort-gordon | LIVE DTMO lookup W-1 with/without | page/src=(2175, 1797) | ref=(2175, 1797)
+PASS | fort-gordon | LIVE raw is whole dollars W-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label W-1 | page/src=W1 | ref=W1
+PASS | fort-gordon | LIVE DTMO lookup W-2 with/without | page/src=(2205, 1944) | ref=(2205, 1944)
+PASS | fort-gordon | LIVE raw is whole dollars W-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label W-2 | page/src=W2 | ref=W2
+PASS | fort-gordon | LIVE DTMO lookup W-3 with/without | page/src=(2253, 2031) | ref=(2253, 2031)
+PASS | fort-gordon | LIVE raw is whole dollars W-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label W-3 | page/src=W3 | ref=W3
+PASS | fort-gordon | LIVE DTMO lookup W-4 with/without | page/src=(2367, 2157) | ref=(2367, 2157)
+PASS | fort-gordon | LIVE raw is whole dollars W-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label W-4 | page/src=W4 | ref=W4
+PASS | fort-gordon | LIVE DTMO lookup W-5 with/without | page/src=(2514, 2196) | ref=(2514, 2196)
+PASS | fort-gordon | LIVE raw is whole dollars W-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label W-5 | page/src=W5 | ref=W5
+PASS | fort-gordon | LIVE DTMO lookup O-1E with/without | page/src=(2193, 1887) | ref=(2193, 1887)
+PASS | fort-gordon | LIVE raw is whole dollars O-1E | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-1E | page/src=O1E | ref=O1E
+PASS | fort-gordon | LIVE DTMO lookup O-2E with/without | page/src=(2241, 2004) | ref=(2241, 2004)
+PASS | fort-gordon | LIVE raw is whole dollars O-2E | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-2E | page/src=O2E | ref=O2E
+PASS | fort-gordon | LIVE DTMO lookup O-3E with/without | page/src=(2388, 2148) | ref=(2388, 2148)
+PASS | fort-gordon | LIVE raw is whole dollars O-3E | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-3E | page/src=O3E | ref=O3E
+PASS | fort-gordon | LIVE DTMO lookup O-1 with/without | page/src=(1929, 1728) | ref=(1929, 1728)
+PASS | fort-gordon | LIVE raw is whole dollars O-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-1 | page/src=O1 | ref=O1
+PASS | fort-gordon | LIVE DTMO lookup O-2 with/without | page/src=(2154, 1866) | ref=(2154, 1866)
+PASS | fort-gordon | LIVE raw is whole dollars O-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-2 | page/src=O2 | ref=O2
+PASS | fort-gordon | LIVE DTMO lookup O-3 with/without | page/src=(2250, 2058) | ref=(2250, 2058)
+PASS | fort-gordon | LIVE raw is whole dollars O-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-3 | page/src=O3 | ref=O3
+PASS | fort-gordon | LIVE DTMO lookup O-4 with/without | page/src=(2559, 2181) | ref=(2559, 2181)
+PASS | fort-gordon | LIVE raw is whole dollars O-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-4 | page/src=O4 | ref=O4
+PASS | fort-gordon | LIVE DTMO lookup O-5 with/without | page/src=(2787, 2199) | ref=(2787, 2199)
+PASS | fort-gordon | LIVE raw is whole dollars O-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-5 | page/src=O5 | ref=O5
+PASS | fort-gordon | LIVE DTMO lookup O-6 with/without | page/src=(2808, 2226) | ref=(2808, 2226)
+PASS | fort-gordon | LIVE raw is whole dollars O-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-6 | page/src=O6 | ref=O6
+PASS | fort-gordon | LIVE DTMO lookup O-7 with/without | page/src=(2826, 2262) | ref=(2826, 2262)
+PASS | fort-gordon | LIVE raw is whole dollars O-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-gordon | LIVE rank label O-7 | page/src=O7/O7+ | ref=O7/O7+
+PASS | fort-gordon | app mha_code | page/src=GA073 | ref=GA073
+PASS | fort-gordon | app bah_2026.json E-1 | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | app bah_2026.json E-2 | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | app bah_2026.json E-3 | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | app bah_2026.json E-4 | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | app bah_2026.json E-5 | page/src=(1890, 1644) | ref=(1890, 1644)
+PASS | fort-gordon | app bah_2026.json E-6 | page/src=(2157, 1731) | ref=(2157, 1731)
+PASS | fort-gordon | app bah_2026.json E-7 | page/src=(2190, 1809) | ref=(2190, 1809)
+PASS | fort-gordon | app bah_2026.json E-8 | page/src=(2226, 1947) | ref=(2226, 1947)
+PASS | fort-gordon | app bah_2026.json E-9 | page/src=(2334, 2019) | ref=(2334, 2019)
+PASS | fort-gordon | app bah_2026.json W-1 | page/src=(2175, 1797) | ref=(2175, 1797)
+PASS | fort-gordon | app bah_2026.json W-2 | page/src=(2205, 1944) | ref=(2205, 1944)
+PASS | fort-gordon | app bah_2026.json W-3 | page/src=(2253, 2031) | ref=(2253, 2031)
+PASS | fort-gordon | app bah_2026.json W-4 | page/src=(2367, 2157) | ref=(2367, 2157)
+PASS | fort-gordon | app bah_2026.json W-5 | page/src=(2514, 2196) | ref=(2514, 2196)
+PASS | fort-gordon | app bah_2026.json O-1E | page/src=(2193, 1887) | ref=(2193, 1887)
+PASS | fort-gordon | app bah_2026.json O-2E | page/src=(2241, 2004) | ref=(2241, 2004)
+PASS | fort-gordon | app bah_2026.json O-3E | page/src=(2388, 2148) | ref=(2388, 2148)
+PASS | fort-gordon | app bah_2026.json O-1 | page/src=(1929, 1728) | ref=(1929, 1728)
+PASS | fort-gordon | app bah_2026.json O-2 | page/src=(2154, 1866) | ref=(2154, 1866)
+PASS | fort-gordon | app bah_2026.json O-3 | page/src=(2250, 2058) | ref=(2250, 2058)
+PASS | fort-gordon | app bah_2026.json O-4 | page/src=(2559, 2181) | ref=(2559, 2181)
+PASS | fort-gordon | app bah_2026.json O-5 | page/src=(2787, 2199) | ref=(2787, 2199)
+PASS | fort-gordon | app bah_2026.json O-6 | page/src=(2808, 2226) | ref=(2808, 2226)
+PASS | fort-gordon | app bah_2026.json O-7 | page/src=(2826, 2262) | ref=(2826, 2262)
+PASS | fort-gordon | calc-data.json E-1 with/without | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | calc-data.json E-2 with/without | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | calc-data.json E-3 with/without | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | calc-data.json E-4 with/without | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | calc-data.json E-5 with/without | page/src=(1890, 1644) | ref=(1890, 1644)
+PASS | fort-gordon | calc-data.json E-6 with/without | page/src=(2157, 1731) | ref=(2157, 1731)
+PASS | fort-gordon | calc-data.json E-7 with/without | page/src=(2190, 1809) | ref=(2190, 1809)
+PASS | fort-gordon | calc-data.json E-8 with/without | page/src=(2226, 1947) | ref=(2226, 1947)
+PASS | fort-gordon | calc-data.json E-9 with/without | page/src=(2334, 2019) | ref=(2334, 2019)
+PASS | fort-gordon | calc-data.json W-1 with/without | page/src=(2175, 1797) | ref=(2175, 1797)
+PASS | fort-gordon | calc-data.json W-2 with/without | page/src=(2205, 1944) | ref=(2205, 1944)
+PASS | fort-gordon | calc-data.json W-3 with/without | page/src=(2253, 2031) | ref=(2253, 2031)
+PASS | fort-gordon | calc-data.json W-4 with/without | page/src=(2367, 2157) | ref=(2367, 2157)
+PASS | fort-gordon | calc-data.json W-5 with/without | page/src=(2514, 2196) | ref=(2514, 2196)
+PASS | fort-gordon | calc-data.json O-1 with/without | page/src=(1929, 1728) | ref=(1929, 1728)
+PASS | fort-gordon | calc-data.json O-2 with/without | page/src=(2154, 1866) | ref=(2154, 1866)
+PASS | fort-gordon | calc-data.json O-3 with/without | page/src=(2250, 2058) | ref=(2250, 2058)
+PASS | fort-gordon | calc-data.json O-4 with/without | page/src=(2559, 2181) | ref=(2559, 2181)
+PASS | fort-gordon | calc-data.json O-5 with/without | page/src=(2787, 2199) | ref=(2787, 2199)
+PASS | fort-gordon | calc-data.json O-6 with/without | page/src=(2808, 2226) | ref=(2808, 2226)
+PASS | fort-gordon | calc-data.json O-7 with/without | page/src=(2826, 2262) | ref=(2826, 2262)
+PASS | fort-gordon | page grade rows | page/src=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7'] | ref=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7']
+PASS | fort-gordon | page table E-1 | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | page table E-2 | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | page table E-3 | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | page table E-4 | page/src=(1809, 1506) | ref=(1809, 1506)
+PASS | fort-gordon | page table E-5 | page/src=(1890, 1644) | ref=(1890, 1644)
+PASS | fort-gordon | page table E-6 | page/src=(2157, 1731) | ref=(2157, 1731)
+PASS | fort-gordon | page table E-7 | page/src=(2190, 1809) | ref=(2190, 1809)
+PASS | fort-gordon | page table E-8 | page/src=(2226, 1947) | ref=(2226, 1947)
+PASS | fort-gordon | page table E-9 | page/src=(2334, 2019) | ref=(2334, 2019)
+PASS | fort-gordon | page table W-1 | page/src=(2175, 1797) | ref=(2175, 1797)
+PASS | fort-gordon | page table W-2 | page/src=(2205, 1944) | ref=(2205, 1944)
+PASS | fort-gordon | page table W-3 | page/src=(2253, 2031) | ref=(2253, 2031)
+PASS | fort-gordon | page table W-4 | page/src=(2367, 2157) | ref=(2367, 2157)
+PASS | fort-gordon | page table W-5 | page/src=(2514, 2196) | ref=(2514, 2196)
+PASS | fort-gordon | page table O-1E | page/src=(2193, 1887) | ref=(2193, 1887)
+PASS | fort-gordon | page table O-2E | page/src=(2241, 2004) | ref=(2241, 2004)
+PASS | fort-gordon | page table O-3E | page/src=(2388, 2148) | ref=(2388, 2148)
+PASS | fort-gordon | page table O-1 | page/src=(1929, 1728) | ref=(1929, 1728)
+PASS | fort-gordon | page table O-2 | page/src=(2154, 1866) | ref=(2154, 1866)
+PASS | fort-gordon | page table O-3 | page/src=(2250, 2058) | ref=(2250, 2058)
+PASS | fort-gordon | page table O-4 | page/src=(2559, 2181) | ref=(2559, 2181)
+PASS | fort-gordon | page table O-5 | page/src=(2787, 2199) | ref=(2787, 2199)
+PASS | fort-gordon | page table O-6 | page/src=(2808, 2226) | ref=(2808, 2226)
+PASS | fort-gordon | page table O-7 | page/src=(2826, 2262) | ref=(2826, 2262)
+PASS | fort-gordon | gap rows | page/src=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3'] | ref=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3']
+PASS | fort-gordon | gap E-4 | page/src=('1,809', '−$436', '$204') | ref=('1,809', '−$436', '$204')
+PASS | fort-gordon | gap E-5 | page/src=('1,890', '−$355', '$285') | ref=('1,890', '−$355', '$285')
+PASS | fort-gordon | gap E-6 | page/src=('2,157', '−$88', '$552') | ref=('2,157', '−$88', '$552')
+PASS | fort-gordon | gap E-7 | page/src=('2,190', '−$55', '$585') | ref=('2,190', '−$55', '$585')
+PASS | fort-gordon | gap W-2 | page/src=('2,205', '−$40', '$600') | ref=('2,205', '−$40', '$600')
+PASS | fort-gordon | gap O-3 | page/src=('2,250', '$5', '$645') | ref=('2,250', '$5', '$645')
+PASS | fort-gordon | all $ tokens on page == re-derived set (multiset) | page/src={'$1,350': 3, '$1,750': 3, '$255': 3, '$495': 3, '$1,890': 4, '−$355': 3, '$285': 3, '$1,809': 6, '$1,506': 4, '$1,644': 1, '$2,157': 3, '$1,731': 1, '$2,190': 2, '$2,226': 2, '$1,947': 1, '$2,334': 1, '$2,019': 1, '$2,175': 1, '$1,797': 1, '$2,205': 2, '$1,944': 1, '$2,253': 1, '$2,031': 1, '$2,367': 1, '$2,514': 1, '$2,196': 1, '$2,193': 1, '$1,887': 1, '$2,241': 1, '$2,004': 1, '$2,388': 1, '$2,148': 1, '$1,929': 1, '$1,728': 1, '$2,154': 1, '$1,866': 1, '$2,250': 2, '$2,058': 1, '$2,559': 1, '$2,181': 1, '$2,787': 1, '$2,199': 1, '$2,808': 1, '$2,826': 1, '$2,262': 1, '$1,605': 1, '$2,245': 1, '−$436': 1, '$204': 1, '−$88': 1, '$552': 1, '−$55': 1, '$585': 1, '−$40': 1, '$600': 1, '$5': 1, '$645': 1} | ref={'$1,809': 6, '$1,506': 4, '$1,890': 4, '$1,644': 1, '$2,157': 3, '$1,731': 1, '$2,190': 2, '$2,226': 2, '$1,947': 1, '$2,334': 1, '$2,019': 1, '$2,175': 1, '$1,797': 1, '$2,205': 2, '$1,944': 1, '$2,253': 1, '$2,031': 1, '$2,367': 1, '$2,514': 1, '$2,196': 1, '$2,193': 1, '$1,887': 1, '$2,241': 1, '$2,004': 1, '$2,388': 1, '$2,148': 1, '$1,929': 1, '$1,728': 1, '$2,154': 1, '$1,866': 1, '$2,250': 2, '$2,058': 1, '$2,559': 1, '$2,181': 1, '$2,787': 1, '$2,199': 1, '$2,808': 1, '$2,826': 1, '$2,262': 1, '−$436': 1, '$204': 1, '−$355': 3, '$285': 3, '−$88': 1, '$552': 1, '−$55': 1, '$585': 1, '−$40': 1, '$600': 1, '$5': 1, '$645': 1, '$1,350': 3, '$1,750': 3, '$255': 3, '$495': 3, '$1,605': 1, '$2,245': 1}
+PASS | fort-gordon | ZIP list == DTMO map | page/src=['29105', '29137', '29164', '29801', '29802', '29803', '29804', '29805', '29808', '29809', '29816', '29822', '29828', '29829', '29831', '29834', '29839', '29841', '29842', '29850', '29851', '29856', '29860', '29861', '30802', '30805', '30809', '30812', '30813', '30814', '30815', '30901', '30903', '30904', '30905', '30906', '30907', '30909', '30912', '30914', '30916', '30917', '30919', '30999'] | ref=['29105', '29137', '29164', '29801', '29802', '29803', '29804', '29805', '29808', '29809', '29816', '29822', '29828', '29829', '29831', '29834', '29839', '29841', '29842', '29850', '29851', '29856', '29860', '29861', '30802', '30805', '30809', '30812', '30813', '30814', '30815', '30901', '30903', '30904', '30905', '30906', '30907', '30909', '30912', '30914', '30916', '30917', '30919', '30999']
+PASS | fort-gordon | ZIP count | page/src=44 | ref=44
+PASS | fort-gordon | anchor ZIP maps once | page/src=['GA073'] | ref=['GA073']
+PASS | fort-gordon | area name on page | page/src=True | ref=True
+PASS | fort-gordon | FAQ ZIP 29841 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-gordon | FAQ ZIP 30809 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-gordon | FAQ ZIP 30907 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-gordon | FAQ MHA code GA073 is a DTMO MHA and its DTMO name is on the page | page/src=True | ref=True
+PASS | fort-gordon | FAQ JSON-LD == visible Q&A | page/src=[('Is Fort Eisenhower BAH different from Fort Gordon BAH?', 'No. Fort Eisenhower was the post’s name from 2023 to 2025. Same post, same housing area (GA073), same rates. Augusta (30907), Evans (30809) and North Augusta, SC (29841) are all in it. DTMO’s rate file labels this area FORT GORDON, AL; the DTMO BAH Rate Lookup shows FORT GORDON, GA. Same code, same rates.'), ('Does 2026 BAH at Fort Gordon cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,350–$1,750 and utilities of about $255–$495 a month, a Sergeant (E-5) with dependents ($1,890) lands between −$355 and $285 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')] | ref=[('Is Fort Eisenhower BAH different from Fort Gordon BAH?', 'No. Fort Eisenhower was the post’s name from 2023 to 2025. Same post, same housing area (GA073), same rates. Augusta (30907), Evans (30809) and North Augusta, SC (29841) are all in it. DTMO’s rate file labels this area FORT GORDON, AL; the DTMO BAH Rate Lookup shows FORT GORDON, GA. Same code, same rates.'), ('Does 2026 BAH at Fort Gordon cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,350–$1,750 and utilities of about $255–$495 a month, a Sergeant (E-5) with dependents ($1,890) lands between −$355 and $285 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')]
+PASS | fort-gordon | self canonical | page/src=https://pcsvector.com/bah/fort-gordon/ | ref=https://pcsvector.com/bah/fort-gordon/
+PASS | fort-gordon | alias Fort Eisenhower in title/H1/body | page/src=(True, True, True) | ref=(True, True, True)
+PASS | fort-gordon | dateModified | page/src=2026-10-20 | ref=2026-10-20
+PASS | fort-gordon | as-of stamp visible | page/src=True | ref=True
+PASS | fort-gordon | calculator links preselect this post (3) | page/src=['Fort Gordon, GA', 'Fort Gordon, GA', 'Fort Gordon, GA'] | ref=['Fort Gordon, GA', 'Fort Gordon, GA', 'Fort Gordon, GA']
+PASS | fort-gordon | post exists in calculator | page/src=True | ref=True
+PASS | fort-gordon | forbidden text "rent/buy" absent | page/src=False | ref=False
+PASS | fort-gordon | forbidden text "rent or buy" absent | page/src=False | ref=False
+PASS | fort-gordon | forbidden text "buy or rent" absent | page/src=False | ref=False
+PASS | fort-gordon | forbidden text "consent" absent | page/src=False | ref=False
+PASS | fort-gordon | forbidden text "privacy" absent | page/src=False | ref=False
+PASS | fort-gordon | forbidden text "endorse" absent | page/src=False | ref=False
+PASS | fort-gordon | forbidden text "approved by the army" absent | page/src=False | ref=False
+PASS | fort-gordon | forbidden text "approved by dod" absent | page/src=False | ref=False
+PASS | fort-gordon | 'Military-approved' label kept | page/src=True | ref=True
+PASS | fort-gordon | hub row | page/src=('GA073', '1,890', '1,550', '+$340') | ref=('GA073', '1,890', '1,550', '+$340')
+PASS | fort-jackson | ASCII vs DTMO PDF with E-1 | page/src=1812 | ref=1812
+PASS | fort-jackson | ASCII vs DTMO PDF with E-2 | page/src=1812 | ref=1812
+PASS | fort-jackson | ASCII vs DTMO PDF with E-3 | page/src=1812 | ref=1812
+PASS | fort-jackson | ASCII vs DTMO PDF with E-4 | page/src=1812 | ref=1812
+PASS | fort-jackson | ASCII vs DTMO PDF with E-5 | page/src=1878 | ref=1878
+PASS | fort-jackson | ASCII vs DTMO PDF with E-6 | page/src=2121 | ref=2121
+PASS | fort-jackson | ASCII vs DTMO PDF with E-7 | page/src=2160 | ref=2160
+PASS | fort-jackson | ASCII vs DTMO PDF with E-8 | page/src=2202 | ref=2202
+PASS | fort-jackson | ASCII vs DTMO PDF with E-9 | page/src=2310 | ref=2310
+PASS | fort-jackson | ASCII vs DTMO PDF with W-1 | page/src=2136 | ref=2136
+PASS | fort-jackson | ASCII vs DTMO PDF with W-2 | page/src=2175 | ref=2175
+PASS | fort-jackson | ASCII vs DTMO PDF with W-3 | page/src=2235 | ref=2235
+PASS | fort-jackson | ASCII vs DTMO PDF with W-4 | page/src=2340 | ref=2340
+PASS | fort-jackson | ASCII vs DTMO PDF with W-5 | page/src=2475 | ref=2475
+PASS | fort-jackson | ASCII vs DTMO PDF with O-1E | page/src=2163 | ref=2163
+PASS | fort-jackson | ASCII vs DTMO PDF with O-2E | page/src=2223 | ref=2223
+PASS | fort-jackson | ASCII vs DTMO PDF with O-3E | page/src=2361 | ref=2361
+PASS | fort-jackson | ASCII vs DTMO PDF with O-1 | page/src=1914 | ref=1914
+PASS | fort-jackson | ASCII vs DTMO PDF with O-2 | page/src=2118 | ref=2118
+PASS | fort-jackson | ASCII vs DTMO PDF with O-3 | page/src=2232 | ref=2232
+PASS | fort-jackson | ASCII vs DTMO PDF with O-4 | page/src=2517 | ref=2517
+PASS | fort-jackson | ASCII vs DTMO PDF with O-5 | page/src=2724 | ref=2724
+PASS | fort-jackson | ASCII vs DTMO PDF with O-6 | page/src=2745 | ref=2745
+PASS | fort-jackson | ASCII vs DTMO PDF with O-7 | page/src=2760 | ref=2760
+PASS | fort-jackson | ASCII vs DTMO PDF without E-1 | page/src=1479 | ref=1479
+PASS | fort-jackson | ASCII vs DTMO PDF without E-2 | page/src=1479 | ref=1479
+PASS | fort-jackson | ASCII vs DTMO PDF without E-3 | page/src=1479 | ref=1479
+PASS | fort-jackson | ASCII vs DTMO PDF without E-4 | page/src=1479 | ref=1479
+PASS | fort-jackson | ASCII vs DTMO PDF without E-5 | page/src=1647 | ref=1647
+PASS | fort-jackson | ASCII vs DTMO PDF without E-6 | page/src=1746 | ref=1746
+PASS | fort-jackson | ASCII vs DTMO PDF without E-7 | page/src=1812 | ref=1812
+PASS | fort-jackson | ASCII vs DTMO PDF without E-8 | page/src=1932 | ref=1932
+PASS | fort-jackson | ASCII vs DTMO PDF without E-9 | page/src=1995 | ref=1995
+PASS | fort-jackson | ASCII vs DTMO PDF without W-1 | page/src=1803 | ref=1803
+PASS | fort-jackson | ASCII vs DTMO PDF without W-2 | page/src=1929 | ref=1929
+PASS | fort-jackson | ASCII vs DTMO PDF without W-3 | page/src=2004 | ref=2004
+PASS | fort-jackson | ASCII vs DTMO PDF without W-4 | page/src=2121 | ref=2121
+PASS | fort-jackson | ASCII vs DTMO PDF without W-5 | page/src=2166 | ref=2166
+PASS | fort-jackson | ASCII vs DTMO PDF without O-1E | page/src=1875 | ref=1875
+PASS | fort-jackson | ASCII vs DTMO PDF without O-2E | page/src=1980 | ref=1980
+PASS | fort-jackson | ASCII vs DTMO PDF without O-3E | page/src=2109 | ref=2109
+PASS | fort-jackson | ASCII vs DTMO PDF without O-1 | page/src=1743 | ref=1743
+PASS | fort-jackson | ASCII vs DTMO PDF without O-2 | page/src=1860 | ref=1860
+PASS | fort-jackson | ASCII vs DTMO PDF without O-3 | page/src=2028 | ref=2028
+PASS | fort-jackson | ASCII vs DTMO PDF without O-4 | page/src=2151 | ref=2151
+PASS | fort-jackson | ASCII vs DTMO PDF without O-5 | page/src=2172 | ref=2172
+PASS | fort-jackson | ASCII vs DTMO PDF without O-6 | page/src=2211 | ref=2211
+PASS | fort-jackson | ASCII vs DTMO PDF without O-7 | page/src=2247 | ref=2247
+PASS | fort-jackson | ASCII unchanged vs pre-update file | page/src=({'E1': 1812, 'E2': 1812, 'E3': 1812, 'E4': 1812, 'E5': 1878, 'E6': 2121, 'E7': 2160, 'E8': 2202, 'E9': 2310, 'W1': 2136, 'W2': 2175, 'W3': 2235, 'W4': 2340, 'W5': 2475, 'O1E': 2163, 'O2E': 2223, 'O3E': 2361, 'O1': 1914, 'O2': 2118, 'O3': 2232, 'O4': 2517, 'O5': 2724, 'O6': 2745, 'O7': 2760, 'O8': 2760, 'O9': 2760, 'O10': 2760}, {'E1': 1479, 'E2': 1479, 'E3': 1479, 'E4': 1479, 'E5': 1647, 'E6': 1746, 'E7': 1812, 'E8': 1932, 'E9': 1995, 'W1': 1803, 'W2': 1929, 'W3': 2004, 'W4': 2121, 'W5': 2166, 'O1E': 1875, 'O2E': 1980, 'O3E': 2109, 'O1': 1743, 'O2': 1860, 'O3': 2028, 'O4': 2151, 'O5': 2172, 'O6': 2211, 'O7': 2247, 'O8': 2247, 'O9': 2247, 'O10': 2247}) | ref=({'E1': 1812, 'E2': 1812, 'E3': 1812, 'E4': 1812, 'E5': 1878, 'E6': 2121, 'E7': 2160, 'E8': 2202, 'E9': 2310, 'W1': 2136, 'W2': 2175, 'W3': 2235, 'W4': 2340, 'W5': 2475, 'O1E': 2163, 'O2E': 2223, 'O3E': 2361, 'O1': 1914, 'O2': 2118, 'O3': 2232, 'O4': 2517, 'O5': 2724, 'O6': 2745, 'O7': 2760, 'O8': 2760, 'O9': 2760, 'O10': 2760}, {'E1': 1479, 'E2': 1479, 'E3': 1479, 'E4': 1479, 'E5': 1647, 'E6': 1746, 'E7': 1812, 'E8': 1932, 'E9': 1995, 'W1': 1803, 'W2': 1929, 'W3': 2004, 'W4': 2121, 'W5': 2166, 'O1E': 1875, 'O2E': 1980, 'O3E': 2109, 'O1': 1743, 'O2': 1860, 'O3': 2028, 'O4': 2151, 'O5': 2172, 'O6': 2211, 'O7': 2247, 'O8': 2247, 'O9': 2247, 'O10': 2247})
+PASS | fort-jackson | O-8..O-10 == O-7 | page/src=True | ref=True
+PASS | fort-jackson | live anchor zip | page/src=29207 | ref=29207
+PASS | fort-jackson | live area name | page/src=COLUMBIA/FORT JACKSON, SC (SC260) | ref=COLUMBIA/FORT JACKSON, SC (SC260)
+PASS | fort-jackson | LIVE DTMO lookup E-1 with/without | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | LIVE raw is whole dollars E-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label E-1 | page/src=E1 | ref=E1
+PASS | fort-jackson | LIVE DTMO lookup E-2 with/without | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | LIVE raw is whole dollars E-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label E-2 | page/src=E2 | ref=E2
+PASS | fort-jackson | LIVE DTMO lookup E-3 with/without | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | LIVE raw is whole dollars E-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label E-3 | page/src=E3 | ref=E3
+PASS | fort-jackson | LIVE DTMO lookup E-4 with/without | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | LIVE raw is whole dollars E-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label E-4 | page/src=E4 | ref=E4
+PASS | fort-jackson | LIVE DTMO lookup E-5 with/without | page/src=(1878, 1647) | ref=(1878, 1647)
+PASS | fort-jackson | LIVE raw is whole dollars E-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label E-5 | page/src=E5 | ref=E5
+PASS | fort-jackson | LIVE DTMO lookup E-6 with/without | page/src=(2121, 1746) | ref=(2121, 1746)
+PASS | fort-jackson | LIVE raw is whole dollars E-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label E-6 | page/src=E6 | ref=E6
+PASS | fort-jackson | LIVE DTMO lookup E-7 with/without | page/src=(2160, 1812) | ref=(2160, 1812)
+PASS | fort-jackson | LIVE raw is whole dollars E-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label E-7 | page/src=E7 | ref=E7
+PASS | fort-jackson | LIVE DTMO lookup E-8 with/without | page/src=(2202, 1932) | ref=(2202, 1932)
+PASS | fort-jackson | LIVE raw is whole dollars E-8 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label E-8 | page/src=E8 | ref=E8
+PASS | fort-jackson | LIVE DTMO lookup E-9 with/without | page/src=(2310, 1995) | ref=(2310, 1995)
+PASS | fort-jackson | LIVE raw is whole dollars E-9 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label E-9 | page/src=E9 | ref=E9
+PASS | fort-jackson | LIVE DTMO lookup W-1 with/without | page/src=(2136, 1803) | ref=(2136, 1803)
+PASS | fort-jackson | LIVE raw is whole dollars W-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label W-1 | page/src=W1 | ref=W1
+PASS | fort-jackson | LIVE DTMO lookup W-2 with/without | page/src=(2175, 1929) | ref=(2175, 1929)
+PASS | fort-jackson | LIVE raw is whole dollars W-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label W-2 | page/src=W2 | ref=W2
+PASS | fort-jackson | LIVE DTMO lookup W-3 with/without | page/src=(2235, 2004) | ref=(2235, 2004)
+PASS | fort-jackson | LIVE raw is whole dollars W-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label W-3 | page/src=W3 | ref=W3
+PASS | fort-jackson | LIVE DTMO lookup W-4 with/without | page/src=(2340, 2121) | ref=(2340, 2121)
+PASS | fort-jackson | LIVE raw is whole dollars W-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label W-4 | page/src=W4 | ref=W4
+PASS | fort-jackson | LIVE DTMO lookup W-5 with/without | page/src=(2475, 2166) | ref=(2475, 2166)
+PASS | fort-jackson | LIVE raw is whole dollars W-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label W-5 | page/src=W5 | ref=W5
+PASS | fort-jackson | LIVE DTMO lookup O-1E with/without | page/src=(2163, 1875) | ref=(2163, 1875)
+PASS | fort-jackson | LIVE raw is whole dollars O-1E | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-1E | page/src=O1E | ref=O1E
+PASS | fort-jackson | LIVE DTMO lookup O-2E with/without | page/src=(2223, 1980) | ref=(2223, 1980)
+PASS | fort-jackson | LIVE raw is whole dollars O-2E | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-2E | page/src=O2E | ref=O2E
+PASS | fort-jackson | LIVE DTMO lookup O-3E with/without | page/src=(2361, 2109) | ref=(2361, 2109)
+PASS | fort-jackson | LIVE raw is whole dollars O-3E | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-3E | page/src=O3E | ref=O3E
+PASS | fort-jackson | LIVE DTMO lookup O-1 with/without | page/src=(1914, 1743) | ref=(1914, 1743)
+PASS | fort-jackson | LIVE raw is whole dollars O-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-1 | page/src=O1 | ref=O1
+PASS | fort-jackson | LIVE DTMO lookup O-2 with/without | page/src=(2118, 1860) | ref=(2118, 1860)
+PASS | fort-jackson | LIVE raw is whole dollars O-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-2 | page/src=O2 | ref=O2
+PASS | fort-jackson | LIVE DTMO lookup O-3 with/without | page/src=(2232, 2028) | ref=(2232, 2028)
+PASS | fort-jackson | LIVE raw is whole dollars O-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-3 | page/src=O3 | ref=O3
+PASS | fort-jackson | LIVE DTMO lookup O-4 with/without | page/src=(2517, 2151) | ref=(2517, 2151)
+PASS | fort-jackson | LIVE raw is whole dollars O-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-4 | page/src=O4 | ref=O4
+PASS | fort-jackson | LIVE DTMO lookup O-5 with/without | page/src=(2724, 2172) | ref=(2724, 2172)
+PASS | fort-jackson | LIVE raw is whole dollars O-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-5 | page/src=O5 | ref=O5
+PASS | fort-jackson | LIVE DTMO lookup O-6 with/without | page/src=(2745, 2211) | ref=(2745, 2211)
+PASS | fort-jackson | LIVE raw is whole dollars O-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-6 | page/src=O6 | ref=O6
+PASS | fort-jackson | LIVE DTMO lookup O-7 with/without | page/src=(2760, 2247) | ref=(2760, 2247)
+PASS | fort-jackson | LIVE raw is whole dollars O-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-jackson | LIVE rank label O-7 | page/src=O7/O7+ | ref=O7/O7+
+PASS | fort-jackson | app mha_code | page/src=SC260 | ref=SC260
+PASS | fort-jackson | app bah_2026.json E-1 | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | app bah_2026.json E-2 | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | app bah_2026.json E-3 | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | app bah_2026.json E-4 | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | app bah_2026.json E-5 | page/src=(1878, 1647) | ref=(1878, 1647)
+PASS | fort-jackson | app bah_2026.json E-6 | page/src=(2121, 1746) | ref=(2121, 1746)
+PASS | fort-jackson | app bah_2026.json E-7 | page/src=(2160, 1812) | ref=(2160, 1812)
+PASS | fort-jackson | app bah_2026.json E-8 | page/src=(2202, 1932) | ref=(2202, 1932)
+PASS | fort-jackson | app bah_2026.json E-9 | page/src=(2310, 1995) | ref=(2310, 1995)
+PASS | fort-jackson | app bah_2026.json W-1 | page/src=(2136, 1803) | ref=(2136, 1803)
+PASS | fort-jackson | app bah_2026.json W-2 | page/src=(2175, 1929) | ref=(2175, 1929)
+PASS | fort-jackson | app bah_2026.json W-3 | page/src=(2235, 2004) | ref=(2235, 2004)
+PASS | fort-jackson | app bah_2026.json W-4 | page/src=(2340, 2121) | ref=(2340, 2121)
+PASS | fort-jackson | app bah_2026.json W-5 | page/src=(2475, 2166) | ref=(2475, 2166)
+PASS | fort-jackson | app bah_2026.json O-1E | page/src=(2163, 1875) | ref=(2163, 1875)
+PASS | fort-jackson | app bah_2026.json O-2E | page/src=(2223, 1980) | ref=(2223, 1980)
+PASS | fort-jackson | app bah_2026.json O-3E | page/src=(2361, 2109) | ref=(2361, 2109)
+PASS | fort-jackson | app bah_2026.json O-1 | page/src=(1914, 1743) | ref=(1914, 1743)
+PASS | fort-jackson | app bah_2026.json O-2 | page/src=(2118, 1860) | ref=(2118, 1860)
+PASS | fort-jackson | app bah_2026.json O-3 | page/src=(2232, 2028) | ref=(2232, 2028)
+PASS | fort-jackson | app bah_2026.json O-4 | page/src=(2517, 2151) | ref=(2517, 2151)
+PASS | fort-jackson | app bah_2026.json O-5 | page/src=(2724, 2172) | ref=(2724, 2172)
+PASS | fort-jackson | app bah_2026.json O-6 | page/src=(2745, 2211) | ref=(2745, 2211)
+PASS | fort-jackson | app bah_2026.json O-7 | page/src=(2760, 2247) | ref=(2760, 2247)
+PASS | fort-jackson | calc-data.json E-1 with/without | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | calc-data.json E-2 with/without | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | calc-data.json E-3 with/without | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | calc-data.json E-4 with/without | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | calc-data.json E-5 with/without | page/src=(1878, 1647) | ref=(1878, 1647)
+PASS | fort-jackson | calc-data.json E-6 with/without | page/src=(2121, 1746) | ref=(2121, 1746)
+PASS | fort-jackson | calc-data.json E-7 with/without | page/src=(2160, 1812) | ref=(2160, 1812)
+PASS | fort-jackson | calc-data.json E-8 with/without | page/src=(2202, 1932) | ref=(2202, 1932)
+PASS | fort-jackson | calc-data.json E-9 with/without | page/src=(2310, 1995) | ref=(2310, 1995)
+PASS | fort-jackson | calc-data.json W-1 with/without | page/src=(2136, 1803) | ref=(2136, 1803)
+PASS | fort-jackson | calc-data.json W-2 with/without | page/src=(2175, 1929) | ref=(2175, 1929)
+PASS | fort-jackson | calc-data.json W-3 with/without | page/src=(2235, 2004) | ref=(2235, 2004)
+PASS | fort-jackson | calc-data.json W-4 with/without | page/src=(2340, 2121) | ref=(2340, 2121)
+PASS | fort-jackson | calc-data.json W-5 with/without | page/src=(2475, 2166) | ref=(2475, 2166)
+PASS | fort-jackson | calc-data.json O-1 with/without | page/src=(1914, 1743) | ref=(1914, 1743)
+PASS | fort-jackson | calc-data.json O-2 with/without | page/src=(2118, 1860) | ref=(2118, 1860)
+PASS | fort-jackson | calc-data.json O-3 with/without | page/src=(2232, 2028) | ref=(2232, 2028)
+PASS | fort-jackson | calc-data.json O-4 with/without | page/src=(2517, 2151) | ref=(2517, 2151)
+PASS | fort-jackson | calc-data.json O-5 with/without | page/src=(2724, 2172) | ref=(2724, 2172)
+PASS | fort-jackson | calc-data.json O-6 with/without | page/src=(2745, 2211) | ref=(2745, 2211)
+PASS | fort-jackson | calc-data.json O-7 with/without | page/src=(2760, 2247) | ref=(2760, 2247)
+PASS | fort-jackson | page grade rows | page/src=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7'] | ref=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7']
+PASS | fort-jackson | page table E-1 | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | page table E-2 | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | page table E-3 | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | page table E-4 | page/src=(1812, 1479) | ref=(1812, 1479)
+PASS | fort-jackson | page table E-5 | page/src=(1878, 1647) | ref=(1878, 1647)
+PASS | fort-jackson | page table E-6 | page/src=(2121, 1746) | ref=(2121, 1746)
+PASS | fort-jackson | page table E-7 | page/src=(2160, 1812) | ref=(2160, 1812)
+PASS | fort-jackson | page table E-8 | page/src=(2202, 1932) | ref=(2202, 1932)
+PASS | fort-jackson | page table E-9 | page/src=(2310, 1995) | ref=(2310, 1995)
+PASS | fort-jackson | page table W-1 | page/src=(2136, 1803) | ref=(2136, 1803)
+PASS | fort-jackson | page table W-2 | page/src=(2175, 1929) | ref=(2175, 1929)
+PASS | fort-jackson | page table W-3 | page/src=(2235, 2004) | ref=(2235, 2004)
+PASS | fort-jackson | page table W-4 | page/src=(2340, 2121) | ref=(2340, 2121)
+PASS | fort-jackson | page table W-5 | page/src=(2475, 2166) | ref=(2475, 2166)
+PASS | fort-jackson | page table O-1E | page/src=(2163, 1875) | ref=(2163, 1875)
+PASS | fort-jackson | page table O-2E | page/src=(2223, 1980) | ref=(2223, 1980)
+PASS | fort-jackson | page table O-3E | page/src=(2361, 2109) | ref=(2361, 2109)
+PASS | fort-jackson | page table O-1 | page/src=(1914, 1743) | ref=(1914, 1743)
+PASS | fort-jackson | page table O-2 | page/src=(2118, 1860) | ref=(2118, 1860)
+PASS | fort-jackson | page table O-3 | page/src=(2232, 2028) | ref=(2232, 2028)
+PASS | fort-jackson | page table O-4 | page/src=(2517, 2151) | ref=(2517, 2151)
+PASS | fort-jackson | page table O-5 | page/src=(2724, 2172) | ref=(2724, 2172)
+PASS | fort-jackson | page table O-6 | page/src=(2745, 2211) | ref=(2745, 2211)
+PASS | fort-jackson | page table O-7 | page/src=(2760, 2247) | ref=(2760, 2247)
+PASS | fort-jackson | gap rows | page/src=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3'] | ref=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3']
+PASS | fort-jackson | gap E-4 | page/src=('1,812', '−$543', '$207') | ref=('1,812', '−$543', '$207')
+PASS | fort-jackson | gap E-5 | page/src=('1,878', '−$477', '$273') | ref=('1,878', '−$477', '$273')
+PASS | fort-jackson | gap E-6 | page/src=('2,121', '−$234', '$516') | ref=('2,121', '−$234', '$516')
+PASS | fort-jackson | gap E-7 | page/src=('2,160', '−$195', '$555') | ref=('2,160', '−$195', '$555')
+PASS | fort-jackson | gap W-2 | page/src=('2,175', '−$180', '$570') | ref=('2,175', '−$180', '$570')
+PASS | fort-jackson | gap O-3 | page/src=('2,232', '−$123', '$627') | ref=('2,232', '−$123', '$627')
+PASS | fort-jackson | all $ tokens on page == re-derived set (multiset) | page/src={'$1,350': 3, '$1,850': 3, '$255': 3, '$505': 3, '$1,878': 4, '−$477': 3, '$273': 3, '$1,812': 6, '$1,479': 4, '$1,647': 1, '$2,121': 3, '$1,746': 1, '$2,160': 2, '$2,202': 1, '$1,932': 1, '$2,310': 1, '$1,995': 1, '$2,136': 1, '$1,803': 1, '$2,175': 2, '$1,929': 1, '$2,235': 1, '$2,004': 1, '$2,340': 1, '$2,475': 1, '$2,166': 1, '$2,163': 1, '$1,875': 1, '$2,223': 1, '$1,980': 1, '$2,361': 1, '$2,109': 1, '$1,914': 1, '$1,743': 1, '$2,118': 1, '$1,860': 1, '$2,232': 2, '$2,028': 1, '$2,517': 1, '$2,151': 1, '$2,724': 1, '$2,172': 1, '$2,745': 1, '$2,211': 1, '$2,760': 1, '$2,247': 1, '$1,605': 1, '$2,355': 1, '−$543': 1, '$207': 1, '−$234': 1, '$516': 1, '−$195': 1, '$555': 1, '−$180': 1, '$570': 1, '−$123': 1, '$627': 1} | ref={'$1,812': 6, '$1,479': 4, '$1,878': 4, '$1,647': 1, '$2,121': 3, '$1,746': 1, '$2,160': 2, '$2,202': 1, '$1,932': 1, '$2,310': 1, '$1,995': 1, '$2,136': 1, '$1,803': 1, '$2,175': 2, '$1,929': 1, '$2,235': 1, '$2,004': 1, '$2,340': 1, '$2,475': 1, '$2,166': 1, '$2,163': 1, '$1,875': 1, '$2,223': 1, '$1,980': 1, '$2,361': 1, '$2,109': 1, '$1,914': 1, '$1,743': 1, '$2,118': 1, '$1,860': 1, '$2,232': 2, '$2,028': 1, '$2,517': 1, '$2,151': 1, '$2,724': 1, '$2,172': 1, '$2,745': 1, '$2,211': 1, '$2,760': 1, '$2,247': 1, '−$543': 1, '$207': 1, '−$477': 3, '$273': 3, '−$234': 1, '$516': 1, '−$195': 1, '$555': 1, '−$180': 1, '$570': 1, '−$123': 1, '$627': 1, '$1,350': 3, '$1,850': 3, '$255': 3, '$505': 3, '$1,605': 1, '$2,355': 1}
+PASS | fort-jackson | ZIP list == DTMO map | page/src=['29002', '29006', '29009', '29016', '29020', '29021', '29032', '29033', '29036', '29044', '29045', '29052', '29053', '29054', '29061', '29063', '29070', '29071', '29072', '29073', '29074', '29078', '29112', '29123', '29147', '29160', '29169', '29170', '29171', '29172', '29175', '29177', '29201', '29202', '29203', '29204', '29205', '29206', '29207', '29208', '29209', '29210', '29211', '29212', '29214', '29215', '29216', '29217', '29218', '29219', '29220', '29221', '29222', '29223', '29224', '29225', '29226', '29227', '29228', '29229', '29230', '29240', '29250', '29260', '29290', '29292'] | ref=['29002', '29006', '29009', '29016', '29020', '29021', '29032', '29033', '29036', '29044', '29045', '29052', '29053', '29054', '29061', '29063', '29070', '29071', '29072', '29073', '29074', '29078', '29112', '29123', '29147', '29160', '29169', '29170', '29171', '29172', '29175', '29177', '29201', '29202', '29203', '29204', '29205', '29206', '29207', '29208', '29209', '29210', '29211', '29212', '29214', '29215', '29216', '29217', '29218', '29219', '29220', '29221', '29222', '29223', '29224', '29225', '29226', '29227', '29228', '29229', '29230', '29240', '29250', '29260', '29290', '29292']
+PASS | fort-jackson | ZIP count | page/src=66 | ref=66
+PASS | fort-jackson | anchor ZIP maps once | page/src=['SC260'] | ref=['SC260']
+PASS | fort-jackson | area name on page | page/src=True | ref=True
+PASS | fort-jackson | FAQ ZIP 29223 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-jackson | FAQ ZIP 29229 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-jackson | FAQ MHA code SC260 is a DTMO MHA and its DTMO name is on the page | page/src=True | ref=True
+PASS | fort-jackson | FAQ "COLUMBIA/FORT JACKSON, SC (SC260)" matches DTMO name | page/src=COLUMBIA/FORT JACKSON, SC | ref=COLUMBIA/FORT JACKSON, SC
+PASS | fort-jackson | FAQ JSON-LD == visible Q&A | page/src=[('Why does DTMO call it Columbia/Fort Jackson?', 'DTMO sets BAH by Military Housing Area, and Fort Jackson shares one area with the city of Columbia: COLUMBIA/FORT JACKSON, SC (SC260). Northeast Columbia ZIPs such as 29229 and 29223 use the same rates.'), ('Does 2026 BAH at Fort Jackson cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,350–$1,850 and utilities of about $255–$505 a month, a Sergeant (E-5) with dependents ($1,878) lands between −$477 and $273 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')] | ref=[('Why does DTMO call it Columbia/Fort Jackson?', 'DTMO sets BAH by Military Housing Area, and Fort Jackson shares one area with the city of Columbia: COLUMBIA/FORT JACKSON, SC (SC260). Northeast Columbia ZIPs such as 29229 and 29223 use the same rates.'), ('Does 2026 BAH at Fort Jackson cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,350–$1,850 and utilities of about $255–$505 a month, a Sergeant (E-5) with dependents ($1,878) lands between −$477 and $273 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')]
+PASS | fort-jackson | self canonical | page/src=https://pcsvector.com/bah/fort-jackson/ | ref=https://pcsvector.com/bah/fort-jackson/
+PASS | fort-jackson | dateModified | page/src=2026-10-20 | ref=2026-10-20
+PASS | fort-jackson | as-of stamp visible | page/src=True | ref=True
+PASS | fort-jackson | calculator links preselect this post (3) | page/src=['Fort Jackson, SC', 'Fort Jackson, SC', 'Fort Jackson, SC'] | ref=['Fort Jackson, SC', 'Fort Jackson, SC', 'Fort Jackson, SC']
+PASS | fort-jackson | post exists in calculator | page/src=True | ref=True
+PASS | fort-jackson | forbidden text "rent/buy" absent | page/src=False | ref=False
+PASS | fort-jackson | forbidden text "rent or buy" absent | page/src=False | ref=False
+PASS | fort-jackson | forbidden text "buy or rent" absent | page/src=False | ref=False
+PASS | fort-jackson | forbidden text "consent" absent | page/src=False | ref=False
+PASS | fort-jackson | forbidden text "privacy" absent | page/src=False | ref=False
+PASS | fort-jackson | forbidden text "endorse" absent | page/src=False | ref=False
+PASS | fort-jackson | forbidden text "approved by the army" absent | page/src=False | ref=False
+PASS | fort-jackson | forbidden text "approved by dod" absent | page/src=False | ref=False
+PASS | fort-jackson | 'Military-approved' label kept | page/src=True | ref=True
+PASS | fort-jackson | hub row | page/src=('SC260', '1,878', '1,600', '+$278') | ref=('SC260', '1,878', '1,600', '+$278')
+PASS | fort-rucker | ASCII vs DTMO PDF with E-1 | page/src=1440 | ref=1440
+PASS | fort-rucker | ASCII vs DTMO PDF with E-2 | page/src=1440 | ref=1440
+PASS | fort-rucker | ASCII vs DTMO PDF with E-3 | page/src=1440 | ref=1440
+PASS | fort-rucker | ASCII vs DTMO PDF with E-4 | page/src=1440 | ref=1440
+PASS | fort-rucker | ASCII vs DTMO PDF with E-5 | page/src=1572 | ref=1572
+PASS | fort-rucker | ASCII vs DTMO PDF with E-6 | page/src=1743 | ref=1743
+PASS | fort-rucker | ASCII vs DTMO PDF with E-7 | page/src=1929 | ref=1929
+PASS | fort-rucker | ASCII vs DTMO PDF with E-8 | page/src=2136 | ref=2136
+PASS | fort-rucker | ASCII vs DTMO PDF with E-9 | page/src=2346 | ref=2346
+PASS | fort-rucker | ASCII vs DTMO PDF with W-1 | page/src=1761 | ref=1761
+PASS | fort-rucker | ASCII vs DTMO PDF with W-2 | page/src=2013 | ref=2013
+PASS | fort-rucker | ASCII vs DTMO PDF with W-3 | page/src=2268 | ref=2268
+PASS | fort-rucker | ASCII vs DTMO PDF with W-4 | page/src=2373 | ref=2373
+PASS | fort-rucker | ASCII vs DTMO PDF with W-5 | page/src=2502 | ref=2502
+PASS | fort-rucker | ASCII vs DTMO PDF with O-1E | page/src=1968 | ref=1968
+PASS | fort-rucker | ASCII vs DTMO PDF with O-2E | page/src=2232 | ref=2232
+PASS | fort-rucker | ASCII vs DTMO PDF with O-3E | page/src=2394 | ref=2394
+PASS | fort-rucker | ASCII vs DTMO PDF with O-1 | page/src=1602 | ref=1602
+PASS | fort-rucker | ASCII vs DTMO PDF with O-2 | page/src=1740 | ref=1740
+PASS | fort-rucker | ASCII vs DTMO PDF with O-3 | page/src=2262 | ref=2262
+PASS | fort-rucker | ASCII vs DTMO PDF with O-4 | page/src=2541 | ref=2541
+PASS | fort-rucker | ASCII vs DTMO PDF with O-5 | page/src=2742 | ref=2742
+PASS | fort-rucker | ASCII vs DTMO PDF with O-6 | page/src=2760 | ref=2760
+PASS | fort-rucker | ASCII vs DTMO PDF with O-7 | page/src=2778 | ref=2778
+PASS | fort-rucker | ASCII vs DTMO PDF without E-1 | page/src=1167 | ref=1167
+PASS | fort-rucker | ASCII vs DTMO PDF without E-2 | page/src=1167 | ref=1167
+PASS | fort-rucker | ASCII vs DTMO PDF without E-3 | page/src=1167 | ref=1167
+PASS | fort-rucker | ASCII vs DTMO PDF without E-4 | page/src=1167 | ref=1167
+PASS | fort-rucker | ASCII vs DTMO PDF without E-5 | page/src=1251 | ref=1251
+PASS | fort-rucker | ASCII vs DTMO PDF without E-6 | page/src=1317 | ref=1317
+PASS | fort-rucker | ASCII vs DTMO PDF without E-7 | page/src=1446 | ref=1446
+PASS | fort-rucker | ASCII vs DTMO PDF without E-8 | page/src=1611 | ref=1611
+PASS | fort-rucker | ASCII vs DTMO PDF without E-9 | page/src=1761 | ref=1761
+PASS | fort-rucker | ASCII vs DTMO PDF without W-1 | page/src=1407 | ref=1407
+PASS | fort-rucker | ASCII vs DTMO PDF without W-2 | page/src=1608 | ref=1608
+PASS | fort-rucker | ASCII vs DTMO PDF without W-3 | page/src=1764 | ref=1764
+PASS | fort-rucker | ASCII vs DTMO PDF without W-4 | page/src=1800 | ref=1800
+PASS | fort-rucker | ASCII vs DTMO PDF without W-5 | page/src=1977 | ref=1977
+PASS | fort-rucker | ASCII vs DTMO PDF without O-1E | page/src=1569 | ref=1569
+PASS | fort-rucker | ASCII vs DTMO PDF without O-2E | page/src=1674 | ref=1674
+PASS | fort-rucker | ASCII vs DTMO PDF without O-3E | page/src=1797 | ref=1797
+PASS | fort-rucker | ASCII vs DTMO PDF without O-1 | page/src=1305 | ref=1305
+PASS | fort-rucker | ASCII vs DTMO PDF without O-2 | page/src=1533 | ref=1533
+PASS | fort-rucker | ASCII vs DTMO PDF without O-3 | page/src=1767 | ref=1767
+PASS | fort-rucker | ASCII vs DTMO PDF without O-4 | page/src=1941 | ref=1941
+PASS | fort-rucker | ASCII vs DTMO PDF without O-5 | page/src=2058 | ref=2058
+PASS | fort-rucker | ASCII vs DTMO PDF without O-6 | page/src=2247 | ref=2247
+PASS | fort-rucker | ASCII vs DTMO PDF without O-7 | page/src=2283 | ref=2283
+PASS | fort-rucker | ASCII unchanged vs pre-update file | page/src=({'E1': 1440, 'E2': 1440, 'E3': 1440, 'E4': 1440, 'E5': 1572, 'E6': 1743, 'E7': 1929, 'E8': 2136, 'E9': 2346, 'W1': 1761, 'W2': 2013, 'W3': 2268, 'W4': 2373, 'W5': 2502, 'O1E': 1968, 'O2E': 2232, 'O3E': 2394, 'O1': 1602, 'O2': 1740, 'O3': 2262, 'O4': 2541, 'O5': 2742, 'O6': 2760, 'O7': 2778, 'O8': 2778, 'O9': 2778, 'O10': 2778}, {'E1': 1167, 'E2': 1167, 'E3': 1167, 'E4': 1167, 'E5': 1251, 'E6': 1317, 'E7': 1446, 'E8': 1611, 'E9': 1761, 'W1': 1407, 'W2': 1608, 'W3': 1764, 'W4': 1800, 'W5': 1977, 'O1E': 1569, 'O2E': 1674, 'O3E': 1797, 'O1': 1305, 'O2': 1533, 'O3': 1767, 'O4': 1941, 'O5': 2058, 'O6': 2247, 'O7': 2283, 'O8': 2283, 'O9': 2283, 'O10': 2283}) | ref=({'E1': 1440, 'E2': 1440, 'E3': 1440, 'E4': 1440, 'E5': 1572, 'E6': 1743, 'E7': 1929, 'E8': 2136, 'E9': 2346, 'W1': 1761, 'W2': 2013, 'W3': 2268, 'W4': 2373, 'W5': 2502, 'O1E': 1968, 'O2E': 2232, 'O3E': 2394, 'O1': 1602, 'O2': 1740, 'O3': 2262, 'O4': 2541, 'O5': 2742, 'O6': 2760, 'O7': 2778, 'O8': 2778, 'O9': 2778, 'O10': 2778}, {'E1': 1167, 'E2': 1167, 'E3': 1167, 'E4': 1167, 'E5': 1251, 'E6': 1317, 'E7': 1446, 'E8': 1611, 'E9': 1761, 'W1': 1407, 'W2': 1608, 'W3': 1764, 'W4': 1800, 'W5': 1977, 'O1E': 1569, 'O2E': 1674, 'O3E': 1797, 'O1': 1305, 'O2': 1533, 'O3': 1767, 'O4': 1941, 'O5': 2058, 'O6': 2247, 'O7': 2283, 'O8': 2283, 'O9': 2283, 'O10': 2283})
+PASS | fort-rucker | O-8..O-10 == O-7 | page/src=True | ref=True
+PASS | fort-rucker | live anchor zip | page/src=36362 | ref=36362
+PASS | fort-rucker | live area name | page/src=FORT RUCKER, AL (AL002) | ref=FORT RUCKER, AL (AL002)
+PASS | fort-rucker | LIVE DTMO lookup E-1 with/without | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | LIVE raw is whole dollars E-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label E-1 | page/src=E1 | ref=E1
+PASS | fort-rucker | LIVE DTMO lookup E-2 with/without | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | LIVE raw is whole dollars E-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label E-2 | page/src=E2 | ref=E2
+PASS | fort-rucker | LIVE DTMO lookup E-3 with/without | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | LIVE raw is whole dollars E-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label E-3 | page/src=E3 | ref=E3
+PASS | fort-rucker | LIVE DTMO lookup E-4 with/without | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | LIVE raw is whole dollars E-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label E-4 | page/src=E4 | ref=E4
+PASS | fort-rucker | LIVE DTMO lookup E-5 with/without | page/src=(1572, 1251) | ref=(1572, 1251)
+PASS | fort-rucker | LIVE raw is whole dollars E-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label E-5 | page/src=E5 | ref=E5
+PASS | fort-rucker | LIVE DTMO lookup E-6 with/without | page/src=(1743, 1317) | ref=(1743, 1317)
+PASS | fort-rucker | LIVE raw is whole dollars E-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label E-6 | page/src=E6 | ref=E6
+PASS | fort-rucker | LIVE DTMO lookup E-7 with/without | page/src=(1929, 1446) | ref=(1929, 1446)
+PASS | fort-rucker | LIVE raw is whole dollars E-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label E-7 | page/src=E7 | ref=E7
+PASS | fort-rucker | LIVE DTMO lookup E-8 with/without | page/src=(2136, 1611) | ref=(2136, 1611)
+PASS | fort-rucker | LIVE raw is whole dollars E-8 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label E-8 | page/src=E8 | ref=E8
+PASS | fort-rucker | LIVE DTMO lookup E-9 with/without | page/src=(2346, 1761) | ref=(2346, 1761)
+PASS | fort-rucker | LIVE raw is whole dollars E-9 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label E-9 | page/src=E9 | ref=E9
+PASS | fort-rucker | LIVE DTMO lookup W-1 with/without | page/src=(1761, 1407) | ref=(1761, 1407)
+PASS | fort-rucker | LIVE raw is whole dollars W-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label W-1 | page/src=W1 | ref=W1
+PASS | fort-rucker | LIVE DTMO lookup W-2 with/without | page/src=(2013, 1608) | ref=(2013, 1608)
+PASS | fort-rucker | LIVE raw is whole dollars W-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label W-2 | page/src=W2 | ref=W2
+PASS | fort-rucker | LIVE DTMO lookup W-3 with/without | page/src=(2268, 1764) | ref=(2268, 1764)
+PASS | fort-rucker | LIVE raw is whole dollars W-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label W-3 | page/src=W3 | ref=W3
+PASS | fort-rucker | LIVE DTMO lookup W-4 with/without | page/src=(2373, 1800) | ref=(2373, 1800)
+PASS | fort-rucker | LIVE raw is whole dollars W-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label W-4 | page/src=W4 | ref=W4
+PASS | fort-rucker | LIVE DTMO lookup W-5 with/without | page/src=(2502, 1977) | ref=(2502, 1977)
+PASS | fort-rucker | LIVE raw is whole dollars W-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label W-5 | page/src=W5 | ref=W5
+PASS | fort-rucker | LIVE DTMO lookup O-1E with/without | page/src=(1968, 1569) | ref=(1968, 1569)
+PASS | fort-rucker | LIVE raw is whole dollars O-1E | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-1E | page/src=O1E | ref=O1E
+PASS | fort-rucker | LIVE DTMO lookup O-2E with/without | page/src=(2232, 1674) | ref=(2232, 1674)
+PASS | fort-rucker | LIVE raw is whole dollars O-2E | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-2E | page/src=O2E | ref=O2E
+PASS | fort-rucker | LIVE DTMO lookup O-3E with/without | page/src=(2394, 1797) | ref=(2394, 1797)
+PASS | fort-rucker | LIVE raw is whole dollars O-3E | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-3E | page/src=O3E | ref=O3E
+PASS | fort-rucker | LIVE DTMO lookup O-1 with/without | page/src=(1602, 1305) | ref=(1602, 1305)
+PASS | fort-rucker | LIVE raw is whole dollars O-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-1 | page/src=O1 | ref=O1
+PASS | fort-rucker | LIVE DTMO lookup O-2 with/without | page/src=(1740, 1533) | ref=(1740, 1533)
+PASS | fort-rucker | LIVE raw is whole dollars O-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-2 | page/src=O2 | ref=O2
+PASS | fort-rucker | LIVE DTMO lookup O-3 with/without | page/src=(2262, 1767) | ref=(2262, 1767)
+PASS | fort-rucker | LIVE raw is whole dollars O-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-3 | page/src=O3 | ref=O3
+PASS | fort-rucker | LIVE DTMO lookup O-4 with/without | page/src=(2541, 1941) | ref=(2541, 1941)
+PASS | fort-rucker | LIVE raw is whole dollars O-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-4 | page/src=O4 | ref=O4
+PASS | fort-rucker | LIVE DTMO lookup O-5 with/without | page/src=(2742, 2058) | ref=(2742, 2058)
+PASS | fort-rucker | LIVE raw is whole dollars O-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-5 | page/src=O5 | ref=O5
+PASS | fort-rucker | LIVE DTMO lookup O-6 with/without | page/src=(2760, 2247) | ref=(2760, 2247)
+PASS | fort-rucker | LIVE raw is whole dollars O-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-6 | page/src=O6 | ref=O6
+PASS | fort-rucker | LIVE DTMO lookup O-7 with/without | page/src=(2778, 2283) | ref=(2778, 2283)
+PASS | fort-rucker | LIVE raw is whole dollars O-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-rucker | LIVE rank label O-7 | page/src=O7/O7+ | ref=O7/O7+
+PASS | fort-rucker | app mha_code | page/src=AL002 | ref=AL002
+PASS | fort-rucker | app bah_2026.json E-1 | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | app bah_2026.json E-2 | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | app bah_2026.json E-3 | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | app bah_2026.json E-4 | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | app bah_2026.json E-5 | page/src=(1572, 1251) | ref=(1572, 1251)
+PASS | fort-rucker | app bah_2026.json E-6 | page/src=(1743, 1317) | ref=(1743, 1317)
+PASS | fort-rucker | app bah_2026.json E-7 | page/src=(1929, 1446) | ref=(1929, 1446)
+PASS | fort-rucker | app bah_2026.json E-8 | page/src=(2136, 1611) | ref=(2136, 1611)
+PASS | fort-rucker | app bah_2026.json E-9 | page/src=(2346, 1761) | ref=(2346, 1761)
+PASS | fort-rucker | app bah_2026.json W-1 | page/src=(1761, 1407) | ref=(1761, 1407)
+PASS | fort-rucker | app bah_2026.json W-2 | page/src=(2013, 1608) | ref=(2013, 1608)
+PASS | fort-rucker | app bah_2026.json W-3 | page/src=(2268, 1764) | ref=(2268, 1764)
+PASS | fort-rucker | app bah_2026.json W-4 | page/src=(2373, 1800) | ref=(2373, 1800)
+PASS | fort-rucker | app bah_2026.json W-5 | page/src=(2502, 1977) | ref=(2502, 1977)
+PASS | fort-rucker | app bah_2026.json O-1E | page/src=(1968, 1569) | ref=(1968, 1569)
+PASS | fort-rucker | app bah_2026.json O-2E | page/src=(2232, 1674) | ref=(2232, 1674)
+PASS | fort-rucker | app bah_2026.json O-3E | page/src=(2394, 1797) | ref=(2394, 1797)
+PASS | fort-rucker | app bah_2026.json O-1 | page/src=(1602, 1305) | ref=(1602, 1305)
+PASS | fort-rucker | app bah_2026.json O-2 | page/src=(1740, 1533) | ref=(1740, 1533)
+PASS | fort-rucker | app bah_2026.json O-3 | page/src=(2262, 1767) | ref=(2262, 1767)
+PASS | fort-rucker | app bah_2026.json O-4 | page/src=(2541, 1941) | ref=(2541, 1941)
+PASS | fort-rucker | app bah_2026.json O-5 | page/src=(2742, 2058) | ref=(2742, 2058)
+PASS | fort-rucker | app bah_2026.json O-6 | page/src=(2760, 2247) | ref=(2760, 2247)
+PASS | fort-rucker | app bah_2026.json O-7 | page/src=(2778, 2283) | ref=(2778, 2283)
+PASS | fort-rucker | calc-data.json E-1 with/without | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | calc-data.json E-2 with/without | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | calc-data.json E-3 with/without | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | calc-data.json E-4 with/without | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | calc-data.json E-5 with/without | page/src=(1572, 1251) | ref=(1572, 1251)
+PASS | fort-rucker | calc-data.json E-6 with/without | page/src=(1743, 1317) | ref=(1743, 1317)
+PASS | fort-rucker | calc-data.json E-7 with/without | page/src=(1929, 1446) | ref=(1929, 1446)
+PASS | fort-rucker | calc-data.json E-8 with/without | page/src=(2136, 1611) | ref=(2136, 1611)
+PASS | fort-rucker | calc-data.json E-9 with/without | page/src=(2346, 1761) | ref=(2346, 1761)
+PASS | fort-rucker | calc-data.json W-1 with/without | page/src=(1761, 1407) | ref=(1761, 1407)
+PASS | fort-rucker | calc-data.json W-2 with/without | page/src=(2013, 1608) | ref=(2013, 1608)
+PASS | fort-rucker | calc-data.json W-3 with/without | page/src=(2268, 1764) | ref=(2268, 1764)
+PASS | fort-rucker | calc-data.json W-4 with/without | page/src=(2373, 1800) | ref=(2373, 1800)
+PASS | fort-rucker | calc-data.json W-5 with/without | page/src=(2502, 1977) | ref=(2502, 1977)
+PASS | fort-rucker | calc-data.json O-1 with/without | page/src=(1602, 1305) | ref=(1602, 1305)
+PASS | fort-rucker | calc-data.json O-2 with/without | page/src=(1740, 1533) | ref=(1740, 1533)
+PASS | fort-rucker | calc-data.json O-3 with/without | page/src=(2262, 1767) | ref=(2262, 1767)
+PASS | fort-rucker | calc-data.json O-4 with/without | page/src=(2541, 1941) | ref=(2541, 1941)
+PASS | fort-rucker | calc-data.json O-5 with/without | page/src=(2742, 2058) | ref=(2742, 2058)
+PASS | fort-rucker | calc-data.json O-6 with/without | page/src=(2760, 2247) | ref=(2760, 2247)
+PASS | fort-rucker | calc-data.json O-7 with/without | page/src=(2778, 2283) | ref=(2778, 2283)
+PASS | fort-rucker | page grade rows | page/src=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7'] | ref=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7']
+PASS | fort-rucker | page table E-1 | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | page table E-2 | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | page table E-3 | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | page table E-4 | page/src=(1440, 1167) | ref=(1440, 1167)
+PASS | fort-rucker | page table E-5 | page/src=(1572, 1251) | ref=(1572, 1251)
+PASS | fort-rucker | page table E-6 | page/src=(1743, 1317) | ref=(1743, 1317)
+PASS | fort-rucker | page table E-7 | page/src=(1929, 1446) | ref=(1929, 1446)
+PASS | fort-rucker | page table E-8 | page/src=(2136, 1611) | ref=(2136, 1611)
+PASS | fort-rucker | page table E-9 | page/src=(2346, 1761) | ref=(2346, 1761)
+PASS | fort-rucker | page table W-1 | page/src=(1761, 1407) | ref=(1761, 1407)
+PASS | fort-rucker | page table W-2 | page/src=(2013, 1608) | ref=(2013, 1608)
+PASS | fort-rucker | page table W-3 | page/src=(2268, 1764) | ref=(2268, 1764)
+PASS | fort-rucker | page table W-4 | page/src=(2373, 1800) | ref=(2373, 1800)
+PASS | fort-rucker | page table W-5 | page/src=(2502, 1977) | ref=(2502, 1977)
+PASS | fort-rucker | page table O-1E | page/src=(1968, 1569) | ref=(1968, 1569)
+PASS | fort-rucker | page table O-2E | page/src=(2232, 1674) | ref=(2232, 1674)
+PASS | fort-rucker | page table O-3E | page/src=(2394, 1797) | ref=(2394, 1797)
+PASS | fort-rucker | page table O-1 | page/src=(1602, 1305) | ref=(1602, 1305)
+PASS | fort-rucker | page table O-2 | page/src=(1740, 1533) | ref=(1740, 1533)
+PASS | fort-rucker | page table O-3 | page/src=(2262, 1767) | ref=(2262, 1767)
+PASS | fort-rucker | page table O-4 | page/src=(2541, 1941) | ref=(2541, 1941)
+PASS | fort-rucker | page table O-5 | page/src=(2742, 2058) | ref=(2742, 2058)
+PASS | fort-rucker | page table O-6 | page/src=(2760, 2247) | ref=(2760, 2247)
+PASS | fort-rucker | page table O-7 | page/src=(2778, 2283) | ref=(2778, 2283)
+PASS | fort-rucker | gap rows | page/src=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3'] | ref=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3']
+PASS | fort-rucker | gap E-4 | page/src=('1,440', '−$700', '$40') | ref=('1,440', '−$700', '$40')
+PASS | fort-rucker | gap E-5 | page/src=('1,572', '−$568', '$172') | ref=('1,572', '−$568', '$172')
+PASS | fort-rucker | gap E-6 | page/src=('1,743', '−$397', '$343') | ref=('1,743', '−$397', '$343')
+PASS | fort-rucker | gap E-7 | page/src=('1,929', '−$211', '$529') | ref=('1,929', '−$211', '$529')
+PASS | fort-rucker | gap W-2 | page/src=('2,013', '−$127', '$613') | ref=('2,013', '−$127', '$613')
+PASS | fort-rucker | gap O-3 | page/src=('2,262', '$122', '$862') | ref=('2,262', '$122', '$862')
+PASS | fort-rucker | all $ tokens on page == re-derived set (multiset) | page/src={'$1,150': 3, '$1,650': 3, '$250': 3, '$490': 3, '$1,572': 4, '−$568': 3, '$172': 3, '$1,440': 5, '$1,167': 4, '$1,251': 1, '$1,743': 2, '$1,317': 1, '$1,929': 2, '$1,446': 1, '$2,136': 1, '$1,611': 1, '$2,346': 1, '$1,761': 2, '$1,407': 1, '$2,013': 2, '$1,608': 1, '$2,268': 1, '$1,764': 1, '$2,373': 1, '$1,800': 1, '$2,502': 1, '$1,977': 1, '$1,968': 1, '$1,569': 1, '$2,232': 1, '$1,674': 1, '$2,394': 1, '$1,797': 1, '$1,602': 1, '$1,305': 1, '$1,740': 1, '$1,533': 1, '$2,262': 2, '$1,767': 1, '$2,541': 1, '$1,941': 1, '$2,742': 1, '$2,058': 1, '$2,760': 1, '$2,247': 1, '$2,778': 1, '$2,283': 1, '$1,400': 1, '$2,140': 1, '−$700': 1, '$40': 1, '−$397': 1, '$343': 1, '−$211': 1, '$529': 1, '−$127': 1, '$613': 1, '$122': 1, '$862': 1} | ref={'$1,440': 5, '$1,167': 4, '$1,572': 4, '$1,251': 1, '$1,743': 2, '$1,317': 1, '$1,929': 2, '$1,446': 1, '$2,136': 1, '$1,611': 1, '$2,346': 1, '$1,761': 2, '$1,407': 1, '$2,013': 2, '$1,608': 1, '$2,268': 1, '$1,764': 1, '$2,373': 1, '$1,800': 1, '$2,502': 1, '$1,977': 1, '$1,968': 1, '$1,569': 1, '$2,232': 1, '$1,674': 1, '$2,394': 1, '$1,797': 1, '$1,602': 1, '$1,305': 1, '$1,740': 1, '$1,533': 1, '$2,262': 2, '$1,767': 1, '$2,541': 1, '$1,941': 1, '$2,742': 1, '$2,058': 1, '$2,760': 1, '$2,247': 1, '$2,778': 1, '$2,283': 1, '−$700': 1, '$40': 1, '−$568': 3, '$172': 3, '−$397': 1, '$343': 1, '−$211': 1, '$529': 1, '−$127': 1, '$613': 1, '$122': 1, '$862': 1, '$1,150': 3, '$1,650': 3, '$250': 3, '$490': 3, '$1,400': 1, '$2,140': 1}
+PASS | fort-rucker | ZIP list == DTMO map | page/src=['36301', '36302', '36303', '36304', '36305', '36310', '36311', '36312', '36313', '36314', '36316', '36317', '36318', '36319', '36320', '36321', '36322', '36323', '36330', '36331', '36340', '36343', '36344', '36345', '36346', '36349', '36350', '36351', '36352', '36353', '36360', '36361', '36362', '36370', '36371', '36373', '36374', '36375', '36376', '36453', '36477'] | ref=['36301', '36302', '36303', '36304', '36305', '36310', '36311', '36312', '36313', '36314', '36316', '36317', '36318', '36319', '36320', '36321', '36322', '36323', '36330', '36331', '36340', '36343', '36344', '36345', '36346', '36349', '36350', '36351', '36352', '36353', '36360', '36361', '36362', '36370', '36371', '36373', '36374', '36375', '36376', '36453', '36477']
+PASS | fort-rucker | ZIP count | page/src=41 | ref=41
+PASS | fort-rucker | anchor ZIP maps once | page/src=['AL002'] | ref=['AL002']
+PASS | fort-rucker | area name on page | page/src=True | ref=True
+PASS | fort-rucker | FAQ ZIP 36301 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-rucker | FAQ ZIP 36330 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-rucker | FAQ ZIP 36360 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-rucker | FAQ MHA code AL002 is a DTMO MHA and its DTMO name is on the page | page/src=True | ref=True
+PASS | fort-rucker | FAQ JSON-LD == visible Q&A | page/src=[('Is Fort Novosel BAH different from Fort Rucker BAH?', 'No. Fort Novosel was the post’s name from 2023 to 2025. Same post, same housing area (AL002), same rates. Enterprise (36330), Ozark (36360) and Dothan (36301) are all in it.'), ('Does 2026 BAH at Fort Rucker cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,150–$1,650 and utilities of about $250–$490 a month, a Sergeant (E-5) with dependents ($1,572) lands between −$568 and $172 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')] | ref=[('Is Fort Novosel BAH different from Fort Rucker BAH?', 'No. Fort Novosel was the post’s name from 2023 to 2025. Same post, same housing area (AL002), same rates. Enterprise (36330), Ozark (36360) and Dothan (36301) are all in it.'), ('Does 2026 BAH at Fort Rucker cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,150–$1,650 and utilities of about $250–$490 a month, a Sergeant (E-5) with dependents ($1,572) lands between −$568 and $172 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')]
+PASS | fort-rucker | self canonical | page/src=https://pcsvector.com/bah/fort-rucker/ | ref=https://pcsvector.com/bah/fort-rucker/
+PASS | fort-rucker | alias Fort Novosel in title/H1/body | page/src=(True, True, True) | ref=(True, True, True)
+PASS | fort-rucker | dateModified | page/src=2026-10-20 | ref=2026-10-20
+PASS | fort-rucker | as-of stamp visible | page/src=True | ref=True
+PASS | fort-rucker | calculator links preselect this post (3) | page/src=['Fort Rucker, AL', 'Fort Rucker, AL', 'Fort Rucker, AL'] | ref=['Fort Rucker, AL', 'Fort Rucker, AL', 'Fort Rucker, AL']
+PASS | fort-rucker | post exists in calculator | page/src=True | ref=True
+PASS | fort-rucker | forbidden text "rent/buy" absent | page/src=False | ref=False
+PASS | fort-rucker | forbidden text "rent or buy" absent | page/src=False | ref=False
+PASS | fort-rucker | forbidden text "buy or rent" absent | page/src=False | ref=False
+PASS | fort-rucker | forbidden text "consent" absent | page/src=False | ref=False
+PASS | fort-rucker | forbidden text "privacy" absent | page/src=False | ref=False
+PASS | fort-rucker | forbidden text "endorse" absent | page/src=False | ref=False
+PASS | fort-rucker | forbidden text "approved by the army" absent | page/src=False | ref=False
+PASS | fort-rucker | forbidden text "approved by dod" absent | page/src=False | ref=False
+PASS | fort-rucker | 'Military-approved' label kept | page/src=True | ref=True
+PASS | fort-rucker | hub row | page/src=('AL002', '1,572', '1,400', '+$172') | ref=('AL002', '1,572', '1,400', '+$172')
+PASS | fort-lee | ASCII vs DTMO PDF with E-1 | page/src=2157 | ref=2157
+PASS | fort-lee | ASCII vs DTMO PDF with E-2 | page/src=2157 | ref=2157
+PASS | fort-lee | ASCII vs DTMO PDF with E-3 | page/src=2157 | ref=2157
+PASS | fort-lee | ASCII vs DTMO PDF with E-4 | page/src=2157 | ref=2157
+PASS | fort-lee | ASCII vs DTMO PDF with E-5 | page/src=2358 | ref=2358
+PASS | fort-lee | ASCII vs DTMO PDF with E-6 | page/src=2628 | ref=2628
+PASS | fort-lee | ASCII vs DTMO PDF with E-7 | page/src=2676 | ref=2676
+PASS | fort-lee | ASCII vs DTMO PDF with E-8 | page/src=2727 | ref=2727
+PASS | fort-lee | ASCII vs DTMO PDF with E-9 | page/src=2835 | ref=2835
+PASS | fort-lee | ASCII vs DTMO PDF with W-1 | page/src=2646 | ref=2646
+PASS | fort-lee | ASCII vs DTMO PDF with W-2 | page/src=2694 | ref=2694
+PASS | fort-lee | ASCII vs DTMO PDF with W-3 | page/src=2763 | ref=2763
+PASS | fort-lee | ASCII vs DTMO PDF with W-4 | page/src=2862 | ref=2862
+PASS | fort-lee | ASCII vs DTMO PDF with W-5 | page/src=2991 | ref=2991
+PASS | fort-lee | ASCII vs DTMO PDF with O-1E | page/src=2682 | ref=2682
+PASS | fort-lee | ASCII vs DTMO PDF with O-2E | page/src=2751 | ref=2751
+PASS | fort-lee | ASCII vs DTMO PDF with O-3E | page/src=2883 | ref=2883
+PASS | fort-lee | ASCII vs DTMO PDF with O-1 | page/src=2400 | ref=2400
+PASS | fort-lee | ASCII vs DTMO PDF with O-2 | page/src=2625 | ref=2625
+PASS | fort-lee | ASCII vs DTMO PDF with O-3 | page/src=2760 | ref=2760
+PASS | fort-lee | ASCII vs DTMO PDF with O-4 | page/src=3030 | ref=3030
+PASS | fort-lee | ASCII vs DTMO PDF with O-5 | page/src=3231 | ref=3231
+PASS | fort-lee | ASCII vs DTMO PDF with O-6 | page/src=3255 | ref=3255
+PASS | fort-lee | ASCII vs DTMO PDF with O-7 | page/src=3276 | ref=3276
+PASS | fort-lee | ASCII vs DTMO PDF without E-1 | page/src=1728 | ref=1728
+PASS | fort-lee | ASCII vs DTMO PDF without E-2 | page/src=1728 | ref=1728
+PASS | fort-lee | ASCII vs DTMO PDF without E-3 | page/src=1728 | ref=1728
+PASS | fort-lee | ASCII vs DTMO PDF without E-4 | page/src=1728 | ref=1728
+PASS | fort-lee | ASCII vs DTMO PDF without E-5 | page/src=1866 | ref=1866
+PASS | fort-lee | ASCII vs DTMO PDF without E-6 | page/src=1971 | ref=1971
+PASS | fort-lee | ASCII vs DTMO PDF without E-7 | page/src=2163 | ref=2163
+PASS | fort-lee | ASCII vs DTMO PDF without E-8 | page/src=2418 | ref=2418
+PASS | fort-lee | ASCII vs DTMO PDF without E-9 | page/src=2490 | ref=2490
+PASS | fort-lee | ASCII vs DTMO PDF without W-1 | page/src=2094 | ref=2094
+PASS | fort-lee | ASCII vs DTMO PDF without W-2 | page/src=2415 | ref=2415
+PASS | fort-lee | ASCII vs DTMO PDF without W-3 | page/src=2502 | ref=2502
+PASS | fort-lee | ASCII vs DTMO PDF without W-4 | page/src=2631 | ref=2631
+PASS | fort-lee | ASCII vs DTMO PDF without W-5 | page/src=2685 | ref=2685
+PASS | fort-lee | ASCII vs DTMO PDF without O-1E | page/src=2355 | ref=2355
+PASS | fort-lee | ASCII vs DTMO PDF without O-2E | page/src=2475 | ref=2475
+PASS | fort-lee | ASCII vs DTMO PDF without O-3E | page/src=2619 | ref=2619
+PASS | fort-lee | ASCII vs DTMO PDF without O-1 | page/src=1950 | ref=1950
+PASS | fort-lee | ASCII vs DTMO PDF without O-2 | page/src=2295 | ref=2295
+PASS | fort-lee | ASCII vs DTMO PDF without O-3 | page/src=2526 | ref=2526
+PASS | fort-lee | ASCII vs DTMO PDF without O-4 | page/src=2670 | ref=2670
+PASS | fort-lee | ASCII vs DTMO PDF without O-5 | page/src=2694 | ref=2694
+PASS | fort-lee | ASCII vs DTMO PDF without O-6 | page/src=2739 | ref=2739
+PASS | fort-lee | ASCII vs DTMO PDF without O-7 | page/src=2784 | ref=2784
+PASS | fort-lee | ASCII unchanged vs pre-update file | page/src=({'E1': 2157, 'E2': 2157, 'E3': 2157, 'E4': 2157, 'E5': 2358, 'E6': 2628, 'E7': 2676, 'E8': 2727, 'E9': 2835, 'W1': 2646, 'W2': 2694, 'W3': 2763, 'W4': 2862, 'W5': 2991, 'O1E': 2682, 'O2E': 2751, 'O3E': 2883, 'O1': 2400, 'O2': 2625, 'O3': 2760, 'O4': 3030, 'O5': 3231, 'O6': 3255, 'O7': 3276, 'O8': 3276, 'O9': 3276, 'O10': 3276}, {'E1': 1728, 'E2': 1728, 'E3': 1728, 'E4': 1728, 'E5': 1866, 'E6': 1971, 'E7': 2163, 'E8': 2418, 'E9': 2490, 'W1': 2094, 'W2': 2415, 'W3': 2502, 'W4': 2631, 'W5': 2685, 'O1E': 2355, 'O2E': 2475, 'O3E': 2619, 'O1': 1950, 'O2': 2295, 'O3': 2526, 'O4': 2670, 'O5': 2694, 'O6': 2739, 'O7': 2784, 'O8': 2784, 'O9': 2784, 'O10': 2784}) | ref=({'E1': 2157, 'E2': 2157, 'E3': 2157, 'E4': 2157, 'E5': 2358, 'E6': 2628, 'E7': 2676, 'E8': 2727, 'E9': 2835, 'W1': 2646, 'W2': 2694, 'W3': 2763, 'W4': 2862, 'W5': 2991, 'O1E': 2682, 'O2E': 2751, 'O3E': 2883, 'O1': 2400, 'O2': 2625, 'O3': 2760, 'O4': 3030, 'O5': 3231, 'O6': 3255, 'O7': 3276, 'O8': 3276, 'O9': 3276, 'O10': 3276}, {'E1': 1728, 'E2': 1728, 'E3': 1728, 'E4': 1728, 'E5': 1866, 'E6': 1971, 'E7': 2163, 'E8': 2418, 'E9': 2490, 'W1': 2094, 'W2': 2415, 'W3': 2502, 'W4': 2631, 'W5': 2685, 'O1E': 2355, 'O2E': 2475, 'O3E': 2619, 'O1': 1950, 'O2': 2295, 'O3': 2526, 'O4': 2670, 'O5': 2694, 'O6': 2739, 'O7': 2784, 'O8': 2784, 'O9': 2784, 'O10': 2784})
+PASS | fort-lee | O-8..O-10 == O-7 | page/src=True | ref=True
+PASS | fort-lee | live anchor zip | page/src=23801 | ref=23801
+PASS | fort-lee | live area name | page/src=RICHMOND, VA (VA301) | ref=RICHMOND, VA (VA301)
+PASS | fort-lee | LIVE DTMO lookup E-1 with/without | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | LIVE raw is whole dollars E-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label E-1 | page/src=E1 | ref=E1
+PASS | fort-lee | LIVE DTMO lookup E-2 with/without | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | LIVE raw is whole dollars E-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label E-2 | page/src=E2 | ref=E2
+PASS | fort-lee | LIVE DTMO lookup E-3 with/without | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | LIVE raw is whole dollars E-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label E-3 | page/src=E3 | ref=E3
+PASS | fort-lee | LIVE DTMO lookup E-4 with/without | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | LIVE raw is whole dollars E-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label E-4 | page/src=E4 | ref=E4
+PASS | fort-lee | LIVE DTMO lookup E-5 with/without | page/src=(2358, 1866) | ref=(2358, 1866)
+PASS | fort-lee | LIVE raw is whole dollars E-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label E-5 | page/src=E5 | ref=E5
+PASS | fort-lee | LIVE DTMO lookup E-6 with/without | page/src=(2628, 1971) | ref=(2628, 1971)
+PASS | fort-lee | LIVE raw is whole dollars E-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label E-6 | page/src=E6 | ref=E6
+PASS | fort-lee | LIVE DTMO lookup E-7 with/without | page/src=(2676, 2163) | ref=(2676, 2163)
+PASS | fort-lee | LIVE raw is whole dollars E-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label E-7 | page/src=E7 | ref=E7
+PASS | fort-lee | LIVE DTMO lookup E-8 with/without | page/src=(2727, 2418) | ref=(2727, 2418)
+PASS | fort-lee | LIVE raw is whole dollars E-8 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label E-8 | page/src=E8 | ref=E8
+PASS | fort-lee | LIVE DTMO lookup E-9 with/without | page/src=(2835, 2490) | ref=(2835, 2490)
+PASS | fort-lee | LIVE raw is whole dollars E-9 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label E-9 | page/src=E9 | ref=E9
+PASS | fort-lee | LIVE DTMO lookup W-1 with/without | page/src=(2646, 2094) | ref=(2646, 2094)
+PASS | fort-lee | LIVE raw is whole dollars W-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label W-1 | page/src=W1 | ref=W1
+PASS | fort-lee | LIVE DTMO lookup W-2 with/without | page/src=(2694, 2415) | ref=(2694, 2415)
+PASS | fort-lee | LIVE raw is whole dollars W-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label W-2 | page/src=W2 | ref=W2
+PASS | fort-lee | LIVE DTMO lookup W-3 with/without | page/src=(2763, 2502) | ref=(2763, 2502)
+PASS | fort-lee | LIVE raw is whole dollars W-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label W-3 | page/src=W3 | ref=W3
+PASS | fort-lee | LIVE DTMO lookup W-4 with/without | page/src=(2862, 2631) | ref=(2862, 2631)
+PASS | fort-lee | LIVE raw is whole dollars W-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label W-4 | page/src=W4 | ref=W4
+PASS | fort-lee | LIVE DTMO lookup W-5 with/without | page/src=(2991, 2685) | ref=(2991, 2685)
+PASS | fort-lee | LIVE raw is whole dollars W-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label W-5 | page/src=W5 | ref=W5
+PASS | fort-lee | LIVE DTMO lookup O-1E with/without | page/src=(2682, 2355) | ref=(2682, 2355)
+PASS | fort-lee | LIVE raw is whole dollars O-1E | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-1E | page/src=O1E | ref=O1E
+PASS | fort-lee | LIVE DTMO lookup O-2E with/without | page/src=(2751, 2475) | ref=(2751, 2475)
+PASS | fort-lee | LIVE raw is whole dollars O-2E | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-2E | page/src=O2E | ref=O2E
+PASS | fort-lee | LIVE DTMO lookup O-3E with/without | page/src=(2883, 2619) | ref=(2883, 2619)
+PASS | fort-lee | LIVE raw is whole dollars O-3E | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-3E | page/src=O3E | ref=O3E
+PASS | fort-lee | LIVE DTMO lookup O-1 with/without | page/src=(2400, 1950) | ref=(2400, 1950)
+PASS | fort-lee | LIVE raw is whole dollars O-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-1 | page/src=O1 | ref=O1
+PASS | fort-lee | LIVE DTMO lookup O-2 with/without | page/src=(2625, 2295) | ref=(2625, 2295)
+PASS | fort-lee | LIVE raw is whole dollars O-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-2 | page/src=O2 | ref=O2
+PASS | fort-lee | LIVE DTMO lookup O-3 with/without | page/src=(2760, 2526) | ref=(2760, 2526)
+PASS | fort-lee | LIVE raw is whole dollars O-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-3 | page/src=O3 | ref=O3
+PASS | fort-lee | LIVE DTMO lookup O-4 with/without | page/src=(3030, 2670) | ref=(3030, 2670)
+PASS | fort-lee | LIVE raw is whole dollars O-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-4 | page/src=O4 | ref=O4
+PASS | fort-lee | LIVE DTMO lookup O-5 with/without | page/src=(3231, 2694) | ref=(3231, 2694)
+PASS | fort-lee | LIVE raw is whole dollars O-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-5 | page/src=O5 | ref=O5
+PASS | fort-lee | LIVE DTMO lookup O-6 with/without | page/src=(3255, 2739) | ref=(3255, 2739)
+PASS | fort-lee | LIVE raw is whole dollars O-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-6 | page/src=O6 | ref=O6
+PASS | fort-lee | LIVE DTMO lookup O-7 with/without | page/src=(3276, 2784) | ref=(3276, 2784)
+PASS | fort-lee | LIVE raw is whole dollars O-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-lee | LIVE rank label O-7 | page/src=O7/O7+ | ref=O7/O7+
+PASS | fort-lee | app mha_code | page/src=VA301 | ref=VA301
+PASS | fort-lee | app bah_2026.json E-1 | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | app bah_2026.json E-2 | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | app bah_2026.json E-3 | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | app bah_2026.json E-4 | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | app bah_2026.json E-5 | page/src=(2358, 1866) | ref=(2358, 1866)
+PASS | fort-lee | app bah_2026.json E-6 | page/src=(2628, 1971) | ref=(2628, 1971)
+PASS | fort-lee | app bah_2026.json E-7 | page/src=(2676, 2163) | ref=(2676, 2163)
+PASS | fort-lee | app bah_2026.json E-8 | page/src=(2727, 2418) | ref=(2727, 2418)
+PASS | fort-lee | app bah_2026.json E-9 | page/src=(2835, 2490) | ref=(2835, 2490)
+PASS | fort-lee | app bah_2026.json W-1 | page/src=(2646, 2094) | ref=(2646, 2094)
+PASS | fort-lee | app bah_2026.json W-2 | page/src=(2694, 2415) | ref=(2694, 2415)
+PASS | fort-lee | app bah_2026.json W-3 | page/src=(2763, 2502) | ref=(2763, 2502)
+PASS | fort-lee | app bah_2026.json W-4 | page/src=(2862, 2631) | ref=(2862, 2631)
+PASS | fort-lee | app bah_2026.json W-5 | page/src=(2991, 2685) | ref=(2991, 2685)
+PASS | fort-lee | app bah_2026.json O-1E | page/src=(2682, 2355) | ref=(2682, 2355)
+PASS | fort-lee | app bah_2026.json O-2E | page/src=(2751, 2475) | ref=(2751, 2475)
+PASS | fort-lee | app bah_2026.json O-3E | page/src=(2883, 2619) | ref=(2883, 2619)
+PASS | fort-lee | app bah_2026.json O-1 | page/src=(2400, 1950) | ref=(2400, 1950)
+PASS | fort-lee | app bah_2026.json O-2 | page/src=(2625, 2295) | ref=(2625, 2295)
+PASS | fort-lee | app bah_2026.json O-3 | page/src=(2760, 2526) | ref=(2760, 2526)
+PASS | fort-lee | app bah_2026.json O-4 | page/src=(3030, 2670) | ref=(3030, 2670)
+PASS | fort-lee | app bah_2026.json O-5 | page/src=(3231, 2694) | ref=(3231, 2694)
+PASS | fort-lee | app bah_2026.json O-6 | page/src=(3255, 2739) | ref=(3255, 2739)
+PASS | fort-lee | app bah_2026.json O-7 | page/src=(3276, 2784) | ref=(3276, 2784)
+PASS | fort-lee | calc-data.json E-1 with/without | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | calc-data.json E-2 with/without | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | calc-data.json E-3 with/without | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | calc-data.json E-4 with/without | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | calc-data.json E-5 with/without | page/src=(2358, 1866) | ref=(2358, 1866)
+PASS | fort-lee | calc-data.json E-6 with/without | page/src=(2628, 1971) | ref=(2628, 1971)
+PASS | fort-lee | calc-data.json E-7 with/without | page/src=(2676, 2163) | ref=(2676, 2163)
+PASS | fort-lee | calc-data.json E-8 with/without | page/src=(2727, 2418) | ref=(2727, 2418)
+PASS | fort-lee | calc-data.json E-9 with/without | page/src=(2835, 2490) | ref=(2835, 2490)
+PASS | fort-lee | calc-data.json W-1 with/without | page/src=(2646, 2094) | ref=(2646, 2094)
+PASS | fort-lee | calc-data.json W-2 with/without | page/src=(2694, 2415) | ref=(2694, 2415)
+PASS | fort-lee | calc-data.json W-3 with/without | page/src=(2763, 2502) | ref=(2763, 2502)
+PASS | fort-lee | calc-data.json W-4 with/without | page/src=(2862, 2631) | ref=(2862, 2631)
+PASS | fort-lee | calc-data.json W-5 with/without | page/src=(2991, 2685) | ref=(2991, 2685)
+PASS | fort-lee | calc-data.json O-1 with/without | page/src=(2400, 1950) | ref=(2400, 1950)
+PASS | fort-lee | calc-data.json O-2 with/without | page/src=(2625, 2295) | ref=(2625, 2295)
+PASS | fort-lee | calc-data.json O-3 with/without | page/src=(2760, 2526) | ref=(2760, 2526)
+PASS | fort-lee | calc-data.json O-4 with/without | page/src=(3030, 2670) | ref=(3030, 2670)
+PASS | fort-lee | calc-data.json O-5 with/without | page/src=(3231, 2694) | ref=(3231, 2694)
+PASS | fort-lee | calc-data.json O-6 with/without | page/src=(3255, 2739) | ref=(3255, 2739)
+PASS | fort-lee | calc-data.json O-7 with/without | page/src=(3276, 2784) | ref=(3276, 2784)
+PASS | fort-lee | page grade rows | page/src=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7'] | ref=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7']
+PASS | fort-lee | page table E-1 | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | page table E-2 | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | page table E-3 | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | page table E-4 | page/src=(2157, 1728) | ref=(2157, 1728)
+PASS | fort-lee | page table E-5 | page/src=(2358, 1866) | ref=(2358, 1866)
+PASS | fort-lee | page table E-6 | page/src=(2628, 1971) | ref=(2628, 1971)
+PASS | fort-lee | page table E-7 | page/src=(2676, 2163) | ref=(2676, 2163)
+PASS | fort-lee | page table E-8 | page/src=(2727, 2418) | ref=(2727, 2418)
+PASS | fort-lee | page table E-9 | page/src=(2835, 2490) | ref=(2835, 2490)
+PASS | fort-lee | page table W-1 | page/src=(2646, 2094) | ref=(2646, 2094)
+PASS | fort-lee | page table W-2 | page/src=(2694, 2415) | ref=(2694, 2415)
+PASS | fort-lee | page table W-3 | page/src=(2763, 2502) | ref=(2763, 2502)
+PASS | fort-lee | page table W-4 | page/src=(2862, 2631) | ref=(2862, 2631)
+PASS | fort-lee | page table W-5 | page/src=(2991, 2685) | ref=(2991, 2685)
+PASS | fort-lee | page table O-1E | page/src=(2682, 2355) | ref=(2682, 2355)
+PASS | fort-lee | page table O-2E | page/src=(2751, 2475) | ref=(2751, 2475)
+PASS | fort-lee | page table O-3E | page/src=(2883, 2619) | ref=(2883, 2619)
+PASS | fort-lee | page table O-1 | page/src=(2400, 1950) | ref=(2400, 1950)
+PASS | fort-lee | page table O-2 | page/src=(2625, 2295) | ref=(2625, 2295)
+PASS | fort-lee | page table O-3 | page/src=(2760, 2526) | ref=(2760, 2526)
+PASS | fort-lee | page table O-4 | page/src=(3030, 2670) | ref=(3030, 2670)
+PASS | fort-lee | page table O-5 | page/src=(3231, 2694) | ref=(3231, 2694)
+PASS | fort-lee | page table O-6 | page/src=(3255, 2739) | ref=(3255, 2739)
+PASS | fort-lee | page table O-7 | page/src=(3276, 2784) | ref=(3276, 2784)
+PASS | fort-lee | gap rows | page/src=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3'] | ref=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3']
+PASS | fort-lee | gap E-4 | page/src=('2,157', '−$373', '$447') | ref=('2,157', '−$373', '$447')
+PASS | fort-lee | gap E-5 | page/src=('2,358', '−$172', '$648') | ref=('2,358', '−$172', '$648')
+PASS | fort-lee | gap E-6 | page/src=('2,628', '$98', '$918') | ref=('2,628', '$98', '$918')
+PASS | fort-lee | gap E-7 | page/src=('2,676', '$146', '$966') | ref=('2,676', '$146', '$966')
+PASS | fort-lee | gap W-2 | page/src=('2,694', '$164', '$984') | ref=('2,694', '$164', '$984')
+PASS | fort-lee | gap O-3 | page/src=('2,760', '$230', '$1,050') | ref=('2,760', '$230', '$1,050')
+PASS | fort-lee | all $ tokens on page == re-derived set (multiset) | page/src={'$1,450': 3, '$2,000': 3, '$260': 3, '$530': 3, '$2,358': 4, '−$172': 3, '$648': 3, '$2,157': 5, '$1,728': 4, '$1,866': 1, '$2,628': 2, '$1,971': 1, '$2,676': 2, '$2,163': 1, '$2,727': 1, '$2,418': 1, '$2,835': 1, '$2,490': 1, '$2,646': 1, '$2,094': 1, '$2,694': 3, '$2,415': 1, '$2,763': 1, '$2,502': 1, '$2,862': 1, '$2,631': 1, '$2,991': 1, '$2,685': 1, '$2,682': 1, '$2,355': 1, '$2,751': 1, '$2,475': 1, '$2,883': 1, '$2,619': 1, '$2,400': 1, '$1,950': 1, '$2,625': 1, '$2,295': 1, '$2,760': 2, '$2,526': 1, '$3,030': 1, '$2,670': 1, '$3,231': 1, '$3,255': 1, '$2,739': 1, '$3,276': 1, '$2,784': 1, '$1,710': 1, '$2,530': 1, '−$373': 1, '$447': 1, '$98': 1, '$918': 1, '$146': 1, '$966': 1, '$164': 1, '$984': 1, '$230': 1, '$1,050': 1} | ref={'$2,157': 5, '$1,728': 4, '$2,358': 4, '$1,866': 1, '$2,628': 2, '$1,971': 1, '$2,676': 2, '$2,163': 1, '$2,727': 1, '$2,418': 1, '$2,835': 1, '$2,490': 1, '$2,646': 1, '$2,094': 1, '$2,694': 3, '$2,415': 1, '$2,763': 1, '$2,502': 1, '$2,862': 1, '$2,631': 1, '$2,991': 1, '$2,685': 1, '$2,682': 1, '$2,355': 1, '$2,751': 1, '$2,475': 1, '$2,883': 1, '$2,619': 1, '$2,400': 1, '$1,950': 1, '$2,625': 1, '$2,295': 1, '$2,760': 2, '$2,526': 1, '$3,030': 1, '$2,670': 1, '$3,231': 1, '$3,255': 1, '$2,739': 1, '$3,276': 1, '$2,784': 1, '−$373': 1, '$447': 1, '−$172': 3, '$648': 3, '$98': 1, '$918': 1, '$146': 1, '$966': 1, '$164': 1, '$984': 1, '$230': 1, '$1,050': 1, '$1,450': 3, '$2,000': 3, '$260': 3, '$530': 3, '$1,710': 1, '$2,530': 1}
+PASS | fort-lee | ZIP list == DTMO map | page/src=['23058', '23059', '23060', '23075', '23112', '23113', '23114', '23120', '23150', '23173', '23218', '23219', '23220', '23221', '23222', '23223', '23224', '23225', '23226', '23227', '23228', '23229', '23230', '23231', '23232', '23233', '23234', '23235', '23236', '23237', '23238', '23241', '23242', '23249', '23250', '23255', '23260', '23261', '23269', '23273', '23274', '23276', '23278', '23279', '23282', '23284', '23285', '23286', '23288', '23289', '23290', '23291', '23292', '23293', '23294', '23295', '23297', '23298', '23801', '23803', '23804', '23805', '23806', '23831', '23832', '23834', '23836', '23838', '23842', '23860', '23875'] | ref=['23058', '23059', '23060', '23075', '23112', '23113', '23114', '23120', '23150', '23173', '23218', '23219', '23220', '23221', '23222', '23223', '23224', '23225', '23226', '23227', '23228', '23229', '23230', '23231', '23232', '23233', '23234', '23235', '23236', '23237', '23238', '23241', '23242', '23249', '23250', '23255', '23260', '23261', '23269', '23273', '23274', '23276', '23278', '23279', '23282', '23284', '23285', '23286', '23288', '23289', '23290', '23291', '23292', '23293', '23294', '23295', '23297', '23298', '23801', '23803', '23804', '23805', '23806', '23831', '23832', '23834', '23836', '23838', '23842', '23860', '23875']
+PASS | fort-lee | ZIP count | page/src=71 | ref=71
+PASS | fort-lee | anchor ZIP maps once | page/src=['VA301'] | ref=['VA301']
+PASS | fort-lee | area name on page | page/src=True | ref=True
+PASS | fort-lee | FAQ ZIP 23803 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-lee | FAQ ZIP 23805 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-lee | FAQ ZIP 23860 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-lee | FAQ MHA code VA301 is a DTMO MHA and its DTMO name is on the page | page/src=True | ref=True
+PASS | fort-lee | FAQ JSON-LD == visible Q&A | page/src=[('Is Fort Gregg-Adams BAH different from Fort Lee BAH?', 'No. Fort Gregg-Adams was the post’s name from 2023 to 2025. Same post, same housing area (VA301), same rates. Petersburg (23805, 23803) and Hopewell (23860) are in it; DTMO calls the area RICHMOND/FORT LEE, VA.'), ('Does 2026 BAH at Fort Lee cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,450–$2,000 and utilities of about $260–$530 a month, a Sergeant (E-5) with dependents ($2,358) lands between −$172 and $648 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')] | ref=[('Is Fort Gregg-Adams BAH different from Fort Lee BAH?', 'No. Fort Gregg-Adams was the post’s name from 2023 to 2025. Same post, same housing area (VA301), same rates. Petersburg (23805, 23803) and Hopewell (23860) are in it; DTMO calls the area RICHMOND/FORT LEE, VA.'), ('Does 2026 BAH at Fort Lee cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,450–$2,000 and utilities of about $260–$530 a month, a Sergeant (E-5) with dependents ($2,358) lands between −$172 and $648 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')]
+PASS | fort-lee | self canonical | page/src=https://pcsvector.com/bah/fort-lee/ | ref=https://pcsvector.com/bah/fort-lee/
+PASS | fort-lee | alias Fort Gregg-Adams in title/H1/body | page/src=(True, True, True) | ref=(True, True, True)
+PASS | fort-lee | dateModified | page/src=2026-10-20 | ref=2026-10-20
+PASS | fort-lee | as-of stamp visible | page/src=True | ref=True
+PASS | fort-lee | calculator links preselect this post (3) | page/src=['Fort Lee, VA', 'Fort Lee, VA', 'Fort Lee, VA'] | ref=['Fort Lee, VA', 'Fort Lee, VA', 'Fort Lee, VA']
+PASS | fort-lee | post exists in calculator | page/src=True | ref=True
+PASS | fort-lee | forbidden text "rent/buy" absent | page/src=False | ref=False
+PASS | fort-lee | forbidden text "rent or buy" absent | page/src=False | ref=False
+PASS | fort-lee | forbidden text "buy or rent" absent | page/src=False | ref=False
+PASS | fort-lee | forbidden text "consent" absent | page/src=False | ref=False
+PASS | fort-lee | forbidden text "privacy" absent | page/src=False | ref=False
+PASS | fort-lee | forbidden text "endorse" absent | page/src=False | ref=False
+PASS | fort-lee | forbidden text "approved by the army" absent | page/src=False | ref=False
+PASS | fort-lee | forbidden text "approved by dod" absent | page/src=False | ref=False
+PASS | fort-lee | 'Military-approved' label kept | page/src=True | ref=True
+PASS | fort-lee | hub row | page/src=('VA301', '2,358', '1,725', '+$633') | ref=('VA301', '2,358', '1,725', '+$633')
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with E-1 | page/src=2082 | ref=2082
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with E-2 | page/src=2082 | ref=2082
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with E-3 | page/src=2082 | ref=2082
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with E-4 | page/src=2082 | ref=2082
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with E-5 | page/src=2274 | ref=2274
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with E-6 | page/src=2421 | ref=2421
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with E-7 | page/src=2439 | ref=2439
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with E-8 | page/src=2457 | ref=2457
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with E-9 | page/src=2571 | ref=2571
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with W-1 | page/src=2436 | ref=2436
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with W-2 | page/src=2445 | ref=2445
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with W-3 | page/src=2478 | ref=2478
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with W-4 | page/src=2610 | ref=2610
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with W-5 | page/src=2778 | ref=2778
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-1E | page/src=2442 | ref=2442
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-2E | page/src=2466 | ref=2466
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-3E | page/src=2637 | ref=2637
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-1 | page/src=2301 | ref=2301
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-2 | page/src=2418 | ref=2418
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-3 | page/src=2475 | ref=2475
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-4 | page/src=2835 | ref=2835
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-5 | page/src=3099 | ref=3099
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-6 | page/src=3123 | ref=3123
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF with O-7 | page/src=3144 | ref=3144
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without E-1 | page/src=1599 | ref=1599
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without E-2 | page/src=1599 | ref=1599
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without E-3 | page/src=1599 | ref=1599
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without E-4 | page/src=1599 | ref=1599
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without E-5 | page/src=1779 | ref=1779
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without E-6 | page/src=1905 | ref=1905
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without E-7 | page/src=2088 | ref=2088
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without E-8 | page/src=2310 | ref=2310
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without E-9 | page/src=2343 | ref=2343
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without W-1 | page/src=2022 | ref=2022
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without W-2 | page/src=2307 | ref=2307
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without W-3 | page/src=2349 | ref=2349
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without W-4 | page/src=2415 | ref=2415
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without W-5 | page/src=2439 | ref=2439
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-1E | page/src=2271 | ref=2271
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-2E | page/src=2334 | ref=2334
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-3E | page/src=2409 | ref=2409
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-1 | page/src=1884 | ref=1884
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-2 | page/src=2214 | ref=2214
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-3 | page/src=2361 | ref=2361
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-4 | page/src=2427 | ref=2427
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-5 | page/src=2442 | ref=2442
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-6 | page/src=2451 | ref=2451
+PASS | joint-base-langley-eustis | ASCII vs DTMO PDF without O-7 | page/src=2493 | ref=2493
+PASS | joint-base-langley-eustis | ASCII unchanged vs pre-update file | page/src=({'E1': 2082, 'E2': 2082, 'E3': 2082, 'E4': 2082, 'E5': 2274, 'E6': 2421, 'E7': 2439, 'E8': 2457, 'E9': 2571, 'W1': 2436, 'W2': 2445, 'W3': 2478, 'W4': 2610, 'W5': 2778, 'O1E': 2442, 'O2E': 2466, 'O3E': 2637, 'O1': 2301, 'O2': 2418, 'O3': 2475, 'O4': 2835, 'O5': 3099, 'O6': 3123, 'O7': 3144, 'O8': 3144, 'O9': 3144, 'O10': 3144}, {'E1': 1599, 'E2': 1599, 'E3': 1599, 'E4': 1599, 'E5': 1779, 'E6': 1905, 'E7': 2088, 'E8': 2310, 'E9': 2343, 'W1': 2022, 'W2': 2307, 'W3': 2349, 'W4': 2415, 'W5': 2439, 'O1E': 2271, 'O2E': 2334, 'O3E': 2409, 'O1': 1884, 'O2': 2214, 'O3': 2361, 'O4': 2427, 'O5': 2442, 'O6': 2451, 'O7': 2493, 'O8': 2493, 'O9': 2493, 'O10': 2493}) | ref=({'E1': 2082, 'E2': 2082, 'E3': 2082, 'E4': 2082, 'E5': 2274, 'E6': 2421, 'E7': 2439, 'E8': 2457, 'E9': 2571, 'W1': 2436, 'W2': 2445, 'W3': 2478, 'W4': 2610, 'W5': 2778, 'O1E': 2442, 'O2E': 2466, 'O3E': 2637, 'O1': 2301, 'O2': 2418, 'O3': 2475, 'O4': 2835, 'O5': 3099, 'O6': 3123, 'O7': 3144, 'O8': 3144, 'O9': 3144, 'O10': 3144}, {'E1': 1599, 'E2': 1599, 'E3': 1599, 'E4': 1599, 'E5': 1779, 'E6': 1905, 'E7': 2088, 'E8': 2310, 'E9': 2343, 'W1': 2022, 'W2': 2307, 'W3': 2349, 'W4': 2415, 'W5': 2439, 'O1E': 2271, 'O2E': 2334, 'O3E': 2409, 'O1': 1884, 'O2': 2214, 'O3': 2361, 'O4': 2427, 'O5': 2442, 'O6': 2451, 'O7': 2493, 'O8': 2493, 'O9': 2493, 'O10': 2493})
+PASS | joint-base-langley-eustis | O-8..O-10 == O-7 | page/src=True | ref=True
+PASS | joint-base-langley-eustis | live anchor zip | page/src=23604 | ref=23604
+PASS | joint-base-langley-eustis | live area name | page/src=HAMPTON/NEWPORT NEWS, VA (VA297) | ref=HAMPTON/NEWPORT NEWS, VA (VA297)
+PASS | joint-base-langley-eustis | LIVE DTMO lookup E-1 with/without | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars E-1 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label E-1 | page/src=E1 | ref=E1
+PASS | joint-base-langley-eustis | LIVE DTMO lookup E-2 with/without | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars E-2 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label E-2 | page/src=E2 | ref=E2
+PASS | joint-base-langley-eustis | LIVE DTMO lookup E-3 with/without | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars E-3 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label E-3 | page/src=E3 | ref=E3
+PASS | joint-base-langley-eustis | LIVE DTMO lookup E-4 with/without | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars E-4 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label E-4 | page/src=E4 | ref=E4
+PASS | joint-base-langley-eustis | LIVE DTMO lookup E-5 with/without | page/src=(2274, 1779) | ref=(2274, 1779)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars E-5 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label E-5 | page/src=E5 | ref=E5
+PASS | joint-base-langley-eustis | LIVE DTMO lookup E-6 with/without | page/src=(2421, 1905) | ref=(2421, 1905)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars E-6 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label E-6 | page/src=E6 | ref=E6
+PASS | joint-base-langley-eustis | LIVE DTMO lookup E-7 with/without | page/src=(2439, 2088) | ref=(2439, 2088)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars E-7 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label E-7 | page/src=E7 | ref=E7
+PASS | joint-base-langley-eustis | LIVE DTMO lookup E-8 with/without | page/src=(2457, 2310) | ref=(2457, 2310)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars E-8 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label E-8 | page/src=E8 | ref=E8
+PASS | joint-base-langley-eustis | LIVE DTMO lookup E-9 with/without | page/src=(2571, 2343) | ref=(2571, 2343)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars E-9 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label E-9 | page/src=E9 | ref=E9
+PASS | joint-base-langley-eustis | LIVE DTMO lookup W-1 with/without | page/src=(2436, 2022) | ref=(2436, 2022)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars W-1 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label W-1 | page/src=W1 | ref=W1
+PASS | joint-base-langley-eustis | LIVE DTMO lookup W-2 with/without | page/src=(2445, 2307) | ref=(2445, 2307)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars W-2 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label W-2 | page/src=W2 | ref=W2
+PASS | joint-base-langley-eustis | LIVE DTMO lookup W-3 with/without | page/src=(2478, 2349) | ref=(2478, 2349)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars W-3 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label W-3 | page/src=W3 | ref=W3
+PASS | joint-base-langley-eustis | LIVE DTMO lookup W-4 with/without | page/src=(2610, 2415) | ref=(2610, 2415)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars W-4 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label W-4 | page/src=W4 | ref=W4
+PASS | joint-base-langley-eustis | LIVE DTMO lookup W-5 with/without | page/src=(2778, 2439) | ref=(2778, 2439)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars W-5 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label W-5 | page/src=W5 | ref=W5
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-1E with/without | page/src=(2442, 2271) | ref=(2442, 2271)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-1E | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-1E | page/src=O1E | ref=O1E
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-2E with/without | page/src=(2466, 2334) | ref=(2466, 2334)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-2E | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-2E | page/src=O2E | ref=O2E
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-3E with/without | page/src=(2637, 2409) | ref=(2637, 2409)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-3E | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-3E | page/src=O3E | ref=O3E
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-1 with/without | page/src=(2301, 1884) | ref=(2301, 1884)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-1 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-1 | page/src=O1 | ref=O1
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-2 with/without | page/src=(2418, 2214) | ref=(2418, 2214)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-2 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-2 | page/src=O2 | ref=O2
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-3 with/without | page/src=(2475, 2361) | ref=(2475, 2361)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-3 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-3 | page/src=O3 | ref=O3
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-4 with/without | page/src=(2835, 2427) | ref=(2835, 2427)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-4 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-4 | page/src=O4 | ref=O4
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-5 with/without | page/src=(3099, 2442) | ref=(3099, 2442)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-5 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-5 | page/src=O5 | ref=O5
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-6 with/without | page/src=(3123, 2451) | ref=(3123, 2451)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-6 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-6 | page/src=O6 | ref=O6
+PASS | joint-base-langley-eustis | LIVE DTMO lookup O-7 with/without | page/src=(3144, 2493) | ref=(3144, 2493)
+PASS | joint-base-langley-eustis | LIVE raw is whole dollars O-7 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-langley-eustis | LIVE rank label O-7 | page/src=O7/O7+ | ref=O7/O7+
+PASS | joint-base-langley-eustis | app mha_code | page/src=VA297 | ref=VA297
+PASS | joint-base-langley-eustis | app bah_2026.json E-1 | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | app bah_2026.json E-2 | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | app bah_2026.json E-3 | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | app bah_2026.json E-4 | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | app bah_2026.json E-5 | page/src=(2274, 1779) | ref=(2274, 1779)
+PASS | joint-base-langley-eustis | app bah_2026.json E-6 | page/src=(2421, 1905) | ref=(2421, 1905)
+PASS | joint-base-langley-eustis | app bah_2026.json E-7 | page/src=(2439, 2088) | ref=(2439, 2088)
+PASS | joint-base-langley-eustis | app bah_2026.json E-8 | page/src=(2457, 2310) | ref=(2457, 2310)
+PASS | joint-base-langley-eustis | app bah_2026.json E-9 | page/src=(2571, 2343) | ref=(2571, 2343)
+PASS | joint-base-langley-eustis | app bah_2026.json W-1 | page/src=(2436, 2022) | ref=(2436, 2022)
+PASS | joint-base-langley-eustis | app bah_2026.json W-2 | page/src=(2445, 2307) | ref=(2445, 2307)
+PASS | joint-base-langley-eustis | app bah_2026.json W-3 | page/src=(2478, 2349) | ref=(2478, 2349)
+PASS | joint-base-langley-eustis | app bah_2026.json W-4 | page/src=(2610, 2415) | ref=(2610, 2415)
+PASS | joint-base-langley-eustis | app bah_2026.json W-5 | page/src=(2778, 2439) | ref=(2778, 2439)
+PASS | joint-base-langley-eustis | app bah_2026.json O-1E | page/src=(2442, 2271) | ref=(2442, 2271)
+PASS | joint-base-langley-eustis | app bah_2026.json O-2E | page/src=(2466, 2334) | ref=(2466, 2334)
+PASS | joint-base-langley-eustis | app bah_2026.json O-3E | page/src=(2637, 2409) | ref=(2637, 2409)
+PASS | joint-base-langley-eustis | app bah_2026.json O-1 | page/src=(2301, 1884) | ref=(2301, 1884)
+PASS | joint-base-langley-eustis | app bah_2026.json O-2 | page/src=(2418, 2214) | ref=(2418, 2214)
+PASS | joint-base-langley-eustis | app bah_2026.json O-3 | page/src=(2475, 2361) | ref=(2475, 2361)
+PASS | joint-base-langley-eustis | app bah_2026.json O-4 | page/src=(2835, 2427) | ref=(2835, 2427)
+PASS | joint-base-langley-eustis | app bah_2026.json O-5 | page/src=(3099, 2442) | ref=(3099, 2442)
+PASS | joint-base-langley-eustis | app bah_2026.json O-6 | page/src=(3123, 2451) | ref=(3123, 2451)
+PASS | joint-base-langley-eustis | app bah_2026.json O-7 | page/src=(3144, 2493) | ref=(3144, 2493)
+PASS | joint-base-langley-eustis | calc-data.json E-1 with/without | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | calc-data.json E-2 with/without | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | calc-data.json E-3 with/without | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | calc-data.json E-4 with/without | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | calc-data.json E-5 with/without | page/src=(2274, 1779) | ref=(2274, 1779)
+PASS | joint-base-langley-eustis | calc-data.json E-6 with/without | page/src=(2421, 1905) | ref=(2421, 1905)
+PASS | joint-base-langley-eustis | calc-data.json E-7 with/without | page/src=(2439, 2088) | ref=(2439, 2088)
+PASS | joint-base-langley-eustis | calc-data.json E-8 with/without | page/src=(2457, 2310) | ref=(2457, 2310)
+PASS | joint-base-langley-eustis | calc-data.json E-9 with/without | page/src=(2571, 2343) | ref=(2571, 2343)
+PASS | joint-base-langley-eustis | calc-data.json W-1 with/without | page/src=(2436, 2022) | ref=(2436, 2022)
+PASS | joint-base-langley-eustis | calc-data.json W-2 with/without | page/src=(2445, 2307) | ref=(2445, 2307)
+PASS | joint-base-langley-eustis | calc-data.json W-3 with/without | page/src=(2478, 2349) | ref=(2478, 2349)
+PASS | joint-base-langley-eustis | calc-data.json W-4 with/without | page/src=(2610, 2415) | ref=(2610, 2415)
+PASS | joint-base-langley-eustis | calc-data.json W-5 with/without | page/src=(2778, 2439) | ref=(2778, 2439)
+PASS | joint-base-langley-eustis | calc-data.json O-1 with/without | page/src=(2301, 1884) | ref=(2301, 1884)
+PASS | joint-base-langley-eustis | calc-data.json O-2 with/without | page/src=(2418, 2214) | ref=(2418, 2214)
+PASS | joint-base-langley-eustis | calc-data.json O-3 with/without | page/src=(2475, 2361) | ref=(2475, 2361)
+PASS | joint-base-langley-eustis | calc-data.json O-4 with/without | page/src=(2835, 2427) | ref=(2835, 2427)
+PASS | joint-base-langley-eustis | calc-data.json O-5 with/without | page/src=(3099, 2442) | ref=(3099, 2442)
+PASS | joint-base-langley-eustis | calc-data.json O-6 with/without | page/src=(3123, 2451) | ref=(3123, 2451)
+PASS | joint-base-langley-eustis | calc-data.json O-7 with/without | page/src=(3144, 2493) | ref=(3144, 2493)
+PASS | joint-base-langley-eustis | page grade rows | page/src=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7'] | ref=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7']
+PASS | joint-base-langley-eustis | page table E-1 | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | page table E-2 | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | page table E-3 | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | page table E-4 | page/src=(2082, 1599) | ref=(2082, 1599)
+PASS | joint-base-langley-eustis | page table E-5 | page/src=(2274, 1779) | ref=(2274, 1779)
+PASS | joint-base-langley-eustis | page table E-6 | page/src=(2421, 1905) | ref=(2421, 1905)
+PASS | joint-base-langley-eustis | page table E-7 | page/src=(2439, 2088) | ref=(2439, 2088)
+PASS | joint-base-langley-eustis | page table E-8 | page/src=(2457, 2310) | ref=(2457, 2310)
+PASS | joint-base-langley-eustis | page table E-9 | page/src=(2571, 2343) | ref=(2571, 2343)
+PASS | joint-base-langley-eustis | page table W-1 | page/src=(2436, 2022) | ref=(2436, 2022)
+PASS | joint-base-langley-eustis | page table W-2 | page/src=(2445, 2307) | ref=(2445, 2307)
+PASS | joint-base-langley-eustis | page table W-3 | page/src=(2478, 2349) | ref=(2478, 2349)
+PASS | joint-base-langley-eustis | page table W-4 | page/src=(2610, 2415) | ref=(2610, 2415)
+PASS | joint-base-langley-eustis | page table W-5 | page/src=(2778, 2439) | ref=(2778, 2439)
+PASS | joint-base-langley-eustis | page table O-1E | page/src=(2442, 2271) | ref=(2442, 2271)
+PASS | joint-base-langley-eustis | page table O-2E | page/src=(2466, 2334) | ref=(2466, 2334)
+PASS | joint-base-langley-eustis | page table O-3E | page/src=(2637, 2409) | ref=(2637, 2409)
+PASS | joint-base-langley-eustis | page table O-1 | page/src=(2301, 1884) | ref=(2301, 1884)
+PASS | joint-base-langley-eustis | page table O-2 | page/src=(2418, 2214) | ref=(2418, 2214)
+PASS | joint-base-langley-eustis | page table O-3 | page/src=(2475, 2361) | ref=(2475, 2361)
+PASS | joint-base-langley-eustis | page table O-4 | page/src=(2835, 2427) | ref=(2835, 2427)
+PASS | joint-base-langley-eustis | page table O-5 | page/src=(3099, 2442) | ref=(3099, 2442)
+PASS | joint-base-langley-eustis | page table O-6 | page/src=(3123, 2451) | ref=(3123, 2451)
+PASS | joint-base-langley-eustis | page table O-7 | page/src=(3144, 2493) | ref=(3144, 2493)
+PASS | joint-base-langley-eustis | gap rows | page/src=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3'] | ref=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3']
+PASS | joint-base-langley-eustis | gap E-4 | page/src=('2,082', '−$583', '$267') | ref=('2,082', '−$583', '$267')
+PASS | joint-base-langley-eustis | gap E-5 | page/src=('2,274', '−$391', '$459') | ref=('2,274', '−$391', '$459')
+PASS | joint-base-langley-eustis | gap E-6 | page/src=('2,421', '−$244', '$606') | ref=('2,421', '−$244', '$606')
+PASS | joint-base-langley-eustis | gap E-7 | page/src=('2,439', '−$226', '$624') | ref=('2,439', '−$226', '$624')
+PASS | joint-base-langley-eustis | gap W-2 | page/src=('2,445', '−$220', '$630') | ref=('2,445', '−$220', '$630')
+PASS | joint-base-langley-eustis | gap O-3 | page/src=('2,475', '−$190', '$660') | ref=('2,475', '−$190', '$660')
+PASS | joint-base-langley-eustis | all $ tokens on page == re-derived set (multiset) | page/src={'$1,550': 3, '$2,150': 3, '$265': 3, '$515': 3, '$2,274': 4, '−$391': 3, '$459': 3, '$2,082': 5, '$1,599': 4, '$1,779': 1, '$2,421': 2, '$1,905': 1, '$2,439': 3, '$2,088': 1, '$2,457': 1, '$2,310': 1, '$2,571': 1, '$2,343': 1, '$2,436': 1, '$2,022': 1, '$2,445': 2, '$2,307': 1, '$2,478': 1, '$2,349': 1, '$2,610': 1, '$2,415': 1, '$2,778': 1, '$2,442': 2, '$2,271': 1, '$2,466': 1, '$2,334': 1, '$2,637': 1, '$2,409': 1, '$2,301': 1, '$1,884': 1, '$2,418': 1, '$2,214': 1, '$2,475': 2, '$2,361': 1, '$2,835': 1, '$2,427': 1, '$3,099': 1, '$3,123': 1, '$2,451': 1, '$3,144': 1, '$2,493': 1, '$1,815': 1, '$2,665': 1, '−$583': 1, '$267': 1, '−$244': 1, '$606': 1, '−$226': 1, '$624': 1, '−$220': 1, '$630': 1, '−$190': 1, '$660': 1} | ref={'$2,082': 5, '$1,599': 4, '$2,274': 4, '$1,779': 1, '$2,421': 2, '$1,905': 1, '$2,439': 3, '$2,088': 1, '$2,457': 1, '$2,310': 1, '$2,571': 1, '$2,343': 1, '$2,436': 1, '$2,022': 1, '$2,445': 2, '$2,307': 1, '$2,478': 1, '$2,349': 1, '$2,610': 1, '$2,415': 1, '$2,778': 1, '$2,442': 2, '$2,271': 1, '$2,466': 1, '$2,334': 1, '$2,637': 1, '$2,409': 1, '$2,301': 1, '$1,884': 1, '$2,418': 1, '$2,214': 1, '$2,475': 2, '$2,361': 1, '$2,835': 1, '$2,427': 1, '$3,099': 1, '$3,123': 1, '$2,451': 1, '$3,144': 1, '$2,493': 1, '−$583': 1, '$267': 1, '−$391': 3, '$459': 3, '−$244': 1, '$606': 1, '−$226': 1, '$624': 1, '−$220': 1, '$630': 1, '−$190': 1, '$660': 1, '$1,550': 3, '$2,150': 3, '$265': 3, '$515': 3, '$1,815': 1, '$2,665': 1}
+PASS | joint-base-langley-eustis | ZIP list == DTMO map | page/src=['23001', '23003', '23018', '23021', '23025', '23035', '23045', '23050', '23056', '23061', '23062', '23064', '23066', '23068', '23072', '23076', '23081', '23090', '23107', '23109', '23119', '23125', '23127', '23128', '23130', '23131', '23138', '23154', '23155', '23163', '23168', '23178', '23183', '23184', '23185', '23186', '23187', '23188', '23190', '23601', '23602', '23603', '23604', '23605', '23606', '23607', '23608', '23609', '23612', '23628', '23630', '23651', '23661', '23662', '23663', '23664', '23665', '23666', '23667', '23668', '23669', '23670', '23681', '23690', '23691', '23692', '23693', '23694', '23696'] | ref=['23001', '23003', '23018', '23021', '23025', '23035', '23045', '23050', '23056', '23061', '23062', '23064', '23066', '23068', '23072', '23076', '23081', '23090', '23107', '23109', '23119', '23125', '23127', '23128', '23130', '23131', '23138', '23154', '23155', '23163', '23168', '23178', '23183', '23184', '23185', '23186', '23187', '23188', '23190', '23601', '23602', '23603', '23604', '23605', '23606', '23607', '23608', '23609', '23612', '23628', '23630', '23651', '23661', '23662', '23663', '23664', '23665', '23666', '23667', '23668', '23669', '23670', '23681', '23690', '23691', '23692', '23693', '23694', '23696']
+PASS | joint-base-langley-eustis | ZIP count | page/src=69 | ref=69
+PASS | joint-base-langley-eustis | anchor ZIP maps once | page/src=['VA297'] | ref=['VA297']
+PASS | joint-base-langley-eustis | area name on page | page/src=True | ref=True
+PASS | joint-base-langley-eustis | FAQ ZIP 23185 maps to a code named on the page | page/src=True | ref=True
+PASS | joint-base-langley-eustis | FAQ ZIP 23604 maps to a code named on the page | page/src=True | ref=True
+PASS | joint-base-langley-eustis | FAQ ZIP 23606 maps to a code named on the page | page/src=True | ref=True
+PASS | joint-base-langley-eustis | FAQ ZIP 23665 maps to a code named on the page | page/src=True | ref=True
+PASS | joint-base-langley-eustis | FAQ MHA code VA297 is a DTMO MHA and its DTMO name is on the page | page/src=True | ref=True
+PASS | joint-base-langley-eustis | FAQ JSON-LD == visible Q&A | page/src=[('Do Fort Eustis and Langley get the same BAH?', 'Yes. Fort Eustis (23604) and Langley (23665) both map to the HAMPTON/NEWPORT NEWS, VA housing area (VA297), as do Newport News (23606) and Williamsburg (23185).'), ('Does 2026 BAH at Joint Base Langley-Eustis cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,550–$2,150 and utilities of about $265–$515 a month, a Sergeant (E-5) with dependents ($2,274) lands between −$391 and $459 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')] | ref=[('Do Fort Eustis and Langley get the same BAH?', 'Yes. Fort Eustis (23604) and Langley (23665) both map to the HAMPTON/NEWPORT NEWS, VA housing area (VA297), as do Newport News (23606) and Williamsburg (23185).'), ('Does 2026 BAH at Joint Base Langley-Eustis cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,550–$2,150 and utilities of about $265–$515 a month, a Sergeant (E-5) with dependents ($2,274) lands between −$391 and $459 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')]
+PASS | joint-base-langley-eustis | self canonical | page/src=https://pcsvector.com/bah/joint-base-langley-eustis/ | ref=https://pcsvector.com/bah/joint-base-langley-eustis/
+PASS | joint-base-langley-eustis | alias Fort Eustis in title/H1/body | page/src=(True, True, True) | ref=(True, True, True)
+PASS | joint-base-langley-eustis | dateModified | page/src=2026-10-20 | ref=2026-10-20
+PASS | joint-base-langley-eustis | as-of stamp visible | page/src=True | ref=True
+PASS | joint-base-langley-eustis | calculator links preselect this post (3) | page/src=['Joint Base Langley-Eustis, VA', 'Joint Base Langley-Eustis, VA', 'Joint Base Langley-Eustis, VA'] | ref=['Joint Base Langley-Eustis, VA', 'Joint Base Langley-Eustis, VA', 'Joint Base Langley-Eustis, VA']
+PASS | joint-base-langley-eustis | post exists in calculator | page/src=True | ref=True
+PASS | joint-base-langley-eustis | forbidden text "rent/buy" absent | page/src=False | ref=False
+PASS | joint-base-langley-eustis | forbidden text "rent or buy" absent | page/src=False | ref=False
+PASS | joint-base-langley-eustis | forbidden text "buy or rent" absent | page/src=False | ref=False
+PASS | joint-base-langley-eustis | forbidden text "consent" absent | page/src=False | ref=False
+PASS | joint-base-langley-eustis | forbidden text "privacy" absent | page/src=False | ref=False
+PASS | joint-base-langley-eustis | forbidden text "endorse" absent | page/src=False | ref=False
+PASS | joint-base-langley-eustis | forbidden text "approved by the army" absent | page/src=False | ref=False
+PASS | joint-base-langley-eustis | forbidden text "approved by dod" absent | page/src=False | ref=False
+PASS | joint-base-langley-eustis | 'Military-approved' label kept | page/src=True | ref=True
+PASS | joint-base-langley-eustis | hub row | page/src=('VA297', '2,274', '1,850', '+$424') | ref=('VA297', '2,274', '1,850', '+$424')
+PASS | fort-leavenworth | ASCII vs DTMO PDF with E-1 | page/src=1740 | ref=1740
+PASS | fort-leavenworth | ASCII vs DTMO PDF with E-2 | page/src=1740 | ref=1740
+PASS | fort-leavenworth | ASCII vs DTMO PDF with E-3 | page/src=1740 | ref=1740
+PASS | fort-leavenworth | ASCII vs DTMO PDF with E-4 | page/src=1740 | ref=1740
+PASS | fort-leavenworth | ASCII vs DTMO PDF with E-5 | page/src=1815 | ref=1815
+PASS | fort-leavenworth | ASCII vs DTMO PDF with E-6 | page/src=2133 | ref=2133
+PASS | fort-leavenworth | ASCII vs DTMO PDF with E-7 | page/src=2229 | ref=2229
+PASS | fort-leavenworth | ASCII vs DTMO PDF with E-8 | page/src=2331 | ref=2331
+PASS | fort-leavenworth | ASCII vs DTMO PDF with E-9 | page/src=2427 | ref=2427
+PASS | fort-leavenworth | ASCII vs DTMO PDF with W-1 | page/src=2151 | ref=2151
+PASS | fort-leavenworth | ASCII vs DTMO PDF with W-2 | page/src=2268 | ref=2268
+PASS | fort-leavenworth | ASCII vs DTMO PDF with W-3 | page/src=2397 | ref=2397
+PASS | fort-leavenworth | ASCII vs DTMO PDF with W-4 | page/src=2439 | ref=2439
+PASS | fort-leavenworth | ASCII vs DTMO PDF with W-5 | page/src=2496 | ref=2496
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-1E | page/src=2244 | ref=2244
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-2E | page/src=2376 | ref=2376
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-3E | page/src=2448 | ref=2448
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-1 | page/src=1860 | ref=1860
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-2 | page/src=2130 | ref=2130
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-3 | page/src=2394 | ref=2394
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-4 | page/src=2508 | ref=2508
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-5 | page/src=2589 | ref=2589
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-6 | page/src=2610 | ref=2610
+PASS | fort-leavenworth | ASCII vs DTMO PDF with O-7 | page/src=2625 | ref=2625
+PASS | fort-leavenworth | ASCII vs DTMO PDF without E-1 | page/src=1410 | ref=1410
+PASS | fort-leavenworth | ASCII vs DTMO PDF without E-2 | page/src=1410 | ref=1410
+PASS | fort-leavenworth | ASCII vs DTMO PDF without E-3 | page/src=1410 | ref=1410
+PASS | fort-leavenworth | ASCII vs DTMO PDF without E-4 | page/src=1410 | ref=1410
+PASS | fort-leavenworth | ASCII vs DTMO PDF without E-5 | page/src=1569 | ref=1569
+PASS | fort-leavenworth | ASCII vs DTMO PDF without E-6 | page/src=1662 | ref=1662
+PASS | fort-leavenworth | ASCII vs DTMO PDF without E-7 | page/src=1737 | ref=1737
+PASS | fort-leavenworth | ASCII vs DTMO PDF without E-8 | page/src=1884 | ref=1884
+PASS | fort-leavenworth | ASCII vs DTMO PDF without E-9 | page/src=1971 | ref=1971
+PASS | fort-leavenworth | ASCII vs DTMO PDF without W-1 | page/src=1725 | ref=1725
+PASS | fort-leavenworth | ASCII vs DTMO PDF without W-2 | page/src=1881 | ref=1881
+PASS | fort-leavenworth | ASCII vs DTMO PDF without W-3 | page/src=1983 | ref=1983
+PASS | fort-leavenworth | ASCII vs DTMO PDF without W-4 | page/src=2151 | ref=2151
+PASS | fort-leavenworth | ASCII vs DTMO PDF without W-5 | page/src=2250 | ref=2250
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-1E | page/src=1812 | ref=1812
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-2E | page/src=1950 | ref=1950
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-3E | page/src=2124 | ref=2124
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-1 | page/src=1659 | ref=1659
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-2 | page/src=1794 | ref=1794
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-3 | page/src=2013 | ref=2013
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-4 | page/src=2226 | ref=2226
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-5 | page/src=2283 | ref=2283
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-6 | page/src=2376 | ref=2376
+PASS | fort-leavenworth | ASCII vs DTMO PDF without O-7 | page/src=2415 | ref=2415
+PASS | fort-leavenworth | ASCII unchanged vs pre-update file | page/src=({'E1': 1740, 'E2': 1740, 'E3': 1740, 'E4': 1740, 'E5': 1815, 'E6': 2133, 'E7': 2229, 'E8': 2331, 'E9': 2427, 'W1': 2151, 'W2': 2268, 'W3': 2397, 'W4': 2439, 'W5': 2496, 'O1E': 2244, 'O2E': 2376, 'O3E': 2448, 'O1': 1860, 'O2': 2130, 'O3': 2394, 'O4': 2508, 'O5': 2589, 'O6': 2610, 'O7': 2625, 'O8': 2625, 'O9': 2625, 'O10': 2625}, {'E1': 1410, 'E2': 1410, 'E3': 1410, 'E4': 1410, 'E5': 1569, 'E6': 1662, 'E7': 1737, 'E8': 1884, 'E9': 1971, 'W1': 1725, 'W2': 1881, 'W3': 1983, 'W4': 2151, 'W5': 2250, 'O1E': 1812, 'O2E': 1950, 'O3E': 2124, 'O1': 1659, 'O2': 1794, 'O3': 2013, 'O4': 2226, 'O5': 2283, 'O6': 2376, 'O7': 2415, 'O8': 2415, 'O9': 2415, 'O10': 2415}) | ref=({'E1': 1740, 'E2': 1740, 'E3': 1740, 'E4': 1740, 'E5': 1815, 'E6': 2133, 'E7': 2229, 'E8': 2331, 'E9': 2427, 'W1': 2151, 'W2': 2268, 'W3': 2397, 'W4': 2439, 'W5': 2496, 'O1E': 2244, 'O2E': 2376, 'O3E': 2448, 'O1': 1860, 'O2': 2130, 'O3': 2394, 'O4': 2508, 'O5': 2589, 'O6': 2610, 'O7': 2625, 'O8': 2625, 'O9': 2625, 'O10': 2625}, {'E1': 1410, 'E2': 1410, 'E3': 1410, 'E4': 1410, 'E5': 1569, 'E6': 1662, 'E7': 1737, 'E8': 1884, 'E9': 1971, 'W1': 1725, 'W2': 1881, 'W3': 1983, 'W4': 2151, 'W5': 2250, 'O1E': 1812, 'O2E': 1950, 'O3E': 2124, 'O1': 1659, 'O2': 1794, 'O3': 2013, 'O4': 2226, 'O5': 2283, 'O6': 2376, 'O7': 2415, 'O8': 2415, 'O9': 2415, 'O10': 2415})
+PASS | fort-leavenworth | O-8..O-10 == O-7 | page/src=True | ref=True
+PASS | fort-leavenworth | live anchor zip | page/src=66027 | ref=66027
+PASS | fort-leavenworth | live area name | page/src=FORT LEAVENWORTH, KS (KS102) | ref=FORT LEAVENWORTH, KS (KS102)
+PASS | fort-leavenworth | LIVE DTMO lookup E-1 with/without | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | LIVE raw is whole dollars E-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label E-1 | page/src=E1 | ref=E1
+PASS | fort-leavenworth | LIVE DTMO lookup E-2 with/without | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | LIVE raw is whole dollars E-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label E-2 | page/src=E2 | ref=E2
+PASS | fort-leavenworth | LIVE DTMO lookup E-3 with/without | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | LIVE raw is whole dollars E-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label E-3 | page/src=E3 | ref=E3
+PASS | fort-leavenworth | LIVE DTMO lookup E-4 with/without | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | LIVE raw is whole dollars E-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label E-4 | page/src=E4 | ref=E4
+PASS | fort-leavenworth | LIVE DTMO lookup E-5 with/without | page/src=(1815, 1569) | ref=(1815, 1569)
+PASS | fort-leavenworth | LIVE raw is whole dollars E-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label E-5 | page/src=E5 | ref=E5
+PASS | fort-leavenworth | LIVE DTMO lookup E-6 with/without | page/src=(2133, 1662) | ref=(2133, 1662)
+PASS | fort-leavenworth | LIVE raw is whole dollars E-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label E-6 | page/src=E6 | ref=E6
+PASS | fort-leavenworth | LIVE DTMO lookup E-7 with/without | page/src=(2229, 1737) | ref=(2229, 1737)
+PASS | fort-leavenworth | LIVE raw is whole dollars E-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label E-7 | page/src=E7 | ref=E7
+PASS | fort-leavenworth | LIVE DTMO lookup E-8 with/without | page/src=(2331, 1884) | ref=(2331, 1884)
+PASS | fort-leavenworth | LIVE raw is whole dollars E-8 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label E-8 | page/src=E8 | ref=E8
+PASS | fort-leavenworth | LIVE DTMO lookup E-9 with/without | page/src=(2427, 1971) | ref=(2427, 1971)
+PASS | fort-leavenworth | LIVE raw is whole dollars E-9 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label E-9 | page/src=E9 | ref=E9
+PASS | fort-leavenworth | LIVE DTMO lookup W-1 with/without | page/src=(2151, 1725) | ref=(2151, 1725)
+PASS | fort-leavenworth | LIVE raw is whole dollars W-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label W-1 | page/src=W1 | ref=W1
+PASS | fort-leavenworth | LIVE DTMO lookup W-2 with/without | page/src=(2268, 1881) | ref=(2268, 1881)
+PASS | fort-leavenworth | LIVE raw is whole dollars W-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label W-2 | page/src=W2 | ref=W2
+PASS | fort-leavenworth | LIVE DTMO lookup W-3 with/without | page/src=(2397, 1983) | ref=(2397, 1983)
+PASS | fort-leavenworth | LIVE raw is whole dollars W-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label W-3 | page/src=W3 | ref=W3
+PASS | fort-leavenworth | LIVE DTMO lookup W-4 with/without | page/src=(2439, 2151) | ref=(2439, 2151)
+PASS | fort-leavenworth | LIVE raw is whole dollars W-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label W-4 | page/src=W4 | ref=W4
+PASS | fort-leavenworth | LIVE DTMO lookup W-5 with/without | page/src=(2496, 2250) | ref=(2496, 2250)
+PASS | fort-leavenworth | LIVE raw is whole dollars W-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label W-5 | page/src=W5 | ref=W5
+PASS | fort-leavenworth | LIVE DTMO lookup O-1E with/without | page/src=(2244, 1812) | ref=(2244, 1812)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-1E | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-1E | page/src=O1E | ref=O1E
+PASS | fort-leavenworth | LIVE DTMO lookup O-2E with/without | page/src=(2376, 1950) | ref=(2376, 1950)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-2E | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-2E | page/src=O2E | ref=O2E
+PASS | fort-leavenworth | LIVE DTMO lookup O-3E with/without | page/src=(2448, 2124) | ref=(2448, 2124)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-3E | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-3E | page/src=O3E | ref=O3E
+PASS | fort-leavenworth | LIVE DTMO lookup O-1 with/without | page/src=(1860, 1659) | ref=(1860, 1659)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-1 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-1 | page/src=O1 | ref=O1
+PASS | fort-leavenworth | LIVE DTMO lookup O-2 with/without | page/src=(2130, 1794) | ref=(2130, 1794)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-2 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-2 | page/src=O2 | ref=O2
+PASS | fort-leavenworth | LIVE DTMO lookup O-3 with/without | page/src=(2394, 2013) | ref=(2394, 2013)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-3 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-3 | page/src=O3 | ref=O3
+PASS | fort-leavenworth | LIVE DTMO lookup O-4 with/without | page/src=(2508, 2226) | ref=(2508, 2226)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-4 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-4 | page/src=O4 | ref=O4
+PASS | fort-leavenworth | LIVE DTMO lookup O-5 with/without | page/src=(2589, 2283) | ref=(2589, 2283)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-5 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-5 | page/src=O5 | ref=O5
+PASS | fort-leavenworth | LIVE DTMO lookup O-6 with/without | page/src=(2610, 2376) | ref=(2610, 2376)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-6 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-6 | page/src=O6 | ref=O6
+PASS | fort-leavenworth | LIVE DTMO lookup O-7 with/without | page/src=(2625, 2415) | ref=(2625, 2415)
+PASS | fort-leavenworth | LIVE raw is whole dollars O-7 | page/src=(True, True) | ref=(True, True)
+PASS | fort-leavenworth | LIVE rank label O-7 | page/src=O7/O7+ | ref=O7/O7+
+PASS | fort-leavenworth | app mha_code | page/src=KS102 | ref=KS102
+PASS | fort-leavenworth | app bah_2026.json E-1 | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | app bah_2026.json E-2 | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | app bah_2026.json E-3 | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | app bah_2026.json E-4 | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | app bah_2026.json E-5 | page/src=(1815, 1569) | ref=(1815, 1569)
+PASS | fort-leavenworth | app bah_2026.json E-6 | page/src=(2133, 1662) | ref=(2133, 1662)
+PASS | fort-leavenworth | app bah_2026.json E-7 | page/src=(2229, 1737) | ref=(2229, 1737)
+PASS | fort-leavenworth | app bah_2026.json E-8 | page/src=(2331, 1884) | ref=(2331, 1884)
+PASS | fort-leavenworth | app bah_2026.json E-9 | page/src=(2427, 1971) | ref=(2427, 1971)
+PASS | fort-leavenworth | app bah_2026.json W-1 | page/src=(2151, 1725) | ref=(2151, 1725)
+PASS | fort-leavenworth | app bah_2026.json W-2 | page/src=(2268, 1881) | ref=(2268, 1881)
+PASS | fort-leavenworth | app bah_2026.json W-3 | page/src=(2397, 1983) | ref=(2397, 1983)
+PASS | fort-leavenworth | app bah_2026.json W-4 | page/src=(2439, 2151) | ref=(2439, 2151)
+PASS | fort-leavenworth | app bah_2026.json W-5 | page/src=(2496, 2250) | ref=(2496, 2250)
+PASS | fort-leavenworth | app bah_2026.json O-1E | page/src=(2244, 1812) | ref=(2244, 1812)
+PASS | fort-leavenworth | app bah_2026.json O-2E | page/src=(2376, 1950) | ref=(2376, 1950)
+PASS | fort-leavenworth | app bah_2026.json O-3E | page/src=(2448, 2124) | ref=(2448, 2124)
+PASS | fort-leavenworth | app bah_2026.json O-1 | page/src=(1860, 1659) | ref=(1860, 1659)
+PASS | fort-leavenworth | app bah_2026.json O-2 | page/src=(2130, 1794) | ref=(2130, 1794)
+PASS | fort-leavenworth | app bah_2026.json O-3 | page/src=(2394, 2013) | ref=(2394, 2013)
+PASS | fort-leavenworth | app bah_2026.json O-4 | page/src=(2508, 2226) | ref=(2508, 2226)
+PASS | fort-leavenworth | app bah_2026.json O-5 | page/src=(2589, 2283) | ref=(2589, 2283)
+PASS | fort-leavenworth | app bah_2026.json O-6 | page/src=(2610, 2376) | ref=(2610, 2376)
+PASS | fort-leavenworth | app bah_2026.json O-7 | page/src=(2625, 2415) | ref=(2625, 2415)
+PASS | fort-leavenworth | calc-data.json E-1 with/without | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | calc-data.json E-2 with/without | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | calc-data.json E-3 with/without | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | calc-data.json E-4 with/without | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | calc-data.json E-5 with/without | page/src=(1815, 1569) | ref=(1815, 1569)
+PASS | fort-leavenworth | calc-data.json E-6 with/without | page/src=(2133, 1662) | ref=(2133, 1662)
+PASS | fort-leavenworth | calc-data.json E-7 with/without | page/src=(2229, 1737) | ref=(2229, 1737)
+PASS | fort-leavenworth | calc-data.json E-8 with/without | page/src=(2331, 1884) | ref=(2331, 1884)
+PASS | fort-leavenworth | calc-data.json E-9 with/without | page/src=(2427, 1971) | ref=(2427, 1971)
+PASS | fort-leavenworth | calc-data.json W-1 with/without | page/src=(2151, 1725) | ref=(2151, 1725)
+PASS | fort-leavenworth | calc-data.json W-2 with/without | page/src=(2268, 1881) | ref=(2268, 1881)
+PASS | fort-leavenworth | calc-data.json W-3 with/without | page/src=(2397, 1983) | ref=(2397, 1983)
+PASS | fort-leavenworth | calc-data.json W-4 with/without | page/src=(2439, 2151) | ref=(2439, 2151)
+PASS | fort-leavenworth | calc-data.json W-5 with/without | page/src=(2496, 2250) | ref=(2496, 2250)
+PASS | fort-leavenworth | calc-data.json O-1 with/without | page/src=(1860, 1659) | ref=(1860, 1659)
+PASS | fort-leavenworth | calc-data.json O-2 with/without | page/src=(2130, 1794) | ref=(2130, 1794)
+PASS | fort-leavenworth | calc-data.json O-3 with/without | page/src=(2394, 2013) | ref=(2394, 2013)
+PASS | fort-leavenworth | calc-data.json O-4 with/without | page/src=(2508, 2226) | ref=(2508, 2226)
+PASS | fort-leavenworth | calc-data.json O-5 with/without | page/src=(2589, 2283) | ref=(2589, 2283)
+PASS | fort-leavenworth | calc-data.json O-6 with/without | page/src=(2610, 2376) | ref=(2610, 2376)
+PASS | fort-leavenworth | calc-data.json O-7 with/without | page/src=(2625, 2415) | ref=(2625, 2415)
+PASS | fort-leavenworth | page grade rows | page/src=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7'] | ref=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7']
+PASS | fort-leavenworth | page table E-1 | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | page table E-2 | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | page table E-3 | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | page table E-4 | page/src=(1740, 1410) | ref=(1740, 1410)
+PASS | fort-leavenworth | page table E-5 | page/src=(1815, 1569) | ref=(1815, 1569)
+PASS | fort-leavenworth | page table E-6 | page/src=(2133, 1662) | ref=(2133, 1662)
+PASS | fort-leavenworth | page table E-7 | page/src=(2229, 1737) | ref=(2229, 1737)
+PASS | fort-leavenworth | page table E-8 | page/src=(2331, 1884) | ref=(2331, 1884)
+PASS | fort-leavenworth | page table E-9 | page/src=(2427, 1971) | ref=(2427, 1971)
+PASS | fort-leavenworth | page table W-1 | page/src=(2151, 1725) | ref=(2151, 1725)
+PASS | fort-leavenworth | page table W-2 | page/src=(2268, 1881) | ref=(2268, 1881)
+PASS | fort-leavenworth | page table W-3 | page/src=(2397, 1983) | ref=(2397, 1983)
+PASS | fort-leavenworth | page table W-4 | page/src=(2439, 2151) | ref=(2439, 2151)
+PASS | fort-leavenworth | page table W-5 | page/src=(2496, 2250) | ref=(2496, 2250)
+PASS | fort-leavenworth | page table O-1E | page/src=(2244, 1812) | ref=(2244, 1812)
+PASS | fort-leavenworth | page table O-2E | page/src=(2376, 1950) | ref=(2376, 1950)
+PASS | fort-leavenworth | page table O-3E | page/src=(2448, 2124) | ref=(2448, 2124)
+PASS | fort-leavenworth | page table O-1 | page/src=(1860, 1659) | ref=(1860, 1659)
+PASS | fort-leavenworth | page table O-2 | page/src=(2130, 1794) | ref=(2130, 1794)
+PASS | fort-leavenworth | page table O-3 | page/src=(2394, 2013) | ref=(2394, 2013)
+PASS | fort-leavenworth | page table O-4 | page/src=(2508, 2226) | ref=(2508, 2226)
+PASS | fort-leavenworth | page table O-5 | page/src=(2589, 2283) | ref=(2589, 2283)
+PASS | fort-leavenworth | page table O-6 | page/src=(2610, 2376) | ref=(2610, 2376)
+PASS | fort-leavenworth | page table O-7 | page/src=(2625, 2415) | ref=(2625, 2415)
+PASS | fort-leavenworth | gap rows | page/src=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3'] | ref=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3']
+PASS | fort-leavenworth | gap E-4 | page/src=('1,740', '−$625', '$130') | ref=('1,740', '−$625', '$130')
+PASS | fort-leavenworth | gap E-5 | page/src=('1,815', '−$550', '$205') | ref=('1,815', '−$550', '$205')
+PASS | fort-leavenworth | gap E-6 | page/src=('2,133', '−$232', '$523') | ref=('2,133', '−$232', '$523')
+PASS | fort-leavenworth | gap E-7 | page/src=('2,229', '−$136', '$619') | ref=('2,229', '−$136', '$619')
+PASS | fort-leavenworth | gap W-2 | page/src=('2,268', '−$97', '$658') | ref=('2,268', '−$97', '$658')
+PASS | fort-leavenworth | gap O-3 | page/src=('2,394', '$29', '$784') | ref=('2,394', '$29', '$784')
+PASS | fort-leavenworth | all $ tokens on page == re-derived set (multiset) | page/src={'$1,350': 3, '$1,850': 3, '$260': 3, '$515': 3, '$1,815': 4, '−$550': 3, '$205': 3, '$1,740': 5, '$1,410': 4, '$1,569': 1, '$2,133': 2, '$1,662': 1, '$2,229': 2, '$1,737': 1, '$2,331': 1, '$1,884': 1, '$2,427': 1, '$1,971': 1, '$2,151': 2, '$1,725': 1, '$2,268': 2, '$1,881': 1, '$2,397': 1, '$1,983': 1, '$2,439': 1, '$2,496': 1, '$2,250': 1, '$2,244': 1, '$1,812': 1, '$2,376': 2, '$1,950': 1, '$2,448': 1, '$2,124': 1, '$1,860': 1, '$1,659': 1, '$2,130': 1, '$1,794': 1, '$2,394': 2, '$2,013': 1, '$2,508': 1, '$2,226': 1, '$2,589': 1, '$2,283': 1, '$2,610': 1, '$2,625': 1, '$2,415': 1, '$1,610': 1, '$2,365': 1, '−$625': 1, '$130': 1, '−$232': 1, '$523': 1, '−$136': 1, '$619': 1, '−$97': 1, '$658': 1, '$29': 1, '$784': 1} | ref={'$1,740': 5, '$1,410': 4, '$1,815': 4, '$1,569': 1, '$2,133': 2, '$1,662': 1, '$2,229': 2, '$1,737': 1, '$2,331': 1, '$1,884': 1, '$2,427': 1, '$1,971': 1, '$2,151': 2, '$1,725': 1, '$2,268': 2, '$1,881': 1, '$2,397': 1, '$1,983': 1, '$2,439': 1, '$2,496': 1, '$2,250': 1, '$2,244': 1, '$1,812': 1, '$2,376': 2, '$1,950': 1, '$2,448': 1, '$2,124': 1, '$1,860': 1, '$1,659': 1, '$2,130': 1, '$1,794': 1, '$2,394': 2, '$2,013': 1, '$2,508': 1, '$2,226': 1, '$2,589': 1, '$2,283': 1, '$2,610': 1, '$2,625': 1, '$2,415': 1, '−$625': 1, '$130': 1, '−$550': 3, '$205': 3, '−$232': 1, '$523': 1, '−$136': 1, '$619': 1, '−$97': 1, '$658': 1, '$29': 1, '$784': 1, '$1,350': 3, '$1,850': 3, '$260': 3, '$515': 3, '$1,610': 1, '$2,365': 1}
+PASS | fort-leavenworth | ZIP list == DTMO map | page/src=['64018', '64028', '64079', '64092', '64098', '64150', '64151', '64152', '64153', '64154', '64163', '64164', '64168', '64190', '64195', '64439', '64444', '66007', '66020', '66027', '66043', '66048', '66052', '66086'] | ref=['64018', '64028', '64079', '64092', '64098', '64150', '64151', '64152', '64153', '64154', '64163', '64164', '64168', '64190', '64195', '64439', '64444', '66007', '66020', '66027', '66043', '66048', '66052', '66086']
+PASS | fort-leavenworth | ZIP count | page/src=24 | ref=24
+PASS | fort-leavenworth | anchor ZIP maps once | page/src=['KS102'] | ref=['KS102']
+PASS | fort-leavenworth | area name on page | page/src=True | ref=True
+PASS | fort-leavenworth | FAQ ZIP 64079 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-leavenworth | FAQ ZIP 66048 maps to a code named on the page | page/src=True | ref=True
+PASS | fort-leavenworth | FAQ MHA code KS102 is a DTMO MHA and its DTMO name is on the page | page/src=True | ref=True
+PASS | fort-leavenworth | FAQ JSON-LD == visible Q&A | page/src=[('Do Leavenworth and Platte City get the same BAH?', 'Yes. The city of Leavenworth (66048) and Platte City, MO (64079) are both in the FORT LEAVENWORTH, KS housing area (KS102). BAH follows your duty-station ZIP anyway, not the town you rent in.'), ('Does 2026 BAH at Fort Leavenworth cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,350–$1,850 and utilities of about $260–$515 a month, a Sergeant (E-5) with dependents ($1,815) lands between −$550 and $205 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')] | ref=[('Do Leavenworth and Platte City get the same BAH?', 'Yes. The city of Leavenworth (66048) and Platte City, MO (64079) are both in the FORT LEAVENWORTH, KS housing area (KS102). BAH follows your duty-station ZIP anyway, not the town you rent in.'), ('Does 2026 BAH at Fort Leavenworth cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,350–$1,850 and utilities of about $260–$515 a month, a Sergeant (E-5) with dependents ($1,815) lands between −$550 and $205 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')]
+PASS | fort-leavenworth | self canonical | page/src=https://pcsvector.com/bah/fort-leavenworth/ | ref=https://pcsvector.com/bah/fort-leavenworth/
+PASS | fort-leavenworth | dateModified | page/src=2026-10-20 | ref=2026-10-20
+PASS | fort-leavenworth | as-of stamp visible | page/src=True | ref=True
+PASS | fort-leavenworth | calculator links preselect this post (3) | page/src=['Fort Leavenworth, KS', 'Fort Leavenworth, KS', 'Fort Leavenworth, KS'] | ref=['Fort Leavenworth, KS', 'Fort Leavenworth, KS', 'Fort Leavenworth, KS']
+PASS | fort-leavenworth | post exists in calculator | page/src=True | ref=True
+PASS | fort-leavenworth | forbidden text "rent/buy" absent | page/src=False | ref=False
+PASS | fort-leavenworth | forbidden text "rent or buy" absent | page/src=False | ref=False
+PASS | fort-leavenworth | forbidden text "buy or rent" absent | page/src=False | ref=False
+PASS | fort-leavenworth | forbidden text "consent" absent | page/src=False | ref=False
+PASS | fort-leavenworth | forbidden text "privacy" absent | page/src=False | ref=False
+PASS | fort-leavenworth | forbidden text "endorse" absent | page/src=False | ref=False
+PASS | fort-leavenworth | forbidden text "approved by the army" absent | page/src=False | ref=False
+PASS | fort-leavenworth | forbidden text "approved by dod" absent | page/src=False | ref=False
+PASS | fort-leavenworth | 'Military-approved' label kept | page/src=True | ref=True
+PASS | fort-leavenworth | hub row | page/src=('KS102', '1,815', '1,600', '+$215') | ref=('KS102', '1,815', '1,600', '+$215')
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with E-1 | page/src=2277 | ref=2277
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with E-2 | page/src=2277 | ref=2277
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with E-3 | page/src=2277 | ref=2277
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with E-4 | page/src=2277 | ref=2277
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with E-5 | page/src=2874 | ref=2874
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with E-6 | page/src=2892 | ref=2892
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with E-7 | page/src=3045 | ref=3045
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with E-8 | page/src=3240 | ref=3240
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with E-9 | page/src=3486 | ref=3486
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with W-1 | page/src=2895 | ref=2895
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with W-2 | page/src=3123 | ref=3123
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with W-3 | page/src=3369 | ref=3369
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with W-4 | page/src=3528 | ref=3528
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with W-5 | page/src=3723 | ref=3723
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-1E | page/src=3078 | ref=3078
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-2E | page/src=3333 | ref=3333
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-3E | page/src=3558 | ref=3558
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-1 | page/src=2886 | ref=2886
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-2 | page/src=2889 | ref=2889
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-3 | page/src=3360 | ref=3360
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-4 | page/src=3789 | ref=3789
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-5 | page/src=4095 | ref=4095
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-6 | page/src=4131 | ref=4131
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF with O-7 | page/src=4161 | ref=4161
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without E-1 | page/src=1707 | ref=1707
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without E-2 | page/src=1707 | ref=1707
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without E-3 | page/src=1707 | ref=1707
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without E-4 | page/src=1707 | ref=1707
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without E-5 | page/src=2157 | ref=2157
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without E-6 | page/src=2169 | ref=2169
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without E-7 | page/src=2283 | ref=2283
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without E-8 | page/src=2430 | ref=2430
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without E-9 | page/src=2616 | ref=2616
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without W-1 | page/src=2172 | ref=2172
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without W-2 | page/src=2385 | ref=2385
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without W-3 | page/src=2619 | ref=2619
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without W-4 | page/src=2901 | ref=2901
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without W-5 | page/src=3087 | ref=3087
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-1E | page/src=2310 | ref=2310
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-2E | page/src=2523 | ref=2523
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-3E | page/src=2853 | ref=2853
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-1 | page/src=2166 | ref=2166
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-2 | page/src=2286 | ref=2286
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-3 | page/src=2643 | ref=2643
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-4 | page/src=3051 | ref=3051
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-5 | page/src=3162 | ref=3162
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-6 | page/src=3348 | ref=3348
+PASS | joint-base-elmendorf-richardson | ASCII vs DTMO PDF without O-7 | page/src=3405 | ref=3405
+PASS | joint-base-elmendorf-richardson | ASCII unchanged vs pre-update file | page/src=({'E1': 2277, 'E2': 2277, 'E3': 2277, 'E4': 2277, 'E5': 2874, 'E6': 2892, 'E7': 3045, 'E8': 3240, 'E9': 3486, 'W1': 2895, 'W2': 3123, 'W3': 3369, 'W4': 3528, 'W5': 3723, 'O1E': 3078, 'O2E': 3333, 'O3E': 3558, 'O1': 2886, 'O2': 2889, 'O3': 3360, 'O4': 3789, 'O5': 4095, 'O6': 4131, 'O7': 4161, 'O8': 4161, 'O9': 4161, 'O10': 4161}, {'E1': 1707, 'E2': 1707, 'E3': 1707, 'E4': 1707, 'E5': 2157, 'E6': 2169, 'E7': 2283, 'E8': 2430, 'E9': 2616, 'W1': 2172, 'W2': 2385, 'W3': 2619, 'W4': 2901, 'W5': 3087, 'O1E': 2310, 'O2E': 2523, 'O3E': 2853, 'O1': 2166, 'O2': 2286, 'O3': 2643, 'O4': 3051, 'O5': 3162, 'O6': 3348, 'O7': 3405, 'O8': 3405, 'O9': 3405, 'O10': 3405}) | ref=({'E1': 2277, 'E2': 2277, 'E3': 2277, 'E4': 2277, 'E5': 2874, 'E6': 2892, 'E7': 3045, 'E8': 3240, 'E9': 3486, 'W1': 2895, 'W2': 3123, 'W3': 3369, 'W4': 3528, 'W5': 3723, 'O1E': 3078, 'O2E': 3333, 'O3E': 3558, 'O1': 2886, 'O2': 2889, 'O3': 3360, 'O4': 3789, 'O5': 4095, 'O6': 4131, 'O7': 4161, 'O8': 4161, 'O9': 4161, 'O10': 4161}, {'E1': 1707, 'E2': 1707, 'E3': 1707, 'E4': 1707, 'E5': 2157, 'E6': 2169, 'E7': 2283, 'E8': 2430, 'E9': 2616, 'W1': 2172, 'W2': 2385, 'W3': 2619, 'W4': 2901, 'W5': 3087, 'O1E': 2310, 'O2E': 2523, 'O3E': 2853, 'O1': 2166, 'O2': 2286, 'O3': 2643, 'O4': 3051, 'O5': 3162, 'O6': 3348, 'O7': 3405, 'O8': 3405, 'O9': 3405, 'O10': 3405})
+PASS | joint-base-elmendorf-richardson | O-8..O-10 == O-7 | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | live anchor zip | page/src=99506 | ref=99506
+PASS | joint-base-elmendorf-richardson | live area name | page/src=ANCHORAGE, AK (AK404) | ref=ANCHORAGE, AK (AK404)
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup E-1 with/without | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars E-1 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label E-1 | page/src=E1 | ref=E1
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup E-2 with/without | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars E-2 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label E-2 | page/src=E2 | ref=E2
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup E-3 with/without | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars E-3 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label E-3 | page/src=E3 | ref=E3
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup E-4 with/without | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars E-4 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label E-4 | page/src=E4 | ref=E4
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup E-5 with/without | page/src=(2874, 2157) | ref=(2874, 2157)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars E-5 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label E-5 | page/src=E5 | ref=E5
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup E-6 with/without | page/src=(2892, 2169) | ref=(2892, 2169)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars E-6 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label E-6 | page/src=E6 | ref=E6
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup E-7 with/without | page/src=(3045, 2283) | ref=(3045, 2283)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars E-7 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label E-7 | page/src=E7 | ref=E7
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup E-8 with/without | page/src=(3240, 2430) | ref=(3240, 2430)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars E-8 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label E-8 | page/src=E8 | ref=E8
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup E-9 with/without | page/src=(3486, 2616) | ref=(3486, 2616)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars E-9 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label E-9 | page/src=E9 | ref=E9
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup W-1 with/without | page/src=(2895, 2172) | ref=(2895, 2172)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars W-1 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label W-1 | page/src=W1 | ref=W1
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup W-2 with/without | page/src=(3123, 2385) | ref=(3123, 2385)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars W-2 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label W-2 | page/src=W2 | ref=W2
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup W-3 with/without | page/src=(3369, 2619) | ref=(3369, 2619)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars W-3 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label W-3 | page/src=W3 | ref=W3
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup W-4 with/without | page/src=(3528, 2901) | ref=(3528, 2901)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars W-4 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label W-4 | page/src=W4 | ref=W4
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup W-5 with/without | page/src=(3723, 3087) | ref=(3723, 3087)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars W-5 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label W-5 | page/src=W5 | ref=W5
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-1E with/without | page/src=(3078, 2310) | ref=(3078, 2310)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-1E | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-1E | page/src=O1E | ref=O1E
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-2E with/without | page/src=(3333, 2523) | ref=(3333, 2523)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-2E | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-2E | page/src=O2E | ref=O2E
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-3E with/without | page/src=(3558, 2853) | ref=(3558, 2853)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-3E | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-3E | page/src=O3E | ref=O3E
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-1 with/without | page/src=(2886, 2166) | ref=(2886, 2166)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-1 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-1 | page/src=O1 | ref=O1
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-2 with/without | page/src=(2889, 2286) | ref=(2889, 2286)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-2 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-2 | page/src=O2 | ref=O2
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-3 with/without | page/src=(3360, 2643) | ref=(3360, 2643)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-3 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-3 | page/src=O3 | ref=O3
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-4 with/without | page/src=(3789, 3051) | ref=(3789, 3051)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-4 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-4 | page/src=O4 | ref=O4
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-5 with/without | page/src=(4095, 3162) | ref=(4095, 3162)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-5 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-5 | page/src=O5 | ref=O5
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-6 with/without | page/src=(4131, 3348) | ref=(4131, 3348)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-6 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-6 | page/src=O6 | ref=O6
+PASS | joint-base-elmendorf-richardson | LIVE DTMO lookup O-7 with/without | page/src=(4161, 3405) | ref=(4161, 3405)
+PASS | joint-base-elmendorf-richardson | LIVE raw is whole dollars O-7 | page/src=(True, True) | ref=(True, True)
+PASS | joint-base-elmendorf-richardson | LIVE rank label O-7 | page/src=O7/O7+ | ref=O7/O7+
+PASS | joint-base-elmendorf-richardson | app mha_code | page/src=AK404 | ref=AK404
+PASS | joint-base-elmendorf-richardson | app bah_2026.json E-1 | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json E-2 | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json E-3 | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json E-4 | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json E-5 | page/src=(2874, 2157) | ref=(2874, 2157)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json E-6 | page/src=(2892, 2169) | ref=(2892, 2169)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json E-7 | page/src=(3045, 2283) | ref=(3045, 2283)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json E-8 | page/src=(3240, 2430) | ref=(3240, 2430)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json E-9 | page/src=(3486, 2616) | ref=(3486, 2616)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json W-1 | page/src=(2895, 2172) | ref=(2895, 2172)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json W-2 | page/src=(3123, 2385) | ref=(3123, 2385)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json W-3 | page/src=(3369, 2619) | ref=(3369, 2619)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json W-4 | page/src=(3528, 2901) | ref=(3528, 2901)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json W-5 | page/src=(3723, 3087) | ref=(3723, 3087)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-1E | page/src=(3078, 2310) | ref=(3078, 2310)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-2E | page/src=(3333, 2523) | ref=(3333, 2523)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-3E | page/src=(3558, 2853) | ref=(3558, 2853)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-1 | page/src=(2886, 2166) | ref=(2886, 2166)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-2 | page/src=(2889, 2286) | ref=(2889, 2286)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-3 | page/src=(3360, 2643) | ref=(3360, 2643)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-4 | page/src=(3789, 3051) | ref=(3789, 3051)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-5 | page/src=(4095, 3162) | ref=(4095, 3162)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-6 | page/src=(4131, 3348) | ref=(4131, 3348)
+PASS | joint-base-elmendorf-richardson | app bah_2026.json O-7 | page/src=(4161, 3405) | ref=(4161, 3405)
+PASS | joint-base-elmendorf-richardson | calc-data.json E-1 with/without | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | calc-data.json E-2 with/without | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | calc-data.json E-3 with/without | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | calc-data.json E-4 with/without | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | calc-data.json E-5 with/without | page/src=(2874, 2157) | ref=(2874, 2157)
+PASS | joint-base-elmendorf-richardson | calc-data.json E-6 with/without | page/src=(2892, 2169) | ref=(2892, 2169)
+PASS | joint-base-elmendorf-richardson | calc-data.json E-7 with/without | page/src=(3045, 2283) | ref=(3045, 2283)
+PASS | joint-base-elmendorf-richardson | calc-data.json E-8 with/without | page/src=(3240, 2430) | ref=(3240, 2430)
+PASS | joint-base-elmendorf-richardson | calc-data.json E-9 with/without | page/src=(3486, 2616) | ref=(3486, 2616)
+PASS | joint-base-elmendorf-richardson | calc-data.json W-1 with/without | page/src=(2895, 2172) | ref=(2895, 2172)
+PASS | joint-base-elmendorf-richardson | calc-data.json W-2 with/without | page/src=(3123, 2385) | ref=(3123, 2385)
+PASS | joint-base-elmendorf-richardson | calc-data.json W-3 with/without | page/src=(3369, 2619) | ref=(3369, 2619)
+PASS | joint-base-elmendorf-richardson | calc-data.json W-4 with/without | page/src=(3528, 2901) | ref=(3528, 2901)
+PASS | joint-base-elmendorf-richardson | calc-data.json W-5 with/without | page/src=(3723, 3087) | ref=(3723, 3087)
+PASS | joint-base-elmendorf-richardson | calc-data.json O-1 with/without | page/src=(2886, 2166) | ref=(2886, 2166)
+PASS | joint-base-elmendorf-richardson | calc-data.json O-2 with/without | page/src=(2889, 2286) | ref=(2889, 2286)
+PASS | joint-base-elmendorf-richardson | calc-data.json O-3 with/without | page/src=(3360, 2643) | ref=(3360, 2643)
+PASS | joint-base-elmendorf-richardson | calc-data.json O-4 with/without | page/src=(3789, 3051) | ref=(3789, 3051)
+PASS | joint-base-elmendorf-richardson | calc-data.json O-5 with/without | page/src=(4095, 3162) | ref=(4095, 3162)
+PASS | joint-base-elmendorf-richardson | calc-data.json O-6 with/without | page/src=(4131, 3348) | ref=(4131, 3348)
+PASS | joint-base-elmendorf-richardson | calc-data.json O-7 with/without | page/src=(4161, 3405) | ref=(4161, 3405)
+PASS | joint-base-elmendorf-richardson | page grade rows | page/src=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7'] | ref=['E-1', 'E-2', 'E-3', 'E-4', 'E-5', 'E-6', 'E-7', 'E-8', 'E-9', 'W-1', 'W-2', 'W-3', 'W-4', 'W-5', 'O-1E', 'O-2E', 'O-3E', 'O-1', 'O-2', 'O-3', 'O-4', 'O-5', 'O-6', 'O-7']
+PASS | joint-base-elmendorf-richardson | page table E-1 | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | page table E-2 | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | page table E-3 | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | page table E-4 | page/src=(2277, 1707) | ref=(2277, 1707)
+PASS | joint-base-elmendorf-richardson | page table E-5 | page/src=(2874, 2157) | ref=(2874, 2157)
+PASS | joint-base-elmendorf-richardson | page table E-6 | page/src=(2892, 2169) | ref=(2892, 2169)
+PASS | joint-base-elmendorf-richardson | page table E-7 | page/src=(3045, 2283) | ref=(3045, 2283)
+PASS | joint-base-elmendorf-richardson | page table E-8 | page/src=(3240, 2430) | ref=(3240, 2430)
+PASS | joint-base-elmendorf-richardson | page table E-9 | page/src=(3486, 2616) | ref=(3486, 2616)
+PASS | joint-base-elmendorf-richardson | page table W-1 | page/src=(2895, 2172) | ref=(2895, 2172)
+PASS | joint-base-elmendorf-richardson | page table W-2 | page/src=(3123, 2385) | ref=(3123, 2385)
+PASS | joint-base-elmendorf-richardson | page table W-3 | page/src=(3369, 2619) | ref=(3369, 2619)
+PASS | joint-base-elmendorf-richardson | page table W-4 | page/src=(3528, 2901) | ref=(3528, 2901)
+PASS | joint-base-elmendorf-richardson | page table W-5 | page/src=(3723, 3087) | ref=(3723, 3087)
+PASS | joint-base-elmendorf-richardson | page table O-1E | page/src=(3078, 2310) | ref=(3078, 2310)
+PASS | joint-base-elmendorf-richardson | page table O-2E | page/src=(3333, 2523) | ref=(3333, 2523)
+PASS | joint-base-elmendorf-richardson | page table O-3E | page/src=(3558, 2853) | ref=(3558, 2853)
+PASS | joint-base-elmendorf-richardson | page table O-1 | page/src=(2886, 2166) | ref=(2886, 2166)
+PASS | joint-base-elmendorf-richardson | page table O-2 | page/src=(2889, 2286) | ref=(2889, 2286)
+PASS | joint-base-elmendorf-richardson | page table O-3 | page/src=(3360, 2643) | ref=(3360, 2643)
+PASS | joint-base-elmendorf-richardson | page table O-4 | page/src=(3789, 3051) | ref=(3789, 3051)
+PASS | joint-base-elmendorf-richardson | page table O-5 | page/src=(4095, 3162) | ref=(4095, 3162)
+PASS | joint-base-elmendorf-richardson | page table O-6 | page/src=(4131, 3348) | ref=(4131, 3348)
+PASS | joint-base-elmendorf-richardson | page table O-7 | page/src=(4161, 3405) | ref=(4161, 3405)
+PASS | joint-base-elmendorf-richardson | gap rows | page/src=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3'] | ref=['E-4', 'E-5', 'E-6', 'E-7', 'W-2', 'O-3']
+PASS | joint-base-elmendorf-richardson | gap E-4 | page/src=('2,277', '−$1,173', '$22') | ref=('2,277', '−$1,173', '$22')
+PASS | joint-base-elmendorf-richardson | gap E-5 | page/src=('2,874', '−$576', '$619') | ref=('2,874', '−$576', '$619')
+PASS | joint-base-elmendorf-richardson | gap E-6 | page/src=('2,892', '−$558', '$637') | ref=('2,892', '−$558', '$637')
+PASS | joint-base-elmendorf-richardson | gap E-7 | page/src=('3,045', '−$405', '$790') | ref=('3,045', '−$405', '$790')
+PASS | joint-base-elmendorf-richardson | gap W-2 | page/src=('3,123', '−$327', '$868') | ref=('3,123', '−$327', '$868')
+PASS | joint-base-elmendorf-richardson | gap O-3 | page/src=('3,360', '−$90', '$1,105') | ref=('3,360', '−$90', '$1,105')
+PASS | joint-base-elmendorf-richardson | all $ tokens on page == re-derived set (multiset) | page/src={'$1,900': 3, '$2,700': 3, '$355': 3, '$750': 3, '$2,874': 4, '−$576': 3, '$619': 3, '$2,277': 5, '$1,707': 4, '$2,157': 1, '$2,892': 2, '$2,169': 1, '$3,045': 2, '$2,283': 1, '$3,240': 1, '$2,430': 1, '$3,486': 1, '$2,616': 1, '$2,895': 1, '$2,172': 1, '$3,123': 2, '$2,385': 1, '$3,369': 1, '$2,619': 1, '$3,528': 1, '$2,901': 1, '$3,723': 1, '$3,087': 1, '$3,078': 1, '$2,310': 1, '$3,333': 1, '$2,523': 1, '$3,558': 1, '$2,853': 1, '$2,886': 1, '$2,166': 1, '$2,889': 1, '$2,286': 1, '$3,360': 2, '$2,643': 1, '$3,789': 1, '$3,051': 1, '$4,095': 1, '$3,162': 1, '$4,131': 1, '$3,348': 1, '$4,161': 1, '$3,405': 1, '$2,255': 1, '$3,450': 1, '−$1,173': 1, '$22': 1, '−$558': 1, '$637': 1, '−$405': 1, '$790': 1, '−$327': 1, '$868': 1, '−$90': 1, '$1,105': 1} | ref={'$2,277': 5, '$1,707': 4, '$2,874': 4, '$2,157': 1, '$2,892': 2, '$2,169': 1, '$3,045': 2, '$2,283': 1, '$3,240': 1, '$2,430': 1, '$3,486': 1, '$2,616': 1, '$2,895': 1, '$2,172': 1, '$3,123': 2, '$2,385': 1, '$3,369': 1, '$2,619': 1, '$3,528': 1, '$2,901': 1, '$3,723': 1, '$3,087': 1, '$3,078': 1, '$2,310': 1, '$3,333': 1, '$2,523': 1, '$3,558': 1, '$2,853': 1, '$2,886': 1, '$2,166': 1, '$2,889': 1, '$2,286': 1, '$3,360': 2, '$2,643': 1, '$3,789': 1, '$3,051': 1, '$4,095': 1, '$3,162': 1, '$4,131': 1, '$3,348': 1, '$4,161': 1, '$3,405': 1, '−$1,173': 1, '$22': 1, '−$576': 3, '$619': 3, '−$558': 1, '$637': 1, '−$405': 1, '$790': 1, '−$327': 1, '$868': 1, '−$90': 1, '$1,105': 1, '$1,900': 3, '$2,700': 3, '$355': 3, '$750': 3, '$2,255': 1, '$3,450': 1}
+PASS | joint-base-elmendorf-richardson | ZIP list == DTMO map | page/src=['99501', '99502', '99503', '99504', '99505', '99506', '99507', '99508', '99509', '99510', '99511', '99513', '99514', '99515', '99516', '99517', '99518', '99519', '99520', '99521', '99522', '99523', '99524', '99529', '99530', '99540', '99545', '99551', '99552', '99554', '99555', '99556', '99557', '99558', '99559', '99561', '99563', '99567', '99568', '99569', '99572', '99575', '99576', '99577', '99578', '99580', '99581', '99585', '99587', '99589', '99590', '99599', '99602', '99603', '99604', '99605', '99607', '99609', '99610', '99611', '99614', '99620', '99621', '99622', '99623', '99626', '99627', '99628', '99629', '99630', '99631', '99632', '99634', '99635', '99636', '99637', '99639', '99641', '99645', '99650', '99651', '99652', '99654', '99655', '99656', '99657', '99658', '99659', '99662', '99663', '99664', '99665', '99666', '99667', '99668', '99669', '99671', '99672', '99674', '99675', '99676', '99678', '99679', '99680', '99681', '99682', '99683', '99684', '99687', '99688', '99690', '99691', '99694', '99695', '99704', '99720', '99721', '99722', '99723', '99724', '99726', '99727', '99729', '99730', '99733', '99734', '99736', '99739', '99740', '99741', '99742', '99743', '99744', '99745', '99746', '99747', '99748', '99749', '99750', '99751', '99752', '99753', '99754', '99755', '99756', '99757', '99758', '99759', '99760', '99761', '99762', '99763', '99765', '99766', '99767', '99768', '99769', '99770', '99771', '99772', '99773', '99774', '99777', '99778', '99781', '99782', '99783', '99784', '99785', '99786', '99788', '99789', '99791'] | ref=['99501', '99502', '99503', '99504', '99505', '99506', '99507', '99508', '99509', '99510', '99511', '99513', '99514', '99515', '99516', '99517', '99518', '99519', '99520', '99521', '99522', '99523', '99524', '99529', '99530', '99540', '99545', '99551', '99552', '99554', '99555', '99556', '99557', '99558', '99559', '99561', '99563', '99567', '99568', '99569', '99572', '99575', '99576', '99577', '99578', '99580', '99581', '99585', '99587', '99589', '99590', '99599', '99602', '99603', '99604', '99605', '99607', '99609', '99610', '99611', '99614', '99620', '99621', '99622', '99623', '99626', '99627', '99628', '99629', '99630', '99631', '99632', '99634', '99635', '99636', '99637', '99639', '99641', '99645', '99650', '99651', '99652', '99654', '99655', '99656', '99657', '99658', '99659', '99662', '99663', '99664', '99665', '99666', '99667', '99668', '99669', '99671', '99672', '99674', '99675', '99676', '99678', '99679', '99680', '99681', '99682', '99683', '99684', '99687', '99688', '99690', '99691', '99694', '99695', '99704', '99720', '99721', '99722', '99723', '99724', '99726', '99727', '99729', '99730', '99733', '99734', '99736', '99739', '99740', '99741', '99742', '99743', '99744', '99745', '99746', '99747', '99748', '99749', '99750', '99751', '99752', '99753', '99754', '99755', '99756', '99757', '99758', '99759', '99760', '99761', '99762', '99763', '99765', '99766', '99767', '99768', '99769', '99770', '99771', '99772', '99773', '99774', '99777', '99778', '99781', '99782', '99783', '99784', '99785', '99786', '99788', '99789', '99791']
+PASS | joint-base-elmendorf-richardson | ZIP count | page/src=173 | ref=173
+PASS | joint-base-elmendorf-richardson | anchor ZIP maps once | page/src=['AK404'] | ref=['AK404']
+PASS | joint-base-elmendorf-richardson | area name on page | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | FAQ ZIP 99501 maps to a code named on the page | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | FAQ ZIP 99505 maps to a code named on the page | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | FAQ ZIP 99506 maps to a code named on the page | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | FAQ ZIP 99577 maps to a code named on the page | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | FAQ ZIP 99654 maps to a code named on the page | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | FAQ MHA code AK404 is a DTMO MHA and its DTMO name is on the page | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | FAQ JSON-LD == visible Q&A | page/src=[('Why does DTMO call it Anchorage?', 'DTMO sets BAH by Military Housing Area, and JBER (99506, 99505) sits in the ANCHORAGE, AK area (AK404). Anchorage (99501), Eagle River (99577) and Wasilla (99654) are in the same area and use the same rates.'), ('Do I get COLA on top of BAH at Joint Base Elmendorf-Richardson?', 'Yes. Alaska duty stations get BAH plus a cost-of-living allowance (COLA), which DTMO sets separately by rank, years of service and dependents. This page shows BAH only; the calculator adds COLA for Joint Base Elmendorf-Richardson.'), ('Does 2026 BAH at Joint Base Elmendorf-Richardson cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,900–$2,700 and utilities of about $355–$750 a month, a Sergeant (E-5) with dependents ($2,874) lands between −$576 and $619 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')] | ref=[('Why does DTMO call it Anchorage?', 'DTMO sets BAH by Military Housing Area, and JBER (99506, 99505) sits in the ANCHORAGE, AK area (AK404). Anchorage (99501), Eagle River (99577) and Wasilla (99654) are in the same area and use the same rates.'), ('Do I get COLA on top of BAH at Joint Base Elmendorf-Richardson?', 'Yes. Alaska duty stations get BAH plus a cost-of-living allowance (COLA), which DTMO sets separately by rank, years of service and dependents. This page shows BAH only; the calculator adds COLA for Joint Base Elmendorf-Richardson.'), ('Does 2026 BAH at Joint Base Elmendorf-Richardson cover rent and utilities?', 'It depends on rank. With avg 3-bedroom rent of $1,900–$2,700 and utilities of about $355–$750 a month, a Sergeant (E-5) with dependents ($2,874) lands between −$576 and $619 a month after housing. These are planning estimates, not official figures.'), ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'), ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year’s rates in mid-December.')]
+PASS | joint-base-elmendorf-richardson | self canonical | page/src=https://pcsvector.com/bah/joint-base-elmendorf-richardson/ | ref=https://pcsvector.com/bah/joint-base-elmendorf-richardson/
+PASS | joint-base-elmendorf-richardson | alias JBER in title/H1/body | page/src=(True, True, True) | ref=(True, True, True)
+PASS | joint-base-elmendorf-richardson | dateModified | page/src=2026-10-20 | ref=2026-10-20
+PASS | joint-base-elmendorf-richardson | as-of stamp visible | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | calculator links preselect this post (3) | page/src=['Joint Base Elmendorf-Richardson, AK', 'Joint Base Elmendorf-Richardson, AK', 'Joint Base Elmendorf-Richardson, AK'] | ref=['Joint Base Elmendorf-Richardson, AK', 'Joint Base Elmendorf-Richardson, AK', 'Joint Base Elmendorf-Richardson, AK']
+PASS | joint-base-elmendorf-richardson | post exists in calculator | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | forbidden text "rent/buy" absent | page/src=False | ref=False
+PASS | joint-base-elmendorf-richardson | forbidden text "rent or buy" absent | page/src=False | ref=False
+PASS | joint-base-elmendorf-richardson | forbidden text "buy or rent" absent | page/src=False | ref=False
+PASS | joint-base-elmendorf-richardson | forbidden text "consent" absent | page/src=False | ref=False
+PASS | joint-base-elmendorf-richardson | forbidden text "privacy" absent | page/src=False | ref=False
+PASS | joint-base-elmendorf-richardson | forbidden text "endorse" absent | page/src=False | ref=False
+PASS | joint-base-elmendorf-richardson | forbidden text "approved by the army" absent | page/src=False | ref=False
+PASS | joint-base-elmendorf-richardson | forbidden text "approved by dod" absent | page/src=False | ref=False
+PASS | joint-base-elmendorf-richardson | 'Military-approved' label kept | page/src=True | ref=True
+PASS | joint-base-elmendorf-richardson | hub row | page/src=('AK404', '2,874', '2,300', '+$574') | ref=('AK404', '2,874', '2,300', '+$574')
