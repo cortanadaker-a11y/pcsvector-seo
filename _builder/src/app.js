@@ -151,7 +151,7 @@
     var bit = dest ? P.shortDest(dest, 22) : '';
     $('pcs-way-kicker').innerHTML = P.safeHtml(bit ? 'Military-approved agents \u00b7 ' + bit : 'Military-approved local agents \u00b7 worldwide');
     var ot = $('referral_open_btn'), sel = P.onetapLabel(snap);
-    ot.href = P.onetapUrl(snap); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
+    ot.href = P.onetapUrl(snap, $('ot_first_name').value, $('ot_email').value); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
     $('referral_submit_btn').disabled = !ready;
     $('pcs-ref-caption').textContent = ready ? 'Free \u00b7 no obligation' : 'Pick a New post above first';
     var bar = $('pcs-sticky-ref-bar');
@@ -228,7 +228,22 @@
 
   readQuery();
   setupHelp(); setupSidebar(); setupSticky();
-  $('referral_open_btn').addEventListener('click', function () {
+  (function () {
+    var f = $('ot_first_name'), e = $('ot_email'), h = $('ot_hint');
+    try { f.value = localStorage.getItem('pcs_ot_first') || ''; e.value = localStorage.getItem('pcs_ot_email') || ''; } catch (x) {}
+    function hint(msg) { h.textContent = msg || ''; h.hidden = !msg; }
+    function upd() { hint(''); f.removeAttribute('aria-invalid'); e.removeAttribute('aria-invalid'); $('referral_open_btn').href = P.onetapUrl(snap, f.value, e.value); }
+    f.addEventListener('input', upd); e.addEventListener('input', upd);
+    [f, e].forEach(function (el) { el.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); $('referral_open_btn').click(); } }); });
+    $('referral_open_btn').addEventListener('click', function (ev) {
+      var r = P.onetapCheck(f.value, e.value);
+      if (r.error) { ev.preventDefault(); hint(r.error); var bad = r.field === 'first' ? f : e; bad.setAttribute('aria-invalid', 'true'); bad.focus(); return; }
+      try { localStorage.setItem('pcs_ot_first', r.first); localStorage.setItem('pcs_ot_email', r.email); } catch (x) {}
+      this.href = P.onetapUrl(snap, r.first, r.email);
+    });
+  })();
+  $('referral_open_btn').addEventListener('click', function (ev) {
+    if (ev.defaultPrevented) return;
     try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'click-find-home', event: true }); } catch (e) {}
   });
   $('pcs-ref-form').addEventListener('submit', submitReferral);

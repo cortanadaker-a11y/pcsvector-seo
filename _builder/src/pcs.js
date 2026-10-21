@@ -238,8 +238,11 @@
     return FORM_VIEW + '?' + q.join('&');
   }
   /* One-tap Find a home (21 Oct 2026, Zak OK): form prefilled from calculator only (rank, destination, dependents); plain form if nothing picked */
-  function onetapUrl(snap) {
+  function onetapUrl(snap, first, email) {
     var c = calcFields(snap || {}), q = [];
+    first = String(first || '').trim(); email = cleanEmail(email);
+    if (first) q.push('entry.1546051705=' + quotePlus(first));
+    if (email) q.push('entry.1162277939=' + quotePlus(email));
     if (c.rank) q.push('entry.1001940560=' + quotePlus(c.rank));
     if (c.destination) q.push('entry.159372216=' + quotePlus(c.destination));
     if (c.destination && snap && snap.num_dependents != null) q.push('entry.1983274092=' + quotePlus(String(c.num_dependents)));
@@ -248,6 +251,13 @@
   function onetapLabel(snap) {
     var c = calcFields(snap || {}), g = String((snap && snap.pay_grade) || '');
     return [g, c.destination].filter(Boolean).join(' \u00b7 ');
+  }
+  function onetapCheck(first, email) {
+    first = String(first || '').trim(); email = cleanEmail(email);
+    if (!first) return { error: 'Add your first name so your agent knows who to reach.', field: 'first' };
+    if (!email) return { error: 'Add your email so your agent can reach you.', field: 'email' };
+    if (!EMAIL_RE.test(email)) return { error: 'That email looks off \u2014 try name@email.com.', field: 'email' };
+    return { first: first, email: email };
   }
   function validate(snap, first, email) {
     var c = calcFields(snap || {});
@@ -258,6 +268,6 @@
     return { row: row, url: prefillUrl(row) };
   }
   return { NONE_CURRENT: NONE_CURRENT, pyRound: pyRound, money: money, housingPackage: housingPackage, estimateMonthlyCola: estimateMonthlyCola,
-    renderResults: renderResults, calcFields: calcFields, shortDest: shortDest, rankLabel: rankLabel, referralRow: referralRow, prefillUrl: prefillUrl, onetapUrl: onetapUrl, onetapLabel: onetapLabel,
+    renderResults: renderResults, calcFields: calcFields, shortDest: shortDest, rankLabel: rankLabel, referralRow: referralRow, prefillUrl: prefillUrl, onetapUrl: onetapUrl, onetapLabel: onetapLabel, onetapCheck: onetapCheck,
     validate: validate, safeHtml: safeHtml, escAttr: escAttr, cleanEmail: cleanEmail };
 });
