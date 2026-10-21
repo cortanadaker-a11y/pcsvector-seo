@@ -104,7 +104,9 @@ page = f'''<!doctype html>
 <div id="pcs-results" aria-live="polite">{ssr}</div>
 <div id="pcs-match-panel" class="pcs-face-section pcs-face-section-match"><div id="pcs-referral"></div><span id="find-a-home"></span>
 <p class="pcs-way-kicker" id="pcs-way-kicker">Military-approved agents \u00b7 Fort Bragg, NC</p>
+<div class="pcs-ot-row" id="pcs-ot-row"><input class="pcs-text pcs-ot-in" id="ot_first_name" name="given-name" type="text" placeholder="First name" aria-label="First name" autocomplete="given-name" autocapitalize="words" maxlength="80"><input class="pcs-text pcs-ot-in" id="ot_email" name="email" type="email" inputmode="email" placeholder="Email" aria-label="Email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="120"></div>
 <a class="pcs-btn pcs-btn-gold" id="referral_open_btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeok5DcRqIU9QhzOGXCGAVd8UbW21LNK_S601kzOwb4FJ1Wyg/viewform" target="_blank" rel="noopener"><span>Find a home \u2014 Free \u2794</span><span class="pcs-btn-sel" id="referral_open_sel" hidden></span></a>
+<p class="pcs-ot-hint" id="ot_hint" role="alert" hidden></p>
 <form class="pcs-ref-fields" id="pcs-ref-form" novalidate>
 <div class="pcs-row"><div class="pcs-field"><label class="pcs-label gold" for="referral_first_name">First name</label><input class="pcs-text" id="referral_first_name" name="first_name" type="text" placeholder="First" autocomplete="given-name" maxlength="80"></div>
 <div class="pcs-field"><label class="pcs-label" for="referral_email_address">Email</label><input class="pcs-text" id="referral_email_address" name="email" type="email" inputmode="email" placeholder="you@email.com" autocomplete="email" maxlength="120"></div></div>
