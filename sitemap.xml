@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://pcsvector.com/</loc><lastmod>2026-10-11</lastmod></url>
-  <url><loc>https://pcsvector.com/bah/</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://pcsvector.com/bah/</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://pcsvector.com/bah/fort-bliss/</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://pcsvector.com/bah/fort-bragg/</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://pcsvector.com/bah/fort-campbell/</loc><lastmod>2026-10-19</lastmod></url>
@@ -27,4 +27,11 @@
   <url><loc>https://pcsvector.com/bah/fort-huachuca/</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://pcsvector.com/bah/fort-irwin/</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://pcsvector.com/bah/schofield-barracks/</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://pcsvector.com/bah/fort-gordon/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://pcsvector.com/bah/fort-jackson/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://pcsvector.com/bah/fort-rucker/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://pcsvector.com/bah/fort-lee/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://pcsvector.com/bah/joint-base-langley-eustis/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://pcsvector.com/bah/fort-leavenworth/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://pcsvector.com/bah/joint-base-elmendorf-richardson/</loc><lastmod>2026-10-20</lastmod></url>
 </urlset>
