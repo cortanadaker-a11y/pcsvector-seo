@@ -31,11 +31,12 @@ ssr = subprocess.run(['node', '-e', _node, B + 'src/pcs.js', OUT + 'assets/calc-
 assert ssr.startswith('<') and 'BR rent' in ssr, 'SSR render failed'
 e = lambda s: html.escape(s, quote=True)
 posts = sorted(D['posts'])
+ARIA = {"bah_calc_current": ' aria-label="Current post"', "bah_calc_gaining": ' aria-label="New post"'}  # 21 Oct 2026 a11y, no visual change
 def sel(id_, label, opts, value, gold=False, help_=None):
     o = ''.join(f'<option value="{e(v)}"{" selected" if v == value else ""}>{e(t)}</option>' for v, t in opts)
     h = (f'<button type="button" class="pcs-help" aria-label="Help: {e(help_)}">{QSVG}<span class="pcs-tip" role="tooltip">{e(help_)}</span></button>') if help_ else ''
     return (f'<div class="pcs-field"><label class="pcs-label{" gold" if gold else ""}" for="{id_}"><span>{label}</span>{h}</label>'
-            f'<div class="pcs-select"><span class="val">{e(dict(opts).get(value, value))}</span><select id="{id_}" name="{id_}">{o}</select>{CHEV}</div></div>')
+            f'<div class="pcs-select"><span class="val">{e(dict(opts).get(value, value))}</span><select id="{id_}" name="{id_}"{ARIA.get(id_, "")}>{o}</select>{CHEV}</div></div>')
 CHEV = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>'
 QSVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>'
 DBL_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.41 6 5 7.41 9.58 12 5 16.59 6.41 18l6-6z"/><path fill="currentColor" d="m13 6-1.41 1.41L16.17 12l-4.58 4.59L13 18l6-6z"/></svg>'
@@ -69,7 +70,7 @@ page = f'''<!doctype html>
 <link rel="canonical" href="{URL}">
 <meta name="theme-color" content="#121E16">
 <meta property="og:type" content="website"><meta property="og:site_name" content="PCS Vector"><meta property="og:title" content="{e(TITLE)}">
-<meta property="og:description" content="{e(DESC)}"><meta property="og:url" content="{URL}"><meta name="twitter:card" content="summary">
+<meta property="og:description" content="{e(DESC)}"><meta property="og:url" content="{URL}"><meta property="og:image" content="https://pcsvector.com/assets/og-card-2026-10-21.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="PCS Vector — Know your BAH before you PCS — free, 2026 rates"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://pcsvector.com/assets/og-card-2026-10-21.png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48">
@@ -110,7 +111,7 @@ page = f'''<!doctype html>
 <form class="pcs-ref-fields" id="pcs-ref-form" novalidate>
 <div class="pcs-row"><div class="pcs-field"><label class="pcs-label gold" for="referral_first_name">First name</label><input class="pcs-text" id="referral_first_name" name="first_name" type="text" placeholder="First" autocomplete="given-name" maxlength="80"></div>
 <div class="pcs-field"><label class="pcs-label" for="referral_email_address">Email</label><input class="pcs-text" id="referral_email_address" name="email" type="email" inputmode="email" placeholder="you@email.com" autocomplete="email" maxlength="120"></div></div>
-<button type="submit" class="pcs-btn" id="referral_submit_btn">Connect with a PCS Wayfinder \u2794</button>
+<button type="submit" class="pcs-btn" id="referral_submit_btn">Connect with a Military-approved agent \u2794</button>
 <p class="pcs-caption" id="pcs-ref-caption">Free \u00b7 no obligation</p>
 <div id="pcs-ref-msg" aria-live="polite"></div>
 </form>
@@ -126,7 +127,7 @@ page = f'''<!doctype html>
 </body></html>
 '''
 open(OUT + 'index.html', 'w').write(page)
-# --- BAH pages: CTAs -> the app on the domain (preset target post), agent CTAs -> open the Wayfinder
+# --- BAH pages: CTAs -> the app on the domain (preset target post), agent CTAs -> open the agent referral
 app_names = {'fort-bragg': 'Fort Bragg, NC', 'fort-hood': 'Fort Hood, TX', 'fort-campbell': 'Fort Campbell, KY', 'fort-carson': 'Fort Carson, CO',
              'joint-base-lewis-mcchord': 'Joint Base Lewis-McChord, WA', 'fort-drum': 'Fort Drum, NY', 'fort-bliss': 'Fort Bliss, TX',
              'national-capital-region': 'Pentagon / National Capital Region, VA'}

@@ -8,6 +8,8 @@ from services.installation_data import SUPPORTED_INSTALLATIONS as POSTS, get_fam
 from services.utility_costs import get_utility_costs_for_installation
 from services.dla_rates import get_dla_rate
 OUT = sys.argv[1] if len(sys.argv) > 1 else '/workspace/site_v2/assets/calc-data.json'
+# 21 Oct 2026 (Zak-approved): names renamed back in 2025; pcs-vector data still keys them by the 2023 names. Same MHA + rates.
+RENAME = {'Fort Barfoot, VA': 'Fort Pickett, VA', 'Fort Walker, VA': 'Fort A.P. Hill, VA'}  # ZZ710, VA368
 GRADES = ["E-1","E-2","E-3","E-4","E-5","E-6","E-7","E-8","E-9","W-1","W-2","W-3","W-4","W-5","O-1","O-2","O-3","O-4","O-5","O-6","O-7+"]
 def util_mid(areas):  # == components/bah_calculator._util_mid (main)
     lows, highs = [], []
@@ -42,7 +44,7 @@ for p in POSTS:
     oco = sysn in ('OHA', 'BAH_PLUS_COLA')
     rec['util'] = util_mid((get_utility_costs_for_installation(p, is_oconus=oco) or {}).get('areas'))
     rec['gas'] = GP.get_gas_price_for_installation(p).get('label') or '—'
-    out['posts'][p] = rec
+    out['posts'][RENAME.get(p, p)] = rec
 json.dump(out, open(OUT, 'w'), separators=(',', ':'), ensure_ascii=False)
 json.dump(table, open(OUT.replace('calc-data.json', 'gas-table.json'), 'w'))
 print(len(POSTS), 'posts', {s: sum(1 for r in out['posts'].values() if r['sys'] == s) for s in ('BAH', 'BAH_PLUS_COLA', 'OHA')}, 'gas', table.get('source'), table.get('as_of'))

@@ -78,7 +78,7 @@
     var inp = document.createElement('input'), lid = id + '_list';
     inp.type = 'text'; inp.id = id + '_q'; inp.className = 'val pcs-combo-input';
     inp.setAttribute('role', 'combobox'); inp.setAttribute('aria-autocomplete', 'list'); inp.setAttribute('aria-expanded', 'false');
-    inp.setAttribute('aria-controls', lid); inp.setAttribute('autocomplete', 'off'); inp.setAttribute('autocapitalize', 'none');
+    inp.setAttribute('aria-label', sel.getAttribute('aria-label') || (id === 'bah_calc_current' ? 'Current post' : 'New post')); inp.setAttribute('aria-controls', lid); inp.setAttribute('autocomplete', 'off'); inp.setAttribute('autocapitalize', 'none');
     inp.setAttribute('autocorrect', 'off'); inp.setAttribute('spellcheck', 'false'); inp.setAttribute('enterkeyhint', 'done');
     var lab = document.querySelector('label[for="' + id + '"]');
     var lsrc = lab && (lab.querySelector('span') || lab);
@@ -139,7 +139,7 @@
     return set;
   }
 
-  /* ---------- results + Wayfinder ---------- */
+  /* ---------- results + agent referral ---------- */
   function render() {
     var r = P.renderResults(D, S);
     $('pcs-results').innerHTML = r.warn ? '<div class="pcs-alert pcs-alert-' + (r.kind || 'warn') + '" role="status">' + P.safeHtml(r.warn) + '</div>' : r.html;

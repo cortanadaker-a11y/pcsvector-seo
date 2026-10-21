@@ -1,5 +1,5 @@
 /*! PCS Vector static app (pcsvector.com). Port of the Streamlit app (pcs-vector main):
-    components/bah_calculator.py + services/housing_allowances.py + views/home.py (Wayfinder) + faq.
+    components/bah_calculator.py + services/housing_allowances.py + views/home.py (agent referral) + faq.
     Data in /assets/calc-data.json is exported from the Python services at build time (Python = source of truth).
     UNOFFICIAL / PERSONAL. Not affiliated with the U.S. Army, DoD or DTMO. */
 (function (root, factory) {
@@ -212,7 +212,7 @@
       current_installation: current, barracks_meal_card: barracks, total_monthly_usd: total } };
   }
 
-  /* ---- views/home.py + services/referral_lead.py (Wayfinder) ---- */
+  /* ---- views/home.py + services/referral_lead.py (agent referral) ---- */
   var FORM_VIEW = 'https://docs.google.com/forms/d/e/1FAIpQLSeok5DcRqIU9QhzOGXCGAVd8UbW21LNK_S601kzOwb4FJ1Wyg/viewform';
   var ENTRIES = [['Email address', 'entry.1162277939'], ['Destination', 'entry.159372216'], ['First Name', 'entry.1546051705'],
     ['Rank', 'entry.1001940560'], ['Number of Dependents', 'entry.1983274092']];

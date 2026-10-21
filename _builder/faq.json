@@ -7,7 +7,7 @@
   },
   {
    "q": "Is the PCS Vector calculator free?",
-   "a": "Yes. The BAH, OHA, COLA, rent, utility, gas, and DLA calculator is free. Connecting with a PCS Wayfinder for housing help is also free. There is no subscription and no paywall on the comparison tool."
+   "a": "Yes. The BAH, OHA, COLA, rent, utility, gas, and DLA calculator is free. Connecting with a Military-approved agent for housing help is also free. There is no subscription and no paywall on the comparison tool."
   },
   {
    "q": "What is BAH (Basic Allowance for Housing) for an Army PCS?",
@@ -31,27 +31,27 @@
   },
   {
    "q": "How does the Army PCS finance calculator work?",
-   "a": "Enter rank, dependents, years of service, current post, and new post. PCS Vector looks up 2026 BAH or OHA plus COLA, then shows typical rent, utilities, DLA, and average gas at both locations. The large numbers are your total housing package now versus the gaining duty station so you can see the monthly change in seconds."
+   "a": "Enter rank, dependents, years of service, current post, and new post. PCS Vector looks up 2026 BAH or OHA plus COLA, then shows avg rent, utilities, DLA, and average gas at both locations. The large numbers are your total housing package now versus the gaining duty station so you can see the monthly change in seconds."
   },
   {
    "q": "What is the Cost of Living Index in PCS Vector?",
-   "a": "The Cost of Living Index compares typical rent plus utilities at your current post versus your new post. It is a planning snapshot of housing-related costs, not the official DoW COLA index. “Higher” means everyday housing costs look more expensive at the new location; “lower” means they look cheaper."
+   "a": "The Cost of Living Index compares avg rent plus utilities at your current post versus your new post. It is a planning snapshot of housing-related costs, not the official DoW COLA index. “Higher” means everyday housing costs look more expensive at the new location; “lower” means they look cheaper."
   },
   {
    "q": "Are rent, utility, and gas prices official DoW numbers?",
-   "a": "No. BAH, OHA, COLA, and DLA come from 2026 allowance tables. Typical rent and utilities are local planning estimates for off-post housing. Average gas uses EIA weekly regular gasoline, mapped from the installation zip code and state. Treat those as ballpark figures and confirm before you sign a lease."
+   "a": "No. BAH, OHA, COLA, and DLA come from 2026 allowance tables. Avg rent and utilities are local planning estimates for off-post housing. Average gas uses EIA weekly regular gasoline, mapped from the installation zip code and state. Treat those as ballpark figures and confirm before you sign a lease."
   },
   {
    "q": "Which Army posts does PCS Vector cover?",
-   "a": "PCS Vector includes 68+ Army installations across CONUS and OCONUS, including Fort Bragg, Fort Hood, Fort Campbell, Fort Carson, Fort Drum, Fort Benning, Joint Base Lewis-McChord, Korea, Germany, Japan, Italy, Hawaii, and Alaska. We use traditional post names (Fort Bragg, not Fort Liberty). If your exact post is not listed, pick the closest market and verify with finance."
+   "a": "PCS Vector includes 68+ Army installations across CONUS and OCONUS, including Fort Bragg, Fort Hood, Fort Campbell, Fort Carson, Fort Drum, Fort Benning, Joint Base Lewis-McChord, Korea, Germany, Japan, Italy, Hawaii, and Alaska. We use traditional post names (Fort Bragg, not Fort Liberty). Fort Pickett and Fort A.P. Hill were briefly called Fort Barfoot and Fort Walker (2023–2025); the calculator uses Fort Pickett, VA and Fort A.P. Hill, VA. If your exact post is not listed, pick the closest market and verify with finance."
   },
   {
    "q": "Are these 2026 BAH and OHA rates?",
    "a": "Yes. The calculator uses 2026 BAH, OHA, COLA, and DLA planning tables. The Department of War can update allowances during the year, so the number on your LES is still the source of truth. PCS Vector is a planning tool, not a pay statement."
   },
   {
-   "q": "What is a PCS Wayfinder?",
-   "a": "PCS Wayfinders are military-approved local housing agents at your new duty station. After you run the calculator, enter your first name and email to connect. The referral is free. They can help you look at rentals or buying against your BAH or OHA. Destination, rank, and dependents come from the calculator so you do not re-enter them."
+   "q": "What is a Military-approved agent?",
+   "a": "Military-approved agents are local housing agents at your new duty station. After you run the calculator, enter your first name and email to connect. The referral is free. They can help you look at rentals or buying against your BAH or OHA. Destination, rank, and dependents come from the calculator so you do not re-enter them."
   },
   {
    "q": "Is PCS Vector affiliated with the Army or DoW?",
@@ -67,7 +67,7 @@
   },
   {
    "q": "How do I get help finding a place at my new duty station?",
-   "a": "Set your new post in the PCS calculator, then tap Connect With A PCS Wayfinder and enter your first name and email. We pass destination, rank, and dependents to a local military-approved agent. The match is free and does not change your BAH, OHA, or COLA."
+   "a": "Set your new post in the PCS calculator, then enter your first name and email and tap Find a home — Free to connect with a Military-approved agent. We pass destination, rank, and dependents to a local military-approved agent. The match is free and does not change your BAH, OHA, or COLA."
   },
   {
    "q": "Who is PCS Vector for?",
