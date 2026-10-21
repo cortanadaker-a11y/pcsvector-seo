@@ -238,8 +238,11 @@
     return FORM_VIEW + '?' + q.join('&');
   }
   /* One-tap Find a home (21 Oct 2026, Zak OK): form prefilled from calculator only (rank, destination, dependents); plain form if nothing picked */
-  function onetapUrl(snap) {
+  function onetapUrl(snap, first, email) {
     var c = calcFields(snap || {}), q = [];
+    first = String(first || '').trim(); email = cleanEmail(email);
+    if (first) q.push('entry.1546051705=' + quotePlus(first));
+    if (email) q.push('entry.1162277939=' + quotePlus(email));
     if (c.rank) q.push('entry.1001940560=' + quotePlus(c.rank));
     if (c.destination) q.push('entry.159372216=' + quotePlus(c.destination));
     if (c.destination && snap && snap.num_dependents != null) q.push('entry.1983274092=' + quotePlus(String(c.num_dependents)));
@@ -248,6 +251,13 @@
   function onetapLabel(snap) {
     var c = calcFields(snap || {}), g = String((snap && snap.pay_grade) || '');
     return [g, c.destination].filter(Boolean).join(' \u00b7 ');
+  }
+  function onetapCheck(first, email) {
+    first = String(first || '').trim(); email = cleanEmail(email);
+    if (!first) return { error: 'Add your first name so your agent knows who to reach.', field: 'first' };
+    if (!email) return { error: 'Add your email so your agent can reach you.', field: 'email' };
+    if (!EMAIL_RE.test(email)) return { error: 'That email looks off \u2014 try name@email.com.', field: 'email' };
+    return { first: first, email: email };
   }
   function validate(snap, first, email) {
     var c = calcFields(snap || {});
@@ -258,7 +268,7 @@
     return { row: row, url: prefillUrl(row) };
   }
   return { NONE_CURRENT: NONE_CURRENT, pyRound: pyRound, money: money, housingPackage: housingPackage, estimateMonthlyCola: estimateMonthlyCola,
-    renderResults: renderResults, calcFields: calcFields, shortDest: shortDest, rankLabel: rankLabel, referralRow: referralRow, prefillUrl: prefillUrl, onetapUrl: onetapUrl, onetapLabel: onetapLabel,
+    renderResults: renderResults, calcFields: calcFields, shortDest: shortDest, rankLabel: rankLabel, referralRow: referralRow, prefillUrl: prefillUrl, onetapUrl: onetapUrl, onetapLabel: onetapLabel, onetapCheck: onetapCheck,
     validate: validate, safeHtml: safeHtml, escAttr: escAttr, cleanEmail: cleanEmail };
 });
 
@@ -415,7 +425,7 @@
     var bit = dest ? P.shortDest(dest, 22) : '';
     $('pcs-way-kicker').innerHTML = P.safeHtml(bit ? 'Military-approved agents \u00b7 ' + bit : 'Military-approved local agents \u00b7 worldwide');
     var ot = $('referral_open_btn'), sel = P.onetapLabel(snap);
-    ot.href = P.onetapUrl(snap); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
+    ot.href = P.onetapUrl(snap, $('ot_first_name').value, $('ot_email').value); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
     $('referral_submit_btn').disabled = !ready;
     $('pcs-ref-caption').textContent = ready ? 'Free \u00b7 no obligation' : 'Pick a New post above first';
     var bar = $('pcs-sticky-ref-bar');
@@ -492,7 +502,22 @@
 
   readQuery();
   setupHelp(); setupSidebar(); setupSticky();
-  $('referral_open_btn').addEventListener('click', function () {
+  (function () {
+    var f = $('ot_first_name'), e = $('ot_email'), h = $('ot_hint');
+    try { f.value = localStorage.getItem('pcs_ot_first') || ''; e.value = localStorage.getItem('pcs_ot_email') || ''; } catch (x) {}
+    function hint(msg) { h.textContent = msg || ''; h.hidden = !msg; }
+    function upd() { hint(''); f.removeAttribute('aria-invalid'); e.removeAttribute('aria-invalid'); $('referral_open_btn').href = P.onetapUrl(snap, f.value, e.value); }
+    f.addEventListener('input', upd); e.addEventListener('input', upd);
+    [f, e].forEach(function (el) { el.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); $('referral_open_btn').click(); } }); });
+    $('referral_open_btn').addEventListener('click', function (ev) {
+      var r = P.onetapCheck(f.value, e.value);
+      if (r.error) { ev.preventDefault(); hint(r.error); var bad = r.field === 'first' ? f : e; bad.setAttribute('aria-invalid', 'true'); bad.focus(); return; }
+      try { localStorage.setItem('pcs_ot_first', r.first); localStorage.setItem('pcs_ot_email', r.email); } catch (x) {}
+      this.href = P.onetapUrl(snap, r.first, r.email);
+    });
+  })();
+  $('referral_open_btn').addEventListener('click', function (ev) {
+    if (ev.defaultPrevented) return;
     try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'click-find-home', event: true }); } catch (e) {}
   });
   $('pcs-ref-form').addEventListener('submit', submitReferral);
