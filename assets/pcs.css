@@ -104,6 +104,7 @@ a{color:var(--gold)}
 .pcs-btn{display:flex;width:100%;align-items:center;justify-content:center;min-height:54.4px;padding:11.2px 16px;background:var(--orange);border:1px solid #C2410C;border-radius:12px;box-shadow:0 10px 24px rgba(234,88,12,.35);color:#fff;font:400 14px/16.8px var(--ss);letter-spacing:-.1728px;cursor:pointer;white-space:nowrap;text-decoration:none}
 .pcs-btn:hover{background:#F97316}.pcs-btn:active{transform:translateY(1px)}
 .pcs-btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.pcs-btn-gold{flex-direction:column;gap:3px;background:#D4AF37;border-color:#B8962E;color:#0B2A1C;font-weight:700;font-family:var(--in);box-shadow:0 10px 24px rgba(212,175,55,.3)}.pcs-btn-gold:hover{background:#E0BE4A}.pcs-btn-sel{font:600 12px/14px Inter,var(--ss);opacity:.85;white-space:normal;text-align:center}.pcs-btn-sel[hidden]{display:none}
 .pcs-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .pcs-ref-fields{display:none}
 .pcs-ref-open .pcs-ref-fields{display:block}
