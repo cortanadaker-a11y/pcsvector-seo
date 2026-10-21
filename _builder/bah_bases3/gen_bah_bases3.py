@@ -98,6 +98,7 @@ def head(title, desc, url, ld):
 <meta name="twitter:card" content="summary">
 <style>{CSS}</style>
 {''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)}
+<script data-goatcounter="https://pcsvector.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head><body><main>'''
 FOOT = '''<p class="src">PCS Vector is an independent planning tool built by Soldiers. It is not an official Army, DoW or DTMO site. Confirm your rate with your finance office. Page updated Oct 2026.</p>
 </main></body></html>

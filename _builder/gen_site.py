@@ -82,6 +82,7 @@ page = f'''<!doctype html>
 <link rel="stylesheet" href="/assets/pcs.css">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <script src="/assets/pcs.js" defer></script>
+<script data-goatcounter="https://pcsvector.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head><body>
 <header class="pcs-header"><button type="button" class="pcs-icon-btn" id="pcs-sidebar-open" aria-label="Open sidebar" aria-controls="pcs-sidebar" aria-expanded="false">{DBL_R}</button></header>
 <div class="pcs-scrim" id="pcs-scrim"></div>
