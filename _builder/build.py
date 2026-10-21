@@ -108,7 +108,7 @@ def head(title, desc, url, ld):
 <meta property="og:title" content="{html.escape(title.split(' | ')[0])}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{url}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://pcsvector.com/assets/og-card-2026-10-21.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="PCS Vector — Know your BAH before you PCS — free, 2026 rates"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://pcsvector.com/assets/og-card-2026-10-21.png">
 <style>{CSS}</style>
 {''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)}
 <script data-goatcounter="https://pcsvector.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -188,7 +188,7 @@ ld = [{"@context":"https://schema.org","@type":"WebSite","name":"PCS Vector","ur
       {"@context":"https://schema.org","@type":"WebApplication","name":"PCS Vector BAH Calculator","url":APP,"applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]
 L = [head('PCS Vector: Free Army PCS BAH Calculator (2026)', 'Free Army PCS calculator: compare 2026 BAH, OHA, COLA, rent, utilities and gas between duty stations. Built by Soldiers. Not affiliated with DoW.', url, ld)]
 L.append('<div class="center"><div class="kick">For Soldiers; by Soldiers</div><h1 class="big">PCS Vector</h1>')
-L.append('<p>See your 2026 BAH at your current post and your next one, side by side, plus typical rent, utilities, gas and DLA.</p>')
+L.append('<p>See your 2026 BAH at your current post and your next one, side by side, plus avg rent, utilities, gas and DLA.</p>')
 L.append(f'<a class="cta" id="go" href="{APP}?utm_source=pcsvector&amp;utm_medium=home&amp;utm_campaign=landing">Open the free calculator \u2192</a><p class="note">New: loads instantly, right here on pcsvector.com. Still being built, so some figures (rent, utilities, gas, OCONUS) are coming soon.</p></div>')
 L.append('<ul class="feat"><li>68+ Army posts, CONUS and OCONUS</li><li>2026 BAH from official DTMO tables, plus OHA, COLA and DLA planning figures</li><li>BAH vs local rent and utilities, so you see the gap before you sign a lease</li><li>Optional free intro to our military-approved agents at your new post</li></ul>')
 L.append('<h2>2026 BAH by post</h2><ul class="bases">' + ''.join(f'<li><a href="/bah/{B["slug"]}/">{html.escape(B["name"])}</a></li>' for B in BASES) + '<li><a href="/bah/">All posts \u2192</a></li></ul>')

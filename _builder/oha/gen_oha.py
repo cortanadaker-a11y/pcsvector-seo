@@ -72,7 +72,7 @@ def head(title, desc, url, ld):
 <meta property="og:title" content="{html.escape(title.split(' | ')[0])}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{url}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://pcsvector.com/assets/og-card-2026-10-21.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="PCS Vector — Know your BAH before you PCS — free, 2026 rates"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://pcsvector.com/assets/og-card-2026-10-21.png">
 <style>{CSS}</style>
 {''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)}
 <script data-goatcounter="https://pcsvector.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

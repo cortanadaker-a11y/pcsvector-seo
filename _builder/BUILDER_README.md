@@ -79,3 +79,13 @@ BAH base pages, batch 3 (added 20 Oct 2026): /bah/{fort-gordon,fort-jackson,fort
   Note: DTMO rate-file names GA073 "FORT GORDON, AL" and VA301 "RICHMOND/FORT LEE, VA"; live lookup shows "FORT GORDON, GA" / "RICHMOND, VA". Same codes and rates.
 
 IndexNow (added 20 Oct 2026): python3 indexnow/apply_indexnow.py <site_root> [--submit]   # writes /<key>.txt at root; --submit POSTs all sitemap URLs to api.indexnow.org
+
+Go-live fixes (21 Oct 2026, Zak-approved 7:16 AM ET; live PR #38): _builder/golive_1021/
+  python3 golive_1021/apply_golive.py <site_root> [YYYY-MM-DD]   # idempotent; run on the main tree AFTER any generator, then check_cache_bust.py
+  - Fort Barfoot, VA -> Fort Pickett, VA (ZZ710); Fort Walker, VA -> Fort A.P. Hill, VA (VA368). Rates unchanged (DTMO live 84/84 cells).
+    pcs-vector data still uses the 2023 names, so export_calc.py maps them (RENAME). Home FAQ keeps one deliberate "briefly called" line.
+  - "PCS Wayfinder" -> "Military-approved agent"; "typical rent" -> "avg rent" (faq.json, gen_site.py, build.py). #wayfinder hash kept as a legacy alias.
+  - og:image /assets/og-card-2026-10-21.png (1200x630, made by golive_1021/make_og.py) + twitter summary_large_image; also emitted by
+    gen_site.py, build.py, gen_oha.py, gen_bah_bases.py, gen_bah_bases3.py. New card = new filename (cache-bust).
+  - aria-label "Current post"/"New post" on the post selects (gen_site.py ARIA) and the generated combobox inputs (src/app.js).
+  - "Other posts" on the 20 older BAH pages += 7 newer (gen_bah_bases/gen_bah_deepen not yet updated: re-run apply_golive.py after them).
