@@ -1,5 +1,5 @@
 /*! PCS Vector static app (pcsvector.com). Port of the original app (pcs-vector main):
-    components/bah_calculator.py + services/housing_allowances.py + views/home.py (Wayfinder) + faq.
+    components/bah_calculator.py + services/housing_allowances.py + views/home.py (agent referral) + faq.
     Data in /assets/calc-data.json is exported from the Python services at build time (Python = source of truth).
     UNOFFICIAL / PERSONAL. Not affiliated with the U.S. Army, DoD or DTMO. */
 (function (root, factory) {
@@ -212,7 +212,7 @@
       current_installation: current, barracks_meal_card: barracks, total_monthly_usd: total } };
   }
 
-  /* ---- views/home.py + services/referral_lead.py (Wayfinder) ---- */
+  /* ---- views/home.py + services/referral_lead.py (agent referral) ---- */
   var FORM_VIEW = 'https://docs.google.com/forms/d/e/1FAIpQLSeok5DcRqIU9QhzOGXCGAVd8UbW21LNK_S601kzOwb4FJ1Wyg/viewform';
   var ENTRIES = [['Email address', 'entry.1162277939'], ['Destination', 'entry.159372216'], ['First Name', 'entry.1546051705'],
     ['Rank', 'entry.1001940560'], ['Number of Dependents', 'entry.1983274092']];
@@ -352,7 +352,7 @@
     var inp = document.createElement('input'), lid = id + '_list';
     inp.type = 'text'; inp.id = id + '_q'; inp.className = 'val pcs-combo-input';
     inp.setAttribute('role', 'combobox'); inp.setAttribute('aria-autocomplete', 'list'); inp.setAttribute('aria-expanded', 'false');
-    inp.setAttribute('aria-controls', lid); inp.setAttribute('autocomplete', 'off'); inp.setAttribute('autocapitalize', 'none');
+    inp.setAttribute('aria-label', sel.getAttribute('aria-label') || (id === 'bah_calc_current' ? 'Current post' : 'New post')); inp.setAttribute('aria-controls', lid); inp.setAttribute('autocomplete', 'off'); inp.setAttribute('autocapitalize', 'none');
     inp.setAttribute('autocorrect', 'off'); inp.setAttribute('spellcheck', 'false'); inp.setAttribute('enterkeyhint', 'done');
     var lab = document.querySelector('label[for="' + id + '"]');
     var lsrc = lab && (lab.querySelector('span') || lab);
@@ -413,7 +413,7 @@
     return set;
   }
 
-  /* ---------- results + Wayfinder ---------- */
+  /* ---------- results + agent referral ---------- */
   function render() {
     var r = P.renderResults(D, S);
     $('pcs-results').innerHTML = r.warn ? '<div class="pcs-alert pcs-alert-' + (r.kind || 'warn') + '" role="status">' + P.safeHtml(r.warn) + '</div>' : r.html;
@@ -524,7 +524,7 @@
   window.addEventListener('hashchange', function () { if (D && /^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); } });
   var boot = window.__PCS_DATA__;
   if (boot) init(boot);
-  else fetch('/assets/calc-data.json?v=2a16868abb').then(function (r) { return r.json(); }).then(init).catch(function () {
+  else fetch('/assets/calc-data.json?v=b3c59dc485').then(function (r) { return r.json(); }).then(init).catch(function () {
     $('pcs-results').insertAdjacentHTML('afterbegin', '<div class="pcs-alert pcs-alert-warn">Could not load 2026 rate data. Refresh the page to try again.</div>');
   });
 })();
