@@ -237,6 +237,18 @@
     ENTRIES.forEach(function (e) { q.push(e[1] + '=' + quotePlus(row[e[0]] || '')); });
     return FORM_VIEW + '?' + q.join('&');
   }
+  /* One-tap Find a home (21 Oct 2026, Zak OK): form prefilled from calculator only (rank, destination, dependents); plain form if nothing picked */
+  function onetapUrl(snap) {
+    var c = calcFields(snap || {}), q = [];
+    if (c.rank) q.push('entry.1001940560=' + quotePlus(c.rank));
+    if (c.destination) q.push('entry.159372216=' + quotePlus(c.destination));
+    if (c.destination && snap && snap.num_dependents != null) q.push('entry.1983274092=' + quotePlus(String(c.num_dependents)));
+    return q.length ? FORM_VIEW + '?usp=pp_url&' + q.join('&') : FORM_VIEW;
+  }
+  function onetapLabel(snap) {
+    var c = calcFields(snap || {}), g = String((snap && snap.pay_grade) || '');
+    return [g, c.destination].filter(Boolean).join(' \u00b7 ');
+  }
   function validate(snap, first, email) {
     var c = calcFields(snap || {});
     var row = referralRow({ destination: c.destination, first_name: first, rank: c.rank, num_dependents: snap ? snap.num_dependents : 0, email_address: cleanEmail(email) });
@@ -246,7 +258,7 @@
     return { row: row, url: prefillUrl(row) };
   }
   return { NONE_CURRENT: NONE_CURRENT, pyRound: pyRound, money: money, housingPackage: housingPackage, estimateMonthlyCola: estimateMonthlyCola,
-    renderResults: renderResults, calcFields: calcFields, shortDest: shortDest, rankLabel: rankLabel, referralRow: referralRow, prefillUrl: prefillUrl,
+    renderResults: renderResults, calcFields: calcFields, shortDest: shortDest, rankLabel: rankLabel, referralRow: referralRow, prefillUrl: prefillUrl, onetapUrl: onetapUrl, onetapLabel: onetapLabel,
     validate: validate, safeHtml: safeHtml, escAttr: escAttr, cleanEmail: cleanEmail };
 });
 
@@ -402,6 +414,8 @@
     var c = P.calcFields(snap || {}), dest = c.destination, ready = !!dest;
     var bit = dest ? P.shortDest(dest, 22) : '';
     $('pcs-way-kicker').innerHTML = P.safeHtml(bit ? 'Military-approved agents \u00b7 ' + bit : 'Military-approved local agents \u00b7 worldwide');
+    var ot = $('referral_open_btn'), sel = P.onetapLabel(snap);
+    ot.href = P.onetapUrl(snap); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
     $('referral_submit_btn').disabled = !ready;
     $('pcs-ref-caption').textContent = ready ? 'Free \u00b7 no obligation' : 'Pick a New post above first';
     var bar = $('pcs-sticky-ref-bar');
@@ -478,7 +492,9 @@
 
   readQuery();
   setupHelp(); setupSidebar(); setupSticky();
-  $('referral_open_btn').addEventListener('click', function () { openGate(true); });
+  $('referral_open_btn').addEventListener('click', function () {
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'click-find-home', event: true }); } catch (e) {}
+  });
   $('pcs-ref-form').addEventListener('submit', submitReferral);
   window.addEventListener('hashchange', function () { if (D && /^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); } });
   var boot = window.__PCS_DATA__;
