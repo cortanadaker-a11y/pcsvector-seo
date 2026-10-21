@@ -150,6 +150,8 @@
     var c = P.calcFields(snap || {}), dest = c.destination, ready = !!dest;
     var bit = dest ? P.shortDest(dest, 22) : '';
     $('pcs-way-kicker').innerHTML = P.safeHtml(bit ? 'Military-approved agents \u00b7 ' + bit : 'Military-approved local agents \u00b7 worldwide');
+    var ot = $('referral_open_btn'), sel = P.onetapLabel(snap);
+    ot.href = P.onetapUrl(snap); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
     $('referral_submit_btn').disabled = !ready;
     $('pcs-ref-caption').textContent = ready ? 'Free \u00b7 no obligation' : 'Pick a New post above first';
     var bar = $('pcs-sticky-ref-bar');
@@ -226,7 +228,9 @@
 
   readQuery();
   setupHelp(); setupSidebar(); setupSticky();
-  $('referral_open_btn').addEventListener('click', function () { openGate(true); });
+  $('referral_open_btn').addEventListener('click', function () {
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'click-find-home', event: true }); } catch (e) {}
+  });
   $('pcs-ref-form').addEventListener('submit', submitReferral);
   window.addEventListener('hashchange', function () { if (D && /^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); } });
   var boot = window.__PCS_DATA__;
