@@ -14,8 +14,8 @@ G24 = COLS[:24]; GAP = ['E4','E5','E6','E7','W2','O3']
 CALC21 = ['E1','E2','E3','E4','E5','E6','E7','E8','E9','W1','W2','W3','W4','W5','O1','O2','O3','O4','O5','O6','O7']
 g = lambda c: c[0] + '-' + c[1:]
 SPEC = {
- 'fort-gordon': ('GA073','30905','Fort Gordon, GA','Fort Eisenhower'), 'fort-jackson': ('SC260','29207','Fort Jackson, SC',None),
- 'fort-rucker': ('AL002','36362','Fort Rucker, AL','Fort Novosel'), 'fort-lee': ('VA301','23801','Fort Lee, VA','Fort Gregg-Adams'),
+ 'fort-gordon': ('GA073','30905','Fort Gordon, GA',None), 'fort-jackson': ('SC260','29207','Fort Jackson, SC',None),
+ 'fort-rucker': ('AL002','36362','Fort Rucker, AL',None), 'fort-lee': ('VA301','23801','Fort Lee, VA',None),
  'joint-base-langley-eustis': ('VA297','23604','Joint Base Langley-Eustis, VA','Fort Eustis'), 'fort-leavenworth': ('KS102','66027','Fort Leavenworth, KS',None),
  'joint-base-elmendorf-richardson': ('AK404','99506','Joint Base Elmendorf-Richardson, AK','JBER')}
 res = []

@@ -12,12 +12,12 @@ G24 = COLS[:24]
 TITLES = {'E1':'Private (PV1)','E2':'Private (PV2)','E3':'Private First Class','E4':'Specialist / Corporal','E5':'Sergeant','E6':'Staff Sergeant','E7':'Sergeant First Class','E8':'Master Sgt / First Sgt','E9':'Sergeant Major','W1':'Warrant Officer 1','W2':'Chief Warrant Officer 2','W3':'Chief Warrant Officer 3','W4':'Chief Warrant Officer 4','W5':'Chief Warrant Officer 5','O1E':'2LT, 4+ yrs prior enlisted/WO','O2E':'1LT, 4+ yrs prior enlisted/WO','O3E':'CPT, 4+ yrs prior enlisted/WO','O1':'Second Lieutenant','O2':'First Lieutenant','O3':'Captain','O4':'Major','O5':'Lieutenant Colonel','O6':'Colonel','O7':'Brigadier General and up'}
 def g(c): return c[0]+'-'+c[1:]
 BASES = [
- dict(slug='fort-bragg', name='Fort Bragg', st='NC', mha='NC182', zip='28310', app='Fort Bragg, NC', alias='Fort Liberty',
-      h1='BAH at Fort Bragg, NC (2026)', title='Fort Bragg BAH 2026 (formerly Fort Liberty): Rates by Rank | PCS Vector',
-      aliasq=('Is Fort Liberty BAH different from Fort Bragg BAH?', 'No. Fort Liberty was the post\u2019s name from 2023 to 2025. Same post, same housing area (NC182), same rates.')),
- dict(slug='fort-hood', name='Fort Hood', st='TX', mha='TX286', zip='76544', app='Fort Hood, TX', alias='Fort Cavazos',
-      h1='BAH at Fort Hood, TX (2026)', title='Fort Hood BAH 2026 (formerly Fort Cavazos): Rates by Rank | PCS Vector',
-      aliasq=('Is Fort Cavazos BAH different from Fort Hood BAH?', 'No. Fort Cavazos was the post\u2019s name from 2023 to 2025. Same post, same housing area (TX286), same rates. Killeen, Harker Heights and Copperas Cove are all in it.')),
+ dict(slug='fort-bragg', name='Fort Bragg', st='NC', mha='NC182', zip='28310', app='Fort Bragg, NC', alias=None,
+      h1='BAH at Fort Bragg, NC (2026)', title='Fort Bragg BAH 2026: Rates by Rank | PCS Vector',
+      aliasq=None),
+ dict(slug='fort-hood', name='Fort Hood', st='TX', mha='TX286', zip='76544', app='Fort Hood, TX', alias=None,
+      h1='BAH at Fort Hood, TX (2026)', title='Fort Hood BAH 2026: Rates by Rank | PCS Vector',
+      aliasq=None),
  dict(slug='fort-campbell', name='Fort Campbell', st='KY', mha='KY106', zip='42223', app='Fort Campbell, KY', alias=None,
       h1='BAH at Fort Campbell, KY (2026)', title='Fort Campbell BAH 2026: Rates by Rank (KY/TN) | PCS Vector',
       aliasq=('Do I get a different rate if I live in Clarksville, TN?', 'No. Fort Campbell straddles Kentucky and Tennessee, but BAH follows your duty-station ZIP (housing area KY106), not which side of the state line you rent on. State taxes and utilities do differ, so check those before you sign.')),
@@ -121,7 +121,7 @@ for B in BASES:
     url = f'https://pcsvector.com/bah/{s}/'
     alias = f' (also {B["alias"]})' if B['alias'] and s != 'national-capital-region' else ''
     desc = f'2026 BAH at {n}{alias} for every pay grade, with and without dependents, vs local rent and utilities. Official DTMO rates.'
-    faqs = [B['aliasq'],
+    faqs = ([B['aliasq']] if B['aliasq'] else []) + [
             (f'Does 2026 BAH at {n} cover rent and utilities?', f'It depends on rank. With avg 3-bedroom rent of ${B["rent"][0]:,}\u2013${B["rent"][1]:,} and utilities of about ${B["util"][0]:,}\u2013${B["util"][1]:,} a month, a Sergeant (E-5) with dependents (${W["E5"]:,}) lands between {money(B["gap"]["E5"][0])} and {money(B["gap"]["E5"][1])} a month after housing. These are planning estimates, not official figures.'),
             ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'),
             ('When do these rates apply?', 'These are the calendar-year 2026 rates. Rate protection keeps your rate from dropping while you stay at the same post with the same status; a PCS, a reduction in grade or a change in dependency status resets it. DTMO usually publishes the next year\u2019s rates in mid-December.')]

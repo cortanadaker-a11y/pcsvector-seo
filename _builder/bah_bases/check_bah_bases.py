@@ -14,10 +14,10 @@ G24 = COLS[:24]; GAP = ['E4','E5','E6','E7','W2','O3']
 CALC21 = ['E1','E2','E3','E4','E5','E6','E7','E8','E9','W1','W2','W3','W4','W5','O1','O2','O3','O4','O5','O6','O7']
 g = lambda c: c[0] + '-' + c[1:]
 SPEC = {  # slug: (mha, anchor zip, app/calculator name, alias that must appear in title+H1+body)
- 'fort-stewart': ('GA080','31314','Fort Stewart, GA',None), 'fort-benning': ('GA075','31905','Fort Benning, GA','Fort Moore'),
+ 'fort-stewart': ('GA080','31314','Fort Stewart, GA',None), 'fort-benning': ('GA075','31905','Fort Benning, GA',None),
  'joint-base-san-antonio': ('TX285','78234','Joint Base San Antonio, TX','JBSA'), 'fort-riley': ('KS100','66442','Fort Riley, KS',None),
  'fort-knox': ('KY110','40121','Fort Knox, KY',None), 'fort-leonard-wood': ('MO163','65473','Fort Leonard Wood, MO',None),
- 'fort-polk': ('LA115','71459','Fort Polk, LA','Fort Johnson'), 'fort-sill': ('OK237','73503','Fort Sill, OK',None),
+ 'fort-polk': ('LA115','71459','Fort Polk, LA',None), 'fort-sill': ('OK237','73503','Fort Sill, OK',None),
  'fort-wainwright': ('AK405','99703','Fort Wainwright, AK',None), 'fort-huachuca': ('AZ014','85613','Fort Huachuca, AZ',None),
  'fort-irwin': ('CA028','92310','Fort Irwin, CA',None), 'schofield-barracks': ('HI408','96857','Schofield Barracks, HI',None)}
 res = []

@@ -21,8 +21,9 @@ TXT = [('Connecting with a PCS Wayfinder for housing help is also free.', 'Conne
        ('then shows typical rent, utilities', 'then shows avg rent, utilities'),
        ('compares typical rent plus utilities', 'compares avg rent plus utilities'),
        ('Typical rent and utilities are local planning estimates', 'Avg rent and utilities are local planning estimates')]
-FAQ_FORMER = ('Fort Pickett and Fort A.P. Hill were briefly called Fort Barfoot and Fort Walker (2023–2025); '
-              'the calculator uses Fort Pickett, VA and Fort A.P. Hill, VA. ')
+# 21 Oct 7:33 AM ET (Zak-approved): no 'formerly'/'also called'/'briefly called' rename mentions anywhere; strip any re-emitted ones.
+STRIP = ['Fort Pickett and Fort A.P. Hill were briefly called Fort Barfoot and Fort Walker (2023–2025); '
+         'the calculator uses Fort Pickett, VA and Fort A.P. Hill, VA. ', ' (Fort Bragg, not Fort Liberty)']
 NEW7 = [('fort-gordon', 'Fort Gordon'), ('fort-jackson', 'Fort Jackson'), ('fort-rucker', 'Fort Rucker'), ('fort-lee', 'Fort Lee'),
         ('joint-base-langley-eustis', 'Joint Base Langley-Eustis'), ('fort-leavenworth', 'Fort Leavenworth'),
         ('joint-base-elmendorf-richardson', 'Joint Base Elmendorf-Richardson')]
@@ -50,9 +51,8 @@ ix = re.sub(r'(<select id="bah_calc_(?:current|gaining)" name="bah_calc_(?:curre
 ix = ix.replace('<select id="bah_calc_current" name="bah_calc_current">', '<select id="bah_calc_current" name="bah_calc_current" aria-label="Current post">')
 ix = ix.replace('<select id="bah_calc_gaining" name="bah_calc_gaining">', '<select id="bah_calc_gaining" name="bah_calc_gaining" aria-label="New post">')
 for a, b in TXT: ix = ix.replace(a, b)
-# deliberate 'formerly called' line on the existing traditional-names FAQ answer (HTML + JSON-LD)
-k = 'We use traditional post names (Fort Bragg, not Fort Liberty). '
-if FAQ_FORMER not in ix: ix = ix.replace(k, k + FAQ_FORMER)
+# no renamed-post mentions on the traditional-names FAQ answer (HTML + JSON-LD)
+for k in STRIP: ix = ix.replace(k, '')
 rw(ip, ix)
 # pcs.js: aria-label on the generated combobox inputs; comment wording
 jp = R + 'assets/pcs.js'; js = open(jp).read()

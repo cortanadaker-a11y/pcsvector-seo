@@ -20,22 +20,22 @@ def g(c): return c[0] + '-' + c[1:]
 R = '\u2019'
 COLA_Q = lambda n, st: (f'Do I get COLA on top of BAH at {n}?', f'Yes. {st} duty stations get BAH plus a cost-of-living allowance (COLA), which DTMO sets separately by rank, years of service and dependents. This page shows BAH only; the calculator adds COLA for {n}.')
 NEW = [
- dict(slug='fort-gordon', name='Fort Gordon', st='GA', mha='GA073', zip='30905', app='Fort Gordon, GA', alias='Fort Eisenhower',
-      h1='BAH at Fort Gordon (formerly Fort Eisenhower), GA (2026)', title='Fort Gordon BAH 2026 (formerly Fort Eisenhower, Augusta): Rates by Rank | PCS Vector',
+ dict(slug='fort-gordon', name='Fort Gordon', st='GA', mha='GA073', zip='30905', app='Fort Gordon, GA', alias=None,
+      h1='BAH at Fort Gordon, GA (2026)', title='Fort Gordon BAH 2026 (Augusta): Rates by Rank | PCS Vector',
       zipq=[('30907','GA073'),('30809','GA073'),('29841','GA073')],
-      aliasq=('Is Fort Eisenhower BAH different from Fort Gordon BAH?', f'No. Fort Eisenhower was the post{R}s name from 2023 to 2025. Same post, same housing area (GA073), same rates. Augusta (30907), Evans (30809) and North Augusta, SC (29841) are all in it. DTMO{R}s rate file labels this area FORT GORDON, AL; the DTMO BAH Rate Lookup shows FORT GORDON, GA. Same code, same rates.')),
+      aliasq=None),
  dict(slug='fort-jackson', name='Fort Jackson', st='SC', mha='SC260', zip='29207', app='Fort Jackson, SC', alias=None,
       h1='BAH at Fort Jackson, SC (2026)', title='Fort Jackson BAH 2026 (Columbia, SC): Rates by Rank | PCS Vector',
       zipq=[('29229','SC260'),('29223','SC260')],
       aliasq=('Why does DTMO call it Columbia/Fort Jackson?', 'DTMO sets BAH by Military Housing Area, and Fort Jackson shares one area with the city of Columbia: COLUMBIA/FORT JACKSON, SC (SC260). Northeast Columbia ZIPs such as 29229 and 29223 use the same rates.')),
- dict(slug='fort-rucker', name='Fort Rucker', st='AL', mha='AL002', zip='36362', app='Fort Rucker, AL', alias='Fort Novosel',
-      h1='BAH at Fort Rucker (formerly Fort Novosel), AL (2026)', title='Fort Rucker BAH 2026 (formerly Fort Novosel, Enterprise): Rates by Rank | PCS Vector',
+ dict(slug='fort-rucker', name='Fort Rucker', st='AL', mha='AL002', zip='36362', app='Fort Rucker, AL', alias=None,
+      h1='BAH at Fort Rucker, AL (2026)', title='Fort Rucker BAH 2026 (Enterprise): Rates by Rank | PCS Vector',
       zipq=[('36330','AL002'),('36360','AL002'),('36301','AL002')],
-      aliasq=('Is Fort Novosel BAH different from Fort Rucker BAH?', f'No. Fort Novosel was the post{R}s name from 2023 to 2025. Same post, same housing area (AL002), same rates. Enterprise (36330), Ozark (36360) and Dothan (36301) are all in it.')),
- dict(slug='fort-lee', name='Fort Lee', st='VA', mha='VA301', zip='23801', app='Fort Lee, VA', alias='Fort Gregg-Adams',
-      h1='BAH at Fort Lee (formerly Fort Gregg-Adams), VA (2026)', title='Fort Lee BAH 2026 (formerly Fort Gregg-Adams, Petersburg): Rates by Rank | PCS Vector',
+      aliasq=None),
+ dict(slug='fort-lee', name='Fort Lee', st='VA', mha='VA301', zip='23801', app='Fort Lee, VA', alias=None,
+      h1='BAH at Fort Lee, VA (2026)', title='Fort Lee BAH 2026 (Petersburg): Rates by Rank | PCS Vector',
       zipq=[('23805','VA301'),('23860','VA301'),('23803','VA301')],
-      aliasq=('Is Fort Gregg-Adams BAH different from Fort Lee BAH?', f'No. Fort Gregg-Adams was the post{R}s name from 2023 to 2025. Same post, same housing area (VA301), same rates. Petersburg (23805, 23803) and Hopewell (23860) are in it; DTMO calls the area RICHMOND/FORT LEE, VA.')),
+      aliasq=None),
  dict(slug='joint-base-langley-eustis', name='Joint Base Langley-Eustis', st='VA', mha='VA297', zip='23604', app='Joint Base Langley-Eustis, VA', alias='Fort Eustis', desc_alias='Fort Eustis',
       h1='BAH at Joint Base Langley-Eustis (Fort Eustis), VA (2026)', title='Fort Eustis BAH 2026 (Joint Base Langley-Eustis, Newport News): Rates by Rank | PCS Vector',
       who='service members', zipq=[('23665','VA297'),('23606','VA297'),('23185','VA297')],
@@ -108,7 +108,7 @@ for B in NEW:
     url = f'https://pcsvector.com/bah/{s}/'
     alias = f' (also {B.get("desc_alias", B["alias"])})' if B['alias'] else ''
     desc = f'2026 BAH at {n}{alias} for every pay grade, with and without dependents, vs local rent and utilities. Official DTMO rates.'
-    faqs = [B['aliasq']]
+    faqs = [B['aliasq']] if B['aliasq'] else []
     if B.get('cola'): faqs.append(COLA_Q(n, B['cola']))
     faqs += [(f'Does 2026 BAH at {n} cover rent and utilities?', f'It depends on rank. With avg 3-bedroom rent of ${B["rent"][0]:,}\u2013${B["rent"][1]:,} and utilities of about ${B["util"][0]:,}\u2013${B["util"][1]:,} a month, a Sergeant (E-5) with dependents (${W["E5"]:,}) lands between {money(B["gap"]["E5"][0])} and {money(B["gap"]["E5"][1])} a month after housing. These are planning estimates, not official figures.'),
              ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'),
