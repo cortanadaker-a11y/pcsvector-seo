@@ -24,10 +24,10 @@ NEW = [
       h1='BAH at Fort Stewart, GA (2026)', title='Fort Stewart BAH 2026 (Hinesville): Rates by Rank | PCS Vector',
       zipq=[('31313','GA080'),('31409','GA077')],
       aliasq=('Does Hunter Army Airfield get Fort Stewart BAH?', 'No. Hunter Army Airfield (ZIP 31409) is in Savannah, which DTMO puts in a separate housing area, SAVANNAH, GA (GA077), with its own rates. Fort Stewart and Hinesville (31313) are in FORT STEWART, GA (GA080).')),
- dict(slug='fort-benning', name='Fort Benning', st='GA', mha='GA075', zip='31905', app='Fort Benning, GA', alias='Fort Moore',
-      h1='BAH at Fort Benning (formerly Fort Moore), GA (2026)', title='Fort Benning BAH 2026 (formerly Fort Moore): Rates by Rank | PCS Vector',
+ dict(slug='fort-benning', name='Fort Benning', st='GA', mha='GA075', zip='31905', app='Fort Benning, GA', alias=None,
+      h1='BAH at Fort Benning, GA (2026)', title='Fort Benning BAH 2026: Rates by Rank | PCS Vector',
       zipq=[('36867','GA075'),('36869','GA075')],
-      aliasq=('Is Fort Moore BAH different from Fort Benning BAH?', f'No. Fort Moore was the post{R}s name from 2023 to 2025. Same post, same housing area (GA075), same rates. Columbus, GA and Phenix City, AL (36867, 36869) are both in it.')),
+      aliasq=None),
  dict(slug='joint-base-san-antonio', name='Joint Base San Antonio', st='TX', mha='TX285', zip='78234', app='Joint Base San Antonio, TX', alias='JBSA, Fort Sam Houston, Lackland, Randolph', desc_alias='JBSA',
       h1='BAH at Joint Base San Antonio (JBSA), TX (2026)', title='JBSA BAH 2026 (Joint Base San Antonio, Fort Sam Houston): Rates by Rank | PCS Vector',
       who='service members', zipq=[('78236','TX285'),('78150','TX285')],
@@ -44,10 +44,10 @@ NEW = [
       h1='BAH at Fort Leonard Wood, MO (2026)', title='Fort Leonard Wood BAH 2026 (St. Robert, Waynesville): Rates by Rank | PCS Vector',
       zipq=[('65584','MO163'),('65583','MO163'),('65401','MO163')],
       aliasq=('Do St. Robert, Waynesville and Rolla get the same BAH?', 'Yes. St. Robert (65584), Waynesville (65583) and Rolla (65401) are all in the FORT LEONARD WOOD, MO housing area (MO163). BAH follows your duty-station ZIP anyway, not the town you rent in.')),
- dict(slug='fort-polk', name='Fort Polk', st='LA', mha='LA115', zip='71459', app='Fort Polk, LA', alias='Fort Johnson',
-      h1='BAH at Fort Polk (formerly Fort Johnson), LA (2026)', title='Fort Polk BAH 2026 (formerly Fort Johnson): Rates by Rank | PCS Vector',
+ dict(slug='fort-polk', name='Fort Polk', st='LA', mha='LA115', zip='71459', app='Fort Polk, LA', alias=None,
+      h1='BAH at Fort Polk, LA (2026)', title='Fort Polk BAH 2026: Rates by Rank | PCS Vector',
       zipq=[('71446','LA115'),('70634','LA115')],
-      aliasq=('Is Fort Johnson BAH different from Fort Polk BAH?', f'No. Fort Johnson was the post{R}s name from 2023 to 2025. Same post, same housing area (LA115), same rates. Leesville (71446) and DeRidder (70634) are both in it.')),
+      aliasq=None),
  dict(slug='fort-sill', name='Fort Sill', st='OK', mha='OK237', zip='73503', app='Fort Sill, OK', alias=None,
       h1='BAH at Fort Sill, OK (2026)', title='Fort Sill BAH 2026 (Lawton): Rates by Rank | PCS Vector',
       zipq=[('73505','OK237')],
@@ -128,7 +128,7 @@ for B in NEW:
     url = f'https://pcsvector.com/bah/{s}/'
     alias = f' (also {B.get("desc_alias", B["alias"])})' if B['alias'] else ''
     desc = f'2026 BAH at {n}{alias} for every pay grade, with and without dependents, vs local rent and utilities. Official DTMO rates.'
-    faqs = [B['aliasq']]
+    faqs = [B['aliasq']] if B['aliasq'] else []
     if B.get('cola'): faqs.append(COLA_Q(n, B['cola']))
     faqs += [(f'Does 2026 BAH at {n} cover rent and utilities?', f'It depends on rank. With avg 3-bedroom rent of ${B["rent"][0]:,}\u2013${B["rent"][1]:,} and utilities of about ${B["util"][0]:,}\u2013${B["util"][1]:,} a month, a Sergeant (E-5) with dependents (${W["E5"]:,}) lands between {money(B["gap"]["E5"][0])} and {money(B["gap"]["E5"][1])} a month after housing. These are planning estimates, not official figures.'),
              ('Do I get a different rate if I live in a nearby town?', 'No. BAH follows your permanent duty-station ZIP, not your home address.'),
