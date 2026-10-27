@@ -524,7 +524,7 @@
   window.addEventListener('hashchange', function () { if (D && /^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); } });
   var boot = window.__PCS_DATA__;
   if (boot) init(boot);
-  else fetch('/assets/calc-data.json?v=b3c59dc485').then(function (r) { return r.json(); }).then(init).catch(function () {
+  else fetch('/assets/calc-data.json?v=42a35765c9').then(function (r) { return r.json(); }).then(init).catch(function () {
     $('pcs-results').insertAdjacentHTML('afterbegin', '<div class="pcs-alert pcs-alert-warn">Could not load 2026 rate data. Refresh the page to try again.</div>');
   });
 })();
