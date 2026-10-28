@@ -84,12 +84,12 @@ GUIDES2["fort-gordon"] = dict(
    ("Army personnel must have a sponsor; if you do not, contact your gaining unit.", ["fort-gordon_in"]),
    ("Book lodging early: all on-post lodging is run by IHG Army Hotels (877-711-TEAM or online), with Griffith Hall just inside Gate 1. Gate 6 is open 24 hours for DOD ID cardholders.", ["fort-gordon_tl"]),
    ("Visit the Housing Services Office (HSO) for a list of rentals with locator maps and community information; it also handles discrimination complaints and tenant-landlord disputes.", ["fort-gordon_mi"]),
-   ("Buy renters insurance: Military OneSource says the landlord’s policy covers only the building, that a typical policy costs about $150 a year, and that most local leases require it.", ["fort-gordon_mi"]),
+   ("Buy renters insurance: Military OneSource says the landlord’s policy covers only the building and that most local leases require renters insurance.", ["fort-gordon_mi"]),
   ],
   housing=[
    ("On post: about 1,000 family housing units, all privatized and operated by Balfour Beatty Communities (706-772-7041).", ["fort-gordon_mi"]),
    ("Off post: Military OneSource says Augusta has a healthy rental vacancy rate and that security deposits are sometimes waived for military personnel, otherwise usually one month’s rent.", ["fort-gordon_mi"]),
-   ("Pets: where pets are allowed there is usually a nonrefundable deposit of $100 to $300, and many apartments limit pets to 25 pounds (Military OneSource).", ["fort-gordon_mi"]),
+   ("Pets: where pets are allowed there is usually a substantial nonrefundable deposit, and many apartments limit pets to 25 pounds (Military OneSource).", ["fort-gordon_mi"]),
    ("Mobile homes are typically available and usually furnished; there is no mobile home park on the installation, so check the surroundings before signing.", ["fort-gordon_mi"]),
   ],
   area=[
@@ -120,7 +120,7 @@ GUIDES2["fort-huachuca"] = dict(
   ],
   housing=[
    ("On-post family housing is one- and two-story single-family homes and duplexes, and some homes date from 1884 in the old cavalry fort, now a state and national historic landmark.", ["fort-huachuca_mi"]),
-   ("The Army’s partner plans 1,064 privatized family units in a 50-year development, with new construction and renovation of existing homes.", ["fort-huachuca_mi"]),
+   ("The Army’s private partner is carrying out a 50-year plan to develop, build and operate privatized family housing on post, with new construction and renovation of existing homes.", ["fort-huachuca_mi"]),
    ("Homes are open to members of all service branches assigned to Fort Huachuca; waiting time varies by rank and bedroom requirement.", ["fort-huachuca_mi"]),
    ("Pets: two per home; dogs of listed aggressive breeds (Pit Bull types, Rottweilers, Doberman Pinschers, Chows and wolf hybrids) are not permitted, and certified assistance animals are not pets under the policy.", ["fort-huachuca_mi"]),
   ],
@@ -143,14 +143,14 @@ GUIDES2["fort-irwin"] = dict(
    ("Apply for on-post housing 60 to 90 days before your PCS date. Military OneSource says the waiting list varies from 1 to 6 months.", ["fort-irwin_mi"]),
    ("If you must wait, ask the privatized housing partner to move you into a temporary home at a fixed BAH rate until your home is ready.", ["fort-irwin_mi"]),
    ("Arriving from an unaccompanied tour such as Korea earns a waiting-period adjustment equal to the months served, up to 18 months.", ["fort-irwin_mi"]),
-   ("Lodging: the Landmark Inn (760-386-4040) is the only hotel within 35 miles of Fort Irwin. Military OneSource says a non-availability statement is not required to be reimbursed if you stay in a Barstow motel, so keep your receipts.", ["fort-irwin_tl"]),
+   ("Lodging: the Landmark Inn (760-386-4040) is the only hotel within 35 miles of Fort Irwin. Military OneSource says it is often sold out months in advance during rotations, and that as a private business it does not set priorities for who may reserve. It also says a non-availability statement is not required to be reimbursed if you stay in a Barstow motel, so keep your receipts.", ["fort-irwin_tl"]),
    ("Families staying in Barstow, Victorville or Apple Valley can use the satellite Army Community Service center, the Military Connection and Resource Center at 512 Barstow Road (760-256-5751). Both it and the on-post ACS have a lending closet with kitchenware, microwaves, card tables and some baby items.", ["fort-irwin_in"]),
   ],
   housing=[
    ("On post: family housing is privatized; Michaels Management Services has been the community partner since July 2015, and leasing is at 4553 Tippecanoe in the Sandy Basin community. Homes have 2 to 4 bedrooms and some are accessible.", ["fort-irwin_mi"]),
    ("How BAH works on post: because housing is privatized, the full BAH amount shows on your LES as an entitlement and is simultaneously taken out as an allotment paid to the landlord for rent. Utilities except telephone and cable are included in the rent within the median baseline.", ["fort-irwin_mi"]),
-   ("Off post: Military OneSource lists apartments ranging from $1,200 to $2,000 plus utilities, and says the Housing Services Office can name reputable complexes and property managers.", ["fort-irwin_mi"]),
-   ("Single members: E-6 and above and officers drawing BAH at the without-dependents rate are not required to live on post; unaccompanied housing is available through the private partner.", ["fort-irwin_mi"]),
+   ("Off post: Military OneSource says apartment rents are plus utilities (it gives an undated range, so ask for current prices) and that the Housing Services Office can name reputable complexes and property managers.", ["fort-irwin_mi"]),
+   ("Single members: company grade officers, warrant officers and soldiers E-6 and above drawing BAH at the without-dependents rate are not required to live on post; unaccompanied housing is available through the private partner.", ["fort-irwin_mi"]),
    ("There is no mobile home park at Fort Irwin, but there is an RV site (Outdoor Recreation, 760-380-4327).", ["fort-irwin_mi"]),
   ],
   area=[
@@ -197,13 +197,14 @@ GUIDES2["fort-jackson"] = dict(
 )
 GUIDES2["fort-knox"] = dict(
   short="Fort Knox",
-  lead="Fort Knox requires incoming soldiers to start at Housing Services before anything else, and Military OneSource says the same office checks that leases carry military provisions. On-post family housing is privatized and run by Knox Hills.",
-  lead_src=["fort-knox_mi"],
+  lead="Military OneSource’s Fort Knox housing page says all incoming soldiers must first report to Housing Services to in-process housing, and that the same office checks that leases carry military provisions. Its check-in page separately tells soldiers to report to their gaining unit on day one. On-post family housing is privatized and run by Knox Hills.",
+  lead_src=["fort-knox_mi","fort-knox_in"],
   checklist=[
-   ("Report to the Housing Division Office (Building 1110A, Suite 101, Sixth Avenue). Military OneSource says all incoming soldiers must do this first under AR 420-1, and that counselors give referrals and a local orientation.", ["fort-knox_mi"]),
+   ("Day one: report to your gaining unit so your arrival is recorded in IPPS-A; Military OneSource’s check-in page says to do this before the Process Control Station. If you arrive after duty hours, sign in at the Department of Emergency Services, Building 298 on Gold Vault Road (502-624-6847).", ["fort-knox_in"]),
+   ("Housing: Military OneSource’s housing page says all incoming soldiers must first report to Housing Services (Housing Division Office, Building 1110A, Suite 101, Sixth Avenue) to in-process housing under AR 420-1, and that counselors give referrals and a local orientation.", ["fort-knox_mi"]),
    ("Before you rent, lease or buy off post, visit or contact the Housing Services Office (502-624-8084). Military OneSource says it can help you avoid scams, unreliable realtors and unsuitable rentals, and checks that leases have the provisions military renters need.", ["fort-knox_mi"]),
    ("Search HOMES.mil, the joint military housing listings site; Military OneSource says it marks properties approved by HSO staff and lists Rental Partnership Program offers, and that you can search without an account.", ["fort-knox_mi"]),
-   ("Complete in-processing in duty uniform: report to Rockenbach Hall, Building 2020, Room 130 no later than one duty day after your unit completes your arrival transaction, with your orders, any amendments and your corrected absence request. Processing hours are 8 a.m. to 3 p.m. Monday to Thursday and 8:30 a.m. to 3 p.m. Friday, closed 11:30 a.m. to 12:30 p.m.", ["fort-knox_in"]),
+   ("Then complete in-processing in duty uniform: report to the Process Control Station at Rockenbach Hall, Building 2020, Room 130 no later than one duty day after your unit completes your arrival transaction, with your orders, any amendments and your corrected absence request. Processing hours are 8 a.m. to 3 p.m. Monday to Thursday and 8:30 a.m. to 3 p.m. Friday, closed 11:30 a.m. to 12:30 p.m.", ["fort-knox_in"]),
    ("You then get five duty days to visit the in-processing agencies and return to finalize your checklist.", ["fort-knox_in"]),
    ("Lodging: IHG Army Hotels, 406 N. Knox Street (502-943-1000), has five facilities and a front desk open 24 hours; Military OneSource strongly encourages reservations.", ["fort-knox_tl"]),
    ("Single and unaccompanied soldiers at E-5 and below contact the Housing Division Office at 502-624-8084.", ["fort-knox_mi"]),
@@ -219,7 +220,7 @@ GUIDES2["fort-knox"] = dict(
   faq=[
    ("What is BAH at Fort Knox in 2026?", "{bah_line}"),
    ("Who owns the family housing at Fort Knox?", "Military OneSource says Fort Knox’s on-post housing is privatized and that Knox Hills LLC owns, operates and maintains all of the family housing. The leasing office is at 41 W. Chaffee Avenue."),
-   ("Do I report to housing before in-processing at Fort Knox?", "Military OneSource says all incoming soldiers must first report to the Housing Division Office to in-process housing under AR 420-1, and must visit or contact the Housing Services Office before renting, leasing or buying off post."),
+   ("Where do I report first at Fort Knox?", "Military OneSource’s check-in page says to report to your gaining unit on day one, then to the Process Control Station no later than one duty day after your arrival is recorded; after hours, sign in at the Department of Emergency Services (Building 298). Its housing page says all incoming soldiers must first report to Housing Services to in-process housing, and must visit or contact it before renting, leasing or buying off post."),
   ],
 )
 
@@ -259,7 +260,7 @@ GUIDES2["fort-lee"] = dict(
   lead_src=["fort-lee_mi"],
   checklist=[
    ("Permanent-party soldiers report to the Soldier Support Center (Building 3400, 1401 Barefoot Avenue) from 7:30 a.m. to 4:30 p.m. After hours or on weekends and holidays, sign in at the Installation Operations Center, Building 1107 (804-734-1584).", ["fort-lee_in"]),
-   ("Hand-carry list from Military OneSource: orders (it lists five copies in one place and two in another, so bring at least five), DA Form 31, DD Form 93, personnel file, proof of car insurance, children’s birth certificates and school transcripts, medical, dental and immunization records, ID cards, professional licenses, marriage certificate and wills or legal documents.", ["fort-lee_in"]),
+   ("Hand-carry list from Military OneSource: orders (copy counts differ by group on that page: two at the Soldier Support Center sign-in, five on the general hand-carry list and seven for students and training courses, so ask your gaining organization), DA Form 31, DD Form 93, personnel file, proof of car insurance, children’s birth certificates and school transcripts, medical, dental and immunization records, ID cards, professional licenses, marriage certificate and wills or legal documents.", ["fort-lee_in"]),
    ("Flying into Richmond: Military OneSource says AIT students use the USO at Richmond International Airport (804-236-7234) with two copies of orders for no-cost transport to the installation.", ["fort-lee_in"]),
    ("Contact the Housing Services Office (804-765-3862 or 804-765-1597) for off-post renting or buying information.", ["fort-lee_mi"]),
    ("On-post lodging: the IHG Army Hotel is open 24 hours (877-711-8326 or 804-733-4100); Holiday Inn Express is in Building 12015, 2301 Sustainment Avenue.", ["fort-lee_tl","fort-lee_mi"]),
@@ -462,7 +463,7 @@ GUIDES2["joint-base-langley-eustis"] = dict(
 SOURCES2.update(src("joint-base-lewis-mcchord","Joint Base Lewis-McChord"))
 GUIDES2["joint-base-lewis-mcchord"] = dict(
   short="Joint Base Lewis-McChord",
-  lead="Joint Base Lewis-McChord has one of the larger privatized housing communities in the Army, and Military OneSource says you pick a community when you apply and are placed on the wait list by rank, bedroom need and the communities you chose. The Housing Services Office also runs a Rental Partnership Program for off-base renters.",
+  lead="At Joint Base Lewis-McChord, Military OneSource says Liberty Military Housing provides more than 5,370 homes in 23 communities on base. You choose a community when you apply and are placed on the wait list by rank, bedroom need and the communities you chose. The Housing Services Office also runs a Rental Partnership Program for off-base renters.",
   lead_src=["joint-base-lewis-mcchord_mi"],
   checklist=[
    ("Apply for on-base housing on the Liberty Military Housing website (active-duty members or their spouses); you must choose a community at application, and a leasing specialist is at 360-858-6097.", ["joint-base-lewis-mcchord_mi"]),
@@ -503,7 +504,7 @@ J="joint-base-elmendorf-richardson"; S="schofield-barracks"
 GUIDES2[J] = dict(
   short="Joint Base Elmendorf-Richardson",
   lead="At Joint Base Elmendorf-Richardson, Military OneSource says assignment to family housing is not mandatory except for personnel in key and essential positions, but every arriving member not living in the dorms or barracks must visit the Military Housing Office within two duty days for an in-processing brief. Lodging fills quickly in summer, so reserve first.",
-  lead_src=[J+"_gh"],
+  lead_src=[J+"_gh", J+"_tl"],
   checklist=[
    ("Visit the Military Housing Office within two duty days of arrival if you will not live in the dorms or barracks. There are offices at Richardson (Building 600, Room 106, 907-384-3907) and Elmendorf (6346 Arctic Warrior Drive, 907-551-4439).", [J+"_gh"]),
    ("Reserve the North Star Inn (907-552-2454), which provides all temporary lodging on the base, as early as possible; Military OneSource says rooms fill quickly, especially in summer. If it is full, ask for a non-availability letter and a list of off-base hotels within Temporary Lodging Allowance (TLA) rates.", [J+"_tl"]),
@@ -531,10 +532,10 @@ GUIDES2[J] = dict(
 )
 GUIDES2[S] = dict(
   short="Schofield Barracks",
-  lead="Schofield Barracks is in a very high cost area, and Military OneSource requires every member with dependents to visit their Housing Services Office before renting, leasing or buying on or off post. Army housing on Oahu has been privatized since 2004 through Island Palm Communities.",
+  lead="Schofield Barracks is in a very high cost area, and Military OneSource’s Schofield page says all military personnel with dependents are required to report to their Housing Services Office before renting, leasing, purchasing or arranging housing on or off post. Army housing on Oahu has been privatized since 2004 through Island Palm Communities.",
   lead_src=[S+"_mi"],
   checklist=[
-   ("Report to the Housing Services Office within five days of arrival and before renting, leasing, buying or making any housing arrangement. Military OneSource adds that you must report to housing within seven workdays of your reporting date even if you do not plan to live on post.", [S+"_mi"]),
+   ("If you have dependents, report to your Housing Services Office within five days of arrival and before renting, leasing, buying or making any housing arrangement; Military OneSource’s Schofield page says this is required. The page’s family-housing section also says you must report to housing within seven workdays of your reporting date even if you do not plan to live on post.", [S+"_mi"]),
    ("Contact the Housing Service Office (808-787-7700) about Temporary Lodging Allowance, lodging and government housing; it gives you a list of TLA-approved facilities.", [S+"_tl"]),
    ("Apply at the regional leasing office: North at Building 950, 215 Duck Road on Schofield Barracks (808-275-3700), or South at Building 1004, 111 Seventh Street on Fort Shafter (808-275-3800). Your application is processed and you are added to the waiting list.", [S+"_mi"]),
    ("When you land at Daniel K. Inouye International Airport, go to the Army replacement liaison desk in front of Baggage Claim 19 to begin in-processing.", [S+"_in"]),
@@ -555,7 +556,7 @@ GUIDES2[S] = dict(
   ],
   faq=[
    ("What is BAH at Schofield Barracks in 2026?", "{bah_line}"),
-   ("How soon must I visit housing after arriving at Schofield Barracks?", "Military OneSource says members with dependents must report to their Housing Services Office within five days of arrival, before renting or buying, and must also report to housing within seven workdays of their reporting date even if they do not plan to live on post."),
+   ("How soon must I visit housing after arriving at Schofield Barracks?", "Military OneSource’s Schofield page says all military personnel with dependents are required to report to their Housing Services Office within five days of arrival, before renting, leasing or buying. Its family-housing section also says you must report to housing within seven workdays of your reporting date even if you do not plan to live on post."),
    ("Who manages family housing at Schofield Barracks?", "Military OneSource says Island Palm Communities manages privatized Army family housing on Oahu, in a North region (including Schofield Barracks) and a South region (including Fort Shafter), and that Army housing on the island has been privatized since 2004."),
   ],
 )
