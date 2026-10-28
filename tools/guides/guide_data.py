@@ -265,3 +265,8 @@ GUIDES = {
   ],
  ),
 }
+
+# Batch 2: the 18 remaining BAH pages live in guide_data_batch2.py (same rules, same renderer).
+from guide_data_batch2 import SOURCES2, GUIDES2   # noqa: E402
+SOURCES.update(SOURCES2)
+GUIDES.update(GUIDES2)
