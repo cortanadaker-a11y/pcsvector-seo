@@ -24,3 +24,4 @@ Housing-office pages change; re-read before bumping `AS_OF`. OHA tables on `/oha
 - `check_site.py` fails if an FAQPage JSON-LD question is not visible on the page; `build_guides.py` prunes hidden ones.
 - `dateModified` and sitemap `lastmod` move only for pages with substantive content changes. For cosmetic-only changes (nav links) run `python3 tools/sitemap.py --keep-date=YYYY-MM-DD:/url/,/url2/` once.
 - OHA pages carry an "As of <pay period>; OHA updates the 1st and 16th" note (`<!--pcsv:asof-->`). Spot-check at least E-5 with dependents per area against DTMO's OHA lookup before changing the date.
+- MIHA on the OHA pages: DTMO returned the same MIHA with and without dependents for all 11 areas (16 Oct 2026 pay period, read 28 Oct 2026). On each refresh re-read both cases; `check_site.py` fails on a dash cell in a MIHA row.

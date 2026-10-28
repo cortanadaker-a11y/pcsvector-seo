@@ -141,18 +141,18 @@
  },
  "/oha/germany/": {
   "lastmod": "2026-10-28",
-  "sha256": "94cef8fd8338f58153c936b2a5cfdbbe2846a35b1caa41cc4fd683964cc60e6b"
+  "sha256": "2f0c77129819084cf44dd379f924864e540db0e73948989f1fcd676d3aada6b6"
  },
  "/oha/japan/": {
   "lastmod": "2026-10-28",
-  "sha256": "3d3e556aaedce59bbedb217bcb83c78ace551c90e50e0c06f19d4e27509ade86"
+  "sha256": "913857a32d47f810848a7189a0d71a1d5d4bbb128d732e066d6323d716e72225"
  },
  "/oha/korea/": {
   "lastmod": "2026-10-28",
-  "sha256": "1c686a17cfef38aeec8d05600efabcaf70f470c229fced5eb8a706bf2dd155c1"
+  "sha256": "0355239bdef0df7aedcabf19bd3dc6a85dc74112b6538098cf1a8fb7fef7226f"
  },
  "/oha/okinawa/": {
   "lastmod": "2026-10-28",
-  "sha256": "32627f68cbfedecdba4629a49fd258e8c44dc351ee2383b0b62a18167517a9ee"
+  "sha256": "dd77e3211580781d06345c95e142b8eb4000ff922ce4480234e66abf419fcb83"
  }
 }

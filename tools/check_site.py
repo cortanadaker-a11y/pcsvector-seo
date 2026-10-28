@@ -56,6 +56,9 @@ for u, (rel, s) in pages.items():
                     if " ".join(q["name"].split()) not in vis: e(u, "FAQPage JSON-LD question not visible on page: %s" % q["name"][:70])
         except Exception as ex: e(u, "bad JSON-LD: %s" % ex)
     if u != "/" and not is404 and "BreadcrumbList" not in types: e(u, "no BreadcrumbList JSON-LD")
+    for tr in s.find_all("tr", attrs={"data-k": "miha"}):
+        if any(td.get_text(strip=True) in ("\u2014", "-") for td in tr.find_all("td")): e(u, "MIHA row has an empty/dash cell")
+    if "did not return a MIHA" in s.get_text(): e(u, "stale 'DTMO did not return a MIHA figure' sentence")
     for im in s.find_all("img"):
         if im.get("alt") is None: e(u, "img without alt: %s" % im.get("src"))
     seen = collections.Counter(t.get("id") for t in s.find_all(id=True))
@@ -109,6 +112,6 @@ if "--external" in sys.argv:
         tag = "ok" if c == 200 else ("blocked" if c in (401, 403, 429) else "BAD")
         print("%-8s %s  %s" % (tag, c, url))
         if tag == "BAD": errs.append("external link %s -> %s (on %s)" % (url, c, sorted(ext[url])[:2]))
-print("pages checked: %d | sitemap URLs: %d | internal+external hrefs checked | errors: %d" % (len(pages), len(smu), len(errs)))
+print("pages checked: %d | sitemap URLs: %d | %s | errors: %d" % (len(pages), len(smu), "internal links + external URLs fetched (--external)" if "--external" in sys.argv else "internal links only (add --external to fetch external URLs)", len(errs)))
 for x in errs: print("ERROR", x)
 sys.exit(1 if errs else 0)

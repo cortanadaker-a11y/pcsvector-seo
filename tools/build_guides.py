@@ -230,10 +230,28 @@ def oha_block(key):
     parts.append('<p class="src"><strong>Sources (read %s):</strong></p><ul class="note">%s</ul></section>' % (GD.AS_OF_HUMAN, "".join("<li>%s</li>" % l for l in src_links(keys))))
     return "\n".join(parts)
 
-ASOF_NOTE_CHECKED = ("<p class=\"note\" id=\"oha-asof\"><strong>As of 16 Oct 2026; OHA updates 1 Nov.</strong> DTMO changes OHA on the 1st and 16th of each month, so the next change is 1 Nov 2026 and these figures may be out of date after that. "
-    "Spot-checked against DTMO\u2019s OHA lookup on 28 Oct 2026: E-5 with dependents for every area on this page and O-3 without dependents for most. Always confirm your own rate on the <a href=\"https://www.travel.dod.mil/Allowances/Overseas-Housing-Allowance/OHA-Rate-Lookup/\">DTMO OHA Rate Lookup</a>.</p>")
-ASOF_NOTE_PLAIN = ("<p class=\"note\" id=\"oha-asof\"><strong>As of 16 Oct 2026; OHA updates 1 Nov.</strong> DTMO changes OHA on the 1st and 16th of each month, so the next change is 1 Nov 2026 and these figures may be out of date after that. "
-    "Always confirm your own rate on the <a href=\"https://www.travel.dod.mil/Allowances/Overseas-Housing-Allowance/OHA-Rate-Lookup/\">DTMO OHA Rate Lookup</a>.</p>")
+_DTMO_LOOKUP = "<a href=\"https://www.travel.dod.mil/Allowances/Overseas-Housing-Allowance/OHA-Rate-Lookup/\">DTMO OHA Rate Lookup</a>"
+_ASOF_HEAD = ("<p class=\"note\" id=\"oha-asof\"><strong>As of 16 Oct 2026; OHA updates 1 Nov.</strong> DTMO changes OHA on the 1st and 16th of each month, so the next change is 1 Nov 2026 and these figures may be out of date after that. ")
+ASOF_NOTE_CHECKED = (_ASOF_HEAD + "Spot-checked against DTMO\u2019s OHA lookup on 28 Oct 2026 (pay period 16 Oct 2026): E-5 with dependents and O-3 without dependents for every area on this page, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
+ASOF_NOTE_OKINAWA = (_ASOF_HEAD + "Spot-checked against DTMO\u2019s OHA lookup on 28 Oct 2026 (pay period 16 Oct 2026, Okinawa JP027): E-5 with dependents and O-3 without dependents, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
+
+# MIHA: DTMO's report (pay period 16 Oct 2026, read 28 Oct 2026) returned the same MIHA for with- and without-dependents
+# for all 11 localities on the four OHA pages (O-3 without dependents for every locality; E-5 without dependents also at KR025).
+DTMO_MIHA = {"$298.57 \u20a9386,676", "$432.14 \u00a565,477", "$787.91 \u20ac665"}
+MIHA_OLD = ("The MIHA figure is what DTMO\u2019s calculator shows for a member with dependents; DTMO did not return a MIHA figure for the without-dependents query, so check with your housing office.")
+MIHA_NEW = ("The MIHA figure is what DTMO\u2019s OHA report returned for the 16 Oct 2026 pay period (E-5 with dependents; O-3 without dependents returned the same amount, so it is shown in both columns). Confirm your own amount with your housing office.")
+
+def fix_miha(h):
+    def row(m):
+        cells = re.findall(r"<td>(.*?)</td>", m.group(0), flags=re.S)
+        plain = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", cells[1])).strip().replace(" \u20a9", " \u20a9")
+        key = re.sub(r"\s+", "", plain)
+        ok = {re.sub(r"\s+", "", x) for x in DTMO_MIHA}
+        if key in ok and cells[2].strip() in ("\u2014", "&mdash;", "-"):
+            return m.group(0).replace("<td>%s</td></tr>" % cells[2], "<td>%s</td></tr>" % cells[1])
+        return m.group(0)
+    h = re.sub(r'<tr data-k="miha">.*?</tr>', row, h, flags=re.S)
+    return h.replace(MIHA_OLD, MIHA_NEW)
 
 def put_asof(h, note):
     h = strip(h, "asof")
@@ -249,13 +267,13 @@ def build_oha():
         g = "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in GUIDE_LINKS)
         h = put(h, "related", "<section id=\"more-for-your-move\"><h2>PCS guides</h2><ul class=\"bases\">%s<li><a href=\"/guides/\">All guides</a></li></ul></section>" % g, "<h2>Other OHA pages</h2>")
         h = put_asof(h, ASOF_NOTE_CHECKED)
-        write(p, touch_modified(h))
+        write(p, touch_modified(fix_miha(h)))
     # Okinawa: guides block only (no verified housing-office facts yet)
     p = "oha/okinawa/index.html"; h = read(p); h = strip(h, "related")
     g = "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in GUIDE_LINKS)
     h = put(h, "related", "<section id=\"more-for-your-move\"><h2>PCS guides</h2><ul class=\"bases\">%s<li><a href=\"/guides/\">All guides</a></li></ul></section>" % g, "<h2>Other OHA pages</h2>")
-    h = put_asof(h, ASOF_NOTE_PLAIN)
-    write(p, touch_modified(h))
+    h = put_asof(h, ASOF_NOTE_OKINAWA)
+    write(p, touch_modified(fix_miha(h)))
     # hubs
     for p, anchor in (("bah/index.html", '<section class="agents">'), ("oha/index.html", '<section class="agents">')):
         h = read(p); h = strip(h, "related")
