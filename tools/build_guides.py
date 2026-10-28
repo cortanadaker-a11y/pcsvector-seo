@@ -105,20 +105,34 @@ def fmt_faq(tpl, d, short):
                       O6w=money(g["O-6"][0]), O6o=money(g["O-6"][1]))
 
 def calc_para(slug, d, all_data):
+    """Four phrasings, picked by the page's position in NAMES, so the paragraph is not the same
+    sentence on every page. All figures come from the page's own table (DTMO 2026 rates)."""
     g = d["rows"]; short = GD.GUIDES[slug]["short"]
     region = next(r for r in REGIONS if slug in r[1])[1]
     peers = [s for s in region if s != slug][:2]
     bits = []
     for s in peers:
         pe = all_data[s]["rows"]["E-5"][0]; diff = g["E-5"][0] - pe
-        bits.append("from %s (%s) the change is %s%s a month" % (NAMES[s].split(" (")[0], money(pe), "+" if diff >= 0 else "\u2212", money(abs(diff))))
-    s = ("Open the free calculator, pick your current post, and choose %s as the new post. The 2026 table above is what it uses: a Sergeant (E-5) with dependents gets %s, a Staff Sergeant (E-6) %s and a Sergeant First Class (E-7) %s "
-         "(without dependents: %s, %s and %s). For an E-5 with dependents, %s. "
-         % (short, money(g["E-5"][0]), money(g["E-6"][0]), money(g["E-7"][0]), money(g["E-5"][1]), money(g["E-6"][1]), money(g["E-7"][1]), "; ".join(bits)))
+        bits.append("%s (%s) the change is %s%s a month" % (NAMES[s].split(" (")[0], money(pe), "+" if diff >= 0 else "\u2212", money(abs(diff))))
+    v = list(NAMES).index(slug) % 4
+    m = money
+    if v == 0:
+        s = ("Pick your current post in the free calculator and choose %s as the new one. It reads the 2026 table above: E-5 with dependents %s, E-6 %s, E-7 %s (without dependents %s, %s, %s). "
+             "For an E-5 with dependents moving in, from %s. " % (short, m(g["E-5"][0]), m(g["E-6"][0]), m(g["E-7"][0]), m(g["E-5"][1]), m(g["E-6"][1]), m(g["E-7"][1]), "; from ".join(bits)))
+    elif v == 1:
+        s = ("To see what a move here does to your housing money, enter where you are now and select %s. The tool uses the rates in the table on this page. A Sergeant (E-5) with dependents is at %s; "
+             "a Staff Sergeant (E-6) is at %s. Compared with nearby posts, for an E-5 with dependents: from %s. " % (short, m(g["E-5"][0]), m(g["E-6"][0]), "; from ".join(bits)))
+    elif v == 2:
+        s = ("Use the calculator with %s as the destination to line your BAH up against local rent. Your rate depends on pay grade and dependent status: %s for an E-5 with dependents and %s without, "
+             "%s for an E-7 with dependents. Two nearby comparisons for an E-5 with dependents: from %s. " % (short, m(g["E-5"][0]), m(g["E-5"][1]), m(g["E-7"][0]), "; from ".join(bits)))
+    else:
+        s = ("Choose %s in the calculator’s new-post box and your current post in the first box. Table rates for 2026: E-5 %s with dependents, %s without; E-6 %s and %s; E-7 %s and %s. "
+             "In the same region, for an E-5 with dependents, from %s. " % (short, m(g["E-5"][0]), m(g["E-5"][1]), m(g["E-6"][0]), m(g["E-6"][1]), m(g["E-7"][0]), m(g["E-7"][1]), "; from ".join(bits)))
     if d["rent"]:
-        s += ("Switch the home size to see where average rent falls against BAH; for a 3-bedroom the planning range on this page is %s a month for rent plus %s for utilities (PCS Vector estimates, not DTMO figures). " % (d["rent"], d["util"]))
-    s += "A PCS resets rate protection, so you start from these 2026 rates; DTMO says that once you are at the new duty station you receive any published increase but no decrease while your status stays the same."
-    return s
+        s += ("Change the home size to compare average rent with BAH; for a 3-bedroom the planning range here is %s a month for rent plus %s for utilities (PCS Vector estimates, not DTMO figures). " % (d["rent"], d["util"]))
+    if v in (0, 2):
+        s += "A PCS resets rate protection, so you start from these 2026 rates; DTMO says that at the new duty station you receive any published increase but no decrease while your status stays the same."
+    return s.rstrip()
 
 # ---------------------------------------------------------------- BAH page blocks
 def guide_block(slug, d, all_data):
@@ -283,18 +297,40 @@ def build_oha():
         write(p, touch_modified(h))
 
 # ---------------------------------------------------------------- homepage
+# "Find a home" CTA (28 Oct 2026): richer gold, glow, bigger type, states, one-time pulse. Text, href and click event are untouched.
+# Text #0B2A1C on the gradient is >= 7:1 (AA/AAA); min-height 64px; reduced-motion turns the pulse and nudge off.
+CTA_CSS = (
+    "#referral_open_btn.pcs-btn-gold{position:relative;min-height:64px;padding:14px 18px;gap:4px;white-space:normal;text-align:center;"
+    "background:linear-gradient(180deg,#FFE680 0%,#F7CB3E 46%,#DDA51F 100%);border:1px solid #FFEFAE;border-bottom-color:#B98A12;border-radius:14px;"
+    "color:#0B2A1C;font-size:17px;line-height:1.25;font-weight:800;letter-spacing:.01em;"
+    "box-shadow:0 0 0 1px rgba(255,230,128,.35),0 8px 22px rgba(247,203,62,.38),0 0 30px rgba(247,203,62,.26),inset 0 1px 0 rgba(255,255,255,.6);"
+    "transition:transform .15s ease,box-shadow .2s ease,filter .2s ease;animation:pcs-cta-pulse 1.8s ease-out .8s 1}"
+    "#referral_open_btn .pcs-btn-sel{font-size:13px;line-height:1.25;font-weight:700;opacity:1;color:#0B2A1C}"
+    "#referral_open_btn .pcs-arr{display:inline-block;transition:transform .18s ease}"
+    "#referral_open_btn.pcs-btn-gold:hover{background:linear-gradient(180deg,#FFEE9A 0%,#FAD451 46%,#E8B02A 100%);transform:translateY(-1px);filter:saturate(1.08);"
+    "box-shadow:0 0 0 1px rgba(255,238,154,.55),0 12px 28px rgba(247,203,62,.5),0 0 40px rgba(247,203,62,.38),inset 0 1px 0 rgba(255,255,255,.7)}"
+    "#referral_open_btn.pcs-btn-gold:hover .pcs-arr,#referral_open_btn.pcs-btn-gold:focus-visible .pcs-arr{transform:translateX(5px)}"
+    "#referral_open_btn.pcs-btn-gold:active{transform:translateY(1px) scale(.99);filter:brightness(.96);"
+    "box-shadow:0 0 0 1px rgba(255,230,128,.3),0 3px 10px rgba(247,203,62,.35),inset 0 2px 4px rgba(120,80,0,.28)}"
+    "#referral_open_btn.pcs-btn-gold:focus-visible{outline:3px solid #fff;outline-offset:3px}"
+    "@keyframes pcs-cta-pulse{0%{box-shadow:0 0 0 0 rgba(255,230,128,.75),0 8px 22px rgba(247,203,62,.38)}70%{box-shadow:0 0 0 14px rgba(255,230,128,0),0 8px 22px rgba(247,203,62,.38)}100%{box-shadow:0 0 0 0 rgba(255,230,128,0),0 8px 22px rgba(247,203,62,.38)}}"
+    "@media (prefers-reduced-motion:reduce){#referral_open_btn.pcs-btn-gold{animation:none;transition:none}#referral_open_btn .pcs-arr{transition:none}"
+    "#referral_open_btn.pcs-btn-gold:hover{transform:none}#referral_open_btn.pcs-btn-gold:hover .pcs-arr,#referral_open_btn.pcs-btn-gold:focus-visible .pcs-arr{transform:none}}")
+CTA_OLD = "<span>Find a home \u2014 Free \u2794</span>"
+CTA_NEW = '<span>Find a home \u2014 Free <span class="pcs-arr" aria-hidden="true">\u2794</span></span>'
+
 HOME_CSS = ("<style>.pcs-browse{margin:22px 0 8px;padding:0 .8px;color:#E8EEEA}.pcs-browse h2{margin:0 0 8px;color:#fff;font-size:20px;line-height:1.25}"
             ".pcs-browse h3{margin:16px 0 6px;color:#F0D060;font-size:14px;letter-spacing:.02em}.pcs-browse p{margin:0 0 8px;color:#D5DFD9;font-size:14px;line-height:1.5}"
             ".pcs-browse ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 4px;padding:0}"
             ".pcs-browse a{display:inline-block;min-height:44px;padding:11px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#F0D060;text-decoration:none;font-size:14px;font-weight:700;line-height:1.3}"
-            ".pcs-browse a:focus-visible{outline:2px solid #F0D060;outline-offset:2px}</style>")
+            ".pcs-browse a:focus-visible{outline:2px solid #F0D060;outline-offset:2px}" + CTA_CSS + "</style>")
 
 def _join_names(xs):
     return ", ".join(xs[:-1]) + " and " + xs[-1]
 
 def home_block():
     parts = ['<nav class="pcs-browse" id="browse-by-fort" aria-labelledby="browse-fort-h"><h2 id="browse-fort-h">Browse by fort</h2>',
-             "<p>Every 2026 BAH page, by region. Each has the full rate table by pay grade and the rent gap. Selected posts (%s) also have a PCS guide with the installation’s housing-office rules.</p>" % E(_join_names([NAMES[x].split(" (")[0].split(",")[0] for x in NAMES if x in GD.GUIDES]))]
+             "<p>Every 2026 BAH page, by region. Each has the full rate table by pay grade, the rent gap and a PCS guide with the installation’s housing-office rules, sources and dates.</p>"]
     for name, slugs in REGIONS:
         parts.append("<h3>%s</h3><ul>%s</ul>" % (E(name), "".join('<li><a href="/bah/%s/">%s</a></li>' % (s, E(NAMES[s])) for s in slugs)))
     parts.append("<h3>Overseas (OHA)</h3><ul>%s<li><a href=\"/oha/\">All OHA pages</a></li></ul>" % "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in OHA_LINKS))
@@ -305,6 +341,7 @@ def build_home():
     h = read("index.html")
     h = strip(h, "homecss"); h = strip(h, "browse")
     h = put(h, "homecss", HOME_CSS, "</head>")
+    h = h.replace(CTA_OLD, CTA_NEW)   # wrap the arrow only so it can nudge; visible text and name are identical
     anchor = "<noscript><p>Turn on JavaScript"
     h = put(h, "browse", home_block(), anchor)
     write("index.html", h)
@@ -323,6 +360,35 @@ def build_404():
     h = put(h, "404nav", block, '<p class="src">')
     write("404.html", h)
 
+# ---------------------------------------------------------------- brand: tagline + site name
+TAGLINE = "For Soldiers; By Soldiers"
+FOOT_OLD = "PCS Vector is an independent planning tool built by Soldiers. It is not an official"
+FOOT_NEW = TAGLINE + ". PCS Vector is an independent planning tool. It is not an official"
+SITE_NAME = "PCS Vector"
+SITE_ALT = ["PCSVector", "PCS Vector calculator", "pcsvector.com"]   # lowercase domain last = Google's documented fallback
+
+def build_brand():
+    """Tagline 'For Soldiers; By Soldiers' everywhere, disclaimer kept; homepage WebSite JSON-LD (site name) + application-name."""
+    for p in sorted(ROOT.rglob("*.html")):
+        rel = p.relative_to(ROOT)
+        if rel.parts[0] in (".git", "tools", "node_modules", "_pcs_vector", "_builder"): continue
+        h = p.read_text(encoding="utf-8"); n = h.replace(FOOT_OLD, FOOT_NEW)
+        if rel.as_posix() == "index.html":
+            n = n.replace("Built for Soldiers. Not affiliated with DoW.", TAGLINE + ". Not affiliated with DoW.")
+            n = n.replace("Built For Soldiers; By Soldiers", TAGLINE)
+            n = n.replace("PCS Vector is a free Army PCS finance calculator built for Soldiers, by Soldiers. It compares",
+                          "PCS Vector is a free Army PCS finance calculator. " + TAGLINE + ". It compares")
+            m = re.search(r'<script type="application/ld\+json">(\{"@context": "https://schema.org", "@graph": \[.*?\]\})</script>', n, flags=re.S)
+            assert m, "home @graph JSON-LD missing"
+            j = json.loads(m.group(1))
+            j["@graph"] = [x for x in j["@graph"] if x.get("@type") != "WebSite"]
+            j["@graph"].insert(0, {"@type": "WebSite", "@id": "https://pcsvector.com/#website", "name": SITE_NAME,
+                                   "alternateName": SITE_ALT, "url": "https://pcsvector.com/"})
+            n = n[:m.start(1)] + json.dumps(j, ensure_ascii=False) + n[m.end(1):]
+            if 'name="application-name"' not in n:
+                n = n.replace('<meta name="theme-color"', '<meta name="application-name" content="%s">\n<meta name="apple-mobile-web-app-title" content="%s">\n<meta name="theme-color"' % (SITE_NAME, SITE_NAME), 1)
+        if n != h: p.write_text(n, encoding="utf-8")
+
 def prune_all():
     for p in sorted(ROOT.rglob("*.html")):
         rel = p.relative_to(ROOT)
@@ -338,5 +404,5 @@ def build_a11y():
         if n != h: p.write_text(n, encoding="utf-8")
 
 if __name__ == "__main__":
-    build_bah(); build_oha(); build_home(); build_longtail(); build_404(); build_a11y(); prune_all()
+    build_bah(); build_oha(); build_home(); build_longtail(); build_404(); build_a11y(); build_brand(); prune_all()
     print("built guides, related blocks, OHA blocks, homepage browse section, long-tail pages")
