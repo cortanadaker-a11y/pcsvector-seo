@@ -111,7 +111,7 @@ def calc_para(slug, d, all_data):
     bits = []
     for s in peers:
         pe = all_data[s]["rows"]["E-5"][0]; diff = g["E-5"][0] - pe
-        bits.append("from %s (%s) the change is %s%s a month" % (NAMES[s].split(",")[0], money(pe), "+" if diff >= 0 else "\u2212", money(abs(diff))))
+        bits.append("from %s (%s) the change is %s%s a month" % (NAMES[s].split(" (")[0], money(pe), "+" if diff >= 0 else "\u2212", money(abs(diff))))
     s = ("Open the free calculator, pick your current post, and choose %s as the new post. The 2026 table above is what it uses: a Sergeant (E-5) with dependents gets %s, a Staff Sergeant (E-6) %s and a Sergeant First Class (E-7) %s "
          "(without dependents: %s, %s and %s). For an E-5 with dependents, %s. "
          % (short, money(g["E-5"][0]), money(g["E-6"][0]), money(g["E-7"][0]), money(g["E-5"][1]), money(g["E-6"][1]), money(g["E-7"][1]), "; ".join(bits)))
@@ -160,6 +160,23 @@ def add_faq_jsonld(h, qa):
     new = json.dumps(j, ensure_ascii=False)
     return h[:m.start(1)] + new + h[m.end(1):]
 
+def visible_text(h):
+    t = re.sub(r"<script.*?</script>|<style.*?</style>", " ", h, flags=re.S)
+    t = html.unescape(re.sub(r"<[^>]+>", " ", t))
+    return re.sub(r"\s+", " ", t)
+
+def prune_faq_jsonld(h, label=""):
+    """FAQPage markup may only contain questions that are visible on the page (Google policy). Drops the rest."""
+    m = re.search(r'<script type="application/ld\+json">(\{"@context": "https://schema.org", "@type": "FAQPage".*?\})</script>', h, flags=re.S)
+    if not m: return h
+    j = json.loads(m.group(1)); vis = visible_text(h)
+    keep = [e for e in j["mainEntity"] if re.sub(r"\s+", " ", e["name"]).strip() in vis]
+    if len(keep) != len(j["mainEntity"]):
+        print("pruned %d hidden FAQ JSON-LD question(s) on %s" % (len(j["mainEntity"]) - len(keep), label))
+        j["mainEntity"] = keep
+        return h[:m.start(1)] + json.dumps(j, ensure_ascii=False) + h[m.end(1):]
+    return h
+
 def related_block(slug):
     region = next(r for r in REGIONS if slug in r[1])
     peers = [s for s in region[1] if s != slug]
@@ -193,7 +210,9 @@ def build_bah():
                 h = put(h, "faq", faq_html(slug, all_data[slug]), '<section class="agents">')
                 h = add_faq_jsonld(h, [(q, fmt_faq(a, all_data[slug], GD.GUIDES[slug]["short"])) for q, a in GD.GUIDES[slug]["faq"]])
         h = put(h, "related", related_block(slug), "<h2>Other posts</h2>")
-        h = touch_modified(h)
+        h = prune_faq_jsonld(h, p)
+        if slug in GD.GUIDES:
+            h = touch_modified(h)   # unguided pages only gain a related-links block: leave dateModified alone
         write(p, h)
 
 # ---------------------------------------------------------------- OHA pages
@@ -211,6 +230,16 @@ def oha_block(key):
     parts.append('<p class="src"><strong>Sources (read %s):</strong></p><ul class="note">%s</ul></section>' % (GD.AS_OF_HUMAN, "".join("<li>%s</li>" % l for l in src_links(keys))))
     return "\n".join(parts)
 
+ASOF_NOTE_CHECKED = ("<p class=\"note\" id=\"oha-asof\"><strong>As of 16 Oct 2026; OHA updates 1 Nov.</strong> DTMO changes OHA on the 1st and 16th of each month, so the next change is 1 Nov 2026 and these figures may be out of date after that. "
+    "Spot-checked against DTMO\u2019s OHA lookup on 28 Oct 2026: E-5 with dependents for every area on this page and O-3 without dependents for most. Always confirm your own rate on the <a href=\"https://www.travel.dod.mil/Allowances/Overseas-Housing-Allowance/OHA-Rate-Lookup/\">DTMO OHA Rate Lookup</a>.</p>")
+ASOF_NOTE_PLAIN = ("<p class=\"note\" id=\"oha-asof\"><strong>As of 16 Oct 2026; OHA updates 1 Nov.</strong> DTMO changes OHA on the 1st and 16th of each month, so the next change is 1 Nov 2026 and these figures may be out of date after that. "
+    "Always confirm your own rate on the <a href=\"https://www.travel.dod.mil/Allowances/Overseas-Housing-Allowance/OHA-Rate-Lookup/\">DTMO OHA Rate Lookup</a>.</p>")
+
+def put_asof(h, note):
+    h = strip(h, "asof")
+    i = h.index('<p class="stamp">'); j = h.index("</p>", i) + 4
+    return h[:j] + "\n<!--pcsv:asof-->\n" + note + "\n<!--/pcsv:asof-->" + h[j:]
+
 def build_oha():
     for key in ("korea", "japan", "germany"):
         p = "oha/%s/index.html" % key
@@ -219,11 +248,13 @@ def build_oha():
         h = put(h, "guide", oha_block(key), "<h2>How OHA works</h2>")
         g = "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in GUIDE_LINKS)
         h = put(h, "related", "<section id=\"more-for-your-move\"><h2>PCS guides</h2><ul class=\"bases\">%s<li><a href=\"/guides/\">All guides</a></li></ul></section>" % g, "<h2>Other OHA pages</h2>")
+        h = put_asof(h, ASOF_NOTE_CHECKED)
         write(p, touch_modified(h))
     # Okinawa: guides block only (no verified housing-office facts yet)
     p = "oha/okinawa/index.html"; h = read(p); h = strip(h, "related")
     g = "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in GUIDE_LINKS)
     h = put(h, "related", "<section id=\"more-for-your-move\"><h2>PCS guides</h2><ul class=\"bases\">%s<li><a href=\"/guides/\">All guides</a></li></ul></section>" % g, "<h2>Other OHA pages</h2>")
+    h = put_asof(h, ASOF_NOTE_PLAIN)
     write(p, touch_modified(h))
     # hubs
     for p, anchor in (("bah/index.html", '<section class="agents">'), ("oha/index.html", '<section class="agents">')):
@@ -231,7 +262,7 @@ def build_oha():
         g = "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in GUIDE_LINKS)
         extra = '<li><a href="/oha/">OHA by country</a></li>' if p.startswith("bah") else '<li><a href="/bah/">BAH by post</a></li>'
         h = put(h, "related", '<section id="guides-box"><h2>PCS guides</h2><ul class="bases">%s<li><a href="/guides/">All guides</a></li>%s</ul></section>' % (g, extra), anchor)
-        write(p, h)
+        write(p, touch_modified(h))
 
 # ---------------------------------------------------------------- homepage
 HOME_CSS = ("<style>.pcs-browse{margin:22px 0 8px;padding:0 .8px;color:#E8EEEA}.pcs-browse h2{margin:0 0 8px;color:#fff;font-size:20px;line-height:1.25}"
@@ -240,9 +271,12 @@ HOME_CSS = ("<style>.pcs-browse{margin:22px 0 8px;padding:0 .8px;color:#E8EEEA}.
             ".pcs-browse a{display:inline-block;min-height:44px;padding:11px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#F0D060;text-decoration:none;font-size:14px;font-weight:700;line-height:1.3}"
             ".pcs-browse a:focus-visible{outline:2px solid #F0D060;outline-offset:2px}</style>")
 
+def _join_names(xs):
+    return ", ".join(xs[:-1]) + " and " + xs[-1]
+
 def home_block():
     parts = ['<nav class="pcs-browse" id="browse-by-fort" aria-labelledby="browse-fort-h"><h2 id="browse-fort-h">Browse by fort</h2>',
-             "<p>Every 2026 BAH page, by region. Each has the full rate table by pay grade, the rent gap, and a PCS guide with the installation’s housing-office rules.</p>"]
+             "<p>Every 2026 BAH page, by region. Each has the full rate table by pay grade and the rent gap. Selected posts (%s) also have a PCS guide with the installation’s housing-office rules.</p>" % E(_join_names([NAMES[x].split(" (")[0].split(",")[0] for x in NAMES if x in GD.GUIDES]))]
     for name, slugs in REGIONS:
         parts.append("<h3>%s</h3><ul>%s</ul>" % (E(name), "".join('<li><a href="/bah/%s/">%s</a></li>' % (s, E(NAMES[s])) for s in slugs)))
     parts.append("<h3>Overseas (OHA)</h3><ul>%s<li><a href=\"/oha/\">All OHA pages</a></li></ul>" % "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in OHA_LINKS))
@@ -271,6 +305,13 @@ def build_404():
     h = put(h, "404nav", block, '<p class="src">')
     write("404.html", h)
 
+def prune_all():
+    for p in sorted(ROOT.rglob("*.html")):
+        rel = p.relative_to(ROOT)
+        if rel.parts[0] in (".git", "tools", "node_modules", "_builder"): continue
+        h = p.read_text(encoding="utf-8"); n = prune_faq_jsonld(h, str(rel))
+        if n != h: p.write_text(n, encoding="utf-8")
+
 def build_a11y():
     for p in sorted(ROOT.rglob("index.html")):
         rel = p.relative_to(ROOT)
@@ -279,5 +320,5 @@ def build_a11y():
         if n != h: p.write_text(n, encoding="utf-8")
 
 if __name__ == "__main__":
-    build_bah(); build_oha(); build_home(); build_longtail(); build_404(); build_a11y()
+    build_bah(); build_oha(); build_home(); build_longtail(); build_404(); build_a11y(); prune_all()
     print("built guides, related blocks, OHA blocks, homepage browse section, long-tail pages")

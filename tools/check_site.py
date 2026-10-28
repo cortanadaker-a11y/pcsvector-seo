@@ -15,7 +15,7 @@ errs, warns = [], []
 pages = {}
 for p in sorted(ROOT.rglob("*.html")):
     rel = p.relative_to(ROOT)
-    if rel.parts[0] in (".git", "tools", "node_modules"): continue
+    if rel.parts[0] in (".git", "tools", "node_modules", "_pcs_vector", "_builder"): continue
     url = "/" + str(rel)
     if rel.name == "index.html": url = "/" + "/".join(rel.parts[:-1]) + ("/" if len(rel.parts) > 1 else "")
     pages[url] = (rel, BeautifulSoup(p.read_text(encoding="utf-8"), "lxml"))
@@ -42,8 +42,18 @@ for u, (rel, s) in pages.items():
     if ou and not is404 and ou.get("content") != BASE + u: e(u, "og:url mismatch")
     if not s.find("meta", attrs={"name": "viewport"}): e(u, "no viewport")
     types = []
+    vis = None
     for sc in s.find_all("script", type="application/ld+json"):
-        try: types.append(json.loads(sc.string).get("@type"))
+        try:
+            j = json.loads(sc.string); types.append(j.get("@type"))
+            if j.get("@type") == "FAQPage":     # FAQPage markup must match visible questions
+                if vis is None:
+                    import copy
+                    s2 = copy.copy(s)
+                    for t in s2.find_all(["script", "style"]): t.decompose()
+                    vis = " ".join(s2.get_text(" ").split())
+                for q in j.get("mainEntity", []):
+                    if " ".join(q["name"].split()) not in vis: e(u, "FAQPage JSON-LD question not visible on page: %s" % q["name"][:70])
         except Exception as ex: e(u, "bad JSON-LD: %s" % ex)
     if u != "/" and not is404 and "BreadcrumbList" not in types: e(u, "no BreadcrumbList JSON-LD")
     for im in s.find_all("img"):

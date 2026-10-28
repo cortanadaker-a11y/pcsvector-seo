@@ -40,7 +40,7 @@ SOURCES = {
  # ---- Korea
  "hum_sheet": ("USAG Humphreys Housing Information Sheet (Oct 2024)", "https://home.army.mil/humphreys/3817/3093/6105/Housing_Information_Sheet_Oct._2024.pdf"),
  "hum_dpw":   ("USAG Humphreys DPW Housing Division", "https://home.army.mil/humphreys/about/garrison/directorate-public-works/housing-division"),
- "hum_steps": ("USAG Humphreys off-post housing steps (DPW Housing Division PDF)", "https://home.army.mil/humphreys/download_file/view/8c9c97e4-0ec4-4a3b-b981-36d51dad16c4/532"),
+ "hum_steps": ("USAG Humphreys Off-Post In-processing Packet, Army (PDF dated 20 Feb 2024)", "https://home.army.mil/humphreys/3917/0901/0899/Offpost_In-processing_Packet_-_Army_20_Feb_2024.pdf"),
  "hum_hso":   ("Humphreys Housing Services Office booklet", "https://api.army.mil/e2/c/downloads/365895.pdf"),
  "yc_mi":     ("Military OneSource, USAG Yongsan-Casey housing", "https://installations.militaryonesource.mil/military-installation/usag-yongsan-casey/housing/housing"),
  # ---- Japan
