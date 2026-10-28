@@ -297,11 +297,33 @@ def build_oha():
         write(p, touch_modified(h))
 
 # ---------------------------------------------------------------- homepage
+# "Find a home" CTA (28 Oct 2026): richer gold, glow, bigger type, states, one-time pulse. Text, href and click event are untouched.
+# Text #0B2A1C on the gradient is >= 7:1 (AA/AAA); min-height 64px; reduced-motion turns the pulse and nudge off.
+CTA_CSS = (
+    "#referral_open_btn.pcs-btn-gold{position:relative;min-height:64px;padding:14px 18px;gap:4px;white-space:normal;text-align:center;"
+    "background:linear-gradient(180deg,#FFE680 0%,#F7CB3E 46%,#DDA51F 100%);border:1px solid #FFEFAE;border-bottom-color:#B98A12;border-radius:14px;"
+    "color:#0B2A1C;font-size:17px;line-height:1.25;font-weight:800;letter-spacing:.01em;"
+    "box-shadow:0 0 0 1px rgba(255,230,128,.35),0 8px 22px rgba(247,203,62,.38),0 0 30px rgba(247,203,62,.26),inset 0 1px 0 rgba(255,255,255,.6);"
+    "transition:transform .15s ease,box-shadow .2s ease,filter .2s ease;animation:pcs-cta-pulse 1.8s ease-out .8s 1}"
+    "#referral_open_btn .pcs-btn-sel{font-size:13px;line-height:1.25;font-weight:700;opacity:1;color:#0B2A1C}"
+    "#referral_open_btn .pcs-arr{display:inline-block;transition:transform .18s ease}"
+    "#referral_open_btn.pcs-btn-gold:hover{background:linear-gradient(180deg,#FFEE9A 0%,#FAD451 46%,#E8B02A 100%);transform:translateY(-1px);filter:saturate(1.08);"
+    "box-shadow:0 0 0 1px rgba(255,238,154,.55),0 12px 28px rgba(247,203,62,.5),0 0 40px rgba(247,203,62,.38),inset 0 1px 0 rgba(255,255,255,.7)}"
+    "#referral_open_btn.pcs-btn-gold:hover .pcs-arr,#referral_open_btn.pcs-btn-gold:focus-visible .pcs-arr{transform:translateX(5px)}"
+    "#referral_open_btn.pcs-btn-gold:active{transform:translateY(1px) scale(.99);filter:brightness(.96);"
+    "box-shadow:0 0 0 1px rgba(255,230,128,.3),0 3px 10px rgba(247,203,62,.35),inset 0 2px 4px rgba(120,80,0,.28)}"
+    "#referral_open_btn.pcs-btn-gold:focus-visible{outline:3px solid #fff;outline-offset:3px}"
+    "@keyframes pcs-cta-pulse{0%{box-shadow:0 0 0 0 rgba(255,230,128,.75),0 8px 22px rgba(247,203,62,.38)}70%{box-shadow:0 0 0 14px rgba(255,230,128,0),0 8px 22px rgba(247,203,62,.38)}100%{box-shadow:0 0 0 0 rgba(255,230,128,0),0 8px 22px rgba(247,203,62,.38)}}"
+    "@media (prefers-reduced-motion:reduce){#referral_open_btn.pcs-btn-gold{animation:none;transition:none}#referral_open_btn .pcs-arr{transition:none}"
+    "#referral_open_btn.pcs-btn-gold:hover{transform:none}#referral_open_btn.pcs-btn-gold:hover .pcs-arr,#referral_open_btn.pcs-btn-gold:focus-visible .pcs-arr{transform:none}}")
+CTA_OLD = "<span>Find a home \u2014 Free \u2794</span>"
+CTA_NEW = '<span>Find a home \u2014 Free <span class="pcs-arr" aria-hidden="true">\u2794</span></span>'
+
 HOME_CSS = ("<style>.pcs-browse{margin:22px 0 8px;padding:0 .8px;color:#E8EEEA}.pcs-browse h2{margin:0 0 8px;color:#fff;font-size:20px;line-height:1.25}"
             ".pcs-browse h3{margin:16px 0 6px;color:#F0D060;font-size:14px;letter-spacing:.02em}.pcs-browse p{margin:0 0 8px;color:#D5DFD9;font-size:14px;line-height:1.5}"
             ".pcs-browse ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 4px;padding:0}"
             ".pcs-browse a{display:inline-block;min-height:44px;padding:11px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#F0D060;text-decoration:none;font-size:14px;font-weight:700;line-height:1.3}"
-            ".pcs-browse a:focus-visible{outline:2px solid #F0D060;outline-offset:2px}</style>")
+            ".pcs-browse a:focus-visible{outline:2px solid #F0D060;outline-offset:2px}" + CTA_CSS + "</style>")
 
 def _join_names(xs):
     return ", ".join(xs[:-1]) + " and " + xs[-1]
@@ -319,6 +341,7 @@ def build_home():
     h = read("index.html")
     h = strip(h, "homecss"); h = strip(h, "browse")
     h = put(h, "homecss", HOME_CSS, "</head>")
+    h = h.replace(CTA_OLD, CTA_NEW)   # wrap the arrow only so it can nudge; visible text and name are identical
     anchor = "<noscript><p>Turn on JavaScript"
     h = put(h, "browse", home_block(), anchor)
     write("index.html", h)
