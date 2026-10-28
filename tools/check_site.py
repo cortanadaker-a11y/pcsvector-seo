@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://pcsvector.com"
+TAGLINE = "For Soldiers; By Soldiers"
 errs, warns = [], []
 pages = {}
 for p in sorted(ROOT.rglob("*.html")):
@@ -55,6 +56,23 @@ for u, (rel, s) in pages.items():
                 for q in j.get("mainEntity", []):
                     if " ".join(q["name"].split()) not in vis: e(u, "FAQPage JSON-LD question not visible on page: %s" % q["name"][:70])
         except Exception as ex: e(u, "bad JSON-LD: %s" % ex)
+    # --- brand / site-name signals (Google site name): consistent name, tagline, WebSite markup on the homepage
+    osn = s.find("meta", attrs={"property": "og:site_name"})
+    if not osn or osn.get("content") != "PCS Vector": e(u, "og:site_name != 'PCS Vector'")
+    if s.title and s.title.string and "PCS Vector" not in s.title.string: e(u, "title does not contain 'PCS Vector'")
+    if TAGLINE not in " ".join(s.get_text(" ").split()): e(u, "tagline %r not on page" % TAGLINE)
+    if u == "/":
+        nodes = []
+        for sc in s.find_all("script", type="application/ld+json"):
+            j = json.loads(sc.string); nodes += j.get("@graph", [j])
+        ws = [n for n in nodes if n.get("@type") == "WebSite"]
+        if len(ws) != 1: e(u, "homepage needs exactly one WebSite JSON-LD node (found %d)" % len(ws))
+        elif ws[0].get("name") != "PCS Vector" or ws[0].get("url") != BASE + "/" or not ws[0].get("alternateName"):
+            e(u, "WebSite JSON-LD must have name 'PCS Vector', url %s/ and alternateName" % BASE)
+        rels = {(l.get("rel") or [""])[0] + ":" + (l.get("sizes") or "") + ":" + (l.get("href") or "") for l in s.find_all("link") if "icon" in " ".join(l.get("rel") or [])}
+        for need in ("icon::/favicon.ico", "icon::/favicon.svg", "icon:48x48:/favicon-48x48.png", "icon:192x192:/favicon-192x192.png"):
+            if not any(r.endswith(need) or r == need or (need.startswith("icon:") and need.split(":", 1)[1] in r) for r in rels): e(u, "missing icon link " + need)
+        if not any("apple-touch-icon" in r for r in rels): e(u, "missing apple-touch-icon link")
     if u != "/" and not is404 and "BreadcrumbList" not in types: e(u, "no BreadcrumbList JSON-LD")
     for tr in s.find_all("tr", attrs={"data-k": "miha"}):
         if any(td.get_text(strip=True) in ("\u2014", "-") for td in tr.find_all("td")): e(u, "MIHA row has an empty/dash cell")
@@ -77,6 +95,24 @@ for u, (rel, s) in pages.items():
         t2 = tgt if (tgt.endswith("/") or "." in tgt.split("/")[-1]) else tgt + "/"
         if t2 not in pages and not (ROOT / tgt.lstrip("/")).exists(): e(u, "broken internal link %s" % h); continue
         if frag and t2 in ids and frag not in ids[t2]: e(u, "missing fragment #%s on %s" % (frag, t2))
+# no leftover 'Streamlit' anywhere in the published tree (the old app name Google may still show as the site name)
+for f in sorted(ROOT.rglob("*")):
+    rel = f.relative_to(ROOT)
+    if not f.is_file() or rel.parts[0] in (".git", "tools", "node_modules"): continue
+    try: txt = f.read_text(encoding="utf-8")
+    except Exception: continue
+    if "streamlit" in txt.lower(): e("/" + str(rel), "contains the string 'streamlit'")
+# Google favicon rules: square, multiple of 48px, stable URL
+try:
+    from PIL import Image
+    for fn, want in (("favicon-48x48.png", (48, 48)), ("favicon-192x192.png", (192, 192)), ("apple-touch-icon.png", (180, 180))):
+        im = Image.open(ROOT / fn)
+        if im.size != want: e("/" + fn, "size %s != %s" % (im.size, want))
+    ico = Image.open(ROOT / "favicon.ico")
+    if not any(w % 48 == 0 and w == h for w, h in ico.info.get("sizes", {ico.size})): e("/favicon.ico", "no square size that is a multiple of 48: %s" % sorted(ico.info.get("sizes", {ico.size})))
+except ImportError:
+    warns.append("PIL missing: favicon dimensions not checked")
+
 # sitemap
 sm = (ROOT / "sitemap.xml").read_text()
 locs = re.findall(r"<loc>([^<]+)</loc><lastmod>(\d{4}-\d{2}-\d{2})</lastmod>", sm)
