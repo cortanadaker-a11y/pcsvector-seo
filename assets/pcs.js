@@ -428,11 +428,6 @@
     ot.href = P.onetapUrl(snap, $('ot_first_name').value, $('ot_email').value); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
     $('referral_submit_btn').disabled = !ready;
     $('pcs-ref-caption').textContent = ready ? 'Free \u00b7 no obligation' : 'Pick a New post above first';
-    var bar = $('pcs-sticky-ref-bar');
-    if (!dest) { bar.hidden = true; document.documentElement.classList.remove('pcs-has-sticky-ref'); return; }
-    bar.hidden = false; document.documentElement.classList.add('pcs-has-sticky-ref');
-    var line = $('pcs-sticky-ref-line');
-    line.title = dest; line.textContent = P.shortDest(dest) + ' \u00b7 ' + (c.rank || '\u2014') + ' \u00b7 ' + (c.dependents_short || '\u2014');
   }
   function openGate(focus) {
     gateOpen = true; $('pcs-match-panel').classList.add('pcs-ref-open');
@@ -471,14 +466,6 @@
     scrim.addEventListener('click', function () { set(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sb.classList.contains('open')) set(false); });
   }
-  function setupSticky() {
-    var bar = $('pcs-sticky-ref-bar'), target = $('pcs-match-panel');
-    $('pcs-sticky-ref-go').addEventListener('click', function (e) { e.preventDefault(); if (!gateOpen) openGate(false); scrollToReferral(); });
-    if (!('IntersectionObserver' in window)) return;
-    new IntersectionObserver(function (es) {
-      var en = es[0]; bar.classList.toggle('pcs-sticky-ref-hidden', !!(en && en.isIntersecting && en.intersectionRatio > 0.15));
-    }, { threshold: [0, 0.15, 0.35, 0.6, 1], rootMargin: '0px 0px -80px 0px' }).observe(target);
-  }
 
   function init(data) {
     D = data;
@@ -501,7 +488,7 @@
   }
 
   readQuery();
-  setupHelp(); setupSidebar(); setupSticky();
+  setupHelp(); setupSidebar();
   (function () {
     var f = $('ot_first_name'), e = $('ot_email'), h = $('ot_hint');
     try { f.value = localStorage.getItem('pcs_ot_first') || ''; e.value = localStorage.getItem('pcs_ot_email') || ''; } catch (x) {}
