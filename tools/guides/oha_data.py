@@ -40,7 +40,7 @@ OHA_GUIDES = {
    ]),
    ("Order of operations", [
      ("Report to the Housing Office, Building 671, within 2 working days of arriving in Japan. Family housing applications use DD Form 1746 plus your orders and DA 31 or DA 137-2; no advance applications are accepted.", ["zama_move"]),
-     ("Do not secure off-base housing before you arrive: the garrison says all off-post housing must be approved by the Housing Office to meet DoD suitability standards.", ["zama_move","zama_mi"]),
+     ("Do not secure off-base housing before you arrive: the garrison says all off-post housing must be approved by the Housing Office to meet DoW suitability standards.", ["zama_move","zama_mi"]),
      ("The FAQ lists a typical wait for family housing of 30 to 60 days (subject to change) and says lodging is available meanwhile, but the garrison says an extension of a hotel stay because of a delayed housing assignment will not be authorized.", ["zama_faq","zama_move"]),
      ("If you are approved to live off post you receive OHA instead of BAH, and the dollar amount varies with the yen rate.", ["zama_faq"]),
    ]),

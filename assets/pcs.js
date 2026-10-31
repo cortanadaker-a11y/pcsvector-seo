@@ -1,7 +1,7 @@
 /*! PCS Vector static app (pcsvector.com). Port of the original app (pcs-vector main):
     components/bah_calculator.py + services/housing_allowances.py + views/home.py (agent referral) + faq.
     Data in /assets/calc-data.json is exported from the Python services at build time (Python = source of truth).
-    UNOFFICIAL / PERSONAL. Not affiliated with the U.S. Army, DoD or DTMO. */
+    UNOFFICIAL / PERSONAL. Not affiliated with the U.S. Army, DoW or DTMO. */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) module.exports = factory();
   else root.PCS = factory();
