@@ -28,5 +28,5 @@ Housing-office pages change; re-read before bumping `AS_OF`. OHA tables on `/oha
 - MIHA on the OHA pages: DTMO returned the same MIHA with and without dependents for all 11 areas (16 Oct 2026 pay period, read 28 Oct 2026). On each refresh re-read both cases; `check_site.py` fails on a dash cell in a MIHA row.
 
 ## Brand and site name
-- Tagline, exactly: `For Soldiers; By Soldiers`. It is in every footer and in the homepage copy. Keep the not-official disclaimer and "Military-approved" wording. `build_guides.py` (`build_brand`) writes both.
+- Tagline, exactly: `For Soldiers; By Soldiers`. It is in every footer and in the homepage copy. Keep the not-official disclaimer. Do not use approval or endorsement wording for agents; use "vetted, military-experienced agents". `build_guides.py` (`build_brand`) writes both.
 - The homepage JSON-LD has one `WebSite` node (name `PCS Vector`, url, alternateName) for Google's site-name feature; every page has `og:site_name` = `PCS Vector`. Google may take days to weeks to recrawl; request indexing of `https://pcsvector.com/` in Search Console.

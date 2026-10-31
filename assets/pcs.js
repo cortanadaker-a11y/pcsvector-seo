@@ -423,7 +423,7 @@
   function renderReferral() {
     var c = P.calcFields(snap || {}), dest = c.destination, ready = !!dest;
     var bit = dest ? P.shortDest(dest, 22) : '';
-    $('pcs-way-kicker').innerHTML = P.safeHtml(bit ? 'Military-approved agents \u00b7 ' + bit : 'Military-approved local agents \u00b7 worldwide');
+    $('pcs-way-kicker').innerHTML = P.safeHtml(bit ? 'Vetted, military-experienced agents \u00b7 ' + bit : 'Vetted, military-experienced local agents \u00b7 worldwide');
     var ot = $('referral_open_btn'), sel = P.onetapLabel(snap);
     ot.href = P.onetapUrl(snap, $('ot_first_name').value, $('ot_email').value); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
     $('referral_submit_btn').disabled = !ready;
