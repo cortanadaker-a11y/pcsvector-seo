@@ -51,6 +51,7 @@ GUIDE_LINKS = [  # (url, label)
     ("/guides/pcs-cost-checklist/", "PCS cost checklist"),
     ("/guides/break-a-lease-for-pcs-orders/", "Break a lease for PCS orders"),
     ("/guides/bah-2027-pcs/", "BAH 2027 and your PCS"),
+    ("/guides/bah-with-vs-without-dependents/", "BAH with vs without dependents"),
     ("/guides/how-oha-works-overseas-pcs/", "How OHA works overseas"),
 ]
 OHA_LINKS = [("/oha/korea/", "South Korea OHA"), ("/oha/japan/", "Japan OHA"), ("/oha/okinawa/", "Okinawa OHA"), ("/oha/germany/", "Germany OHA")]

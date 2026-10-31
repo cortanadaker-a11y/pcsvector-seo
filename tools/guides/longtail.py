@@ -240,11 +240,49 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         "No 2027 BAH rates exist yet. What DTMO and last year’s release tell us, how rate protection works at a PCS, and how 2026 moved at eight posts.",
         "BAH 2027 and your PCS: what we know", "PCS Vector · guide", body, CR + [("BAH 2027 and your PCS", "/guides/bah-2027-pcs/")], faq4)
 
+    # ---- 4b. BAH with vs without dependents
+    def _rate(h, grade):
+        m = re.search(r"<tr><td>%s</td><td>[^<]*</td><td>\$([\d,]+)</td><td>\$([\d,]+)</td></tr>" % re.escape(grade), h)
+        return (int(m.group(1).replace(",", "")), int(m.group(2).replace(",", ""))) if m else None
+    gap = []
+    for slug in NAMES:
+        h = read("bah/%s/index.html" % slug)
+        r = [_rate(h, g) for g in ("E-4", "E-5", "E-6", "O-3")]
+        if all(r): gap.append((slug, NAMES[slug].split(" (")[0], r))
+    gap.sort(key=lambda x: -(x[2][1][0] - x[2][1][1]))
+    fm = lambda n: "${:,}".format(n)
+    gap_tbl = '<div class="tw"><table><thead><tr><th scope="col">Post</th><th scope="col">E-4 gap</th><th scope="col">E-5 with / without</th><th scope="col">E-5 gap</th><th scope="col">E-6 gap</th><th scope="col">O-3 gap</th></tr></thead><tbody>%s</tbody></table></div>' % "".join(
+        '<tr><td><a href="/bah/%s/">%s</a></td><td>%s</td><td>%s / %s</td><td>%s</td><td>%s</td><td>%s</td></tr>' % (s, E(n), fm(r[0][0]-r[0][1]), fm(r[1][0]), fm(r[1][1]), fm(r[1][0]-r[1][1]), fm(r[2][0]-r[2][1]), fm(r[3][0]-r[3][1])) for s, n, r in gap)
+    e5 = [r[1][0]-r[1][1] for _, _, r in gap]
+    dep_rules = [
+     ("BAH distinguishes between with-dependents and without-dependents, not the number of dependents. One child and four children get the same with-dependents rate.", ["dtmo_bah"]),
+     ("Rate protection ends if your dependency status changes, the same as for a PCS or a reduction in grade, so a marriage, divorce or first child resets which rate you are protected at.", ["dtmo_bah"]),
+     ("DTMO says out-of-pocket housing costs can be higher or lower than the rate depending on the home you choose; BAH is a planning number, not a promise that rent is covered.", ["dtmo_bah"]),
+    ]
+    faq4b = [
+     ("Does BAH go up with each child?", "No. DTMO pays one with-dependents rate whether you have one dependent or several; the only split is with versus without dependents."),
+     ("How big is the with-dependents gap for an E-5?", "Across the %d BAH posts on this site, a Sergeant (E-5) with dependents gets between %s and %s a month more than without, using DTMO's 2026 rates." % (len(e5), fm(min(e5)), fm(max(e5)))),
+     ("Does getting married change my BAH at the same post?", "Yes. A change in dependency status moves you to the with-dependents rate for that post and ends the rate protection tied to your old status. Report the change to finance with the required documents."),
+    ]
+    body = ('<p>The difference between BAH with and without dependents is not a fixed amount. It depends on the post and the pay grade, and at some posts it is several hundred dollars a month. This guide uses the 2026 DTMO rates already on our BAH pages to show the gap at each post, sorted by the E-5 gap.</p>'
+        + cta("bah-dependents", "See your own with/without numbers in the calculator")
+        + "<h2>The rules that set the gap</h2><ul class=\"feat\">%s</ul>" % li(GD, dep_rules)
+        + "<h2>2026 BAH with vs without dependents at %d posts</h2><p>Gap = with-dependents rate minus without-dependents rate, per month. Sorted by the E-5 gap, largest first.</p>" % len(gap)
+        + gap_tbl
+        + '<p class="note">Source for the table: DTMO 2026 BAH rates as shown on each linked post page (each page lists its DTMO housing area, file and check date). Every pay grade is on the post page.</p>'
+        + faq_html(faq4b)
+        + src_list(GD, ["dtmo_bah"]))
+    P["guides/bah-with-vs-without-dependents/index.html"] = shell(read, "bah-with-vs-without-dependents",
+        "BAH With vs Without Dependents (2026): The Gap at 27 Army Posts | PCS Vector",
+        "How much more BAH you get with dependents in 2026, post by post for E-4, E-5, E-6 and O-3, from DTMO rates. One rate for any number of dependents.",
+        "BAH with vs without dependents (2026)", "PCS Vector · guide", body, CR + [("BAH with vs without dependents", "/guides/bah-with-vs-without-dependents/")], faq4b)
+
     # ---- 5. Hub
     hub_items = [
      ("/guides/pcs-cost-checklist/", "PCS cost checklist", "What DLA and TLE reimburse, which deposits and fees you front, and where rate protection starts over."),
      ("/guides/break-a-lease-for-pcs-orders/", "Breaking a lease for PCS orders", "The SCRA notice rule, the 30-day timing and what installation housing offices add."),
      ("/guides/bah-2027-pcs/", "BAH 2027 and your PCS", "What is known before DTMO publishes 2027 rates, and how 2026 moved at eight posts."),
+     ("/guides/bah-with-vs-without-dependents/", "BAH with vs without dependents", "The 2026 gap at 27 posts for E-4, E-5, E-6 and O-3, and why the number of dependents does not matter."),
      ("/guides/how-oha-works-overseas-pcs/", "How OHA works for an overseas PCS", "Rent ceiling, utility allowance, MIHA and why the dollar amount moves with exchange rates."),
     ]
     inst = ["fort-hood","fort-campbell","fort-sill","fort-drum","fort-riley","fort-bragg","fort-bliss","joint-base-san-antonio","national-capital-region"]
