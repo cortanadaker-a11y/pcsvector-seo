@@ -1,7 +1,7 @@
 {
  "/": {
-  "lastmod": "2026-10-31",
-  "sha256": "7d638806ede8ed698d7efcf167850b3dbd25f03db42d21fa2b315683e206c5c9"
+  "lastmod": "2026-11-03",
+  "sha256": "9dd37e14bd50135718530ff20930c5017911212b4dcc4a1ce154e8fa9e471110"
  },
  "/bah/": {
   "lastmod": "2026-10-31",
@@ -133,7 +133,7 @@
  },
  "/guides/how-oha-works-overseas-pcs/": {
   "lastmod": "2026-11-02",
-  "sha256": "3cbaaffa50787b0158229764d646319423d532d1a819a3066736eedc38466cec"
+  "sha256": "ffcee7db90780ce616f84c2eb5c1dd576962aaf572d94514a6db4e0de07819b2"
  },
  "/guides/pcs-cost-checklist/": {
   "lastmod": "2026-10-28",

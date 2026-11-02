@@ -4,7 +4,8 @@ Numbers on these pages come from (a) the cited official pages or (b) pages/data 
 import html, json, re
 
 SITE = "https://pcsvector.com"
-TODAY = "2026-10-28"
+TODAY = "@@PCSV_TODAY@@"            # resolved by build_guides.write(): kept if the page is otherwise unchanged
+TODAY_HUMAN = "@@PCSV_TODAY_HUMAN@@"
 E = lambda s, q=False: html.escape(s, quote=q)
 
 def _style(read):
@@ -32,8 +33,8 @@ def shell(read, slug, title, desc, h1, kick, body, crumbs, faq=None):
         '<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="%(ot)s">\n<meta name="twitter:description" content="%(d)s">\n<meta name="twitter:image" content="%(og)s">\n'
         '%(style)s\n%(ld)s<script data-goatcounter="https://pcsvector.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>\n'
         '</head><body><main>\n<nav class="crumb">%(crumb)s</nav>\n<div class="kick">%(kick)s</div>\n<h1>%(h1)s</h1>\n%(body)s\n'
-        '<p class="src">For Soldiers; By Soldiers. PCS Vector is an independent planning tool. It is not an official government site (not DoW, DTMO or any military service). Confirm your entitlements with your finance office. Page updated 28 Oct 2026.</p>\n</main></body></html>\n') % dict(
-        t=E(title), ot=E(title.replace(" | PCS Vector", ""), True), d=E(desc, True), u=url, og=og, style=_style(read), ld=ldh, crumb=crumb_html, kick=E(kick), h1=E(h1), body=body)
+        '<p class="src">For Soldiers; By Soldiers. PCS Vector is an independent planning tool. It is not an official government site (not DoW, DTMO or any military service). Confirm your entitlements with your finance office. Page updated %(upd)s.</p>\n</main></body></html>\n') % dict(
+        t=E(title), ot=E(title.replace(" | PCS Vector", ""), True), d=E(desc, True), u=url, og=og, style=_style(read), ld=ldh, crumb=crumb_html, kick=E(kick), h1=E(h1), body=body, upd=TODAY_HUMAN)
 
 def cite(GD, keys):
     out = []
@@ -76,10 +77,14 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
     m = re.search(r"rent ceiling of \$([\d,\.]+) \(₩([\d,]+)\) for a Sergeant \(E-5\) with dependents", ko)
     usd, krw = float(m.group(1).replace(",", "")), int(m.group(2).replace(",", ""))
     rate = float(re.search(r"1 USD = ([\d,\.]+) KRW", ko).group(1).replace(",", ""))
-    assert abs(krw / rate - usd) < 0.05, (krw, rate, usd)
-    rows = [(1250.0, "stronger won (hypothetical)"), (rate, "rate DTMO used for 1 Nov 2026"), (1350.0, "weaker won (hypothetical)")]
+    # The page shows DTMO's rate rounded to 2 dp; DTMO converted with the unrounded rate.  Use the rate implied by
+    # DTMO's own dollar figure so the table row equals the figure quoted in the prose (no 1-cent drift).
+    implied = krw / usd
+    assert abs(implied - rate) < 0.01, (krw, rate, usd, implied)
+    assert "{:,.2f}".format(krw / implied) == "{:,.2f}".format(usd)
+    rows = [(1250.0, 1250.0, "stronger won (hypothetical)"), (rate, implied, "rate DTMO used for 1 Nov 2026"), (1350.0, 1350.0, "weaker won (hypothetical)")]
     tbl = '<div class="tw"><table><thead><tr><th>Exchange rate (KRW per USD)</th><th>What it represents</th><th>Rent ceiling in USD</th></tr></thead><tbody>%s</tbody></table></div>' % "".join(
-        "<tr><td>%s</td><td>%s</td><td>$%s</td></tr>" % ("{:,.2f}".format(r), E(w), "{:,.2f}".format(krw / r)) for r, w in rows)
+        "<tr><td>%s</td><td>%s</td><td>$%s</td></tr>" % ("{:,.2f}".format(shown), E(w), "{:,.2f}".format(krw / r)) for shown, r, w in rows)
     oha_items = {
      "parts": [("OHA is a cost-reimbursement allowance for members assigned to permanent duty overseas who lease privately owned housing. It has three components: rent, utilities/recurring maintenance, and a move-in housing allowance (MIHA).", ["dtmo_oha"])],
      "rent": [("Rental allowances are computed from actual rent payments reported through local finance systems. The maximum is set so that 80 percent of members with dependents have their rent fully reimbursed, so some members pay part of the rent themselves.", ["dtmo_oha"]),

@@ -24,7 +24,7 @@
   }
   function intTrunc(x) { return x < 0 ? Math.ceil(x) : Math.floor(x); }
   function commas(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
-  function money(n) { if (n === null || n === undefined) return '\u2014'; return (n < 0 ? '-' : '') + '$' + commas(Math.abs(n)); }
+  function money(n) { if (n === null || n === undefined) return '\u2014'; var a = Math.round(Math.abs(n) * 100) / 100; /* OHA is in cents (DTMO conversion) */ return (n < 0 ? '-' : '') + '$' + commas(a % 1 ? a.toFixed(2) : a); }
   /* components/html_utils.safe_html: html.escape(quote=False) + $ -> &#36; */
   function safeHtml(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\$/g, '&#36;'); }
   function escAttr(t) { return String(t).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -511,7 +511,7 @@
   window.addEventListener('hashchange', function () { if (D && /^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); } });
   var boot = window.__PCS_DATA__;
   if (boot) init(boot);
-  else fetch('/assets/calc-data.json?v=77b5ebb604').then(function (r) { return r.json(); }).then(init).catch(function () {
+  else fetch('/assets/calc-data.json?v=513ca370c6').then(function (r) { return r.json(); }).then(init).catch(function () {
     $('pcs-results').insertAdjacentHTML('afterbegin', '<div class="pcs-alert pcs-alert-warn">Could not load 2026 rate data. Refresh the page to try again.</div>');
   });
 })();
