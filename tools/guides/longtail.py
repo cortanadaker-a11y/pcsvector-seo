@@ -77,7 +77,7 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
     usd, krw = float(m.group(1).replace(",", "")), int(m.group(2).replace(",", ""))
     rate = float(re.search(r"1 USD = ([\d,\.]+) KRW", ko).group(1).replace(",", ""))
     assert abs(krw / rate - usd) < 0.05, (krw, rate, usd)
-    rows = [(1250.0, "stronger won (hypothetical)"), (rate, "rate DTMO used for 16 Oct 2026"), (1350.0, "weaker won (hypothetical)")]
+    rows = [(1250.0, "stronger won (hypothetical)"), (rate, "rate DTMO used for 1 Nov 2026"), (1350.0, "weaker won (hypothetical)")]
     tbl = '<div class="tw"><table><thead><tr><th>Exchange rate (KRW per USD)</th><th>What it represents</th><th>Rent ceiling in USD</th></tr></thead><tbody>%s</tbody></table></div>' % "".join(
         "<tr><td>%s</td><td>%s</td><td>$%s</td></tr>" % ("{:,.2f}".format(r), E(w), "{:,.2f}".format(krw / r)) for r, w in rows)
     oha_items = {
@@ -107,7 +107,7 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         + "<h2>Utilities and recurring maintenance</h2><ul class=\"feat\">%s</ul>" % li(GD, oha_items["util"])
         + "<h2>Move-in housing allowance (MIHA)</h2><ul class=\"feat\">%s</ul>" % li(GD, oha_items["miha"])
         + "<h2>Why the dollar amount moves: a worked example</h2>"
-        + "<p>The Camp Humphreys rent ceiling for a Sergeant (E-5) with dependents is ₩%s on our Korea page, which DTMO converted to $%s at %s KRW per dollar for the pay period starting 16 Oct 2026. The table below is simple division on that same won ceiling. The other two rates are made-up illustrations of what a different exchange rate would do, not forecasts.%s</p>" % ("{:,}".format(krw), "{:,.2f}".format(usd), "{:,.2f}".format(rate), cite(GD, ["dtmo_oha"]))
+        + "<p>The Camp Humphreys rent ceiling for a Sergeant (E-5) with dependents is ₩%s on our Korea page, which DTMO converted to $%s at %s KRW per dollar for the pay period starting 1 Nov 2026. The table below is simple division on that same won ceiling. The other two rates are made-up illustrations of what a different exchange rate would do, not forecasts.%s</p>" % ("{:,}".format(krw), "{:,.2f}".format(usd), "{:,.2f}".format(rate), cite(GD, ["dtmo_oha"]))
         + tbl
         + "<p class=\"note\">If your actual rent is at or above the ceiling, your dollar reimbursement moves with the rate. If your rent is below the ceiling you are reimbursed your actual rent, converted at the rate finance uses.</p>"
         + "<h2>Applying for OHA</h2><ul class=\"feat\">%s</ul>" % li(GD, oha_items["apply"])

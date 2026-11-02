@@ -1,7 +1,7 @@
 {
  "/": {
-  "lastmod": "2026-11-03",
-  "sha256": "a2e348fed25fbd1476923c4f9bfbdb9f01cb4e09f1854141ca3385659bedbfe5"
+  "lastmod": "2026-10-31",
+  "sha256": "7d638806ede8ed698d7efcf167850b3dbd25f03db42d21fa2b315683e206c5c9"
  },
  "/bah/": {
   "lastmod": "2026-10-31",
@@ -132,31 +132,31 @@
   "sha256": "81e9a9e9d801b1ee41f662961f7c939a8290ece6a5372d92796bfd761d5dbff5"
  },
  "/guides/how-oha-works-overseas-pcs/": {
-  "lastmod": "2026-10-28",
-  "sha256": "d59b480e0a69e3f4f9a941176118c503083e4a6274a04550661527719f5f4ae3"
+  "lastmod": "2026-11-02",
+  "sha256": "3cbaaffa50787b0158229764d646319423d532d1a819a3066736eedc38466cec"
  },
  "/guides/pcs-cost-checklist/": {
   "lastmod": "2026-10-28",
   "sha256": "ec85906dd8f9aca9cd98cbcd5cc9a4be5695a1f96be7614d73c6f81d882efede"
  },
  "/oha/": {
-  "lastmod": "2026-10-31",
-  "sha256": "757780eaa7430e396df5194e1c50728d9ba34d721e3e9b9df052e9ae1188d986"
+  "lastmod": "2026-11-02",
+  "sha256": "c414d2609acc18a42d94ce63ac65cd6d81b35a03135678427d4b226b708b1b8a"
  },
  "/oha/germany/": {
-  "lastmod": "2026-10-31",
-  "sha256": "0711e706b976838a9fdd96ff9aac85634e9f100da427a7e207089ee80b56d45a"
+  "lastmod": "2026-11-02",
+  "sha256": "87e6990b9d09c8a20bbdddb21ae8a0f12879d6c8e47cec49dd6b0a00dece5e77"
  },
  "/oha/japan/": {
-  "lastmod": "2026-11-03",
-  "sha256": "de1ac7eee529ee19f9f2a3168b4bffd5cd3207078b2541a15940698c790fbf20"
+  "lastmod": "2026-11-02",
+  "sha256": "b6c75142947b47f6a0a58403429804a8662b1e130191fdc79db5d54c3f24d89d"
  },
  "/oha/korea/": {
-  "lastmod": "2026-10-31",
-  "sha256": "b725c1bf2345ccc7ab04e611d9bd2ab68b38b20787691283cdf64acff3c2c097"
+  "lastmod": "2026-11-02",
+  "sha256": "b38c48efa42cc21a871cc063872aa6425afdfdba758704c949d0c651f8616f31"
  },
  "/oha/okinawa/": {
-  "lastmod": "2026-10-31",
-  "sha256": "f42da26562e16983c10a424a3fe9ac955e19454ff0b7e5fcb7fd2e64522b8644"
+  "lastmod": "2026-11-02",
+  "sha256": "ec8da8e76cef12b6336e137cce3d8dfc85bc98530874d6ea229fc0bc4bd1aa93"
  }
 }
