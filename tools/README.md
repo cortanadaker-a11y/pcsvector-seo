@@ -3,13 +3,16 @@
 | Script | What it does |
 |---|---|
 | `build_guides.py` | Idempotent post-processor. Adds PCS-guide sections, FAQ entries, "More for your move" blocks, the homepage "Browse by fort" section, `/guides/*` pages, 404 links, and `scope="col"` on table headers. Re-running replaces the blocks between `<!--pcsv:NAME-->` markers. |
+| `calc_oha.py` | Copies the OHA rent/utility dollars from the `/oha/*` page tables into `assets/calc-data.json` (Italy, which has no page, is converted at the Germany page's EUR rate with the same rule), then refreshes the `?v=` cache-busting hashes. Run after every OHA refresh; `--check` for CI. |
 | `sitemap.py` | Rebuilds `sitemap.xml`. `lastmod` = date the page's content hash last changed (ledger in `lastmod.json`, no git history needed). Also run by the weekly gas-refresh workflow. `--check` for CI. |
 | `dup_check.py` | Duplicate-content metric (6-word shingles, numbers removed) for the BAH pages: `dup_check.py BASE_DIR HEAD_DIR`, or `--guide-section DIR` for the guide block only. |
 | `check_site.py` | Local audit: self-canonical on `https://pcsvector.com`, one h1, GoatCounter once, OG/Twitter tags, JSON-LD parses (+ breadcrumbs), alt text, internal links + `#fragments`, sitemap coverage, homepage links to every BAH/OHA/guide page, `og:site_name` = PCS Vector, the tagline on every page, one WebSite JSON-LD node on the homepage, favicon link set and icon sizes, and no legacy app-host name (the retired app's host) anywhere in the published tree. `--external` also GETs external links. |
 
 ```
-python3 tools/build_guides.py && python3 tools/sitemap.py && python3 tools/check_site.py
+python3 tools/build_guides.py && python3 tools/calc_oha.py && python3 tools/sitemap.py && python3 tools/check_site.py
 ```
+
+`build_guides.py` stamps `dateModified` / "Page updated" with `--today=YYYY-MM-DD` (or `$PCSV_TODAY`, else today's date), but only on pages whose content actually changed; re-running with nothing new changes nothing. After the commands, `python3 tools/sitemap.py --check` and `python3 tools/calc_oha.py --check` must both exit 0.
 
 ## Adding a per-installation guide (the template)
 1. Read the installation's **official** housing/newcomers pages (garrison page on home.army.mil or Military OneSource "MilitaryINSTALLATIONS").
@@ -19,13 +22,13 @@ python3 tools/build_guides.py && python3 tools/sitemap.py && python3 tools/check
 5. Set `AS_OF` to the date you read the sources, run the three commands above, open a PR.
 Pages currently done: all 27 BAH pages (9 in `guide_data.py`, 18 in `guide_data_batch2.py`); OHA: Korea, Japan, Germany, Okinawa. Batch 2 sources are Military OneSource (MilitaryINSTALLATIONS) housing, temporary housing and check-in pages read on 28 Oct 2026. The JBER and Schofield pages live under `joint-base-elmendorf-richardson-jber` and `schofield-barracks-fort-shafter` there.
 
-Housing-office pages change; re-read before bumping `AS_OF`. OHA tables on `/oha/*` are refreshed by hand from DTMO each pay period (1st and 16th).
+Housing-office pages change; re-read before bumping `AS_OF`. OHA tables on `/oha/*` are refreshed by hand from DTMO each pay period (1st and 16th); current: pay period 1 Nov 2026 (KRW 1,273.34, JPY 153.04, EUR 0.8777 per USD). Then run `calc_oha.py` so the calculator matches.
 
 ## Rules the builder enforces
 - `check_site.py` fails if an FAQPage JSON-LD question is not visible on the page; `build_guides.py` prunes hidden ones.
 - `dateModified` and sitemap `lastmod` move only for pages with substantive content changes. For cosmetic-only changes (nav links) run `python3 tools/sitemap.py --keep-date=YYYY-MM-DD:/url/,/url2/` once.
 - OHA pages carry an "As of <pay period>; OHA updates the 1st and 16th" note (`<!--pcsv:asof-->`). Spot-check at least E-5 with dependents per area against DTMO's OHA lookup before changing the date.
-- MIHA on the OHA pages: DTMO returned the same MIHA with and without dependents for all 11 areas (16 Oct 2026 pay period, read 28 Oct 2026). On each refresh re-read both cases; `check_site.py` fails on a dash cell in a MIHA row.
+- MIHA on the OHA pages: DTMO returned the same MIHA with and without dependents for all 11 areas (1 Nov 2026 pay period, read 2 Nov 2026; previously 16 Oct 2026 pay period, read 28 Oct 2026). On each refresh re-read both cases; `check_site.py` fails on a dash cell in a MIHA row.
 
 ## Brand and site name
 - Tagline, exactly: `For Soldiers; By Soldiers`. It is in every footer and in the homepage copy. Keep the not-official disclaimer. Do not use approval or endorsement wording for agents; use "vetted, military-experienced agents". `build_guides.py` (`build_brand`) writes both.

@@ -22,7 +22,12 @@ import guide_data as GD          # noqa: E402
 import oha_data as OD            # noqa: E402
 import longtail as LT            # noqa: E402
 
-TODAY = "2026-10-28"
+import datetime, os
+# Build date for dateModified / "Page updated": --today=YYYY-MM-DD, else $PCSV_TODAY, else today's date.
+# A page only takes it when its content (ignoring those date stamps) actually changed, so re-running the
+# build on another day with nothing new changes nothing (see write()).
+TODAY = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--today=")), None) or os.environ.get("PCSV_TODAY") or datetime.date.today().isoformat()
+datetime.date.fromisoformat(TODAY)
 def E(s, quote=False):
     return html.escape(s, quote=quote)
 
@@ -60,7 +65,31 @@ CALC = "/?utm_source=%s&amp;utm_medium=organic&amp;utm_campaign=%s"
 def money(n): return "${:,}".format(n)
 
 def read(p): return (ROOT / p).read_text(encoding="utf-8")
-def write(p, s): (ROOT / p).write_text(s, encoding="utf-8")
+DATE_MARK, HUMAN_MARK = "@@PCSV_TODAY@@", "@@PCSV_TODAY_HUMAN@@"
+_DM = re.compile(r'("dateModified": ")([0-9-]+|%s)(")' % DATE_MARK)
+_PU = re.compile(r"(Page updated )(\d{1,2} [A-Z][a-z]{2} \d{4}|%s)(\.)" % HUMAN_MARK)
+
+def human(iso):
+    d = datetime.date.fromisoformat(iso)
+    return "%d %s %d" % (d.day, d.strftime("%b"), d.year)
+
+_ORIG = {}   # page -> its text before this build, for pages carrying date marks
+
+def write(p, s):
+    if (DATE_MARK in s or HUMAN_MARK in s) and p not in _ORIG:
+        f = ROOT / p
+        _ORIG[p] = f.read_text(encoding="utf-8") if f.exists() else ""
+    (ROOT / p).write_text(s, encoding="utf-8")
+
+def resolve_dates():
+    """Run last (after a11y/brand/prune passes): keep a page's existing dates if nothing but the date
+    stamps differs from before the build; otherwise stamp TODAY.  Makes the build idempotent across days."""
+    norm = lambda h: _PU.sub(r"\1#\3", _DM.sub(r"\1#\3", h))
+    for p, old in _ORIG.items():
+        f = ROOT / p
+        s = f.read_text(encoding="utf-8")
+        s = old if old and norm(old) == norm(s) else s.replace(DATE_MARK, TODAY).replace(HUMAN_MARK, human(TODAY))
+        f.write_text(s, encoding="utf-8")
 
 def strip(h, name):
     return re.sub(r"\n?<!--pcsv:%s-->.*?<!--/pcsv:%s-->\n?" % (name, name), "\n", h, flags=re.S)
@@ -211,7 +240,7 @@ def fix_th(h):
     return re.sub(r"<thead>.*?</thead>", thead, h, flags=re.S)
 
 def touch_modified(h):
-    return re.sub(r'("dateModified": ")[0-9-]+(")', r"\g<1>%s\2" % TODAY, h)
+    return re.sub(r'("dateModified": ")[0-9-]+(")', r"\g<1>%s\2" % DATE_MARK, h)
 
 def build_bah():
     all_data = {s: parse_bah(s) for s in NAMES}
@@ -246,15 +275,15 @@ def oha_block(key):
     return "\n".join(parts)
 
 _DTMO_LOOKUP = "<a href=\"https://www.travel.dod.mil/Allowances/Overseas-Housing-Allowance/OHA-Rate-Lookup/\">DTMO OHA Rate Lookup</a>"
-_ASOF_HEAD = ("<p class=\"note\" id=\"oha-asof\"><strong>As of 16 Oct 2026; OHA updates 1 Nov.</strong> DTMO changes OHA on the 1st and 16th of each month, so the next change is 1 Nov 2026 and these figures may be out of date after that. ")
-ASOF_NOTE_CHECKED = (_ASOF_HEAD + "Spot-checked against DTMO\u2019s OHA lookup on 28 Oct 2026 (pay period 16 Oct 2026): E-5 with dependents and O-3 without dependents for every area on this page, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
-ASOF_NOTE_OKINAWA = (_ASOF_HEAD + "Spot-checked against DTMO\u2019s OHA lookup on 28 Oct 2026 (pay period 16 Oct 2026, Okinawa JP027): E-5 with dependents and O-3 without dependents, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
+_ASOF_HEAD = ("<p class=\"note\" id=\"oha-asof\"><strong>As of 1 Nov 2026; OHA updates 16 Nov.</strong> DTMO changes OHA on the 1st and 16th of each month, so the next change is 16 Nov 2026 and these figures may be out of date after that. ")
+ASOF_NOTE_CHECKED = (_ASOF_HEAD + "Checked against DTMO\u2019s OHA lookup on 2 Nov 2026 (pay period 1 Nov 2026): every pay grade shown, with and without dependents, for every area on this page, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
+ASOF_NOTE_OKINAWA = (_ASOF_HEAD + "Checked against DTMO\u2019s OHA lookup on 2 Nov 2026 (pay period 1 Nov 2026, Okinawa JP027): every pay grade shown, with and without dependents, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
 
-# MIHA: DTMO's report (pay period 16 Oct 2026, read 28 Oct 2026) returned the same MIHA for with- and without-dependents
-# for all 11 localities on the four OHA pages (O-3 without dependents for every locality; E-5 without dependents also at KR025).
-DTMO_MIHA = {"$298.57 \u20a9386,676", "$432.14 \u00a565,477", "$787.91 \u20ac665"}
+# MIHA: DTMO's report (pay period 1 Nov 2026, read 2 Nov 2026) returned the same MIHA for with- and without-dependents
+# for every pay grade at all 11 localities on the four OHA pages (refresh 2 Nov 2026; previously pay period 16 Oct 2026).
+DTMO_MIHA = {"$303.67 \u20a9386,676", "$427.85 \u00a565,477", "$757.66 \u20ac665"}
 MIHA_OLD = ("The MIHA figure is what DTMO\u2019s calculator shows for a member with dependents; DTMO did not return a MIHA figure for the without-dependents query, so check with your housing office.")
-MIHA_NEW = ("The MIHA figure is what DTMO\u2019s OHA report returned for the 16 Oct 2026 pay period (E-5 with dependents; O-3 without dependents returned the same amount, so it is shown in both columns). Confirm your own amount with your housing office.")
+MIHA_NEW = ("The MIHA figure is what DTMO\u2019s OHA report returned for the 1 Nov 2026 pay period (every pay grade returned the same amount with and without dependents, so it is shown in both columns). Confirm your own amount with your housing office.")
 
 def fix_miha(h):
     def row(m):
@@ -405,5 +434,5 @@ def build_a11y():
         if n != h: p.write_text(n, encoding="utf-8")
 
 if __name__ == "__main__":
-    build_bah(); build_oha(); build_home(); build_longtail(); build_404(); build_a11y(); build_brand(); prune_all()
+    build_bah(); build_oha(); build_home(); build_longtail(); build_404(); build_a11y(); build_brand(); prune_all(); resolve_dates()
     print("built guides, related blocks, OHA blocks, homepage browse section, long-tail pages")
