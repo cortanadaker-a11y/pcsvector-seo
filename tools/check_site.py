@@ -95,13 +95,14 @@ for u, (rel, s) in pages.items():
         t2 = tgt if (tgt.endswith("/") or "." in tgt.split("/")[-1]) else tgt + "/"
         if t2 not in pages and not (ROOT / tgt.lstrip("/")).exists(): e(u, "broken internal link %s" % h); continue
         if frag and t2 in ids and frag not in ids[t2]: e(u, "missing fragment #%s on %s" % (frag, t2))
-# no leftover 'Streamlit' anywhere in the published tree (the old app name Google may still show as the site name)
+# no leftover legacy app-host name anywhere in the published tree (Google may still show it as the site name)
+LEGACY = "stream" + "lit"  # split so this repo itself contains no copy of the old host name
 for f in sorted(ROOT.rglob("*")):
     rel = f.relative_to(ROOT)
     if not f.is_file() or rel.parts[0] in (".git", "tools", "node_modules"): continue
     try: txt = f.read_text(encoding="utf-8")
     except Exception: continue
-    if "streamlit" in txt.lower(): e("/" + str(rel), "contains the string 'streamlit'")
+    if LEGACY in txt.lower(): e("/" + str(rel), "contains the legacy app-host name")
 # Google favicon rules: square, multiple of 48px, stable URL
 try:
     from PIL import Image
