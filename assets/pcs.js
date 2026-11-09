@@ -238,7 +238,7 @@
     ENTRIES.forEach(function (e) { q.push(e[1] + '=' + quotePlus(row[e[0]] || '')); });
     return FORM_VIEW + '?' + q.join('&');
   }
-  /* One-tap Find a home (21 Oct 2026, Zak OK): form prefilled from calculator only (rank, destination, dependents); plain form if nothing picked */
+  /* One-tap Find a home: the Google Form is prefilled from the calculator (rank, destination, dependents). Plain form if nothing is picked. */
   function onetapUrl(snap, first, email) {
     var c = calcFields(snap || {}), q = [];
     first = String(first || '').trim(); email = cleanEmail(email);
@@ -479,7 +479,7 @@
     var res = P.validate(snap, $('referral_first_name').value, $('referral_email_address').value);
     if (res.error) { msg.innerHTML = '<div class="pcs-alert pcs-alert-err" role="alert">' + P.safeHtml(res.error) + '</div>'; return; }
     try { sessionStorage.setItem('pcs_referral_lead', JSON.stringify(res.row)); } catch (e2) {}
-    gcEvent('lead-form-submit');
+    gcEvent('lead-form-continue');
     msg.innerHTML = '<div class="pcs-alert pcs-alert-ok" role="status">You\u2019re set \u2014 open your pre-filled form and tap <strong>Submit</strong>.</div>' +
       '<a class="pcs-btn pcs-form-btn" id="referral_form_link" href="' + P.escAttr(res.url) + '" target="_blank" rel="noopener">Open my pre-filled form \u2794</a>';
   }
@@ -524,7 +524,8 @@
     var cb = $('bah_calc_barracks'); cb.checked = S.bar; setBar(); S.bar = cb.checked;
     cb.addEventListener('change', function () { S.bar = cb.checked; render(true); });
     render(false);
-    if (deepLink && snap && snap.total_monthly_usd != null) { markStart(); markResult(snap); }
+    /* A prefilled link already has a result. That load is not a calculator start. */
+    if (deepLink && snap && snap.total_monthly_usd != null) markResult(snap);
     if (/^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); }
   }
 
@@ -543,14 +544,11 @@
       if (r.error) { ev.preventDefault(); hint(r.error); var bad = r.field === 'first' ? f : e; bad.setAttribute('aria-invalid', 'true'); bad.focus(); return; }
       try { localStorage.setItem('pcs_ot_first', r.first); localStorage.setItem('pcs_ot_email', r.email); } catch (x) {}
       this.href = P.onetapUrl(snap, r.first, r.email);
+      /* One event for the click-through. The Google Form is submitted later, on Google's page. */
+      gcEvent('lead-form-continue');
     });
     [f, e].forEach(function (el) { el.addEventListener('focus', markLeadOpen); });
   })();
-  $('referral_open_btn').addEventListener('click', function (ev) {
-    if (ev.defaultPrevented) return;
-    gcEvent('lead-form-submit');
-    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'click-find-home', event: true }); } catch (e) {}
-  });
   ['referral_first_name', 'referral_email_address'].forEach(function (id) {
     var el = $(id); if (el) el.addEventListener('focus', markLeadOpen);
   });

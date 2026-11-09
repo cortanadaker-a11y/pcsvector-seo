@@ -171,7 +171,7 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         + src_list(GD, used([reimb, upfront, saving, housing_pay, overseas])))
     P["guides/pcs-cost-checklist/index.html"] = shell(read, "pcs-cost-checklist",
         "PCS Cost Checklist: DLA, TLE, Deposits | PCS Vector",
-        "PCS cash checklist: DLA (80% advance if finance approves it), TLE for CONUS lodging, and deposits you pay before BAH. Cited to official sources.",
+        "PCS cash checklist: DLA (80% advance with the commander's approval), TLE for CONUS lodging, and deposits you pay before BAH. Cited to official sources.",
         "PCS cost checklist: what you pay up front and what comes back", "PCS Vector · guide", body, CR + [("PCS cost checklist", "/guides/pcs-cost-checklist/")], faq2)
 
     # ---- 3. Break a lease
@@ -299,15 +299,15 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
      ("Schofield Barracks: Military OneSource describes officer-housing waits up to the 60-day TLA limit.", ["schofield-barracks_mi"]),
     ]
     faq_tle = [
-     ("Is TLE the same thing as TLA?", "No. TLE is the Temporary Lodging Expense for temporary lodging inside the continental United States during a PCS. TLA is the Temporary Lodging Allowance used overseas, and the day limits published by housing offices are not the same at every post."),
+     ("Is TLE the same thing as TLA?", "No. TLE is the Temporary Lodging Expense for temporary lodging inside the continental United States during a PCS. TLA is the Temporary Lodging Allowance for OCONUS duty, outside the 48 contiguous states, including Alaska and Hawaii, and the day limits published by housing offices are not the same at every post."),
      ("Can I receive TLE and PCS per diem on the same day?", "No. Military OneSource says you cannot receive both TLE and PCS per diem on the same day. Ask your local pay office how your orders are paid."),
      ("How many days of TLA do I get?", "There is no single number. Fort Wainwright caps TLA at 20 days in 10-day increments. Joint Base Elmendorf-Richardson caps it at 45 days. Schofield Barracks describes a 60-day TLA limit for officer-housing waits. Camp Humphreys says TLA can stop if housing is not selected within 15 days, and it stops on the lease start date."),
      ("Does this site publish one TLE day limit?", "No. Military OneSource describes TLE as partial reimbursement for CONUS temporary lodging and meals, and says you cannot take it on the same day as PCS per diem. Fort Riley tells arrivals to budget for lodging beyond what TLE covers. Confirm the day count with your pay office."),
     ]
     body = (cta("tle-vs-tla", "Calculate your BAH")
-        + '<p class="answer"><strong>TLE vs TLA:</strong> TLE (Temporary Lodging Expense) partially reimburses temporary lodging and meals inside the continental United States during a PCS, while TLA (Temporary Lodging Allowance) is the overseas lodging allowance and the day limits published by housing offices are not the same at every post.</p>'
+        + '<p class="answer"><strong>TLE vs TLA:</strong> TLE (Temporary Lodging Expense) partially reimburses temporary lodging and meals inside the continental United States during a PCS, while TLA (Temporary Lodging Allowance) is the OCONUS lodging allowance for duty outside the 48 contiguous states, including Alaska and Hawaii, and the day limits published by housing offices are not the same at every post.</p>'
         + "<h2>TLE: temporary lodging inside the United States</h2><ul class=\"feat\">%s</ul>" % li(GD, tle_conus)
-        + "<h2>TLA: temporary lodging overseas</h2><p>TLA is not one worldwide number. These are the limits already published on our installation pages, each tied to the housing-office source.</p><ul class=\"feat\">%s</ul>" % li(GD, tla_oconus)
+        + "<h2>TLA: lodging outside the 48 states (OCONUS)</h2><p>TLA is the allowance for OCONUS duty, outside the 48 contiguous states, including Alaska and Hawaii. It is not one number. These are the limits already published on our installation pages, each tied to the housing-office source.</p><ul class=\"feat\">%s</ul>" % li(GD, tla_oconus)
         + "<h2>Where to read the local rule</h2><ul class=\"bases\">"
         + '<li><a href="/bah/fort-riley/">Fort Riley, KS</a></li>'
         + '<li><a href="/bah/fort-wainwright/">Fort Wainwright, AK</a></li>'
@@ -320,12 +320,12 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         + src_list(GD, used([tle_conus, tla_oconus])))
     P["guides/tle-vs-tla/index.html"] = shell(read, "tle-vs-tla",
         "TLE vs TLA for a Military PCS | PCS Vector",
-        "TLE covers temporary lodging inside CONUS on a PCS. TLA is the overseas lodging allowance, and published day limits differ by installation.",
+        "TLE covers lodging in the 48 contiguous states. TLA is the OCONUS allowance, including Alaska and Hawaii. Day limits differ by post.",
         "TLE vs TLA on a military PCS", "PCS Vector · guide", body, CR + [("TLE vs TLA", "/guides/tle-vs-tla/")], faq_tle)
 
     hub_items = [
      ("/guides/pcs-cost-checklist/", "PCS cost checklist", "What DLA and TLE reimburse, which deposits and fees you front, and where rate protection starts over."),
-     ("/guides/tle-vs-tla/", "TLE vs TLA", "TLE is CONUS temporary lodging pay on a PCS. TLA is the overseas allowance, and the day limits differ by post."),
+     ("/guides/tle-vs-tla/", "TLE vs TLA", "TLE is lodging pay in the 48 contiguous states. TLA is the OCONUS allowance, including Alaska and Hawaii."),
      ("/guides/break-a-lease-for-pcs-orders/", "Breaking a lease for PCS orders", "The SCRA notice rule, the 30-day timing and what installation housing offices add."),
      ("/guides/bah-2027-pcs/", "BAH 2027 and your PCS", "What is known before DTMO publishes 2027 rates, and how 2026 moved at eight posts."),
      ("/guides/bah-with-vs-without-dependents/", "BAH with vs without dependents", "The 2026 gap at 27 posts for E-4, E-5, E-6 and O-3, and why the number of dependents does not matter."),

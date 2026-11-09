@@ -387,7 +387,7 @@ def build_longtail():
 def build_404():
     h = read("404.html"); h = strip(h, "404nav")
     pop = ["fort-bragg", "fort-hood", "fort-campbell", "fort-stewart", "fort-drum", "national-capital-region", "fort-sill", "joint-base-san-antonio"]
-    block = ("<h2>Try one of these</h2><ul class=\"bases\"><li><a href=\"/\">PCS calculator</a></li><li><a href=\"/bah/\">BAH by post</a></li><li><a href=\"/bah/by-zip/\">BAH by ZIP</a></li><li><a href=\"/oha/\">OHA by country</a></li><li><a href=\"/guides/tle-vs-tla/\">TLE vs TLA</a></li><li><a href=\"/guides/\">PCS guides</a></li></ul>"
+    block = ("<h2>Try one of these</h2><ul class=\"bases\"><li><a href=\"/\">PCS calculator</a></li><li><a href=\"/bah/\">BAH by post</a></li><li><a href=\"/bah/by-zip/\">BAH by ZIP</a></li><li><a href=\"/oha/\">OHA by country</a></li><li><a href=\"/guides/tle-vs-tla/\">TLE vs TLA</a></li><li><a href=\"/guides/\">PCS guides</a></li><li><a href=\"/privacy/\">Privacy</a></li></ul>"
              "<h2>Popular posts</h2><ul class=\"bases\">%s</ul>" % "".join('<li><a href="/bah/%s/">%s</a></li>' % (x, E(NAMES[x].split(" (")[0])) for x in pop))
     h = put(h, "404nav", block, '<p class="src">')
     write("404.html", h)
