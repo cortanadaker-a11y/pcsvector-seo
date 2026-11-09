@@ -1,7 +1,7 @@
 {
  "/": {
   "lastmod": "2026-11-09",
-  "sha256": "ab459e7bb8f62f9ff65014234303ad8297f5312522c61487d34b633131368472"
+  "sha256": "de73ba185bfd12342ccced836534210a9086b0b6e8099afdd95f54b0c5b7efb9"
  },
  "/bah/": {
   "lastmod": "2026-11-09",
@@ -149,7 +149,7 @@
  },
  "/oha/": {
   "lastmod": "2026-11-09",
-  "sha256": "267b063a11df7c6c5bd0a8734a1e3e577d4f4babc1eb0921d1f31fffc64e39c4"
+  "sha256": "8c90aac43cde333e544e30ed654052975f24bdf051dba17e975aeb351b5375b9"
  },
  "/oha/germany/": {
   "lastmod": "2026-11-09",
@@ -169,6 +169,6 @@
  },
  "/privacy/": {
   "lastmod": "2026-11-09",
-  "sha256": "41439cda4b987e42769683daec3ece7d68cc26ad37282bdd651c25afe4722503"
+  "sha256": "484fb18bb914aa0360bdb4fd1f002a98db91e27cf993c173c0200c0e930d0a15"
  }
 }

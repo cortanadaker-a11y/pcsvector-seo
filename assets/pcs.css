@@ -112,18 +112,11 @@ a{color:var(--gold)}
 .pcs-btn:hover{background:#F97316}.pcs-btn:active{transform:translateY(1px)}
 .pcs-btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
 .pcs-btn-gold{flex-direction:column;gap:3px;background:#D4AF37;border-color:#B8962E;color:#0B2A1C;font-weight:700;font-family:var(--in);box-shadow:0 10px 24px rgba(212,175,55,.3)}.pcs-btn-gold:hover{background:#E0BE4A}.pcs-btn-sel{font:600 12px/14px Inter,var(--ss);opacity:.85;white-space:normal;text-align:center}.pcs-btn-sel[hidden]{display:none}
-.pcs-ot-row{display:flex;gap:8px;margin:0 0 10px}.pcs-ot-in{flex:1 1 0;min-width:0;min-height:48px;height:48px;font-family:var(--in);font-size:16px}.pcs-ot-in[aria-invalid=true]{border-color:var(--gold)}.pcs-ot-hint{margin:8px 0 0;text-align:center;font:600 13px/18px var(--in);color:var(--gold2)}.pcs-ot-hint[hidden],.pcs-ref-open .pcs-ot-row,.pcs-ref-open .pcs-ot-hint{display:none}.pcs-ot-privacy{margin:0 0 10px;text-align:center;font:500 13px/1.4 var(--in);color:var(--soft)}.pcs-ot-privacy a{color:var(--gold2);font-weight:700}@media(max-width:420px){.pcs-ot-row{flex-direction:column}}
+.pcs-ot-row{display:flex;gap:8px;margin:0 0 10px}.pcs-ot-in{flex:1 1 0;min-width:0;min-height:48px;height:48px;font-family:var(--in);font-size:16px}.pcs-ot-in[aria-invalid=true]{border-color:var(--gold)}.pcs-ot-hint{margin:8px 0 0;text-align:center;font:600 13px/18px var(--in);color:var(--gold2)}.pcs-ot-hint[hidden]{display:none}.pcs-ot-privacy{margin:0 0 10px;text-align:center;font:500 13px/1.4 var(--in);color:var(--soft)}.pcs-ot-privacy a{color:var(--gold2);font-weight:700}@media(max-width:420px){.pcs-ot-row{flex-direction:column}}
 .pcs-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
-.pcs-ref-fields{display:none}
-.pcs-ref-open .pcs-ref-fields{display:block}
-.pcs-ref-open .pcs-way-kicker,.pcs-ref-open #referral_open_btn{display:none}
 .pcs-text{display:block;width:100%;height:45.6px;padding:8px 8px 8px 12px;background:var(--field);border:1px solid rgba(255,255,255,.18);border-radius:12px;color:#fff;font:600 14px/19.6px var(--ss);outline:0}
 .pcs-text:focus{border-color:rgba(255,255,255,.5)}
 .pcs-text::placeholder{color:var(--dim);font-weight:600}
-.pcs-ref-fields .pcs-label{min-height:24px;margin:0 0 .4px;line-height:18.432px}
-.pcs-ref-fields .pcs-text{width:calc(100% - 2px);margin:0 1px}
-#referral_submit_btn{margin-top:28.4px;min-height:53.6px;padding:4px 12px}
-.pcs-caption{margin:2.4px 0 0;text-align:center;font:400 14px/22.4px var(--ss);color:rgba(250,250,250,.62)}
 /* footer + FAQ */
 .pcs-footer{text-align:center;font:400 11.2px/16.8px var(--ss);color:var(--dim);padding:7.2px 0 12px;margin:27.2px 0 2.4px;border-top:1px solid rgba(255,255,255,.08)}
 .pcs-exp{margin-top:32px;background:rgba(12,22,18,.45);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:0}
@@ -168,8 +161,6 @@ noscript p{color:var(--soft);font:400 14px/1.5 var(--ss);text-align:center}
  .pcs-lead-benefit{font-size:15px}
  .pcs-text{height:44px}
  .pcs-check-row{margin-top:19.2px}
- .pcs-ref-fields .pcs-label{margin-bottom:1.2px}
- #referral_submit_btn{margin-top:25.2px}
  .pcs-exp{margin-top:29.7px}
  .pcs-footer span{display:block;margin-top:2.4px}
  .pcs-footer{margin-top:27.2px}

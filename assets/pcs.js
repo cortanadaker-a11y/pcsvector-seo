@@ -452,7 +452,7 @@
     }
   }
   function renderReferral() {
-    var c = P.calcFields(snap || {}), dest = c.destination, ready = !!dest;
+    var c = P.calcFields(snap || {}), dest = c.destination;
     var bit = dest ? P.shortDest(dest, 22) : '';
     $('pcs-way-kicker').innerHTML = P.safeHtml(bit ? 'Vetted, military-experienced agents \u00b7 ' + bit : 'Vetted, military-experienced local agents \u00b7 worldwide');
     var benefit = $('pcs-lead-benefit');
@@ -463,8 +463,6 @@
     }
     var ot = $('referral_open_btn'), sel = P.onetapLabel(snap);
     ot.href = P.onetapUrl(snap, $('ot_first_name').value, $('ot_email').value); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
-    $('referral_submit_btn').disabled = !ready;
-    $('pcs-ref-caption').textContent = ready ? 'Free \u00b7 no obligation' : 'Pick a New post above first';
   }
   function openGate(focus) {
     markLeadOpen();
@@ -473,16 +471,6 @@
     if (focus) setTimeout(function () { try { $('ot_first_name').focus({ preventScroll: true }); } catch (e) {} }, 60);
   }
   function scrollToReferral() { var t = $('pcs-referral'); if (t && t.scrollIntoView) t.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
-  function submitReferral(e) {
-    e.preventDefault();
-    var msg = $('pcs-ref-msg'); msg.innerHTML = '';
-    var res = P.validate(snap, $('referral_first_name').value, $('referral_email_address').value);
-    if (res.error) { msg.innerHTML = '<div class="pcs-alert pcs-alert-err" role="alert">' + P.safeHtml(res.error) + '</div>'; return; }
-    try { sessionStorage.setItem('pcs_referral_lead', JSON.stringify(res.row)); } catch (e2) {}
-    gcEvent('lead-form-continue');
-    msg.innerHTML = '<div class="pcs-alert pcs-alert-ok" role="status">You\u2019re set \u2014 open your pre-filled form and tap <strong>Submit</strong>.</div>' +
-      '<a class="pcs-btn pcs-form-btn" id="referral_form_link" href="' + P.escAttr(res.url) + '" target="_blank" rel="noopener">Open my pre-filled form \u2794</a>';
-  }
 
   function setupHelp() {
     Array.prototype.forEach.call(document.querySelectorAll('.pcs-help'), function (b) {
@@ -549,10 +537,6 @@
     });
     [f, e].forEach(function (el) { el.addEventListener('focus', markLeadOpen); });
   })();
-  ['referral_first_name', 'referral_email_address'].forEach(function (id) {
-    var el = $(id); if (el) el.addEventListener('focus', markLeadOpen);
-  });
-  $('pcs-ref-form').addEventListener('submit', submitReferral);
   window.addEventListener('hashchange', function () { if (D && /^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); } });
   var boot = window.__PCS_DATA__;
   if (boot) init(boot);
