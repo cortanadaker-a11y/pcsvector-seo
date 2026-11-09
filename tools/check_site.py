@@ -3,6 +3,7 @@
 Checks every page: single self-canonical on https://pcsvector.com, exactly one h1, GoatCounter snippet once,
 title/description/og/twitter tags, valid JSON-LD (+BreadcrumbList on non-home pages), images have alt,
 internal links and #fragments resolve, no duplicate ids, sitemap lists every page with a lastmod.
+The homepage calculator matches main. Links to new pages live in the home-extra block below it.
 --external also GETs every external link (some government sites block bots: 403 is reported as 'blocked', not broken)."""
 import json, re, sys, collections
 from pathlib import Path
@@ -122,7 +123,7 @@ for u, (rel, _) in pages.items():
     if rel.name != "404.html" and u not in smu: e(u, "missing from sitemap")
 for l in smu:
     if l not in pages: e(l, "sitemap URL has no page")
-# homepage links every BAH/OHA/guide page
+# Homepage links every BAH/OHA/guide page, including links in the home-extra block below the calculator.
 home_links = {a["href"].split("?")[0] for a in pages["/"][1].find_all("a", href=True)}
 for u in pages:
     if (u.startswith(("/bah/", "/oha/", "/guides/"))) and u not in home_links: e(u, "not linked from the homepage")

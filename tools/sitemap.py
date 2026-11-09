@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LEDGER = ROOT / "tools" / "lastmod.json"
 BASE = "https://pcsvector.com"
-HOME_EXTRA = ["assets/calc-data.json", "assets/gas-table.json", "assets/pcs.js", "assets/pcs.css"]
+HOME_EXTRA = ["assets/calc-data.json", "assets/gas-table.json", "assets/pcs.js", "assets/pcs.css", "assets/home-extra.css"]
 
 def pages():
     out = []

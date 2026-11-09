@@ -1,0 +1,10 @@
+/* Styles for the block below the calculator only. Do not target the calculator. */
+.home-extra{margin:8px 0 4px;color:#E8EEEA}
+.home-extra h2{margin:0 0 10px;color:#fff;font-size:20px;line-height:1.25}
+.home-extra h3{margin:16px 0 6px;color:#fff;font-size:16px;line-height:1.35}
+.home-extra p{margin:0 0 12px;font-size:16px;line-height:1.5}
+.home-extra-answer,.home-extra-privacy{background:#1b2b23;border-left:4px solid #e0b84a;border-radius:10px;padding:12px 14px}
+.home-extra-links{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 14px;padding:0}
+.home-extra-links a{display:inline-flex;align-items:center;min-height:48px;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#F0D060;font-weight:700;text-decoration:none}
+.home-extra a{color:#F0D060}
+.home-extra a:focus-visible{outline:2px solid #F0D060;outline-offset:2px}
