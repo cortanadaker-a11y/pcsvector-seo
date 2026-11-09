@@ -2,11 +2,11 @@
 
 | Script | What it does |
 |---|---|
-| `build_guides.py` | Idempotent post-processor. Adds PCS-guide sections, FAQ entries, "More for your move" blocks, the homepage "Browse by fort" section, `/guides/*` pages, 404 links, and `scope="col"` on table headers. Re-running replaces the blocks between `<!--pcsv:NAME-->` markers. |
+| `build_guides.py` | Idempotent post-processor. Adds PCS-guide sections, FAQ entries, "More for your move" blocks, `/guides/*` pages, 404 links, and `scope="col"` on table headers. Re-running replaces the blocks between `<!--pcsv:NAME-->` markers. It skips `index.html`. The homepage is frozen to match `main`. |
 | `calc_oha.py` | Copies the OHA rent/utility dollars from the `/oha/*` page tables into `assets/calc-data.json` (Italy, which has no page, is converted at the Germany page's EUR rate with the same rule), then refreshes the `?v=` cache-busting hashes. Run after every OHA refresh; `--check` for CI. |
 | `sitemap.py` | Rebuilds `sitemap.xml`. `lastmod` = date the page's content hash last changed (ledger in `lastmod.json`, no git history needed). Also run by the weekly gas-refresh workflow. `--check` for CI. |
 | `dup_check.py` | Duplicate-content metric (6-word shingles, numbers removed) for the BAH pages: `dup_check.py BASE_DIR HEAD_DIR`, or `--guide-section DIR` for the guide block only. |
-| `check_site.py` | Local audit: self-canonical on `https://pcsvector.com`, one h1, GoatCounter once, OG/Twitter tags, JSON-LD parses (+ breadcrumbs), alt text, internal links + `#fragments`, sitemap coverage, homepage links to every BAH/OHA/guide page, `og:site_name` = PCS Vector, the tagline on every page, one WebSite JSON-LD node on the homepage, favicon link set and icon sizes, and no legacy app-host name (the retired app's host) anywhere in the published tree. `--external` also GETs external links. |
+| `check_site.py` | Local audit: self-canonical on `https://pcsvector.com`, one h1, GoatCounter once, OG/Twitter tags, JSON-LD parses (+ breadcrumbs), alt text, internal links + `#fragments`, sitemap coverage, homepage links to every BAH/OHA/guide page except `/bah/by-zip/` and `/guides/tle-vs-tla/` (the homepage is frozen, so those two missing homepage links are expected), `og:site_name` = PCS Vector, the tagline on every page, one WebSite JSON-LD node on the homepage, favicon link set and icon sizes, and no legacy app-host name (the retired app's host) anywhere in the published tree. `--external` also GETs external links. |
 
 ```
 python3 tools/build_guides.py && python3 tools/calc_oha.py && python3 tools/sitemap.py && python3 tools/check_site.py
