@@ -2,11 +2,11 @@
 
 > Free unofficial Army PCS calculator and 2026 BAH/OHA pages. For Soldiers; By Soldiers. Not a DoD, DTMO, or Army site. Confirm every figure with finance.
 
-The calculator at the home page shows 2026 BAH, OHA, and COLA with no signup, then offers a free intro to a vetted local housing agent. Rate pages quote DTMO figures already published on this site.
+The calculator at the home page shows 2026 BAH, OHA, and COLA and includes a free intro to a vetted local housing agent. Rate pages quote DTMO figures already published on this site.
 
 ## Start here
 
-- [Calculate your BAH](https://pcsvector.com/): Free 2026 Army BAH, OHA, and COLA calculator for 68 posts. The result is instant; the next step is the free housing intro.
+- [Calculate your BAH](https://pcsvector.com/): Free 2026 Army BAH, OHA, and COLA calculator for 68 posts, with a free housing intro on the same page.
 - [BAH by post](https://pcsvector.com/bah/): 2026 DTMO BAH at 27 posts. E-5 with dependents runs from $1,218 at Fort Polk to $3,663 at Schofield Barracks.
 - [BAH by ZIP code](https://pcsvector.com/bah/by-zip/): Match a duty-station ZIP to one of those 27 housing areas. 22204 and 22030 are the Washington, DC metro area.
 - [OHA by country](https://pcsvector.com/oha/): E-5 rent $1,273.99–$2,802.78 at 11 areas we cover, as of 1 Nov 2026 (Camp Casey to Wiesbaden).
