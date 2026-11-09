@@ -7,9 +7,9 @@ The calculator at the home page shows 2026 BAH, OHA, and COLA with no signup, th
 ## Start here
 
 - [Calculate your BAH](https://pcsvector.com/): Free 2026 Army BAH, OHA, and COLA calculator for 68 posts. The result is instant; the next step is the free housing intro.
-- [BAH by post](https://pcsvector.com/bah/): 2026 DTMO BAH at 27 Army posts. E-5 with dependents runs from $1,218 at Fort Polk to $3,663 at Schofield Barracks.
+- [BAH by post](https://pcsvector.com/bah/): 2026 DTMO BAH at 27 posts. E-5 with dependents runs from $1,218 at Fort Polk to $3,663 at Schofield Barracks.
 - [BAH by ZIP code](https://pcsvector.com/bah/by-zip/): Match a duty-station ZIP to one of those 27 housing areas. 22204 and 22030 are the Washington, DC metro area.
-- [OHA by country](https://pcsvector.com/oha/): E-5 with-dependents rent ceilings as of 1 Nov 2026 run from $1,273.99 at Camp Casey to $2,802.78 at Wiesbaden.
+- [OHA by country](https://pcsvector.com/oha/): E-5 rent $1,273.99–$2,802.78 at 11 Army posts, as of 1 Nov 2026 (Camp Casey to Wiesbaden).
 
 ## High-demand rate pages
 

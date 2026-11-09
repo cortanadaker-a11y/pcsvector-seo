@@ -31,7 +31,7 @@ def shell(read, slug, title, desc, h1, kick, body, crumbs, faq=None):
         '<meta property="og:image" content="%(og)s">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
         '<meta property="og:image:alt" content="PCS Vector — Know your BAH before you PCS — free, 2026 rates">\n'
         '<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="%(ot)s">\n<meta name="twitter:description" content="%(d)s">\n<meta name="twitter:image" content="%(og)s">\n'
-        '%(style)s\n%(ld)s<script data-goatcounter="https://pcsvector.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>\n'
+        '%(style)s\n%(ld)s<script>window.goatcounter=window.goatcounter||{};window.goatcounter.path=function(){return location.pathname};</script>\n<script data-goatcounter="https://pcsvector.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>\n'
         '</head><body><main>\n<nav class="crumb">%(crumb)s</nav>\n<div class="kick">%(kick)s</div>\n<h1>%(h1)s</h1>\n%(body)s\n'
         '<p class="src">For Soldiers; By Soldiers. PCS Vector is an independent planning tool. It is not an official government site (not DoW, DTMO or any military service). Confirm your entitlements with your finance office. Page updated %(upd)s.</p>\n</main></body></html>\n') % dict(
         t=E(title), ot=E(title.replace(" | PCS Vector", ""), True), d=E(desc, True), u=url, og=og, style=_style(read), ld=ldh, crumb=crumb_html, kick=E(kick), h1=E(h1), body=body, upd=TODAY_HUMAN)
