@@ -397,15 +397,13 @@ def home_extra_inner():
     faqs = []
     for q, a, u, label in HOME_FAQS:
         faqs.append("<article><h3>%s</h3><p>%s</p><p><a href=\"%s\">%s</a></p></article>" % (E(q), E(a), u, E(label)))
-    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _, _ in HOME_FAQS]}
+    # These four questions live in the page's existing FAQPage JSON-LD, not a second script.
     return ("<section class=\"home-extra\" id=\"home-extra\" aria-labelledby=\"home-extra-h\">"
             "<h2 id=\"home-extra-h\">Quick answers</h2>"
             "<p class=\"home-extra-answer\">%s</p>"
             "<ul class=\"home-extra-links\">%s</ul>"
             "<p class=\"home-extra-privacy\">%s</p>"
-            "%s</section>\n"
-            "<script type=\"application/ld+json\">%s</script>") % (E(HOME_ANSWER), links, E(HOME_PRIVACY), "".join(faqs), json.dumps(ld, ensure_ascii=False))
+            "%s</section>") % (E(HOME_ANSWER), links, E(HOME_PRIVACY), "".join(faqs))
 
 def build_home():
     """Replace only the marked block below the calculator. Leave every other byte of index.html alone."""
@@ -417,6 +415,17 @@ def build_home():
         raise SystemExit("home-extra block is not below the calculator; refusing to edit index.html")
     pre, rest = h.split(HOME_EXTRA_START, 1)
     _, post = rest.split(HOME_EXTRA_END, 1)
+    m = re.search(r'<script type="application/ld\+json">(\{"@context": "https://schema.org", "@graph": \[.*?\]\})</script>', pre, flags=re.S)
+    if not m:
+        raise SystemExit("homepage FAQPage graph missing; refusing to edit index.html")
+    graph = json.loads(m.group(1))
+    faqs = [n for n in graph.get("@graph", []) if n.get("@type") == "FAQPage"]
+    if len(faqs) != 1:
+        raise SystemExit("homepage needs exactly one FAQPage; refusing to edit index.html")
+    by_name = {q.get("name"): (q.get("acceptedAnswer") or {}).get("text") for q in faqs[0].get("mainEntity", [])}
+    for q, a, _, _ in HOME_FAQS:
+        if by_name.get(q) != a:
+            raise SystemExit("FAQPage is missing the home-extra question %r with the visible wording" % q)
     new = pre + HOME_EXTRA_START + "\n" + home_extra_inner() + "\n" + HOME_EXTRA_END + post
     if new != h:
         (ROOT / "index.html").write_text(new, encoding="utf-8")
