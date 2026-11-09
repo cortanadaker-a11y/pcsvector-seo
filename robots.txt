@@ -1,4 +1,29 @@
+# pcsvector.com — search and AI crawlers may read the public pages.
+# Explicit allows for assistants that look for their own user-agent. The * group allows everyone else.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 User-agent: *
 Allow: /
 
+# Page list for assistants: https://pcsvector.com/llms.txt
 Sitemap: https://pcsvector.com/sitemap.xml

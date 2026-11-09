@@ -123,9 +123,9 @@
         var loc = pkg.locality || gaining, idx = pkg.cola_index;
         warn = gaining + ' uses OHA (Overseas Housing Allowance), not BAH. This locality\'s OHA table isn\'t loaded yet, so get your exact rent ceiling and utility allowance from the DTMO OHA Rate Lookup (' + loc + ').' +
           (idx !== null && idx !== undefined ? ' COLA index: ' + idx + '.' : '');
-        return { html: '', warn: warn, kind: 'info', snap: { pay_grade: grade } };
+        return { html: '', detail: '', warn: warn, kind: 'info', snap: { pay_grade: grade } };
       } else warn = 'No 2026 rates for ' + grade + ' at ' + gaining + '. Try another post or ask finance.';
-      return { html: '', warn: warn, kind: 'warn', snap: { pay_grade: grade } };
+      return { html: '', detail: '', warn: warn, kind: 'warn', snap: { pay_grade: grade } };
     }
     var system = pkg.housing_system || 'BAH', housing = pkg.housing_monthly_usd | 0, cola = pkg.cola_monthly_usd | 0, total = pkg.total_monthly_usd;
     var P = D.posts[gaining], utilN = P.util || 0;
@@ -202,13 +202,14 @@
     rows += row(curTotal !== null ? money(curTotal) : '\u2014', 'Total package', money(total) + '/mo', true);
     var dlaV = D.dla[grade] ? D.dla[grade][withDeps ? 1 : 0] : null;
     var dlaHtml = (dlaV === null || dlaV === undefined) ? '\u2014' : money(pyRound(dlaV));
-    var html = '<div class="pcs-face-section pcs-face-section-results pcs-partner-results">' + arrow +
-      '<div class="pcs-partner-breakdown"><div class="pcs-est-heads-live"><span>Current</span><span></span><span>Target</span></div>' +
+    var breakdown = '<div class="pcs-partner-breakdown"><div class="pcs-est-heads-live"><span>Current</span><span></span><span>Target</span></div>' +
       '<div class="pcs-partner-breakdown-title">Allowances (official tables)</div>' + rows +
       '<div class="pcs-partner-breakdown-title">Local costs &amp; move-in (estimates)</div>' +
       row(leftRent, 'Avg ' + m.br + 'BR rent', rightRent, false, 'pcs-est-row-rent') + row(leftUtil, 'Utilities', rightUtil) + row(leftGas, 'Avg gas', rightGas) +
-      row('\u2014', 'DLA (one-time)', dlaHtml) + rollup + '</div></div>';
-    return { html: html, warn: null, snap: { pay_grade: grade, num_dependents: deps, years_of_service: yos, gaining_installation: gaining,
+      row('\u2014', 'DLA (one-time)', dlaHtml) + rollup + '</div>';
+    var answer = '<div class="pcs-face-section pcs-face-section-results pcs-partner-results">' + arrow + '</div>';
+    var detail = '<div class="pcs-face-section pcs-face-section-detail">' + breakdown + '</div>';
+    return { html: answer, detail: detail, warn: null, snap: { pay_grade: grade, num_dependents: deps, years_of_service: yos, gaining_installation: gaining,
       current_installation: current, barracks_meal_card: barracks, total_monthly_usd: total } };
   }
 
@@ -279,12 +280,36 @@
   var P = window.PCS, D = null;
   var $ = function (id) { return document.getElementById(id); };
   var S = { g: 'E-5', d: 0, y: 4, cur: 'Fort Campbell, KY', tgt: 'Fort Bragg, NC', bar: false };
-  var snap = null, gateOpen = false;
+  var snap = null, deepLink = false, started = false, resultKey = '', leadOpened = false;
   var fine = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
+
+  function gcEvent(path) {
+    var n = 0;
+    function send() {
+      try {
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ path: path, title: path, event: true });
+          return;
+        }
+      } catch (e) { return; }
+      if (n++ < 20) setTimeout(send, 250);
+    }
+    send();
+  }
+  function markStart() { if (started) return; started = true; gcEvent('calculator-start'); }
+  function markResult(s) {
+    if (!s || s.total_monthly_usd == null) return;
+    var key = [s.pay_grade, s.num_dependents, s.years_of_service, s.gaining_installation, s.current_installation, s.barracks_meal_card, s.total_monthly_usd].join('|');
+    if (key === resultKey) return;
+    resultKey = key;
+    gcEvent('calculator-result');
+  }
+  function markLeadOpen() { if (leadOpened) return; leadOpened = true; gcEvent('lead-form-open'); }
 
   function readQuery() {
     try {
       var q = new URLSearchParams(location.search);
+      if (q.get('g') || q.get('d') || q.get('y') || q.has('cur') || q.get('tgt') || q.get('bar')) deepLink = true;
       if (q.get('g')) S.g = q.get('g');
       if (q.get('d') !== null && q.get('d') !== '' && !isNaN(+q.get('d'))) S.d = Math.max(0, Math.min(5, parseInt(q.get('d'), 10)));
       if (q.get('y') !== null && q.get('y') !== '' && !isNaN(+q.get('y'))) S.y = Math.max(0, Math.min(40, parseInt(q.get('y'), 10)));
@@ -414,24 +439,38 @@
   }
 
   /* ---------- results + agent referral ---------- */
-  function render() {
+  function render(fromUser) {
     var r = P.renderResults(D, S);
     $('pcs-results').innerHTML = r.warn ? '<div class="pcs-alert pcs-alert-' + (r.kind || 'warn') + '" role="status">' + P.safeHtml(r.warn) + '</div>' : r.html;
+    var det = $('pcs-detail');
+    if (det) det.innerHTML = (!r.warn && r.detail) ? r.detail : '';
     snap = r.snap;
     renderReferral();
+    if (fromUser) {
+      markStart();
+      if (!r.warn) markResult(snap);
+    }
   }
   function renderReferral() {
     var c = P.calcFields(snap || {}), dest = c.destination, ready = !!dest;
     var bit = dest ? P.shortDest(dest, 22) : '';
     $('pcs-way-kicker').innerHTML = P.safeHtml(bit ? 'Vetted, military-experienced agents \u00b7 ' + bit : 'Vetted, military-experienced local agents \u00b7 worldwide');
+    var benefit = $('pcs-lead-benefit');
+    if (benefit) {
+      benefit.textContent = (snap && snap.total_monthly_usd != null && dest)
+        ? ('A vetted local agent can match homes to ' + P.money(snap.total_monthly_usd) + '/mo at ' + dest + '. Free intro \u2014 it does not change your rate.')
+        : 'A vetted local agent can match homes to your rate. Free intro \u2014 it does not change your BAH or OHA.';
+    }
     var ot = $('referral_open_btn'), sel = P.onetapLabel(snap);
     ot.href = P.onetapUrl(snap, $('ot_first_name').value, $('ot_email').value); $('referral_open_sel').textContent = sel; $('referral_open_sel').hidden = !sel;
     $('referral_submit_btn').disabled = !ready;
     $('pcs-ref-caption').textContent = ready ? 'Free \u00b7 no obligation' : 'Pick a New post above first';
   }
   function openGate(focus) {
-    gateOpen = true; $('pcs-match-panel').classList.add('pcs-ref-open');
-    if (focus) setTimeout(function () { try { $('referral_first_name').focus({ preventScroll: true }); } catch (e) {} }, 50);
+    markLeadOpen();
+    var t = $('pcs-match-panel');
+    if (t && t.scrollIntoView) t.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    if (focus) setTimeout(function () { try { $('ot_first_name').focus({ preventScroll: true }); } catch (e) {} }, 60);
   }
   function scrollToReferral() { var t = $('pcs-referral'); if (t && t.scrollIntoView) t.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
   function submitReferral(e) {
@@ -440,6 +479,7 @@
     var res = P.validate(snap, $('referral_first_name').value, $('referral_email_address').value);
     if (res.error) { msg.innerHTML = '<div class="pcs-alert pcs-alert-err" role="alert">' + P.safeHtml(res.error) + '</div>'; return; }
     try { sessionStorage.setItem('pcs_referral_lead', JSON.stringify(res.row)); } catch (e2) {}
+    gcEvent('lead-form-submit');
     msg.innerHTML = '<div class="pcs-alert pcs-alert-ok" role="status">You\u2019re set \u2014 open your pre-filled form and tap <strong>Submit</strong>.</div>' +
       '<a class="pcs-btn pcs-form-btn" id="referral_form_link" href="' + P.escAttr(res.url) + '" target="_blank" rel="noopener">Open my pre-filled form \u2794</a>';
   }
@@ -475,15 +515,16 @@
     if (S.cur !== P.NONE_CURRENT && !D.posts[S.cur]) S.cur = 'Fort Campbell, KY';
     var depsLabel = function (n) { return n === 0 ? '0' : n === 5 ? '5+' : String(n); };
     var setBar = function () { var cb = $('bah_calc_barracks'); cb.disabled = S.d > 0; if (S.d > 0) cb.checked = false; };
-    setupSelect('bah_calc_grade', D.grades.map(function (g) { return [g, g]; }), S.g, function (v) { S.g = v; render(); });
-    setupSelect('bah_calc_deps_n', [0, 1, 2, 3, 4, 5].map(function (n) { return [String(n), depsLabel(n)]; }), S.d, function (v) { S.d = parseInt(v, 10) || 0; setBar(); S.bar = $('bah_calc_barracks').checked; render(); });
+    setupSelect('bah_calc_grade', D.grades.map(function (g) { return [g, g]; }), S.g, function (v) { S.g = v; render(true); });
+    setupSelect('bah_calc_deps_n', [0, 1, 2, 3, 4, 5].map(function (n) { return [String(n), depsLabel(n)]; }), S.d, function (v) { S.d = parseInt(v, 10) || 0; setBar(); S.bar = $('bah_calc_barracks').checked; render(true); });
     var yos = []; for (var i = 0; i <= 40; i++) yos.push([String(i), String(i)]);
-    setupSelect('bah_calc_yos', yos, S.y, function (v) { S.y = parseInt(v, 10) || 0; render(); });
-    setupCombo('bah_calc_current', [[P.NONE_CURRENT, P.NONE_CURRENT]].concat(posts.map(function (p) { return [p, p]; })), S.cur, function (v) { S.cur = v; render(); });
-    setupCombo('bah_calc_gaining', posts.map(function (p) { return [p, p]; }), S.tgt, function (v) { S.tgt = v; render(); });
+    setupSelect('bah_calc_yos', yos, S.y, function (v) { S.y = parseInt(v, 10) || 0; render(true); });
+    setupCombo('bah_calc_current', [[P.NONE_CURRENT, P.NONE_CURRENT]].concat(posts.map(function (p) { return [p, p]; })), S.cur, function (v) { S.cur = v; render(true); });
+    setupCombo('bah_calc_gaining', posts.map(function (p) { return [p, p]; }), S.tgt, function (v) { S.tgt = v; render(true); });
     var cb = $('bah_calc_barracks'); cb.checked = S.bar; setBar(); S.bar = cb.checked;
-    cb.addEventListener('change', function () { S.bar = cb.checked; render(); });
-    render();
+    cb.addEventListener('change', function () { S.bar = cb.checked; render(true); });
+    render(false);
+    if (deepLink && snap && snap.total_monthly_usd != null) { markStart(); markResult(snap); }
     if (/^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); }
   }
 
@@ -497,15 +538,21 @@
     f.addEventListener('input', upd); e.addEventListener('input', upd);
     [f, e].forEach(function (el) { el.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); $('referral_open_btn').click(); } }); });
     $('referral_open_btn').addEventListener('click', function (ev) {
+      markLeadOpen();
       var r = P.onetapCheck(f.value, e.value);
       if (r.error) { ev.preventDefault(); hint(r.error); var bad = r.field === 'first' ? f : e; bad.setAttribute('aria-invalid', 'true'); bad.focus(); return; }
       try { localStorage.setItem('pcs_ot_first', r.first); localStorage.setItem('pcs_ot_email', r.email); } catch (x) {}
       this.href = P.onetapUrl(snap, r.first, r.email);
     });
+    [f, e].forEach(function (el) { el.addEventListener('focus', markLeadOpen); });
   })();
   $('referral_open_btn').addEventListener('click', function (ev) {
     if (ev.defaultPrevented) return;
+    gcEvent('lead-form-submit');
     try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'click-find-home', event: true }); } catch (e) {}
+  });
+  ['referral_first_name', 'referral_email_address'].forEach(function (id) {
+    var el = $(id); if (el) el.addEventListener('focus', markLeadOpen);
   });
   $('pcs-ref-form').addEventListener('submit', submitReferral);
   window.addEventListener('hashchange', function () { if (D && /^#(find-a-home|pcs-referral|wayfinder)$/.test(location.hash)) { openGate(true); setTimeout(scrollToReferral, 60); } });

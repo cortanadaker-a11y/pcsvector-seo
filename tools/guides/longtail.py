@@ -105,8 +105,8 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
      ("What is MIHA?", "The Move-In Housing Allowance partially covers move-in costs for a privately leased home. The miscellaneous part is a lump sum paid with the first rent payment, and the rent part reimburses reasonable one-time nonrefundable charges."),
      ("Do I get OHA if I live in government housing overseas?", "OHA applies to members authorized to lease privately owned housing. Garrisons such as Camp Zama assign military personnel to government housing and allow off-post living only with an exception to policy, so check with the housing office before you plan around the table."),
     ]
-    body = ('<p>The Overseas Housing Allowance (OHA) replaces BAH when you are authorized to rent off post overseas. The formula is different from BAH, and so are the traps: the amount moves with exchange rates, and the rules about who may rent off post depend on the garrison. This guide explains how DTMO builds OHA, and ties it to the 2026 tables on our <a href="/oha/korea/">Korea</a>, <a href="/oha/japan/">Japan</a>, <a href="/oha/okinawa/">Okinawa</a> and <a href="/oha/germany/">Germany</a> pages.%s</p>' % cite(GD, ["dtmo_oha"])
-        + cta("how-oha-works", "Run your OHA numbers in the free calculator")
+    body = (cta("how-oha-works", "Calculate your BAH")
+        + '<p>The Overseas Housing Allowance (OHA) replaces BAH when you are authorized to rent off post overseas. The formula is different from BAH, and so are the traps: the amount moves with exchange rates, and the rules about who may rent off post depend on the garrison. This guide explains how DTMO builds OHA, and ties it to the 2026 tables on our <a href="/oha/korea/">Korea</a>, <a href="/oha/japan/">Japan</a>, <a href="/oha/okinawa/">Okinawa</a> and <a href="/oha/germany/">Germany</a> pages.%s</p>' % cite(GD, ["dtmo_oha"])
         + "<h2>The three parts of OHA</h2><ul class=\"feat\">%s</ul>" % li(GD, oha_items["parts"])
         + "<h2>Rent: a ceiling, not a flat payment</h2><ul class=\"feat\">%s</ul>" % li(GD, oha_items["rent"])
         + "<h2>Utilities and recurring maintenance</h2><ul class=\"feat\">%s</ul>" % li(GD, oha_items["util"])
@@ -157,9 +157,10 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
      ("Do I get a security deposit back after a PCS?", "It depends on the lease. Fort Campbell’s housing office says a deposit may cover damage above normal wear and tear or unpaid rent, and that if the rental is in good shape and no rent is due you should ask for it back; it is not an advance on your last month’s rent."),
      ("Can I get my DLA before I move?", "You can request an advance 10 to 15 days before the move at your installation finance office. If approved you receive 80% of your estimated payment up front and the rest after you file at the new installation, but an advance is not guaranteed."),
      ("Does BAH cover everything about renting near a new post?", "No. DTMO says BAH is not intended to cover all of a member’s housing costs, so budget deposits, fees and utilities separately. The BAH pages on this site compare each post’s rate to planning estimates for rent and utilities."),
+     ("What is TLE on a PCS?", "Temporary Lodging Expense (TLE) partially reimburses lodging and meals in temporary lodging inside CONUS during a PCS. You cannot receive both TLE and PCS per diem on the same day. Overseas, housing offices use Temporary Lodging Allowance (TLA) instead, and the day limits differ by installation."),
     ]
-    body = ('<p>A PCS has two cash-flow problems: money that comes back later, and money you hand over first. This checklist separates them, with a cited source page (DTMO, Military OneSource or the installation) behind every line. Where a number depends on your rank, check the BAH page for your new post.</p>'
-        + cta("pcs-cost-checklist", "See what BAH looks like against rent at your new post")
+    body = (cta("pcs-cost-checklist", "Calculate your BAH")
+        + '<p>A PCS has two cash-flow problems: money that comes back later, and money you hand over first. This checklist separates them, with a cited source page (DTMO, Military OneSource or the installation) behind every line. Where a number depends on your rank, check the BAH page for your new post. For the difference between TLE and the overseas allowance, see <a href="/guides/tle-vs-tla/">TLE vs TLA</a>.</p>'
         + "<h2>Reimbursements and allowances to claim</h2><ul class=\"feat\">%s</ul>" % li(GD, reimb, "☐ ")
         + "<h2>Costs you front before the first BAH check</h2><ul class=\"feat\">%s</ul>" % li(GD, upfront, "☐ ")
         + "<h2>Ways to cut the up-front bill</h2><ul class=\"feat\">%s</ul>" % li(GD, saving, "☐ ")
@@ -169,8 +170,8 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         + faq_html(faq2)
         + src_list(GD, used([reimb, upfront, saving, housing_pay, overseas])))
     P["guides/pcs-cost-checklist/index.html"] = shell(read, "pcs-cost-checklist",
-        "PCS Cost Checklist: Deposits, DLA, TLE and Housing Start-Up Costs | PCS Vector",
-        "A cited PCS cost checklist: what DLA and TLE reimburse, which deposits and fees you front, and how BAH rate protection changes when you PCS.",
+        "PCS Cost Checklist: DLA, TLE, Deposits | PCS Vector",
+        "PCS cash checklist: DLA (80% advance if finance approves it), TLE for CONUS lodging, and deposits you pay before BAH. Cited to official sources.",
         "PCS cost checklist: what you pay up front and what comes back", "PCS Vector · guide", body, CR + [("PCS cost checklist", "/guides/pcs-cost-checklist/")], faq2)
 
     # ---- 3. Break a lease
@@ -193,12 +194,12 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
      ("Can a landlord charge an early-termination fee when I PCS?", "DOJ’s position is that a covered servicemember who properly terminates under the SCRA may not be charged an early-termination fee, and that requiring repayment of rent concessions or discounts is such a fee. Ask your legal assistance office if a landlord pushes back."),
      ("Can I end a lease if I take on-post housing?", "Not automatically. Fort Riley’s housing information says accepting on-post housing is not justification to break a lease or rental agreement, and the DOJ summary lists orders (PCS, deployment of 90 days or more, separation or retirement), not a housing offer. Garrisons differ: the Camp Humphreys booklet lists an offer of government quarters as a reason for notice, so ask your legal assistance office about your lease."),
     ]
-    body = ('<p>If your orders say you are leaving, your rental lease does not have to follow you. This guide summarizes the federal rule from the Department of Justice and the notes housing offices give new arrivals. It is general information, not legal advice; your installation’s legal assistance office is the place to ask how it applies to your lease.%s</p>' % cite(GD, ["doj_scra"])
+    body = (cta("break-a-lease", "Calculate your BAH")
+        + '<p>If your orders say you are leaving, your rental lease does not have to follow you. This guide summarizes the federal rule from the Department of Justice and the notes housing offices give new arrivals. It is general information, not legal advice; your installation’s legal assistance office is the place to ask how it applies to your lease.%s</p>' % cite(GD, ["doj_scra"])
         + "<h2>What the SCRA says about residential leases</h2><ul class=\"feat\">%s</ul>" % li(GD, scra, "")
         + "<h2>What installation offices add</h2><ul class=\"feat\">%s</ul>" % li(GD, local, "")
         + "<h2>Steps in order</h2><ol class=\"feat\"><li>Get a copy of your PCS orders (or a commander’s letter).</li><li>Write a short termination notice naming the lease, the address and the effective date you are asking for; keep a dated copy.</li><li>Deliver it to the landlord or agent by a method you can prove (mail, hand delivery or email if the landlord accepts it).</li><li>Calculate the end date: 30 days after the next rent due date after delivery, for monthly rent.</li><li>Do a move-out inspection with the landlord and keep photos of the condition you leave the home in.</li></ol>"
         + '<p class="note">The steps are a plain-language outline of the DOJ summary above, not a legal template.</p>'
-        + cta("break-a-lease", "Compare your new post’s BAH with its rent")
         + faq_html(faq3)
         + src_list(GD, used([scra, local])))
     P["guides/break-a-lease-for-pcs-orders/index.html"] = shell(read, "break-a-lease-for-pcs-orders",
@@ -230,8 +231,8 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
      ("Will my BAH drop if rates fall at my post?", "Not if your status stays the same. DTMO’s individual rate protection means you receive the rate published on 1 January or what you received on 31 December, whichever is larger, until a PCS, reduction in grade or change in dependency status."),
      ("Which BAH do I use if I PCS right after 1 January?", "Use your new duty station’s published rate for the year it applies to, and check it against DTMO’s BAH calculator for your ZIP code. This site shows the 2026 rates until DTMO publishes 2027."),
     ]
-    body = ('<p>If you are planning a PCS this winter, you will probably see headlines about 2027 BAH before you see the numbers. As of 28 Oct 2026 DTMO has not published 2027 rates, and PCS Vector shows no 2027 amounts. This guide covers what is known, what the rules say about a PCS, and how to use the 2026 pages as a baseline.%s</p>' % cite(GD, ["dtmo_bah"])
-        + cta("bah-2027", "Compare 2026 BAH at two posts in the calculator")
+    body = (cta("bah-2027", "Calculate your BAH")
+        + '<p>If you are planning a PCS this winter, you will probably see headlines about 2027 BAH before you see the numbers. As of 28 Oct 2026 DTMO has not published 2027 rates, and PCS Vector shows no 2027 amounts. This guide covers what is known, what the rules say about a PCS, and how to use the 2026 pages as a baseline.%s</p>' % cite(GD, ["dtmo_bah"])
         + "<h2>What we know about the next BAH release</h2><ul class=\"feat\">%s</ul>" % li(GD, know)
         + "<h2>What a PCS does to your rate</h2><ul class=\"feat\">%s</ul>" % li(GD, pcs_rules)
         + "<h2>How much 2026 moved at eight posts</h2><p>These are DTMO’s 2025 and 2026 rates for a Sergeant (E-5) with dependents, copied from our BAH pages for the posts where we have both years. They show the size of a typical yearly swing; they do not predict 2027.</p>" + yoy_tbl
@@ -269,8 +270,8 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
      ("How big is the with-dependents gap for an E-5?", "Across the %d BAH posts on this site, a Sergeant (E-5) with dependents gets between %s and %s a month more than without, using DTMO's 2026 rates." % (len(e5), fm(min(e5)), fm(max(e5)))),
      ("Does getting married change my BAH at the same post?", "Yes. A change in dependency status moves you to the with-dependents rate for that post and ends the rate protection tied to your old status. Report the change to finance with the required documents."),
     ]
-    body = ('<p>The difference between BAH with and without dependents is not a fixed amount. It depends on the post and the pay grade, and at some posts it is several hundred dollars a month. This guide uses the 2026 DTMO rates already on our BAH pages to show the gap at each post, sorted by the E-5 gap.</p>'
-        + cta("bah-dependents", "See your own with/without numbers in the calculator")
+    body = (cta("bah-dependents", "Calculate your BAH")
+        + '<p>The difference between BAH with and without dependents is not a fixed amount. It depends on the post and the pay grade, and at some posts it is several hundred dollars a month. This guide uses the 2026 DTMO rates already on our BAH pages to show the gap at each post, sorted by the E-5 gap.</p>'
         + "<h2>The rules that set the gap</h2><ul class=\"feat\">%s</ul>" % li(GD, dep_rules)
         + "<h2>2026 BAH with vs without dependents at %d posts</h2><p>Gap = with-dependents rate minus without-dependents rate, per month. Sorted by the E-5 gap, largest first.</p>" % len(gap)
         + gap_tbl
@@ -283,19 +284,60 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         "BAH with vs without dependents (2026)", "PCS Vector · guide", body, CR + [("BAH with vs without dependents", "/guides/bah-with-vs-without-dependents/")], faq4b)
 
     # ---- 5. Hub
+    # ---- TLE vs TLA (query: tle pcs, tla vs tle). Facts already published on this site; no new day-counts.
+    tle_conus = [
+     ("Temporary Lodging Expense (TLE) partially reimburses lodging and meals in temporary lodging inside CONUS during a PCS. You cannot receive both TLE and PCS per diem on the same day. Ask your local pay office.", ["mos_tle"]),
+     ("Fort Riley’s housing page tells arrivals to secure temporary lodging before they arrive and to be ready to pay for lodging beyond what the Temporary Lodging Expense covers until adequate housing is found.", ["riley_mi"]),
+    ]
+    tla_oconus = [
+     ("Temporary lodging allowance (TLA) is approved by the housing office and processed by finance. At Camp Humphreys it stops on the effective lease start date.", ["yc_mi", "hum_steps"]),
+     ("The Humphreys housing sheet says to select housing within 15 days of arrival, and that TLA can be terminated for failure to do so without a valid reason.", ["hum_sheet"]),
+     ("Fort Wainwright: request TLA within the first five days. Only the Housing Services Office can authorize it. It comes in 10-day increments with proof of an active housing search, for up to 20 days, and the home must be ready within 60 days of sign-in.", ["fort-wainwright_tl", "fort-wainwright_in"]),
+     ("At Fort Wainwright, TLA is not extended because of pet-housing difficulties. The Housing Services Office can help find pet-friendly places.", ["fort-wainwright_mi"]),
+     ("Joint Base Elmendorf-Richardson: Military OneSource says the maximum is 45 days, an extension is not automatic, and claims are submitted every 15 days with proof of at least one home viewing a day. TLA is not authorized for single, unaccompanied service members.", ["joint-base-elmendorf-richardson_tl"]),
+     ("Schofield Barracks: the Housing Service Office (808-787-7700) gives a list of TLA-approved facilities.", ["schofield-barracks_tl"]),
+     ("Schofield Barracks: Military OneSource describes officer-housing waits up to the 60-day TLA limit.", ["schofield-barracks_mi"]),
+    ]
+    faq_tle = [
+     ("Is TLE the same thing as TLA?", "No. TLE is the Temporary Lodging Expense for temporary lodging inside the continental United States during a PCS. TLA is the Temporary Lodging Allowance used overseas, and the day limits published by housing offices are not the same at every post."),
+     ("Can I receive TLE and PCS per diem on the same day?", "No. Military OneSource says you cannot receive both TLE and PCS per diem on the same day. Ask your local pay office how your orders are paid."),
+     ("How many days of TLA do I get?", "There is no single number. Fort Wainwright caps TLA at 20 days in 10-day increments. Joint Base Elmendorf-Richardson caps it at 45 days. Schofield Barracks describes a 60-day TLA limit for officer-housing waits. Camp Humphreys says TLA can stop if housing is not selected within 15 days, and it stops on the lease start date."),
+     ("Does this site publish one TLE day limit?", "No. Military OneSource describes TLE as partial reimbursement for CONUS temporary lodging and meals, and says you cannot take it on the same day as PCS per diem. Fort Riley tells arrivals to budget for lodging beyond what TLE covers. Confirm the day count with your pay office."),
+    ]
+    body = (cta("tle-vs-tla", "Calculate your BAH")
+        + '<p class="answer"><strong>TLE vs TLA:</strong> TLE (Temporary Lodging Expense) partially reimburses temporary lodging and meals inside the continental United States during a PCS, while TLA (Temporary Lodging Allowance) is the overseas lodging allowance and the day limits published by housing offices are not the same at every post.</p>'
+        + "<h2>TLE: temporary lodging inside the United States</h2><ul class=\"feat\">%s</ul>" % li(GD, tle_conus)
+        + "<h2>TLA: temporary lodging overseas</h2><p>TLA is not one worldwide number. These are the limits already published on our installation pages, each tied to the housing-office source.</p><ul class=\"feat\">%s</ul>" % li(GD, tla_oconus)
+        + "<h2>Where to read the local rule</h2><ul class=\"bases\">"
+        + '<li><a href="/bah/fort-riley/">Fort Riley, KS</a></li>'
+        + '<li><a href="/bah/fort-wainwright/">Fort Wainwright, AK</a></li>'
+        + '<li><a href="/bah/joint-base-elmendorf-richardson/">Joint Base Elmendorf-Richardson, AK</a></li>'
+        + '<li><a href="/bah/schofield-barracks/">Schofield Barracks, HI</a></li>'
+        + '<li><a href="/oha/korea/">South Korea OHA</a></li>'
+        + '<li><a href="/guides/pcs-cost-checklist/">PCS cost checklist</a></li>'
+        + '<li><a href="/bah/">BAH by post</a></li></ul>'
+        + faq_html(faq_tle)
+        + src_list(GD, used([tle_conus, tla_oconus])))
+    P["guides/tle-vs-tla/index.html"] = shell(read, "tle-vs-tla",
+        "TLE vs TLA for a Military PCS | PCS Vector",
+        "TLE covers temporary lodging inside CONUS on a PCS. TLA is the overseas lodging allowance, and published day limits differ by installation.",
+        "TLE vs TLA on a military PCS", "PCS Vector · guide", body, CR + [("TLE vs TLA", "/guides/tle-vs-tla/")], faq_tle)
+
     hub_items = [
      ("/guides/pcs-cost-checklist/", "PCS cost checklist", "What DLA and TLE reimburse, which deposits and fees you front, and where rate protection starts over."),
+     ("/guides/tle-vs-tla/", "TLE vs TLA", "TLE is CONUS temporary lodging pay on a PCS. TLA is the overseas allowance, and the day limits differ by post."),
      ("/guides/break-a-lease-for-pcs-orders/", "Breaking a lease for PCS orders", "The SCRA notice rule, the 30-day timing and what installation housing offices add."),
      ("/guides/bah-2027-pcs/", "BAH 2027 and your PCS", "What is known before DTMO publishes 2027 rates, and how 2026 moved at eight posts."),
      ("/guides/bah-with-vs-without-dependents/", "BAH with vs without dependents", "The 2026 gap at 27 posts for E-4, E-5, E-6 and O-3, and why the number of dependents does not matter."),
      ("/guides/how-oha-works-overseas-pcs/", "How OHA works for an overseas PCS", "Rent ceiling, utility allowance, MIHA and why the dollar amount moves with exchange rates."),
     ]
     inst = ["fort-hood","fort-campbell","fort-sill","fort-drum","fort-riley","fort-bragg","fort-bliss","joint-base-san-antonio","national-capital-region"]
-    body = ("<p>Plain-language PCS guides built on official sources, each with the source and the date it was read. For rates by post, use the BAH and OHA pages; for the rules around them, start here.</p>"
+    body = (cta("guides", "Calculate your BAH")
+        + "<p>Plain-language PCS guides built on official sources, each with the source and the date it was read. For rates by post, use the BAH and OHA pages; for the rules around them, start here.</p>"
         + "<h2>PCS guides</h2><ul class=\"feat\">%s</ul>" % "".join('<li><a href="%s"><strong>%s</strong></a> — %s</li>' % (u, E(t), E(d)) for u, t, d in hub_items)
         + "<h2>Installation guides (BAH posts)</h2><p>Each page below has a PCS checklist, housing options and area notes from the installation’s own housing pages.</p><ul class=\"bases\">%s</ul>" % "".join('<li><a href="/bah/%s/#pcs-guide">%s</a></li>' % (s, E(NAMES[s].split(" (")[0])) for s in inst)
         + "<h2>Overseas (OHA)</h2><p>Housing-office rules for living off post overseas.</p><ul class=\"bases\">%s</ul>" % "".join('<li><a href="%s#pcs-guide">%s</a></li>' % (u, E(l)) for u, l in OHA_LINKS[:2] + OHA_LINKS[3:])
-        + '<h2>Everything else</h2><ul class="bases"><li><a href="/bah/">BAH by post (27 pages)</a></li><li><a href="/oha/">OHA by country</a></li><li><a href="/">Free PCS calculator</a></li></ul>')
+        + '<h2>Everything else</h2><ul class="bases"><li><a href="/bah/">BAH by post (27 pages)</a></li><li><a href="/bah/by-zip/">BAH by ZIP code</a></li><li><a href="/oha/">OHA by country</a></li><li><a href="/">Free PCS calculator</a></li></ul>')
     P["guides/index.html"] = shell(read, None, "PCS Guides: Costs, Leases, BAH and OHA Rules | PCS Vector",
         "PCS Vector guides: cost checklist, breaking a lease for orders, BAH 2027 and OHA basics, plus installation housing-office checklists for major posts.",
         "PCS guides", "PCS Vector · guides", body, [("PCS Vector", "/"), ("Guides", "/guides/")])

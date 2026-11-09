@@ -54,6 +54,8 @@ NAMES = {  # display names with state (homepage "Browse by fort")
 }
 GUIDE_LINKS = [  # (url, label)
     ("/guides/pcs-cost-checklist/", "PCS cost checklist"),
+    ("/guides/tle-vs-tla/", "TLE vs TLA"),
+    ("/bah/by-zip/", "BAH by ZIP code"),
     ("/guides/break-a-lease-for-pcs-orders/", "Break a lease for PCS orders"),
     ("/guides/bah-2027-pcs/", "BAH 2027 and your PCS"),
     ("/guides/bah-with-vs-without-dependents/", "BAH with vs without dependents"),
@@ -385,7 +387,7 @@ def build_longtail():
 def build_404():
     h = read("404.html"); h = strip(h, "404nav")
     pop = ["fort-bragg", "fort-hood", "fort-campbell", "fort-stewart", "fort-drum", "national-capital-region", "fort-sill", "joint-base-san-antonio"]
-    block = ("<h2>Try one of these</h2><ul class=\"bases\"><li><a href=\"/\">PCS calculator</a></li><li><a href=\"/bah/\">BAH by post</a></li><li><a href=\"/oha/\">OHA by country</a></li><li><a href=\"/guides/\">PCS guides</a></li></ul>"
+    block = ("<h2>Try one of these</h2><ul class=\"bases\"><li><a href=\"/\">PCS calculator</a></li><li><a href=\"/bah/\">BAH by post</a></li><li><a href=\"/bah/by-zip/\">BAH by ZIP</a></li><li><a href=\"/oha/\">OHA by country</a></li><li><a href=\"/guides/tle-vs-tla/\">TLE vs TLA</a></li><li><a href=\"/guides/\">PCS guides</a></li></ul>"
              "<h2>Popular posts</h2><ul class=\"bases\">%s</ul>" % "".join('<li><a href="/bah/%s/">%s</a></li>' % (x, E(NAMES[x].split(" (")[0])) for x in pop))
     h = put(h, "404nav", block, '<p class="src">')
     write("404.html", h)
