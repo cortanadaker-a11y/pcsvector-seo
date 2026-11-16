@@ -400,8 +400,15 @@ def home_extra_inner():
     # These four questions live in the page's existing FAQPage JSON-LD, not a second script.
     # Collapsed like the homepage FAQ: h2 lives in <summary> so the title is not repeated when open.
     chevron = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>'
+    # Visible even when Quick answers is closed: names Google Forms and the
+    # referral partner, and keeps a Privacy link on the homepage.
+    notice = (
+        '<p class="home-extra-notice">Your info goes to Google Forms and our referral partner only when you submit. '
+        '<a href="/privacy/">Privacy</a></p>\n'
+    )
     return (
-        '<div class="pcs-exp"><details id="pcs-quick-answers-exp"><summary>'
+        notice
+        + '<div class="pcs-exp"><details id="pcs-quick-answers-exp"><summary>'
         + chevron
         + '<h2 id="home-extra-h">Quick answers</h2></summary><div class="body">\n'
         + '<section class="home-extra" id="home-extra" aria-labelledby="home-extra-h">'
