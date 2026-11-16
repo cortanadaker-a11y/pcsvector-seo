@@ -149,7 +149,7 @@ GUIDES2["fort-irwin"] = dict(
   housing=[
    ("On post: family housing is privatized; Michaels Management Services has been the community partner since July 2015, and leasing is at 4553 Tippecanoe in the Sandy Basin community. Homes have 2 to 4 bedrooms and some are accessible.", ["fort-irwin_mi"]),
    ("How BAH works on post: because housing is privatized, the full BAH amount shows on your LES as an entitlement and is simultaneously taken out as an allotment paid to the landlord for rent. Utilities except telephone and cable are included in the rent within the median baseline.", ["fort-irwin_mi"]),
-   ("Off post: Military OneSource says apartment rents are plus utilities (it gives an undated range, so ask for current prices) and that the Housing Services Office can name reputable complexes and property managers.", ["fort-irwin_mi"]),
+   ("Off post: Military OneSource lists apartment rents plus utilities but gives no date, so ask for current prices, and says the Housing Services Office can name reputable complexes and property managers.", ["fort-irwin_mi"]),
    ("Single members: company grade officers, warrant officers and soldiers E-6 and above drawing BAH at the without-dependents rate are not required to live on post; unaccompanied housing is available through the private partner.", ["fort-irwin_mi"]),
    ("There is no mobile home park at Fort Irwin, but there is an RV site (Outdoor Recreation, 760-380-4327).", ["fort-irwin_mi"]),
   ],
