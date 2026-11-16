@@ -8,3 +8,8 @@
 .home-extra-links a{display:inline-flex;align-items:center;min-height:48px;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#F0D060;font-weight:700;text-decoration:none}
 .home-extra a{color:#F0D060}
 .home-extra a:focus-visible{outline:2px solid #F0D060;outline-offset:2px}
+
+/* Collapse Quick answers and Browse by fort like the FAQ. Tight closed stack. Do not target the calculator. */
+main.pcs-main > .pcs-exp{margin-top:8px}
+.pcs-exp .home-extra,.pcs-exp .pcs-browse{margin:0}
+.pcs-exp summary:focus-visible{outline:2px solid #F0D060;outline-offset:2px}
