@@ -375,7 +375,7 @@ HOME_EXTRA_START = "<!-- home-extra:start -->"
 HOME_EXTRA_END = "<!-- home-extra:end -->"
 # Visible copy from the earlier homepage FAQ. Dollars stay on the post pages; 68 is len(calc-data posts).
 HOME_ANSWER = ("The calculator above shows 2026 BAH, OHA, and COLA for 68 Army posts from the DTMO tables on this site.")
-HOME_PRIVACY = ("The short form collects your first name and email. The longer Find a home form collects first name, email, destination, rank, and number of dependents. Your details go to Google Forms when you open the form. They reach PCS Vector and its licensed agent referral partner, who matches you with one independent local agent, only when you submit. This browser saves your name and email from the short form to prefill it next time. We don't sell your info.")
+HOME_PRIVACY = ("The short form collects your first name and email. The longer Find a home form collects first name, email, destination, rank, and number of dependents. Your details go to Google Forms when you open the form. They reach PCS Vector and its referral partner, who matches you with one licensed local agent, only when you submit. This browser saves your name and email from the short form to prefill it next time. We don't sell your info.")
 HOME_LINKS = [("/bah/by-zip/", "BAH by ZIP code"), ("/guides/tle-vs-tla/", "TLE vs TLA"), ("/privacy/", "Privacy")]
 HOME_FAQS = [
     ("What is O-6 BAH in Washington, DC for 2026?",
