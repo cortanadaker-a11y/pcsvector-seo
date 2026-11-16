@@ -9,7 +9,7 @@ The calculator at the home page shows 2026 BAH, OHA, and COLA and includes a fre
 - [Calculate your BAH](https://pcsvector.com/): Free 2026 Army BAH, OHA, and COLA calculator for 68 posts, with a free housing intro on the same page.
 - [BAH by post](https://pcsvector.com/bah/): 2026 DTMO BAH at 27 posts. E-5 with dependents runs from $1,218 at Fort Polk to $3,663 at Schofield Barracks.
 - [BAH by ZIP code](https://pcsvector.com/bah/by-zip/): Match a duty-station ZIP to one of those 27 housing areas. 22204 and 22030 are the Washington, DC metro area.
-- [OHA by country](https://pcsvector.com/oha/): E-5 rent $1,273.99–$2,802.78 at 11 areas we cover, as of 1 Nov 2026 (Camp Casey to Wiesbaden).
+- [OHA by country](https://pcsvector.com/oha/): E-5 rent $1,263.18–$2,807.90 at 11 areas we cover, as of 16 Nov 2026 (Camp Casey to Wiesbaden).
 
 ## High-demand rate pages
 
@@ -17,10 +17,10 @@ The calculator at the home page shows 2026 BAH, OHA, and COLA and includes a fre
 - [Fort Sill BAH](https://pcsvector.com/bah/fort-sill/): 2026 BAH for FORT SILL/LAWTON, OK (OK237). E-5 with dependents $1,233.
 - [Fort Huachuca BAH](https://pcsvector.com/bah/fort-huachuca/): 2026 BAH for FORT HUACHUCA, AZ (AZ014). E-5 with dependents $1,719.
 - [Fort Bliss BAH](https://pcsvector.com/bah/fort-bliss/): 2026 BAH for Fort Bliss, TX.
-- [Korea OHA](https://pcsvector.com/oha/korea/): Korea pays OHA, not BAH. Camp Humphreys only: E-5 with dependents up to $2,322.35 as of 1 Nov 2026. Camp Casey is $2,112.92.
-- [Japan OHA](https://pcsvector.com/oha/japan/): Camp Zama only, E-5 with dependents up to $2,474.40 as of 1 Nov 2026. Yokota and Yokosuka are separate localities.
-- [Germany OHA](https://pcsvector.com/oha/germany/): Wiesbaden only, E-5 with dependents up to $3,940.98 as of 1 Nov 2026. Ansbach on the same page is $2,451.86.
-- [Okinawa OHA](https://pcsvector.com/oha/okinawa/): 2026 Okinawa OHA rent ceilings by rank, as of 1 Nov 2026.
+- [Korea OHA](https://pcsvector.com/oha/korea/): Korea pays OHA, not BAH. Camp Humphreys only: E-5 with dependents up to $2,302.64 as of 16 Nov 2026. Camp Casey is $2,094.99.
+- [Japan OHA](https://pcsvector.com/oha/japan/): Camp Zama only, E-5 with dependents up to $2,479.95 as of 16 Nov 2026. Yokota and Yokosuka are separate localities.
+- [Germany OHA](https://pcsvector.com/oha/germany/): Wiesbaden only, E-5 with dependents up to $3,948.18 as of 16 Nov 2026. Ansbach on the same page is $2,456.34.
+- [Okinawa OHA](https://pcsvector.com/oha/okinawa/): 2026 Okinawa OHA rent ceilings by rank, as of 16 Nov 2026.
 
 ## Guides
 

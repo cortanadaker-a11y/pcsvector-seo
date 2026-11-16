@@ -1,7 +1,7 @@
 {
  "/": {
-  "lastmod": "2026-11-10",
-  "sha256": "7d1e6eff7c87f4254baed26adda38cbbf8eecb04026a9a1d54899ee4581ea7ac"
+  "lastmod": "2026-11-16",
+  "sha256": "5e3642d486dc09c857d07de18347204f05410069e5b58a366c9bee0ff15e7a86"
  },
  "/bah/": {
   "lastmod": "2026-11-09",
@@ -136,8 +136,8 @@
   "sha256": "dab9b249e2fb35c6959bfb27203b5ef9d7b7b787647082c05e14bc77f4436b83"
  },
  "/guides/how-oha-works-overseas-pcs/": {
-  "lastmod": "2026-11-09",
-  "sha256": "37875daa7bc98a0dd7bba42e7ebac6f665e7e473a61ec7661d2f2eae008b8179"
+  "lastmod": "2026-11-16",
+  "sha256": "2a4b69d464cf15b028fa0cf392e35c2dabcd945c2ba7ca4a6bb9144d640d3ace"
  },
  "/guides/pcs-cost-checklist/": {
   "lastmod": "2026-11-09",
@@ -148,24 +148,24 @@
   "sha256": "49a072c9a9c8c2953b6e71d4dc3f8017369124901d3fbe98a4919f7c7cbc60bc"
  },
  "/oha/": {
-  "lastmod": "2026-11-09",
-  "sha256": "a440d43074e6091858c7d6603cd27f617d85a0a1abdb89cdea686319fe602821"
+  "lastmod": "2026-11-16",
+  "sha256": "1564dd433f05c176bd78ef82709046184f75a1f5e7437af400a2ae265fef0397"
  },
  "/oha/germany/": {
-  "lastmod": "2026-11-09",
-  "sha256": "1f1b8c7aaada63ac2d213f9423046838e9ed844d4f24853f0f979d653451496e"
+  "lastmod": "2026-11-16",
+  "sha256": "f4aeaadb717f1a3c385d0302825f627d429c5e38168df9b0d27b4d67716829a4"
  },
  "/oha/japan/": {
-  "lastmod": "2026-11-09",
-  "sha256": "d9740114571dbd86fe321c9e3b5e61aba41ac126810fa2fc5502971c36c9298d"
+  "lastmod": "2026-11-16",
+  "sha256": "4501ff5e8c0565dcffd44b32581417e4a9498121c2bddb5293a7749f0b5e8de4"
  },
  "/oha/korea/": {
-  "lastmod": "2026-11-09",
-  "sha256": "971078ef07c637c5e5763c36ec626edea06dd3b40605abe21c0392e3c5205211"
+  "lastmod": "2026-11-16",
+  "sha256": "c1237a5c1b5c2753cbf0f0b39a4c79e8cfad87ea076b1d5a0de3264ed27c577c"
  },
  "/oha/okinawa/": {
-  "lastmod": "2026-11-09",
-  "sha256": "07f8bd43fed87daeff5b1c0737e62cfa954b959a00846a3812cb5d4d63383390"
+  "lastmod": "2026-11-16",
+  "sha256": "8775581b936a60e4c6bf73379512fcc09a351cd380946abcaa9121a09d70fcea"
  },
  "/privacy/": {
   "lastmod": "2026-11-09",
