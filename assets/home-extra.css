@@ -8,3 +8,16 @@
 .home-extra-links a{display:inline-flex;align-items:center;min-height:48px;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#F0D060;font-weight:700;text-decoration:none}
 .home-extra a{color:#F0D060}
 .home-extra a:focus-visible{outline:2px solid #F0D060;outline-offset:2px}
+
+/* Collapse Quick answers and Browse by fort like the FAQ. Tight closed stack. Do not target the calculator. */
+main.pcs-main > .pcs-exp{margin-top:8px}
+.pcs-exp .home-extra,.pcs-exp .pcs-browse{margin:0}
+.pcs-exp summary:focus-visible{outline:2px solid #F0D060;outline-offset:2px}
+
+.pcs-exp summary h2{margin:0;color:inherit;font:inherit;letter-spacing:inherit}
+.pcs-exp-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Always-visible one-line privacy notice above the closed expanders. */
+.home-extra-notice{margin:8px 0 0;color:#9AA89F;font-size:13px;line-height:1.4;font-weight:600}
+.home-extra-notice a{color:#F0D060;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.home-extra-notice a:focus-visible{outline:2px solid #F0D060;outline-offset:2px}

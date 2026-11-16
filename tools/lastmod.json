@@ -1,7 +1,7 @@
 {
  "/": {
   "lastmod": "2026-11-16",
-  "sha256": "5e3642d486dc09c857d07de18347204f05410069e5b58a366c9bee0ff15e7a86"
+  "sha256": "3f3dd1b024de414434212b06c29cd6fe7fbfdfbab0e9b301f7ca19e850e8c2c2"
  },
  "/bah/": {
   "lastmod": "2026-11-09",
@@ -48,8 +48,8 @@
   "sha256": "9f4c4cda108c5c877698b85b064cf2d839b18588bfe6337eaa6947020cfcba59"
  },
  "/bah/fort-irwin/": {
-  "lastmod": "2026-11-09",
-  "sha256": "cb2631d698cfc99110e3c4380d9addeb988a4d63340b2dc5b7218701a2d7af9f"
+  "lastmod": "2026-11-16",
+  "sha256": "874c69cf96156ffcb0133d451e922b0e7286d341c3e8f3a75385fcccddf48783"
  },
  "/bah/fort-jackson/": {
   "lastmod": "2026-11-09",
@@ -168,7 +168,7 @@
   "sha256": "8775581b936a60e4c6bf73379512fcc09a351cd380946abcaa9121a09d70fcea"
  },
  "/privacy/": {
-  "lastmod": "2026-11-09",
-  "sha256": "43906acf1e9265bae2a707cb04316c5d34f70b6725e03606281fe49b56cfc8f9"
+  "lastmod": "2026-11-16",
+  "sha256": "e756614317e3a771b7f70a8575172b15516cc76644cf0f1ffb4ed177846d18ff"
  }
 }

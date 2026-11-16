@@ -375,7 +375,7 @@ HOME_EXTRA_START = "<!-- home-extra:start -->"
 HOME_EXTRA_END = "<!-- home-extra:end -->"
 # Visible copy from the earlier homepage FAQ. Dollars stay on the post pages; 68 is len(calc-data posts).
 HOME_ANSWER = ("The calculator above shows 2026 BAH, OHA, and COLA for 68 Army posts from the DTMO tables on this site.")
-HOME_PRIVACY = ("The short form collects your first name and email. The longer Find a home form collects first name, email, destination, rank, and number of dependents. Your details go to Google Forms when you open the form. They reach PCS Vector and its licensed agent referral partner, who matches you with one independent local agent, only when you submit. This browser saves your name and email from the short form to prefill it next time. We don't sell your info.")
+HOME_PRIVACY = ("The short form collects your first name and email. The longer Find a home form collects first name, email, destination, rank, and number of dependents. Your details go to Google Forms when you open the form. They reach PCS Vector and its referral partner, who matches you with one licensed local agent, only when you submit. This browser saves your name and email from the short form to prefill it next time. We don't sell your info.")
 HOME_LINKS = [("/bah/by-zip/", "BAH by ZIP code"), ("/guides/tle-vs-tla/", "TLE vs TLA"), ("/privacy/", "Privacy")]
 HOME_FAQS = [
     ("What is O-6 BAH in Washington, DC for 2026?",
@@ -398,12 +398,25 @@ def home_extra_inner():
     for q, a, u, label in HOME_FAQS:
         faqs.append("<article><h3>%s</h3><p>%s</p><p><a href=\"%s\">%s</a></p></article>" % (E(q), E(a), u, E(label)))
     # These four questions live in the page's existing FAQPage JSON-LD, not a second script.
-    return ("<section class=\"home-extra\" id=\"home-extra\" aria-labelledby=\"home-extra-h\">"
-            "<h2 id=\"home-extra-h\">Quick answers</h2>"
-            "<p class=\"home-extra-answer\">%s</p>"
-            "<ul class=\"home-extra-links\">%s</ul>"
-            "<p class=\"home-extra-privacy\">%s</p>"
-            "%s</section>") % (E(HOME_ANSWER), links, E(HOME_PRIVACY), "".join(faqs))
+    # Collapsed like the homepage FAQ: h2 lives in <summary> so the title is not repeated when open.
+    chevron = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>'
+    # Visible even when Quick answers is closed: names Google Forms and the
+    # referral partner, and keeps a Privacy link on the homepage.
+    notice = (
+        '<p class="home-extra-notice">Opening the form sends your info to Google Forms. It reaches us and our referral partner only when you submit. '
+        '<a href="/privacy/">Privacy</a></p>\n'
+    )
+    return (
+        notice
+        + '<div class="pcs-exp"><details id="pcs-quick-answers-exp"><summary>'
+        + chevron
+        + '<h2 id="home-extra-h">Quick answers</h2></summary><div class="body">\n'
+        + '<section class="home-extra" id="home-extra" aria-labelledby="home-extra-h">'
+        + '<p class="home-extra-answer">%s</p>'
+        + '<ul class="home-extra-links">%s</ul>'
+        + '<p class="home-extra-privacy">%s</p>'
+        + '%s</section>\n</div></details></div>'
+    ) % (E(HOME_ANSWER), links, E(HOME_PRIVACY), "".join(faqs))
 
 def build_home():
     """Replace only the marked block below the calculator. Leave every other byte of index.html alone."""
