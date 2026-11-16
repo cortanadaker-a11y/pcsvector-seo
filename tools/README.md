@@ -22,13 +22,13 @@ python3 tools/build_guides.py && python3 tools/calc_oha.py && python3 tools/site
 5. Set `AS_OF` to the date you read the sources, run the three commands above, open a PR.
 Pages currently done: all 27 BAH pages (9 in `guide_data.py`, 18 in `guide_data_batch2.py`); OHA: Korea, Japan, Germany, Okinawa. Batch 2 sources are Military OneSource (MilitaryINSTALLATIONS) housing, temporary housing and check-in pages read on 28 Oct 2026. The JBER and Schofield pages live under `joint-base-elmendorf-richardson-jber` and `schofield-barracks-fort-shafter` there.
 
-Housing-office pages change; re-read before bumping `AS_OF`. OHA tables on `/oha/*` are refreshed by hand from DTMO each pay period (1st and 16th); current: pay period 1 Nov 2026 (KRW 1,273.34, JPY 153.04, EUR 0.8777 per USD). Then run `calc_oha.py` so the calculator matches.
+Housing-office pages change; re-read before bumping `AS_OF`. OHA tables on `/oha/*` are refreshed by hand from DTMO each pay period (1st and 16th); current: pay period 16 Nov 2026 (KRW 1,284.23, JPY 152.6959, EUR 0.8761 per USD). Then run `calc_oha.py` so the calculator matches.
 
 ## Rules the builder enforces
 - `check_site.py` fails if an FAQPage JSON-LD question is not visible on the page; `build_guides.py` prunes hidden ones.
 - `dateModified` and sitemap `lastmod` move only for pages with substantive content changes. For cosmetic-only changes (nav links) run `python3 tools/sitemap.py --keep-date=YYYY-MM-DD:/url/,/url2/` once.
 - OHA pages carry an "As of <pay period>; OHA updates the 1st and 16th" note (`<!--pcsv:asof-->`). Spot-check at least E-5 with dependents per area against DTMO's OHA lookup before changing the date.
-- MIHA on the OHA pages: DTMO returned the same MIHA with and without dependents for all 11 areas (1 Nov 2026 pay period, read 2 Nov 2026; previously 16 Oct 2026 pay period, read 28 Oct 2026). On each refresh re-read both cases; `check_site.py` fails on a dash cell in a MIHA row.
+- MIHA on the OHA pages: DTMO returned the same MIHA with and without dependents for all 11 areas (16 Nov 2026 pay period, read 16 Nov 2026; previously 1 Nov 2026 pay period, read 2 Nov 2026). On each refresh re-read both cases; `check_site.py` fails on a dash cell in a MIHA row.
 
 ## Brand and site name
 - Tagline, exactly: `For Soldiers; By Soldiers`. It is in every footer and in the homepage copy. Keep the not-official disclaimer. Do not use approval or endorsement wording for agents; use "vetted, military-experienced agents". `build_guides.py` (`build_brand`) writes both.
