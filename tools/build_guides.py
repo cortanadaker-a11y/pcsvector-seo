@@ -279,15 +279,15 @@ def oha_block(key):
     return "\n".join(parts)
 
 _DTMO_LOOKUP = "<a href=\"https://www.travel.dod.mil/Allowances/Overseas-Housing-Allowance/OHA-Rate-Lookup/\">DTMO OHA Rate Lookup</a>"
-_ASOF_HEAD = ("<p class=\"note\" id=\"oha-asof\"><strong>As of 1 Nov 2026; OHA updates 16 Nov.</strong> DTMO changes OHA on the 1st and 16th of each month, so the next change is 16 Nov 2026 and these figures may be out of date after that. ")
-ASOF_NOTE_CHECKED = (_ASOF_HEAD + "Checked against DTMO\u2019s OHA lookup on 2 Nov 2026 (pay period 1 Nov 2026): every pay grade shown, with and without dependents, for every area on this page, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
-ASOF_NOTE_OKINAWA = (_ASOF_HEAD + "Checked against DTMO\u2019s OHA lookup on 2 Nov 2026 (pay period 1 Nov 2026, Okinawa JP027): every pay grade shown, with and without dependents, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
+_ASOF_HEAD = ("<p class=\"note\" id=\"oha-asof\"><strong>As of 16 Nov 2026; OHA updates 1 Dec.</strong> DTMO changes OHA on the 1st and 16th of each month, so the next change is 1 Dec 2026 and these figures may be out of date after that. ")
+ASOF_NOTE_CHECKED = (_ASOF_HEAD + "Checked against DTMO\u2019s official OHA country workbooks and Appendix K exchange rates, read 16 Nov 2026 (pay period 16 Nov 2026): every pay grade shown, with and without dependents, for every area on this page, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
+ASOF_NOTE_OKINAWA = (_ASOF_HEAD + "Checked against DTMO\u2019s official OHA country workbooks and Appendix K exchange rates, read 16 Nov 2026 (pay period 16 Nov 2026, Okinawa JP027): every pay grade shown, with and without dependents, covering rent, utilities and MIHA. Always confirm your own rate on the " + _DTMO_LOOKUP + ".</p>")
 
-# MIHA: DTMO's report (pay period 1 Nov 2026, read 2 Nov 2026) returned the same MIHA for with- and without-dependents
-# for every pay grade at all 11 localities on the four OHA pages (refresh 2 Nov 2026; previously pay period 16 Oct 2026).
-DTMO_MIHA = {"$303.67 \u20a9386,676", "$427.85 \u00a565,477", "$757.66 \u20ac665"}
+# MIHA: DTMO's report (pay period 16 Nov 2026, read 16 Nov 2026) returned the same MIHA for with- and without-dependents
+# for every pay grade at all 11 localities on the four OHA pages (refresh 16 Nov 2026; previously pay period 1 Nov 2026).
+DTMO_MIHA = {"$301.10 \u20a9386,676", "$428.81 \u00a565,477", "$759.05 \u20ac665"}
 MIHA_OLD = ("The MIHA figure is what DTMO\u2019s calculator shows for a member with dependents; DTMO did not return a MIHA figure for the without-dependents query, so check with your housing office.")
-MIHA_NEW = ("The MIHA figure is what DTMO\u2019s OHA report returned for the 1 Nov 2026 pay period (every pay grade returned the same amount with and without dependents, so it is shown in both columns). Confirm your own amount with your housing office.")
+MIHA_NEW = ("The MIHA figure is what DTMO\u2019s OHA report returned for the 16 Nov 2026 pay period (every pay grade returned the same amount with and without dependents, so it is shown in both columns). Confirm your own amount with your housing office.")
 
 def fix_miha(h):
     def row(m):
