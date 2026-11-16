@@ -398,12 +398,18 @@ def home_extra_inner():
     for q, a, u, label in HOME_FAQS:
         faqs.append("<article><h3>%s</h3><p>%s</p><p><a href=\"%s\">%s</a></p></article>" % (E(q), E(a), u, E(label)))
     # These four questions live in the page's existing FAQPage JSON-LD, not a second script.
-    return ("<section class=\"home-extra\" id=\"home-extra\" aria-labelledby=\"home-extra-h\">"
-            "<h2 id=\"home-extra-h\">Quick answers</h2>"
-            "<p class=\"home-extra-answer\">%s</p>"
-            "<ul class=\"home-extra-links\">%s</ul>"
-            "<p class=\"home-extra-privacy\">%s</p>"
-            "%s</section>") % (E(HOME_ANSWER), links, E(HOME_PRIVACY), "".join(faqs))
+    # Collapsed like the homepage FAQ: h2 lives in <summary> so the title is not repeated when open.
+    chevron = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>'
+    return (
+        '<div class="pcs-exp"><details id="pcs-quick-answers-exp"><summary>'
+        + chevron
+        + '<h2 id="home-extra-h">Quick answers</h2></summary><div class="body">\n'
+        + '<section class="home-extra" id="home-extra" aria-labelledby="home-extra-h">'
+        + '<p class="home-extra-answer">%s</p>'
+        + '<ul class="home-extra-links">%s</ul>'
+        + '<p class="home-extra-privacy">%s</p>'
+        + '%s</section>\n</div></details></div>'
+    ) % (E(HOME_ANSWER), links, E(HOME_PRIVACY), "".join(faqs))
 
 def build_home():
     """Replace only the marked block below the calculator. Leave every other byte of index.html alone."""
