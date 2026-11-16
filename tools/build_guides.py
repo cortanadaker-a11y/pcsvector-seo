@@ -403,7 +403,7 @@ def home_extra_inner():
     # Visible even when Quick answers is closed: names Google Forms and the
     # referral partner, and keeps a Privacy link on the homepage.
     notice = (
-        '<p class="home-extra-notice">Your info goes to Google Forms and our referral partner only when you submit. '
+        '<p class="home-extra-notice">Opening the form sends your info to Google Forms. It reaches us and our referral partner only when you submit. '
         '<a href="/privacy/">Privacy</a></p>\n'
     )
     return (
