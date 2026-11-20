@@ -5,7 +5,7 @@
  },
  "/bah/": {
   "lastmod": "2026-11-09",
-  "sha256": "b4d0ffba96a565434332a4e4e3c4df8b947efd369c6ae95c9eb6b85694d7d809"
+  "sha256": "5cfb10616ce6d188291ee676f8e065f66679677dc136ed620c4c5308d76cfbee"
  },
  "/bah/by-zip/": {
   "lastmod": "2026-11-09",
@@ -13,111 +13,111 @@
  },
  "/bah/fort-benning/": {
   "lastmod": "2026-11-09",
-  "sha256": "ddc184fe960b71c8ef07246ca1eaa7d5dd0d2234b09f4843e00cbf5bbf9a1c2e"
+  "sha256": "97d605195eddb39500fd32ca2ca7344716de6729b1486202cc1d8a87881c2352"
  },
  "/bah/fort-bliss/": {
   "lastmod": "2026-11-09",
-  "sha256": "21d9510a79bc75294ac8daf1089ff50893e3520266ba200724f092a85f52366a"
+  "sha256": "ba7d189aa8f617e93b561f838a97399c8595f8238ad88b41523b2b3db75a8638"
  },
  "/bah/fort-bragg/": {
   "lastmod": "2026-11-09",
-  "sha256": "4d43b9f370ccb11e79a2c927ac5ce4ef02a238b825c483d7643d8c52a98ca5ed"
+  "sha256": "dd2acafb7d7d08bfbafb0b3b00503a06a4c67d2ac6428fc5e6c8fe834daa92ca"
  },
  "/bah/fort-campbell/": {
   "lastmod": "2026-11-09",
-  "sha256": "8b07ccab47a1e8ba4ef78ca33cacfbda0549a1fdfeea8aaafffa88546b414f25"
+  "sha256": "6d1cf8b23732e4d1185978f410520a0bdd166f19b3de635caaaa8dc29e58454a"
  },
  "/bah/fort-carson/": {
   "lastmod": "2026-11-09",
-  "sha256": "5df6b16f85fbf8393f0b5af204f34af40b19206eadc1f7bba3e474779c51b8eb"
+  "sha256": "5e433767639649a7a87127ccac1a647b65245927c870f3d762ad5e1291cc2e3f"
  },
  "/bah/fort-drum/": {
   "lastmod": "2026-11-09",
-  "sha256": "fdc10c0278f4e55983fec5306d2121d192566c66c8a78c9838642b405bb10be3"
+  "sha256": "77acc23a12e77614eb684a637fad5e87ee53f4c086dab3bf3225c602f140c301"
  },
  "/bah/fort-gordon/": {
   "lastmod": "2026-11-09",
-  "sha256": "739698b34dbaba13a3f97723b9af6ddb4f46a9d366c787c88f4106a3bf367a89"
+  "sha256": "8da0fd46075a99fd08fa9d2f4942be4d6915db298776f1d14122140bbb5e64a8"
  },
  "/bah/fort-hood/": {
   "lastmod": "2026-11-09",
-  "sha256": "87cfed4e1c6dbf32a15c890e1cfcd81763ebc13c6b89995f674467b52efc9e7f"
+  "sha256": "1c2366173037f1a729d30e8197b942f4e3f14ce9f66cf5718e2d8be20d9d76ea"
  },
  "/bah/fort-huachuca/": {
   "lastmod": "2026-11-09",
-  "sha256": "2a014d548a5a405315a40005823cc98a5dd73fcce448dc43819d9a782d61a553"
+  "sha256": "78481b6e97c1323231370d1f31a3212d69dd34dd8f6057cf10cf6349c41e5110"
  },
  "/bah/fort-irwin/": {
   "lastmod": "2026-11-16",
-  "sha256": "35651219eb353f4c0df57858bc58eee80e4f4b88a01a3898ebaf28746e1cb285"
+  "sha256": "d98b75d8e962d7977194eb45ac018921d7eae928511c99e4c725a755a4daccf4"
  },
  "/bah/fort-jackson/": {
   "lastmod": "2026-11-09",
-  "sha256": "53dc71e4b818c2ce6c02766033039b7976a962a95eeb2db69b1d5f3137379ce8"
+  "sha256": "2cc9c94f9ee5330c520c1b13afa58b560387aac5f92a27b20aff33a0043732a1"
  },
  "/bah/fort-knox/": {
   "lastmod": "2026-11-09",
-  "sha256": "4f8e29f778ee21837d616fe55997d84e355ad79fd834be6c348ed75ffd5cd7a7"
+  "sha256": "be01fef687350b3a71146c394d6b0a5dd7bba3870efe52552e3b74a0d9e0e3d4"
  },
  "/bah/fort-leavenworth/": {
   "lastmod": "2026-11-09",
-  "sha256": "9a8efdfcbd76847005bc4b9a5d824aee69a7ff75a268f7d44ac7e72d33fc98a9"
+  "sha256": "d8fd1ad3464e985bc196a02da5ee71adf83873cee858aa1cec074e4cb5058439"
  },
  "/bah/fort-lee/": {
   "lastmod": "2026-11-09",
-  "sha256": "b959bbf8d6f5f7a62c1dd0d1da99bdb4bdbf735b7cca2be4cc687517f426c3a6"
+  "sha256": "0636ba149d0e129eec00fb761353e2e05ecb69a7932daa8922c27d0ed55ef8e7"
  },
  "/bah/fort-leonard-wood/": {
   "lastmod": "2026-11-09",
-  "sha256": "13671eb4c72b7ea8b5d96610399983c730f934764576a31df28c2d5376548a20"
+  "sha256": "7a8f9cd0c5feb9cf441202d1723c7ad2d9af9e18717c41b4ebb583504c43ddcf"
  },
  "/bah/fort-polk/": {
   "lastmod": "2026-11-09",
-  "sha256": "00fdd506f7f0fa8c959285568c8e6ab086b255734d2ea3ef7d4a4c2b21c03e75"
+  "sha256": "5a8630d686c06981936c3eeda5e9194521e93f01d6a1b8136e10206c6bdc8417"
  },
  "/bah/fort-riley/": {
   "lastmod": "2026-11-09",
-  "sha256": "c18da313138d3fe7818b9a41d323b37bd73952e8099d7e7f6fc717bd9d17a99d"
+  "sha256": "2d43a5b7db7360267267b8baeebe1774079b3dbd2ccf560ab3df2e115a8cce38"
  },
  "/bah/fort-rucker/": {
   "lastmod": "2026-11-09",
-  "sha256": "d1ce7088b06fcd3e5b4b2302249619fed783589d629dcae676d51bc9f106389f"
+  "sha256": "ef5c7f7ebe06b0733a3fb9ca977fbb5b7655c7242fe293d4328ad00a6810e334"
  },
  "/bah/fort-sill/": {
   "lastmod": "2026-11-09",
-  "sha256": "1707a61525777ea00a982b6d8c7b43aa922543bde56b3cfcb02916dc542d2fd1"
+  "sha256": "f151f9b3f411088cffbf2cc23a615f18dd84653b9319ec03ba443919c0b8d90e"
  },
  "/bah/fort-stewart/": {
   "lastmod": "2026-11-09",
-  "sha256": "239cd62579c5f9c0c506c892070ea2fbf70021058c7c0620896d328d95e81293"
+  "sha256": "cc6b4e0f408405c91a1fa687fb237b426b9a591cb2946a109bbc4b691d9cc2d3"
  },
  "/bah/fort-wainwright/": {
   "lastmod": "2026-11-09",
-  "sha256": "501ec57cde416bc7654f042238efa134d09b1737ee0c115b5ace7354a820617e"
+  "sha256": "61720767721414ca0d0faa5a17ab718ef6bc4518d89d0443c099ef347354b959"
  },
  "/bah/joint-base-elmendorf-richardson/": {
   "lastmod": "2026-11-09",
-  "sha256": "9a8e7796ff046c6c0d9a56c4920976b70c0603894ac9fbbe61d381948c03229b"
+  "sha256": "e79f0ed1df9a939a459451b99142300985752e4a55d72a5562842620bf1534cc"
  },
  "/bah/joint-base-langley-eustis/": {
   "lastmod": "2026-11-09",
-  "sha256": "b9e93f1c6d85a66e43718895f611c2fe8325a6b695a6f99f240f0f7c4ee9b4bd"
+  "sha256": "3d9174b6c7f31102f90eb3e7989f76ff0ea8ea48e6f4a0ee57f604e5b154723b"
  },
  "/bah/joint-base-lewis-mcchord/": {
   "lastmod": "2026-11-09",
-  "sha256": "7c9c82916375f9ef8c245de5c35add4aeb9cb00b1f09ebf184e61f31eba7e799"
+  "sha256": "ba441d5d2418f0cf4ca94117e460228c5c970376c4e50041bd04a2608277f2a4"
  },
  "/bah/joint-base-san-antonio/": {
   "lastmod": "2026-11-09",
-  "sha256": "79f7f472b4842833b441784bcbe37ccc052bc2dfd04a7e4c6573a9c28fa0ce04"
+  "sha256": "530bbeb97aed5564650d26d5f592e16ad582956798d2889caf299447e27dfcad"
  },
  "/bah/national-capital-region/": {
-  "lastmod": "2026-11-09",
-  "sha256": "ba127f0bfc53eef0e31e5a4327e91b630f21b8242177b70b378f2e2bddfaa7e3"
+  "lastmod": "2026-11-19",
+  "sha256": "5f14935ca8d2c99fd88aaaaa309cbe323c96c2f17434fee3e55bb5e9b374f04b"
  },
  "/bah/schofield-barracks/": {
   "lastmod": "2026-11-09",
-  "sha256": "baf93425b4c4f15c7428f2ca090971977e33bf542f45b05e7e711dabb344677c"
+  "sha256": "d7988f5fafbafc71ed5bbd7567de2e72089e7f439a83a7fdc5d86ea396efcb99"
  },
  "/guides/": {
   "lastmod": "2026-11-09",
@@ -149,23 +149,23 @@
  },
  "/oha/": {
   "lastmod": "2026-11-16",
-  "sha256": "70d9b4b587283421f19a746c221f3e03242bb56f82c185a616c46cbe5b665fbf"
+  "sha256": "555ad4fde91c668326e119ef25c21ceb6b2d761a9854dd164e8a283f8b704f30"
  },
  "/oha/germany/": {
   "lastmod": "2026-11-16",
-  "sha256": "ceb78eaa001ddaebf3ed8ed050465827758a3a1cce0b5fafe110b376594b6612"
+  "sha256": "8a481b36440c0c3977ffc4d30431698d728a0521fabacbe1a8b255348daeef42"
  },
  "/oha/japan/": {
   "lastmod": "2026-11-16",
-  "sha256": "ffb204ed9189c41d68daf2046c49a8e311059908a405901a30a9f2993280ebe5"
+  "sha256": "f6d532787abc894355fd48bda8492624c7b3404258dea5659b930c529308b065"
  },
  "/oha/korea/": {
-  "lastmod": "2026-11-16",
-  "sha256": "551ad337c3a1ae7cada9b410c20335fa047e2793426bbd68d89e986f281c9798"
+  "lastmod": "2026-11-19",
+  "sha256": "baf6c42e173773b8e115d043d471967482e9a7bfe6342684e10bfdce19fcea94"
  },
  "/oha/okinawa/": {
   "lastmod": "2026-11-16",
-  "sha256": "744d7e5db649a6501e272ece304e07ec9ee49afa8f0a19ed3f5e494610290693"
+  "sha256": "90e941396e7c70ecf5e42adf47174f330df0798d434ddd896ff05a4470dbf93f"
  },
  "/privacy/": {
   "lastmod": "2026-11-16",

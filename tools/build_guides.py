@@ -7,7 +7,10 @@ Then:                     python3 tools/sitemap.py && python3 tools/check_site.p
 What it does (every block is wrapped in <!--pcsv:NAME--> markers, so re-running replaces, never duplicates):
   1. /bah/<post>/   : "PCS guide" section (cited facts from tools/guides/guide_data.py), extra FAQ entries
                       (HTML + FAQPage JSON-LD), and a "More for your move" block (same-region posts, OHA, guides).
-  2. /oha/<country>/: housing-office rules block (tools/guides/oha_data.py) and a guides block.
+                      The existing Quick answers block is wrapped in a closed <details id="qa">. Question and
+                      answer text are not rewritten. FAQPage JSON-LD is reordered to those visible strings.
+  2. /oha/<country>/: housing-office rules block (tools/guides/oha_data.py), a guides block, and the same
+                      collapsed Quick answers wrap. Hubs /bah/ and /oha/ get the wrap too. The homepage does not.
   3. /               : only the marked block <!-- home-extra:start --> ... <!-- home-extra:end -->
                       below the calculator. The calculator section and the rest of index.html are not written.
   4. /bah/, /oha/   : links to the guides.
@@ -24,11 +27,17 @@ import oha_data as OD            # noqa: E402
 import longtail as LT            # noqa: E402
 
 import datetime, os
-# Build date for dateModified / "Page updated": --today=YYYY-MM-DD, else $PCSV_TODAY, else today's date.
-# A page only takes it when its content (ignoring those date stamps) actually changed, so re-running the
-# build on another day with nothing new changes nothing (see write()).
-TODAY = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--today=")), None) or os.environ.get("PCSV_TODAY") or datetime.date.today().isoformat()
+from zoneinfo import ZoneInfo
+# Build date for dateModified / "Page updated": --today=YYYY-MM-DD, else $PCSV_TODAY, else today's date
+# in America/New_York (not the host's UTC date). A page only takes it when its content (ignoring those
+# date stamps) actually changed, so re-running the build on another day with nothing new changes nothing.
+def _ny_today():
+    return datetime.datetime.now(ZoneInfo("America/New_York")).date().isoformat()
+TODAY = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--today=")), None) or os.environ.get("PCSV_TODAY") or _ny_today()
 datetime.date.fromisoformat(TODAY)
+# Only these pages get a dateModified / "Page updated" bump from this builder. A Quick answers
+# wrapper alone is not a visible-content change.
+DATE_BUMP = {"oha/korea/index.html", "bah/national-capital-region/index.html"}
 def E(s, quote=False):
     return html.escape(s, quote=quote)
 
@@ -246,6 +255,69 @@ def fix_th(h):
 def touch_modified(h):
     return re.sub(r'("dateModified": ")[0-9-]+(")', r"\g<1>%s\2" % DATE_MARK, h)
 
+# Closed <details> around the page's existing Quick answers. A second <style> so longtail's
+# first-style-block copy (guides) does not pick up the rule. Question and answer strings are untouched.
+QA_CSS = '<style>#qa summary{min-height:44px;padding:12px 0;cursor:pointer}#qa summary .qa-label{font-size:1.05rem;font-weight:700;color:inherit}</style>'
+_QA_SUMMARY = r"<summary>(?:<h2>Quick answers</h2>|<span class=\"qa-label\">Quick answers</span>)</summary>"
+
+def unwrap_qa(h):
+    m = re.search(r'<details id="qa">\s*' + _QA_SUMMARY + r'\n?(.*?)\n?</details>\n?', h, flags=re.S)
+    if not m:
+        return h
+    inner = m.group(1).strip()
+    return h[:m.start()] + "<h2>Quick answers</h2>" + inner + "\n" + h[m.end():]
+
+def stamp_page_updated(h):
+    return re.sub(
+        r"Page updated (?:\d{1,2} [A-Z][a-z]{2} \d{4}|[A-Z][a-z]{2} \d{4})\.",
+        "Page updated %s." % HUMAN_MARK, h, count=1)
+
+def collapse_quick_answers(h):
+    """Tap-to-open Quick answers. Stops before the next section or related-links block."""
+    h = unwrap_qa(h)
+    key = "<h2>Quick answers</h2>"
+    i = h.find(key)
+    if i < 0:
+        return h
+    rest = h[i + len(key):]
+    stops = [rest.find(s) for s in ("<!--pcsv:related-->", "<section ") if rest.find(s) >= 0]
+    if not stops or "<h3>" not in rest[:min(stops)]:
+        return h
+    end = i + len(key) + min(stops)
+    inner = h[i + len(key):end].strip()
+    wrapped = '<details id="qa">\n<summary><span class="qa-label">Quick answers</span></summary>\n%s\n</details>\n' % inner
+    h = h[:i] + wrapped + h[end:]
+    h = re.sub(r"<style>#qa summary\{.*?</style>", "", h, count=1)
+    if QA_CSS not in h:
+        h = h.replace("</style>", "</style>" + QA_CSS, 1)
+    return sync_faq_jsonld(h)
+
+def _plain_inline(s):
+    s = re.sub(r"<[^>]+>", " ", s)
+    return re.sub(r"\s+", " ", html.unescape(s)).strip()
+
+def sync_faq_jsonld(h):
+    """FAQPage JSON-LD is rewritten to the visible Quick answers, same words and order."""
+    block = re.search(r'<details id="qa">\s*' + _QA_SUMMARY + r'\n?(.*?)\n?</details>', h, flags=re.S)
+    jm = re.search(r'<script type="application/ld\+json">(\{"@context": "https://schema.org", "@type": "FAQPage".*?\})</script>', h, flags=re.S)
+    if not block or not jm:
+        return h
+    pairs = re.findall(r"<h3>(.*?)</h3>\s*<p>(.*?)</p>", block.group(1), flags=re.S)
+    entity = [{"@type": "Question", "name": _plain_inline(q), "acceptedAnswer": {"@type": "Answer", "text": _plain_inline(a)}} for q, a in pairs]
+    if not entity:
+        return h
+    j = json.loads(jm.group(1))
+    if j.get("mainEntity") == entity:
+        return h
+    j["mainEntity"] = entity
+    return h[:jm.start(1)] + json.dumps(j, ensure_ascii=False) + h[jm.end(1):]
+
+def finish_allowance_page(h, path):
+    h = collapse_quick_answers(h)
+    if path in DATE_BUMP and 'id="qa"' in h:
+        h = stamp_page_updated(touch_modified(h))
+    return h
+
 def build_bah():
     all_data = {s: parse_bah(s) for s in NAMES}
     for slug in NAMES:
@@ -259,9 +331,7 @@ def build_bah():
                 h = add_faq_jsonld(h, [(q, fmt_faq(a, all_data[slug], GD.GUIDES[slug]["short"])) for q, a in GD.GUIDES[slug]["faq"]])
         h = put(h, "related", related_block(slug), "<h2>Other posts</h2>")
         h = prune_faq_jsonld(h, p)
-        if slug in GD.GUIDES:
-            h = touch_modified(h)   # unguided pages only gain a related-links block: leave dateModified alone
-        write(p, h)
+        write(p, finish_allowance_page(h, p))
 
 # ---------------------------------------------------------------- OHA pages
 def oha_block(key):
@@ -315,20 +385,20 @@ def build_oha():
         g = "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in GUIDE_LINKS)
         h = put(h, "related", "<section id=\"more-for-your-move\"><h2>PCS guides</h2><ul class=\"bases\">%s<li><a href=\"/guides/\">All guides</a></li></ul></section>" % g, "<h2>Other OHA pages</h2>")
         h = put_asof(h, ASOF_NOTE_CHECKED)
-        write(p, touch_modified(fix_miha(h)))
+        write(p, finish_allowance_page(fix_miha(h), p))
     # Okinawa: guides block only (no verified housing-office facts yet)
     p = "oha/okinawa/index.html"; h = read(p); h = strip(h, "related")
     g = "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in GUIDE_LINKS)
     h = put(h, "related", "<section id=\"more-for-your-move\"><h2>PCS guides</h2><ul class=\"bases\">%s<li><a href=\"/guides/\">All guides</a></li></ul></section>" % g, "<h2>Other OHA pages</h2>")
     h = put_asof(h, ASOF_NOTE_OKINAWA)
-    write(p, touch_modified(fix_miha(h)))
+    write(p, finish_allowance_page(fix_miha(h), p))
     # hubs
     for p, anchor in (("bah/index.html", '<section class="agents">'), ("oha/index.html", '<section class="agents">')):
         h = read(p); h = strip(h, "related")
         g = "".join('<li><a href="%s">%s</a></li>' % (u, E(l)) for u, l in GUIDE_LINKS)
         extra = '<li><a href="/oha/">OHA by country</a></li>' if p.startswith("bah") else '<li><a href="/bah/">BAH by post</a></li>'
         h = put(h, "related", '<section id="guides-box"><h2>PCS guides</h2><ul class="bases">%s<li><a href="/guides/">All guides</a></li>%s</ul></section>' % (g, extra), anchor)
-        write(p, touch_modified(h))
+        write(p, finish_allowance_page(h, p))
 
 # ---------------------------------------------------------------- homepage
 # "Find a home" CTA (28 Oct 2026): richer gold, glow, bigger type, states, one-time pulse. Text, href and click event are untouched.
