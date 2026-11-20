@@ -54,7 +54,9 @@ def git_date(rel):
 def build(seed=False, keep=None):
     """keep = {url: date}: when the page's hash changed only cosmetically, record the new hash but keep this date."""
     keep = keep or {}
-    today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    # lastmod uses America/New_York so a UTC host does not stamp the next calendar day.
+    from zoneinfo import ZoneInfo
+    today = datetime.datetime.now(ZoneInfo("America/New_York")).date().isoformat()
     led = json.loads(LEDGER.read_text()) if LEDGER.exists() else {}
     new = {}
     for url, rel in pages():
