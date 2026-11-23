@@ -2,7 +2,7 @@
 
 > Free unofficial Army PCS calculator and 2026 BAH/OHA pages. For Soldiers; By Soldiers. Not a DoW, DTMO, or Army site. Confirm every figure with finance.
 
-The calculator at the home page shows 2026 BAH, OHA, and COLA and includes a free intro to a vetted local housing agent. Rate pages quote DTMO figures already published on this site.
+The calculator at the home page shows 2026 BAH, OHA, and COLA and includes a free intro to a licensed local agent. Rate pages quote DTMO figures already published on this site.
 
 ## Start here
 
@@ -16,7 +16,7 @@ The calculator at the home page shows 2026 BAH, OHA, and COLA and includes a fre
 - [Washington, DC metro BAH](https://pcsvector.com/bah/national-capital-region/): 2026 BAH for DC053, including ZIP 22204 and 22030. O-6 with dependents $4,731. E-5 with dependents $3,132.
 - [Fort Sill BAH](https://pcsvector.com/bah/fort-sill/): 2026 BAH for FORT SILL/LAWTON, OK (OK237). E-5 with dependents $1,233.
 - [Fort Huachuca BAH](https://pcsvector.com/bah/fort-huachuca/): 2026 BAH for FORT HUACHUCA, AZ (AZ014). E-5 with dependents $1,719.
-- [Fort Bliss BAH](https://pcsvector.com/bah/fort-bliss/): 2026 BAH for Fort Bliss, TX.
+- [Fort Bliss BAH](https://pcsvector.com/bah/fort-bliss/): 2026 BAH for Fort Bliss, TX. E-5 with dependents $1,809.
 - [Korea OHA](https://pcsvector.com/oha/korea/): Korea pays OHA, not BAH. Camp Humphreys only: E-5 with dependents up to $2,302.64 as of 16 Nov 2026. Camp Casey is $2,094.99.
 - [Japan OHA](https://pcsvector.com/oha/japan/): Camp Zama only, E-5 with dependents up to $2,479.95 as of 16 Nov 2026. Yokota and Yokosuka are separate localities.
 - [Germany OHA](https://pcsvector.com/oha/germany/): Wiesbaden only, E-5 with dependents up to $3,948.18 as of 16 Nov 2026. Ansbach on the same page is $2,456.34.
