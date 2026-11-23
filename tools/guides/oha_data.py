@@ -31,18 +31,18 @@ OHA_GUIDES = {
  "japan": dict(
   title="Moving to Camp Zama: why OHA may not apply to you",
   lead="The OHA table below is DTMO’s rate for the locality. Whether you receive it at Camp Zama depends on a housing assignment policy that is stricter than most U.S. posts.",
-  lead_src=["zama_move","zama_faq"],
+  lead_src=["zama_move","zama_mi"],
   blocks=[
    ("Camp Zama housing policy", [
      ("USAG Japan states that family and unaccompanied housing in Japan is built by the Government of Japan under the SOFA and managed by the garrison, so military personnel are mandatorily assigned to family housing or unaccompanied housing.", ["zama_move"]),
-     ("The Camp Zama housing FAQ says you can live off post only with an approved Exception to Policy (ETP), and that housing under the Mandatory On-Post Housing Assignment Policy is assigned to incoming members when available.", ["zama_faq"]),
-     ("Military OneSource describes a different group: accompanied service members at E-7 and above assigned by orders to Sagami General Depot, Yokohama North Dock, NAF Atsugi and Akasaka Press Center (installations other than Camp Zama proper) may reside off post without an ETP, and unaccompanied officers and E-7 to E-9 reside off base unless in key and essential positions. The two pages are not worded the same way, so ask the Housing Office which applies to your orders.", ["zama_mi"]),
+     ("Military OneSource says service members whose orders assign them to Camp Zama are mandatorily assigned to Army family housing.", ["zama_mi"]),
+     ("Military OneSource describes a different group: accompanied service members at E-7 and above assigned by orders to Sagami General Depot, Yokohama North Dock, NAF Atsugi and Akasaka Press Center (installations other than Camp Zama proper) may reside off post without an exception to policy, and unaccompanied officers and E-7 to E-9 reside off base unless in key and essential positions. Ask the Housing Office which rule applies to your orders.", ["zama_mi"]),
    ]),
    ("Order of operations", [
      ("Report to the Housing Office, Building 671, within 2 working days of arriving in Japan. Family housing applications use DD Form 1746 plus your orders and DA 31 or DA 137-2; no advance applications are accepted.", ["zama_move"]),
      ("Do not secure off-base housing before you arrive: the garrison says all off-post housing must be approved by the Housing Office to meet DoW suitability standards.", ["zama_move","zama_mi"]),
-     ("The FAQ lists a typical wait for family housing of 30 to 60 days (subject to change) and says lodging is available meanwhile, but the garrison says an extension of a hotel stay because of a delayed housing assignment will not be authorized.", ["zama_faq","zama_move"]),
-     ("If you are approved to live off post you receive OHA instead of BAH, and the dollar amount varies with the yen rate.", ["zama_faq"]),
+     ("Military OneSource says the wait for family housing fluctuates with rank, grade category, and command-sponsored family size. The garrison says an extension of a hotel stay because of a delayed housing assignment will not be authorized.", ["zama_mi","zama_move"]),
+     ("If you are approved to live off post you receive OHA instead of BAH, and the dollar amount moves with the exchange rate.", ["dtmo_oha"]),
    ]),
    ("What changes in the move", [
      ("Voltage in Japan is 100V at 50 Hz, so check appliances before shipping.", ["zama_move"]),

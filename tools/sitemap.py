@@ -2,10 +2,14 @@
 """Regenerate sitemap.xml with accurate <lastmod>.
 
 How lastmod is decided (no git history needed, so it also works in CI with a shallow checkout):
-  tools/lastmod.json stores, per sitemap URL, the sha256 of the page's source files and the date that
-  hash was first seen.  If a page's hash changed since the last run, lastmod becomes today (UTC);
-  otherwise the stored date is kept.  The home page hash also covers assets/ (calc data, JS, CSS)
-  because those change what visitors see on "/".
+  tools/lastmod.json stores, per sitemap URL, the sha256 of the page's visible content and the date
+  that hash was first seen.  If that hash changed since the last run, lastmod becomes today
+  (America/New_York); otherwise the stored date is kept.
+
+  The hash ignores changes that are not rates, tables, or copy: the <title> / og:title /
+  twitter:title / WebPage name, the Quick answers wrapper (h2 versus the old label), dateModified
+  and "Page updated", and ?v= cache-bust hashes.  The home page hash still covers assets/ (calc
+  data, gas, JS, CSS) because those change what visitors see on "/", except for the same ?v= strings.
 
 usage:
   python3 tools/sitemap.py                  # update ledger + sitemap.xml
@@ -13,7 +17,7 @@ usage:
   python3 tools/sitemap.py --check          # exit 1 if sitemap.xml / ledger are out of date
   python3 tools/sitemap.py --keep-date=YYYY-MM-DD:/url/,/url2/   # cosmetic-only change (e.g. nav links): record the new hash, keep the old lastmod
 """
-import hashlib, json, subprocess, sys, datetime
+import hashlib, json, re, subprocess, sys, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -35,11 +39,35 @@ def order(url):
     # home, hubs, then everything else alphabetically (stable, diff-friendly)
     return (0 if url == "/" else 1 if url in ("/bah/", "/oha/", "/guides/") else 2, url)
 
+# Cosmetic-only pieces. A change here must not move lastmod, dateModified, or "Page updated".
+_V_QUERY = re.compile(r"\?v=[0-9a-fA-F]+")
+_TITLE = re.compile(r"<title>.*?</title>", re.I | re.S)
+_OG_TITLE = re.compile(r'<meta\s+property="og:title"\s+content="[^"]*"\s*/?>', re.I)
+_TW_TITLE = re.compile(r'<meta\s+name="twitter:title"\s+content="[^"]*"\s*/?>', re.I)
+_JSON_NAME = re.compile(r'("@type": "(?:WebPage|CollectionPage)", "name": ")[^"]*(")')
+_DM_STAMP = re.compile(r'"dateModified": "(?:[0-9-]+|@@PCSV_TODAY@@)"')
+_PU_STAMP = re.compile(r"Page updated (?:@@PCSV_TODAY_HUMAN@@|\d{1,2} [A-Z][a-z]{2} \d{4}|[A-Z][a-z]{2} \d{4})")
+_QA_SUM = re.compile(r"<summary>(?:<h2>Quick answers</h2>|<span class=\"qa-label\">Quick answers</span>)</summary>")
+_QA_CSS = re.compile(r"<style>#qa summary\{.*?</style>")
+
+def visible_content(text):
+    """Rates, tables, and copy. Drops titles, the Quick answers wrapper, date stamps, and ?v= hashes."""
+    text = _V_QUERY.sub("", text)
+    text = _TITLE.sub("", text)
+    text = _OG_TITLE.sub("", text)
+    text = _TW_TITLE.sub("", text)
+    text = _JSON_NAME.sub(r"\1\2", text)
+    text = _DM_STAMP.sub('"dateModified": "#"', text)
+    text = _PU_STAMP.sub("Page updated #", text)
+    text = _QA_SUM.sub("<summary>Quick answers</summary>", text)
+    text = _QA_CSS.sub("", text)
+    return text
+
 def digest(rel):
     h = hashlib.sha256()
     files = [rel] + ([Path(x) for x in HOME_EXTRA] if rel.parts == ("index.html",) else [])
     for f in files:
-        h.update((ROOT / f).read_bytes())
+        h.update(visible_content((ROOT / f).read_text(encoding="utf-8")).encode("utf-8"))
     return h.hexdigest()
 
 def git_date(rel):

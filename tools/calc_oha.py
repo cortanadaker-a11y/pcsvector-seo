@@ -8,13 +8,14 @@ local-currency amounts, from pcs-vector data/oconus_allowances_2026.json) are co
 Germany page shows, using the rule the pages follow (with = local / rate; without = 90% rent, 75% utilities of
 the with-dependents dollars).  That rule is asserted against every page-backed value first.
 
-Fort Buchanan (PR080) is paid in USD. The with-dependents ceilings below are DTMO's published dollars.
-Without-dependents is derived here at 90% of rent and 75% of utilities, to the cent (r2). Do not int(round()):
-0.9 * 2222 is 1999.80, and rounding to the dollar makes it 2000.
+Fort Buchanan (PR080) without-dependents OHA is an estimate: 90% of the on-file with-dependents
+rent and 75% of the utility, to the cent. DTMO's lookup was not reachable when this was checked
+(HTTP 403), so no grade, including O grades, was re-verified. Do not int(round()): 0.9 * 2222 is
+1999.80, and rounding to the dollar makes it 2000.
 
 COLA indexes are the same pay-period refresh. COLA_INDEX is the source; calc-data.json "ci" is written from
-it, and --check fails if a post's index drifts or a COLA post is missing from the table. Update COLA_INDEX
-in the same pass as the OHA pages (DTMO Overseas COLA Rate Lookup, pay period 16 Nov 2026).
+it. --check fails if a post's index drifts, a COLA post is missing from the table, or COLA_AS_OF is more
+than 45 days old. Update COLA_INDEX from the DTMO Overseas COLA Rate Lookup in the same pass as the OHA pages.
 
 Idempotent: re-running with unchanged pages and an unchanged COLA table changes nothing. Also refreshes the
 ?v= cache-busting hashes (same scheme as .github/scripts/refresh_gas.py). The calculator's math is not in
@@ -23,8 +24,9 @@ this file.
 usage:  python3 tools/calc_oha.py            # write
         python3 tools/calc_oha.py --check    # exit 1 if calc-data.json is out of date
 """
-import hashlib, json, re, sys
+import datetime, hashlib, json, re, sys
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
 CD = ROOT / "assets" / "calc-data.json"
@@ -44,9 +46,16 @@ ITALY_EUR = {"E-1": 1450, "E-2": 1450, "E-3": 1450, "E-4": 1450, "E-5": 1600, "E
              "O-3": 1600, "O-4": 2000, "O-5": 2200, "O-6": 2200, "O-7+": 2200}
 ITALY_UTIL_EUR = 1404
 
-# Fort Buchanan / San Juan (PR080). With-dependents rent ceilings and the utility allowance are DTMO USD
-# figures (table effective 1 Jul 2026, still the current sheet as of the 16 Nov 2026 pay period).
+# Fort Buchanan / San Juan (PR080). ESTIMATE, not a fresh DTMO read.
+# On 23 Nov 2026 the DTMO OHA Rate Lookup (https://www.travel.dod.mil/Allowances/Overseas-Housing-Allowance/OHA-Rate-Lookup/)
+# returned HTTP 403 from this environment, so none of these grades were re-verified, including every
+# O grade this calculator stores (O-1 through O-7+) and the O-1E / O-2E / O-3E rows DTMO publishes
+# separately (those three are not their own rows here). With-dependents rent ceilings and the $1,223
+# utility are the USD figures already on file. Without-dependents is derived, not copied from DTMO:
+# 90% of the with-dependents rent and 75% of the utility, to the cent. Do not int(round()):
+# 0.9 * 2222 is 1999.80, and rounding to the dollar makes it 2000.
 BUCHANAN = "Fort Buchanan, PR"
+BUCHANAN_OHA_BASIS = "estimate"
 BUCHANAN_RENT_WITH = {
     "E-1": 2222, "E-2": 2222, "E-3": 2222, "E-4": 2222, "E-5": 2222,
     "E-6": 2300, "E-7": 2300, "E-8": 2300, "E-9": 2715,
@@ -55,10 +64,13 @@ BUCHANAN_RENT_WITH = {
 }
 BUCHANAN_UTIL_WITH = 1223
 
-# DTMO Overseas COLA index for the 16 Nov 2026 pay period (1st–15th of the next month is a new table).
-# Locality codes are the ones stored on each post. Unchanged indexes are listed so a later pay period
-# cannot leave any calculator post off the refresh.
+# DTMO Overseas COLA index. Re-read this on each pay period (the 1st and the 16th) from
+# https://www.travel.dod.mil/Allowances/Overseas-Cost-of-Living-Allowance/Overseas-COLA-Rate-Lookup/
+# COLA_AS_OF is the pay-period date of the indexes below. tools/calc_oha.py --check fails when
+# that date is more than 45 days old, so a hand-maintained table cannot sit unchanged for a quarter.
+COLA_LOOKUP = "https://www.travel.dod.mil/Allowances/Overseas-Cost-of-Living-Allowance/Overseas-COLA-Rate-Lookup/"
 COLA_AS_OF = "2026-11-16"
+COLA_MAX_AGE_DAYS = 45
 COLA_INDEX = {
     "USAG Wiesbaden, Germany": 134,                 # DE355 was 138
     "USAG Rheinland-Pfalz, Germany": 126,           # DE700 was 130
@@ -157,7 +169,19 @@ def apply_buchanan(cd, grades):
     e5 = without[grades.index("E-5")]
     assert e5[0] == 1999.8 and e5[1] == 917.25, e5
 
+def assert_cola_fresh():
+    """Fail when the hand-kept COLA table is more than COLA_MAX_AGE_DAYS old."""
+    as_of = datetime.date.fromisoformat(COLA_AS_OF)
+    today = datetime.datetime.now(ZoneInfo("America/New_York")).date()
+    age = (today - as_of).days
+    if age > COLA_MAX_AGE_DAYS:
+        raise SystemExit(
+            "COLA_INDEX as of %s is %d days old (limit %d). Re-read %s and update COLA_AS_OF and COLA_INDEX."
+            % (COLA_AS_OF, age, COLA_MAX_AGE_DAYS, COLA_LOOKUP))
+    return age
+
 def build():
+    cola_age = assert_cola_fresh()
     raw = CD.read_text(encoding="utf-8")
     cd = json.loads(raw)
     grades = cd["grades"]
@@ -182,7 +206,7 @@ def build():
     apply_buchanan(cd, grades)
     cola_raw = apply_cola(cd)
     out = json.dumps(cd, separators=(",", ":"), ensure_ascii=False) + ("\n" if raw.endswith("\n") else "")
-    return raw, out, cola_raw
+    return raw, out, cola_raw, cola_age
 
 def bust(out):
     h = lambda b: hashlib.sha256(b).hexdigest()[:10]
@@ -196,13 +220,13 @@ def bust(out):
     return js, ix
 
 def main():
-    raw, out, cola_raw = build()
+    raw, out, cola_raw, cola_age = build()
     js, ix = bust(out)
     same = raw == out and (ROOT / "assets/pcs.js").read_text(encoding="utf-8") == js and (ROOT / "index.html").read_text(encoding="utf-8") == ix
     if "--check" in sys.argv:
         print("calc-data OK" if same else "calc-data OUT OF DATE (run tools/calc_oha.py)")
-        print("COLA %s Wiesbaden E-5 / 2 dependents raw monthly $%.2f (index %s)" % (
-            COLA_AS_OF, round(cola_raw + 1e-9, 2), COLA_INDEX["USAG Wiesbaden, Germany"]))
+        print("COLA %s (%d days old) Wiesbaden E-5 / 2 dependents raw monthly $%.2f (index %s); Buchanan without-dependents basis: %s" % (
+            COLA_AS_OF, cola_age, round(cola_raw + 1e-9, 2), COLA_INDEX["USAG Wiesbaden, Germany"], BUCHANAN_OHA_BASIS))
         sys.exit(0 if same else 1)
     if not same:
         CD.write_text(out, encoding="utf-8")

@@ -96,9 +96,11 @@ def write(p, s):
     (ROOT / p).write_text(s, encoding="utf-8")
 
 def resolve_dates():
-    """Run last (after a11y/brand/prune passes): keep a page's existing dates if nothing but the date
-    stamps differs from before the build; otherwise stamp TODAY.  Makes the build idempotent across days."""
-    norm = lambda h: _PU.sub(r"\1#\3", _DM.sub(r"\1#\3", h))
+    """Run last (after a11y/brand/prune passes): keep a page's existing dates if visible content
+    (rates, tables, copy) is unchanged. Titles, the Quick answers wrapper, and ?v= hashes do not
+    bump dateModified or "Page updated". Makes the build idempotent across days."""
+    import sitemap
+    norm = sitemap.visible_content
     for p, old in _ORIG.items():
         f = ROOT / p
         s = f.read_text(encoding="utf-8")
