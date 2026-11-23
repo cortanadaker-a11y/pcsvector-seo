@@ -7,8 +7,9 @@ Then:                     python3 tools/sitemap.py && python3 tools/check_site.p
 What it does (every block is wrapped in <!--pcsv:NAME--> markers, so re-running replaces, never duplicates):
   1. /bah/<post>/   : "PCS guide" section (cited facts from tools/guides/guide_data.py), extra FAQ entries
                       (HTML + FAQPage JSON-LD), and a "More for your move" block (same-region posts, OHA, guides).
-                      The existing Quick answers block is wrapped in a closed <details id="qa">. Question and
-                      answer text are not rewritten. FAQPage JSON-LD is reordered to those visible strings.
+                      The existing Quick answers block is wrapped in a closed <details id="qa">, with a real
+                      <h2>Quick answers</h2> inside the summary. Question and answer text are not rewritten.
+                      FAQPage JSON-LD is reordered to those visible strings.
   2. /oha/<country>/: housing-office rules block (tools/guides/oha_data.py), a guides block, and the same
                       collapsed Quick answers wrap. Hubs /bah/ and /oha/ get the wrap too. The homepage does not.
   3. /               : only the marked block <!-- home-extra:start --> ... <!-- home-extra:end -->
@@ -255,9 +256,10 @@ def fix_th(h):
 def touch_modified(h):
     return re.sub(r'("dateModified": ")[0-9-]+(")', r"\g<1>%s\2" % DATE_MARK, h)
 
-# Closed <details> around the page's existing Quick answers. A second <style> so longtail's
-# first-style-block copy (guides) does not pick up the rule. Question and answer strings are untouched.
-QA_CSS = '<style>#qa summary{min-height:44px;padding:12px 0;cursor:pointer}#qa summary .qa-label{font-size:1.05rem;font-weight:700;color:inherit}</style>'
+# Closed <details> around the page's existing Quick answers. The heading is a real h2 inside
+# the summary (collapsed, tap-to-open). A second <style> so longtail's first-style-block copy
+# (guides) does not pick up the rule. Question and answer strings are untouched.
+QA_CSS = '<style>#qa summary{min-height:44px;padding:12px 0;cursor:pointer}#qa summary h2{display:inline;margin:0;font-size:1.05rem;font-weight:700;color:inherit}</style>'
 _QA_SUMMARY = r"<summary>(?:<h2>Quick answers</h2>|<span class=\"qa-label\">Quick answers</span>)</summary>"
 
 def unwrap_qa(h):
@@ -285,7 +287,7 @@ def collapse_quick_answers(h):
         return h
     end = i + len(key) + min(stops)
     inner = h[i + len(key):end].strip()
-    wrapped = '<details id="qa">\n<summary><span class="qa-label">Quick answers</span></summary>\n%s\n</details>\n' % inner
+    wrapped = '<details id="qa">\n<summary><h2>Quick answers</h2></summary>\n%s\n</details>\n' % inner
     h = h[:i] + wrapped + h[end:]
     h = re.sub(r"<style>#qa summary\{.*?</style>", "", h, count=1)
     if QA_CSS not in h:
@@ -552,6 +554,94 @@ def prune_all():
         h = p.read_text(encoding="utf-8"); n = prune_faq_jsonld(h, str(rel))
         if n != h: p.write_text(n, encoding="utf-8")
 
+# Titles over 60 characters. The first token stays the target keyword. The homepage title is not here.
+# old and new both include " | PCS Vector". og:title and JSON-LD name use the string without that suffix.
+SHORT_TITLES = {
+    "bah/joint-base-langley-eustis/index.html": (
+        "Fort Eustis BAH 2026 (Joint Base Langley-Eustis, Newport News): Rates by Rank | PCS Vector",
+        "Fort Eustis BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/joint-base-elmendorf-richardson/index.html": (
+        "JBER BAH 2026 (Joint Base Elmendorf-Richardson, Anchorage): Rates by Rank | PCS Vector",
+        "JBER BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/fort-leavenworth/index.html": (
+        "Fort Leavenworth BAH 2026 (Leavenworth, Kansas City area): Rates by Rank | PCS Vector",
+        "Fort Leavenworth BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/joint-base-san-antonio/index.html": (
+        "JBSA BAH 2026 (Joint Base San Antonio, Fort Sam Houston): Rates by Rank | PCS Vector",
+        "JBSA BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/fort-leonard-wood/index.html": (
+        "Fort Leonard Wood BAH 2026 (St. Robert, Waynesville): Rates by Rank | PCS Vector",
+        "Fort Leonard Wood BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/joint-base-lewis-mcchord/index.html": (
+        "JBLM BAH 2026 (Joint Base Lewis-McChord, Tacoma): Rates by Rank | PCS Vector",
+        "JBLM BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/fort-riley/index.html": (
+        "Fort Riley BAH 2026 (Junction City, Manhattan): Rates by Rank | PCS Vector",
+        "Fort Riley BAH 2026: Rates by Rank | PCS Vector"),
+    "oha/index.html": (
+        "2026 OHA: E-5 rent $1,263.18\u2013$2,807.90 at 11 areas we cover | PCS Vector",
+        "2026 OHA: E-5 rent $1,263.18\u2013$2,807.90 | PCS Vector"),
+    "bah/fort-wainwright/index.html": (
+        "Fort Wainwright BAH 2026 (Fairbanks, Alaska): Rates by Rank | PCS Vector",
+        "Fort Wainwright BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/fort-knox/index.html": (
+        "Fort Knox BAH 2026 (Radcliff, Elizabethtown): Rates by Rank | PCS Vector",
+        "Fort Knox BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/schofield-barracks/index.html": (
+        "Schofield Barracks BAH 2026 (Oahu, Hawaii): Rates by Rank | PCS Vector",
+        "Schofield Barracks BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/fort-carson/index.html": (
+        "Fort Carson BAH 2026 (Colorado Springs): Rates by Rank | PCS Vector",
+        "Fort Carson BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/fort-jackson/index.html": (
+        "Fort Jackson BAH 2026 (Columbia, SC): Rates by Rank | PCS Vector",
+        "Fort Jackson BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/fort-stewart/index.html": (
+        "Fort Stewart BAH 2026 (Hinesville): Rates by Rank | PCS Vector",
+        "Fort Stewart BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/fort-irwin/index.html": (
+        "Fort Irwin BAH 2026 (Barstow, NTC): Rates by Rank | PCS Vector",
+        "Fort Irwin BAH 2026: Rates by Rank | PCS Vector"),
+    "bah/fort-rucker/index.html": (
+        "Fort Rucker BAH 2026 (Enterprise): Rates by Rank | PCS Vector",
+        "Fort Rucker BAH 2026: Rates by Rank | PCS Vector"),
+}
+
+def apply_short_titles():
+    """Shorten <title>, og:title, and the matching JSON-LD name. Leave h1 and the homepage alone."""
+    for path, (old, new) in SHORT_TITLES.items():
+        assert path != "index.html"
+        assert len(new) <= 60, (path, len(new), new)
+        assert new.split()[0] == old.split()[0]
+        assert new.endswith(" | PCS Vector") and old.endswith(" | PCS Vector")
+        h = read(path)
+        old_s, new_s = old[: -len(" | PCS Vector")], new[: -len(" | PCS Vector")]
+        if old_s not in h:
+            assert new in h, path
+            continue
+        assert h.count(old_s) >= 2, (path, h.count(old_s))
+        h = h.replace(old_s, new_s)
+        assert old_s not in h and new in h
+        (ROOT / path).write_text(h, encoding="utf-8")
+
+def assert_title_lengths():
+    for p in sorted(ROOT.rglob("*.html")):
+        rel = p.relative_to(ROOT)
+        if rel.parts[0] in (".git", "tools", "node_modules", "_pcs_vector", "_builder"):
+            continue
+        m = re.search(r"<title>(.*?)</title>", p.read_text(encoding="utf-8"))
+        assert m, rel
+        title = html.unescape(m.group(1))
+        assert len(title) <= 60, (rel.as_posix(), len(title), title)
+
+def align_llms():
+    """llms.txt used DoD in the same disclaimer the pages spell DoW."""
+    p = ROOT / "llms.txt"
+    h = p.read_text(encoding="utf-8")
+    n = h.replace("Not a DoD, DTMO, or Army site.", "Not a DoW, DTMO, or Army site.")
+    if n != h:
+        p.write_text(n, encoding="utf-8")
+
 def build_a11y():
     for p in sorted(ROOT.rglob("index.html")):
         rel = p.relative_to(ROOT)
@@ -561,5 +651,6 @@ def build_a11y():
         if n != h: p.write_text(n, encoding="utf-8")
 
 if __name__ == "__main__":
-    build_bah(); build_oha(); build_home(); build_longtail(); build_404(); build_a11y(); build_brand(); prune_all(); resolve_dates()
+    build_bah(); build_oha(); build_home(); build_longtail(); build_404(); build_a11y(); build_brand(); prune_all()
+    apply_short_titles(); align_llms(); resolve_dates(); assert_title_lengths()
     print("built guides, related blocks, OHA blocks, long-tail pages; home-extra block only")

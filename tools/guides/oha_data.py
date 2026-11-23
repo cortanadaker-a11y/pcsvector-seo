@@ -10,7 +10,7 @@ OHA_GUIDES = {
   blocks=[
    ("Is off-post housing open to you?", [
      ("Camp Humphreys: the Housing Information Sheet (Oct 2024) says off-post housing is authorized only if the occupancy rate for government housing is above 95%, and that personnel on unaccompanied tours receiving the dependent-location BAH rate must live in available unaccompanied housing. The garrison’s housing page says about 40 percent of command-sponsored military families at Humphreys live on post.", ["hum_sheet","hum_dpw"]),
-     ("Camp Casey and Camp Hovey: the USAG Yongsan-Casey page on Military OneSource states, “No Military Personnel will be authorized to live off post at CP Casey/Hovey, as UPH Quarters are available.” The Camp Casey OHA table on this page is shown for reference; confirm with the Casey housing office before you plan around it.", ["yc_mi"]),
+     ("Camp Casey and Camp Hovey: the USAG Yongsan-Casey page on Military OneSource states, “No Military Personnel will be authorized to live off post at CP Casey/Hovey, as UPH Quarters are available” (UPH is unaccompanied personnel housing). The Camp Casey OHA table on this page is for reference only; confirm with the Casey housing office before you plan around it.", ["yc_mi"]),
    ]),
    ("Order of operations at Camp Humphreys", [
      ("Do not make lease arrangements without prior approval from the Housing Office. Attend the mandatory off-post housing briefing (Tuesday and Thursday at 1400 per the Oct 2024 sheet) before you deal with realtors, and bring your PCS orders and amendments.", ["hum_sheet"]),

@@ -1,10 +1,10 @@
 name: Refresh gas prices (EIA weekly)
 
-# EIA publishes the weekly retail gasoline survey on Monday afternoons (ET).
-# 23:30 UTC Monday = 7:30 PM EDT / 6:30 PM EST. Also runnable by hand.
+# EIA publishes the weekly retail gasoline survey on Tuesdays (ET).
+# 13:00 UTC Wednesday = 8:00 AM EST / 9:00 AM EDT, after Tuesday's release. Also runnable by hand.
 on:
   schedule:
-    - cron: '30 23 * * 1'
+    - cron: '0 13 * * 3'
   workflow_dispatch:
 
 permissions:

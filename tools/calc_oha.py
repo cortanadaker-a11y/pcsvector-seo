@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
-"""Sync the OHA numbers in assets/calc-data.json with the /oha/* pages (the pages are refreshed from DTMO
-each pay period; the calculator must show the same dollars).
+"""Sync the OHA numbers and COLA indexes in assets/calc-data.json with this pay period.
 
+OHA pages are refreshed from DTMO each pay period; the calculator must show the same dollars.
 For every calculator post that has an OHA page table, rent ceilings (with / without dependents, per grade) and
 utilities are read from that page, to the cent.  USAG Italy has no page: its EUR ceilings (DTMO, unchanged
 local-currency amounts, from pcs-vector data/oconus_allowances_2026.json) are converted at the EUR rate the
 Germany page shows, using the rule the pages follow (with = local / rate; without = 90% rent, 75% utilities of
 the with-dependents dollars).  That rule is asserted against every page-backed value first.
-Fort Buchanan (PR) is paid in USD and is left as is.
 
-Idempotent: re-running with unchanged pages changes nothing.  Also refreshes the ?v= cache-busting hashes
-(same scheme as .github/scripts/refresh_gas.py).
+Fort Buchanan (PR080) is paid in USD. The with-dependents ceilings below are DTMO's published dollars.
+Without-dependents is derived here at 90% of rent and 75% of utilities, to the cent (r2). Do not int(round()):
+0.9 * 2222 is 1999.80, and rounding to the dollar makes it 2000.
+
+COLA indexes are the same pay-period refresh. COLA_INDEX is the source; calc-data.json "ci" is written from
+it, and --check fails if a post's index drifts or a COLA post is missing from the table. Update COLA_INDEX
+in the same pass as the OHA pages (DTMO Overseas COLA Rate Lookup, pay period 16 Nov 2026).
+
+Idempotent: re-running with unchanged pages and an unchanged COLA table changes nothing. Also refreshes the
+?v= cache-busting hashes (same scheme as .github/scripts/refresh_gas.py). The calculator's math is not in
+this file.
 
 usage:  python3 tools/calc_oha.py            # write
         python3 tools/calc_oha.py --check    # exit 1 if calc-data.json is out of date
@@ -36,8 +44,50 @@ ITALY_EUR = {"E-1": 1450, "E-2": 1450, "E-3": 1450, "E-4": 1450, "E-5": 1600, "E
              "O-3": 1600, "O-4": 2000, "O-5": 2200, "O-6": 2200, "O-7+": 2200}
 ITALY_UTIL_EUR = 1404
 
+# Fort Buchanan / San Juan (PR080). With-dependents rent ceilings and the utility allowance are DTMO USD
+# figures (table effective 1 Jul 2026, still the current sheet as of the 16 Nov 2026 pay period).
+BUCHANAN = "Fort Buchanan, PR"
+BUCHANAN_RENT_WITH = {
+    "E-1": 2222, "E-2": 2222, "E-3": 2222, "E-4": 2222, "E-5": 2222,
+    "E-6": 2300, "E-7": 2300, "E-8": 2300, "E-9": 2715,
+    "W-1": 2222, "W-2": 2300, "W-3": 2715, "W-4": 2715, "W-5": 4286,
+    "O-1": 2222, "O-2": 2222, "O-3": 2300, "O-4": 2715, "O-5": 4286, "O-6": 4286, "O-7+": 4286,
+}
+BUCHANAN_UTIL_WITH = 1223
+
+# DTMO Overseas COLA index for the 16 Nov 2026 pay period (1st–15th of the next month is a new table).
+# Locality codes are the ones stored on each post. Unchanged indexes are listed so a later pay period
+# cannot leave any calculator post off the refresh.
+COLA_AS_OF = "2026-11-16"
+COLA_INDEX = {
+    "USAG Wiesbaden, Germany": 134,                 # DE355 was 138
+    "USAG Rheinland-Pfalz, Germany": 126,           # DE700 was 130
+    "USAG Bavaria, Germany": 116,                   # DE231 was 120
+    "USAG Italy, Italy": 118,                       # IT073 was 122
+    "Camp Zama, Japan": 104,                        # JP045 was 106
+    "Camp Casey, South Korea": 106,                 # KR177 unchanged this period
+    "Camp Humphreys, South Korea": 116,             # KR025 unchanged this period
+    "Fort Buchanan, PR": 124,                       # PR080 unchanged this period
+    "Fort Greely, AK": 134,                         # AK029 Delta Junction unchanged
+    "Fort Wainwright, AK": 132,                     # Fairbanks AK049 unchanged
+    "Joint Base Elmendorf-Richardson, AK": 128,     # Anchorage AK005 unchanged
+    "Fort Shafter, HI": 120,                        # Oahu HI009 unchanged
+    "Schofield Barracks, HI": 120,                  # Oahu HI009 unchanged
+}
+# E-5, 2 dependents, calculator default 4 years (same annual-compensation bracket as 6 years).
+# spendable 40100 * (134-100) / 100 / 12 = 1136.1666... which is $1,136.17 before the calculator's
+# existing integer round (it shows $1,136). The old index 138 produced $1,270.
+WIESBADEN_COLA_RAW = 1136.1666666666667
+
 money = lambda s: float(s.replace("$", "").replace(",", ""))
 r2 = lambda x: round(x + 1e-9, 2)
+
+def money_num(x):
+    """Keep a whole dollar as an int so unchanged ceilings do not flip from 2070 to 2070.0."""
+    x = r2(x)
+    if abs(x - round(x)) < 1e-9:
+        return int(round(x))
+    return x
 
 def section(html, code):
     i = html.index('id="%s"' % code)
@@ -53,6 +103,60 @@ def parse(sec):
     rate = float(re.search(r"1 USD = ([\d,\.]+) [A-Z]{3}", sec).group(1).replace(",", ""))
     return rent, (money(u.group(3)), money(u.group(1))), int(re.sub(r"\D", "", u.group(2))), loc, rate
 
+def _yos_index(yos, bps):
+    yos = max(0, min(40, int(yos)))
+    if yos < 2:
+        return 0
+    if yos >= 40:
+        return len(bps) - 1
+    idx = 0
+    for i, b in enumerate(bps):
+        if yos >= b:
+            idx = i
+    return idx
+
+def cola_monthly_raw(cd, grade, yos, deps, index):
+    """Same spendable-income steps as assets/pcs.js estimateMonthlyCola, before its integer round.
+    This check does not change the calculator."""
+    t = cd["cola"]
+    bps = t["yos_breakpoints"]
+    row = t["compensation"][grade]["with" if int(deps) > 0 else "without"]
+    idx = min(_yos_index(yos, bps), len(row) - 1)
+    comp = int(row[idx])
+    deps_i = max(0, min(5, int(deps)))
+    last = None
+    spend = 0
+    for bracket in t["spendable_table"]:
+        last = bracket
+        if bracket[0] <= comp <= bracket[1]:
+            spend = int(bracket[2][deps_i])
+            break
+    else:
+        spend = int(last[2][deps_i]) if last else 0
+    return spend * (index - 100) / 100.0 / 12.0
+
+def apply_cola(cd):
+    posts = cd["posts"]
+    missing = [p for p in COLA_INDEX if p not in posts]
+    assert not missing, missing
+    for post, idx in COLA_INDEX.items():
+        posts[post]["ci"] = idx
+    extra = sorted(p for p, row in posts.items() if row.get("ci") is not None and p not in COLA_INDEX)
+    assert not extra, extra
+    raw = cola_monthly_raw(cd, "E-5", 4, 2, COLA_INDEX["USAG Wiesbaden, Germany"])
+    assert abs(raw - WIESBADEN_COLA_RAW) < 1e-9, raw
+    assert abs(raw - 1136.17) < 0.01
+    return raw
+
+def apply_buchanan(cd, grades):
+    assert set(BUCHANAN_RENT_WITH) == set(grades)
+    util_wo = money_num(0.75 * BUCHANAN_UTIL_WITH)
+    without = [[money_num(0.9 * BUCHANAN_RENT_WITH[g]), util_wo] for g in grades]
+    with_deps = [[BUCHANAN_RENT_WITH[g], BUCHANAN_UTIL_WITH] for g in grades]
+    cd["posts"][BUCHANAN]["oha"] = [without, with_deps]
+    e5 = without[grades.index("E-5")]
+    assert e5[0] == 1999.8 and e5[1] == 917.25, e5
+
 def build():
     raw = CD.read_text(encoding="utf-8")
     cd = json.loads(raw)
@@ -62,7 +166,7 @@ def build():
         rent, util, util_loc, loc, rate = parse(section((ROOT / page).read_text(encoding="utf-8"), code))
         missing = [g for g in grades if g not in rent]
         assert not missing, (post, missing)
-        # the conversion rule (used for Italy) must reproduce every page value
+        # the conversion rule (used for Italy and Buchanan) must reproduce every page value
         for g in grades:
             lg = loc["O-7" if g == "O-7+" else g]
             w = r2(lg / rate)
@@ -70,12 +174,15 @@ def build():
             assert abs(r2(0.9 * rent[g][1]) - rent[g][0]) <= 0.011, (post, g, rent[g])
         assert abs(r2(util_loc / rate) - util[1]) <= 0.011 and abs(r2(0.75 * util[1]) - util[0]) <= 0.011, (post, util)
         cd["posts"][post]["oha"] = [[[rent[g][0], util[0]] for g in grades], [[rent[g][1], util[1]] for g in grades]]
-        if code.startswith("de"): eur_rate = rate
+        if code.startswith("de"):
+            eur_rate = rate
     w = {g: r2(ITALY_EUR[g] / eur_rate) for g in grades}
     uw = r2(ITALY_UTIL_EUR / eur_rate)
     cd["posts"]["USAG Italy, Italy"]["oha"] = [[[r2(0.9 * w[g]), r2(0.75 * uw)] for g in grades], [[w[g], uw] for g in grades]]
+    apply_buchanan(cd, grades)
+    cola_raw = apply_cola(cd)
     out = json.dumps(cd, separators=(",", ":"), ensure_ascii=False) + ("\n" if raw.endswith("\n") else "")
-    return raw, out
+    return raw, out, cola_raw
 
 def bust(out):
     h = lambda b: hashlib.sha256(b).hexdigest()[:10]
@@ -89,17 +196,20 @@ def bust(out):
     return js, ix
 
 def main():
-    raw, out = build()
+    raw, out, cola_raw = build()
     js, ix = bust(out)
     same = raw == out and (ROOT / "assets/pcs.js").read_text(encoding="utf-8") == js and (ROOT / "index.html").read_text(encoding="utf-8") == ix
     if "--check" in sys.argv:
         print("calc-data OK" if same else "calc-data OUT OF DATE (run tools/calc_oha.py)")
+        print("COLA %s Wiesbaden E-5 / 2 dependents raw monthly $%.2f (index %s)" % (
+            COLA_AS_OF, round(cola_raw + 1e-9, 2), COLA_INDEX["USAG Wiesbaden, Germany"]))
         sys.exit(0 if same else 1)
     if not same:
         CD.write_text(out, encoding="utf-8")
         (ROOT / "assets/pcs.js").write_text(js, encoding="utf-8")
         (ROOT / "index.html").write_text(ix, encoding="utf-8")
-    print("calc-data OHA synced with /oha/* pages" + ("" if not same else " (no change)"))
+    print("calc-data OHA + COLA synced" + ("" if not same else " (no change)")
+          + "; Wiesbaden E-5 / 2 dep raw $%.2f" % round(cola_raw + 1e-9, 2))
 
 if __name__ == "__main__":
     main()
