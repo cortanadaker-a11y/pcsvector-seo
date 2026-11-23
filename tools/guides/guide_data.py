@@ -46,7 +46,8 @@ SOURCES = {
  # ---- Japan
  "zama_move": ("USAG Japan, moving in: on-post / off-post housing", "https://home.army.mil/japan/my-fort/newcomers/arriving-airport/post-or-post-housing-moving"),
  "zama_mi":   ("Military OneSource, Camp Zama government housing", "https://installations.militaryonesource.mil/military-installation/camp-zama/housing/government-housing"),
- "zama_faq":  ("Camp Zama housing FAQ", "https://www.housing.army.mil/Installations/Zama/FAQ.pdf"),
+ # Camp Zama's housing.army.mil FAQ PDF fails TLS (incomplete certificate chain). The Japan
+ # page cites Military OneSource (zama_mi) and DTMO (dtmo_oha) instead of that PDF.
  # ---- Germany
  "wies_off":  ("USAG Wiesbaden off-post housing", "https://home.army.mil/wiesbaden/about/Garrison/directorate-public-works/housing-services-office/off-post-housing"),
  "wies_brief":("USAG Wiesbaden off-post housing briefing (Apr 2022)", "https://home.army.mil/wiesbaden/2316/4984/3790/Off-Post_Housing_Briefing_April_2022.pdf"),

@@ -4,7 +4,7 @@
 |---|---|
 | `build_guides.py` | Idempotent post-processor. Adds PCS-guide sections, FAQ entries, "More for your move" blocks, `/guides/*` pages, 404 links, and `scope="col"` on table headers. Re-running replaces the blocks between `<!--pcsv:NAME-->` markers. On `index.html` it replaces only `<!-- home-extra:start/end -->` below the calculator and writes nothing else. |
 | `calc_oha.py` | Copies the OHA rent/utility dollars from the `/oha/*` page tables into `assets/calc-data.json` (Italy, which has no page, is converted at the Germany page's EUR rate with the same rule; Fort Buchanan, paid in USD, keeps the with-dependents ceilings and derives without-dependents at 90% rent and 75% utilities, to the cent). It also writes each post's COLA index from `COLA_INDEX` in that script, then refreshes the `?v=` cache-busting hashes. Run after every OHA refresh; `--check` for CI. |
-| `sitemap.py` | Rebuilds `sitemap.xml`. `lastmod` = date the page's content hash last changed (ledger in `lastmod.json`, no git history needed). Also run by the weekly gas-refresh workflow. `--check` for CI. |
+| `sitemap.py` | Rebuilds `sitemap.xml`. `lastmod` = date the page's visible content last changed (rates, tables, copy). Titles, the Quick answers wrapper, date stamps, and `?v=` hashes are not part of the hash (ledger in `lastmod.json`). Also run by the weekly gas-refresh workflow. `--check` for CI. |
 | `dup_check.py` | Duplicate-content metric (6-word shingles, numbers removed) for the BAH pages: `dup_check.py BASE_DIR HEAD_DIR`, or `--guide-section DIR` for the guide block only. |
 | `check_site.py` | Local audit: self-canonical on `https://pcsvector.com`, one h1, GoatCounter once, OG/Twitter tags, JSON-LD parses (+ breadcrumbs), alt text, internal links + `#fragments`, sitemap coverage, homepage links to every BAH/OHA/guide page (those links for the ZIP and TLE pages are in the home-extra block), `og:site_name` = PCS Vector, the tagline on every page, one WebSite JSON-LD node on the homepage, favicon link set and icon sizes, and no legacy app-host name (the retired app's host) anywhere in the published tree. `--external` also GETs external links. |
 
@@ -26,7 +26,7 @@ Housing-office pages change; re-read before bumping `AS_OF`. OHA tables on `/oha
 
 ## Rules the builder enforces
 - `check_site.py` fails if an FAQPage JSON-LD question is not visible on the page; `build_guides.py` prunes hidden ones.
-- `dateModified` and sitemap `lastmod` move only for pages with substantive content changes. For cosmetic-only changes (nav links) run `python3 tools/sitemap.py --keep-date=YYYY-MM-DD:/url/,/url2/` once.
+- `dateModified`, "Page updated", and sitemap `lastmod` move only when visible content changes (rates, tables, copy). A title, Quick answers wrapper, or `?v=` hash change does not move them. For any other cosmetic-only change, run `python3 tools/sitemap.py --keep-date=YYYY-MM-DD:/url/,/url2/` once.
 - OHA pages carry an "As of <pay period>; OHA updates the 1st and 16th" note (`<!--pcsv:asof-->`). Spot-check at least E-5 with dependents per area against DTMO's OHA lookup before changing the date.
 - MIHA on the OHA pages: DTMO returned the same MIHA with and without dependents for all 11 areas (16 Nov 2026 pay period, read 16 Nov 2026; previously 1 Nov 2026 pay period, read 2 Nov 2026). On each refresh re-read both cases; `check_site.py` fails on a dash cell in a MIHA row.
 
