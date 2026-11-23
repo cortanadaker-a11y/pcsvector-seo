@@ -106,7 +106,7 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
      ("Do I get OHA if I live in government housing overseas?", "OHA applies to members authorized to lease privately owned housing. Garrisons such as Camp Zama assign military personnel to government housing and allow off-post living only with an exception to policy, so check with the housing office before you plan around the table."),
     ]
     body = (cta("how-oha-works", "Calculate your BAH")
-        + '<p>The Overseas Housing Allowance (OHA) replaces BAH when you are authorized to rent off post overseas. The formula is different from BAH, and so are the traps: the amount moves with exchange rates, and the rules about who may rent off post depend on the garrison. This guide explains how DTMO builds OHA, and ties it to the 2026 tables on our <a href="/oha/korea/">Korea</a>, <a href="/oha/japan/">Japan</a>, <a href="/oha/okinawa/">Okinawa</a> and <a href="/oha/germany/">Germany</a> pages.%s</p>' % cite(GD, ["dtmo_oha"])
+        + '<p>The Overseas Housing Allowance (OHA) replaces BAH when you are authorized to rent off post overseas. The formula is different from BAH, and so are the traps: the amount moves with exchange rates, and the rules about who may rent off post depend on the garrison. DD Form 2367 is the Individual Overseas Housing Allowance Report. This guide explains how DTMO builds OHA, and ties it to the 2026 tables on our <a href="/oha/korea/">Korea</a>, <a href="/oha/japan/">Japan</a>, <a href="/oha/okinawa/">Okinawa</a> and <a href="/oha/germany/">Germany</a> pages.%s</p>' % cite(GD, ["dtmo_oha"])
         + "<h2>The three parts of OHA</h2><ul class=\"feat\">%s</ul>" % li(GD, oha_items["parts"])
         + "<h2>Rent: a ceiling, not a flat payment</h2><ul class=\"feat\">%s</ul>" % li(GD, oha_items["rent"])
         + "<h2>Utilities and recurring maintenance</h2><ul class=\"feat\">%s</ul>" % li(GD, oha_items["util"])
@@ -227,12 +227,12 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
      ("BAH distinguishes between with-dependents and without-dependents, not the number of dependents.", ["dtmo_bah"]),
     ]
     faq4 = [
-     ("When are 2027 BAH rates published?", "DTMO has not published 2027 rates as of 28 Oct 2026. The 2026 rates were announced in a Defense Department release dated 11 Dec 2025 and took effect 1 Jan 2026, so plan for new rates in mid-December."),
+     ("When are 2027 BAH rates published?", "DTMO has not published 2027 rates as of 23 Nov 2026. The 2026 rates were announced in a Defense Department release dated 11 Dec 2025 and took effect 1 Jan 2026, so plan for new rates in mid-December."),
      ("Will my BAH drop if rates fall at my post?", "Not if your status stays the same. DTMO’s individual rate protection means you receive the rate published on 1 January or what you received on 31 December, whichever is larger, until a PCS, reduction in grade or change in dependency status."),
      ("Which BAH do I use if I PCS right after 1 January?", "Use your new duty station’s published rate for the year it applies to, and check it against DTMO’s BAH calculator for your ZIP code. This site shows the 2026 rates until DTMO publishes 2027."),
     ]
     body = (cta("bah-2027", "Calculate your BAH")
-        + '<p>If you are planning a PCS this winter, you will probably see headlines about 2027 BAH before you see the numbers. As of 28 Oct 2026 DTMO has not published 2027 rates, and PCS Vector shows no 2027 amounts. This guide covers what is known, what the rules say about a PCS, and how to use the 2026 pages as a baseline.%s</p>' % cite(GD, ["dtmo_bah"])
+        + '<p>If you are planning a PCS this winter, you will probably see headlines about 2027 BAH before you see the numbers. As of 23 Nov 2026 DTMO has not published 2027 rates, and PCS Vector shows no 2027 amounts. This guide covers what is known, what the rules say about a PCS, and how to use the 2026 pages as a baseline.%s</p>' % cite(GD, ["dtmo_bah"])
         + "<h2>What we know about the next BAH release</h2><ul class=\"feat\">%s</ul>" % li(GD, know)
         + "<h2>What a PCS does to your rate</h2><ul class=\"feat\">%s</ul>" % li(GD, pcs_rules)
         + "<h2>How much 2026 moved at eight posts</h2><p>These are DTMO’s 2025 and 2026 rates for a Sergeant (E-5) with dependents, copied from our BAH pages for the posts where we have both years. They show the size of a typical yearly swing; they do not predict 2027.</p>" + yoy_tbl
@@ -319,7 +319,7 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         + faq_html(faq_tle)
         + src_list(GD, used([tle_conus, tla_oconus])))
     P["guides/tle-vs-tla/index.html"] = shell(read, "tle-vs-tla",
-        "TLE vs TLA for a Military PCS | PCS Vector",
+        "TLA vs TLE for a Military PCS | PCS Vector",
         "TLE covers lodging in the 48 contiguous states. TLA is the OCONUS allowance, including Alaska and Hawaii. Day limits differ by post.",
         "TLE vs TLA on a military PCS", "PCS Vector · guide", body, CR + [("TLE vs TLA", "/guides/tle-vs-tla/")], faq_tle)
 

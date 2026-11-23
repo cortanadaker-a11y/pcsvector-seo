@@ -98,13 +98,20 @@ def write(p, s):
 def resolve_dates():
     """Run last (after a11y/brand/prune passes): keep a page's existing dates if visible content
     (rates, tables, copy) is unchanged. Titles, the Quick answers wrapper, and ?v= hashes do not
-    bump dateModified or "Page updated". Makes the build idempotent across days."""
+    bump dateModified or "Page updated", but a new title is kept. Makes the build idempotent across days."""
     import sitemap
     norm = sitemap.visible_content
     for p, old in _ORIG.items():
         f = ROOT / p
         s = f.read_text(encoding="utf-8")
-        s = old if old and norm(old) == norm(s) else s.replace(DATE_MARK, TODAY).replace(HUMAN_MARK, human(TODAY))
+        if old and norm(old) == norm(s):
+            dm, pu = _DM.search(old), _PU.search(old)
+            if DATE_MARK in s:
+                s = s.replace(DATE_MARK, dm.group(2) if dm else TODAY)
+            if HUMAN_MARK in s:
+                s = s.replace(HUMAN_MARK, pu.group(2) if pu else human(TODAY))
+        else:
+            s = s.replace(DATE_MARK, TODAY).replace(HUMAN_MARK, human(TODAY))
         f.write_text(s, encoding="utf-8")
 
 def strip(h, name):
@@ -480,8 +487,12 @@ def home_extra_inner():
         '<p class="home-extra-notice">Opening the form sends your info to Google Forms. It reaches us and our referral partner only when you submit. '
         '<a href="/privacy/">Privacy</a></p>\n'
     )
+    # One visible line under the calculator, above Quick answers. Not part of the calculator.
+    rate = '<p class="home-rate-line">%s</p>\n' % E(
+        "The 2026 BAH and OHA rates shown are the ones currently in effect (2025 rates no longer apply).")
     return (
-        notice
+        rate
+        + notice
         + '<div class="pcs-exp"><details id="pcs-quick-answers-exp"><summary>'
         + chevron
         + '<h2 id="home-extra-h">Quick answers</h2></summary><div class="body">\n'
@@ -558,6 +569,12 @@ def prune_all():
 
 # Titles over 60 characters. The first token stays the target keyword. The homepage title is not here.
 # old and new both include " | PCS Vector". og:title and JSON-LD name use the string without that suffix.
+# The OHA hub title is the one requested string at 62 characters. Every other title stays at 60.
+OHA_HUB_TITLE = "2026 OHA calculator: E-5 rent $1,263.18\u2013$2,807.90 | PCS Vector"
+
+def title_length_ok(title):
+    return len(title) <= 60 or title == OHA_HUB_TITLE
+
 SHORT_TITLES = {
     "bah/joint-base-langley-eustis/index.html": (
         "Fort Eustis BAH 2026 (Joint Base Langley-Eustis, Newport News): Rates by Rank | PCS Vector",
@@ -582,7 +599,7 @@ SHORT_TITLES = {
         "Fort Riley BAH 2026: Rates by Rank | PCS Vector"),
     "oha/index.html": (
         "2026 OHA: E-5 rent $1,263.18\u2013$2,807.90 at 11 areas we cover | PCS Vector",
-        "2026 OHA: E-5 rent $1,263.18\u2013$2,807.90 | PCS Vector"),
+        OHA_HUB_TITLE),
     "bah/fort-wainwright/index.html": (
         "Fort Wainwright BAH 2026 (Fairbanks, Alaska): Rates by Rank | PCS Vector",
         "Fort Wainwright BAH 2026: Rates by Rank | PCS Vector"),
@@ -613,7 +630,7 @@ def apply_short_titles():
     """Shorten <title>, og:title, and the matching JSON-LD name. Leave h1 and the homepage alone."""
     for path, (old, new) in SHORT_TITLES.items():
         assert path != "index.html"
-        assert len(new) <= 60, (path, len(new), new)
+        assert title_length_ok(new), (path, len(new), new)
         assert new.split()[0] == old.split()[0]
         assert new.endswith(" | PCS Vector") and old.endswith(" | PCS Vector")
         h = read(path)
@@ -634,7 +651,7 @@ def assert_title_lengths():
         m = re.search(r"<title>(.*?)</title>", p.read_text(encoding="utf-8"))
         assert m, rel
         title = html.unescape(m.group(1))
-        assert len(title) <= 60, (rel.as_posix(), len(title), title)
+        assert title_length_ok(title), (rel.as_posix(), len(title), title)
 
 def align_llms():
     """llms.txt used DoD in the same disclaimer the pages spell DoW."""
