@@ -1,6 +1,6 @@
 # PCS Vector
 
-> Free unofficial Army PCS calculator and 2026 BAH/OHA pages. For Soldiers; By Soldiers. Not a DoD, DTMO, or Army site. Confirm every figure with finance.
+> Free unofficial Army PCS calculator and 2026 BAH/OHA pages. For Soldiers; By Soldiers. Not a DoW, DTMO, or Army site. Confirm every figure with finance.
 
 The calculator at the home page shows 2026 BAH, OHA, and COLA and includes a free intro to a vetted local housing agent. Rate pages quote DTMO figures already published on this site.
 

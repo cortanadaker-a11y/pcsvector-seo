@@ -121,7 +121,7 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         + faq_html(faq1)
         + src_list(GD, ["dtmo_oha"] + used(oha_items.values())))
     P["guides/how-oha-works-overseas-pcs/index.html"] = shell(read, "how-oha-works-overseas-pcs",
-        "How OHA Works for an Overseas PCS (2026): Rent, Utilities, MIHA | PCS Vector",
+        "How OHA Works for an Overseas PCS (2026) | PCS Vector",
         "How the Overseas Housing Allowance is built: rent ceiling, utility allowance, move-in allowance, exchange-rate swings and the DD 2367 steps, cited to DTMO.",
         "How OHA works for an overseas PCS", "PCS Vector · guide", body, CR + [("How OHA works", "/guides/how-oha-works-overseas-pcs/")], faq1)
 
@@ -203,7 +203,7 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         + faq_html(faq3)
         + src_list(GD, used([scra, local])))
     P["guides/break-a-lease-for-pcs-orders/index.html"] = shell(read, "break-a-lease-for-pcs-orders",
-        "Breaking a Lease for PCS Orders: SCRA Notice Rules | PCS Vector",
+        "Breaking a Lease for PCS Orders: SCRA | PCS Vector",
         "How the SCRA lets you end a residential lease for PCS orders: the notice, the 30-day rule, early-termination fees and what installation housing offices add.",
         "Breaking a lease for PCS orders", "PCS Vector · guide", body, CR + [("Break a lease for PCS orders", "/guides/break-a-lease-for-pcs-orders/")], faq3)
 
@@ -242,7 +242,7 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         + faq_html(faq4)
         + src_list(GD, ["dtmo_bah", "asf_bah26"]))
     P["guides/bah-2027-pcs/index.html"] = shell(read, "bah-2027-pcs",
-        "BAH 2027: When Rates Are Published and What a PCS Does to Your Rate | PCS Vector",
+        "BAH 2027 and What a PCS Does to Your Rate | PCS Vector",
         "No 2027 BAH rates exist yet. What DTMO and last year’s release tell us, how rate protection works at a PCS, and how 2026 moved at eight posts.",
         "BAH 2027 and your PCS: what we know", "PCS Vector · guide", body, CR + [("BAH 2027 and your PCS", "/guides/bah-2027-pcs/")], faq4)
 
@@ -279,7 +279,7 @@ def pages(NAMES, GUIDE_LINKS, OHA_LINKS, read, GD):
         + faq_html(faq4b)
         + src_list(GD, ["dtmo_bah"]))
     P["guides/bah-with-vs-without-dependents/index.html"] = shell(read, "bah-with-vs-without-dependents",
-        "BAH With vs Without Dependents (2026): The Gap at 27 Army Posts | PCS Vector",
+        "BAH With vs Without Dependents (2026) | PCS Vector",
         "How much more BAH you get with dependents in 2026, post by post for E-4, E-5, E-6 and O-3, from DTMO rates. One rate for any number of dependents.",
         "BAH with vs without dependents (2026)", "PCS Vector · guide", body, CR + [("BAH with vs without dependents", "/guides/bah-with-vs-without-dependents/")], faq4b)
 
