@@ -499,7 +499,7 @@
   window.addEventListener('hashchange', function () { if (D) maybeScrollToReferral(); });
   var boot = window.__PCS_DATA__;
   if (boot) init(boot);
-  else fetch('/assets/calc-data.json?v=f4757bfa75').then(function (r) { return r.json(); }).then(init).catch(function () {
+  else fetch('/assets/calc-data.json?v=a0dff90041').then(function (r) { return r.json(); }).then(init).catch(function () {
     $('pcs-results').insertAdjacentHTML('afterbegin', '<div class="pcs-alert pcs-alert-warn">Could not load 2026 rate data. Refresh the page to try again.</div>');
   });
 })();
